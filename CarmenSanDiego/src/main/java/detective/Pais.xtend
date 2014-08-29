@@ -1,26 +1,19 @@
 package detective
 
 import java.util.List
+import lugares.Lugar
 
 class Pais {
-	String nombre
-	String caracteristica
-	List<Pais> paises
-	new(String nombre,String caracteristica,List<Pais>paises){
+	@Property String nombre
+	@Property String caracteristica
+	@Property List<Pais> paises
+	@Property List<Lugar> lugares
+	new(String nombre,String caracteristica,List<Pais>paises,List<Lugar>lugares){
 		this.nombre=nombre
 		this.caracteristica=caracteristica
 		this.paises=paises
-	}
-	def getGetNombre() {
-		nombre
+		this.lugares=lugares
 	}
 	
-	def getCaracteristicas() {
-		caracteristica
-	}
-	
-	def getGetPaisesLimitrofes() {
-		paises
-	}
 	
 }

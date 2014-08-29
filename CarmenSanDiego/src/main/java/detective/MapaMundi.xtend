@@ -5,19 +5,18 @@ import java.util.List
 
 class MapaMundi {
 	Pais pais
-	@Property List<Lugar>lugares
-	new(Pais pais,List<Lugar>lugares){
+	
+	new(Pais pais){
 		this.pais=pais
-		this.lugares=lugares
 	}
 	def getNombrePais(){
 		pais.getNombre
 	}
 	def getCaracteristicasPais(){
-		pais.getCaracteristicas
+		pais.caracteristica
 	}
 	def getPaisesLimitrofes(){
-		pais.getPaisesLimitrofes
+		pais.paises
 	}
 	
 	
