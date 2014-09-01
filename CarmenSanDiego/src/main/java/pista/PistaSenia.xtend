@@ -1,6 +1,6 @@
-package pista
+package main.java.pista
 
-import pista.Pista
+import main.java.pista.Pista
 
 class PistaSenia extends Pista {
 	

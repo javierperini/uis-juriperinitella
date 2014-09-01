@@ -1,4 +1,4 @@
-package pista
+package main.java.pista
 
 class Pista {
 	@Property String pista

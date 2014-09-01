@@ -1,7 +1,7 @@
-package personajes
+package main.java.personajes
 
-import personajes.Personaje
-import lugares.Lugar
+import main.java.personajes.Personaje
+import main.java.lugares.Lugar
 
 class Cuidador extends Personaje {
 	
@@ -10,7 +10,7 @@ class Cuidador extends Personaje {
 	}
 	
 	override getInformacion(Lugar lugar) {
-		println("Te equivocaste de pais , el villano no paso por aca")	
+		println("Te equivocaste de pais , el villano no paso por aca")	throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
 }

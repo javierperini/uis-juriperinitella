@@ -1,4 +1,4 @@
-package pista
+package main.java.pista
 
 class PistaHobbie extends Pista {
 	

@@ -1,6 +1,6 @@
-package personajes
+package main.java.personajes
 
-import lugares.Lugar
+import main.java.lugares.Lugar
 
 
 abstract class Personaje {

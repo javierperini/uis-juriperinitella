@@ -1,7 +1,8 @@
-package detective
+package main.java.detective
 
 import java.util.List
-import personajes.Villano
+import main.java.personajes.Villano
+import main.java.detective.Caso
 
 class Sistema {
 	

@@ -1,9 +1,9 @@
-package lugares
+package main.java.lugares
 
-import lugares.Lugar
+import main.java.lugares.Lugar
 import java.util.List
-import pista.Pista
-import personajes.Personaje
+import main.java.pista.Pista
+import main.java.personajes.Personaje
 
 class Club extends Lugar {
 	/**

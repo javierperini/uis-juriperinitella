@@ -1,8 +1,8 @@
-package lugares
+package main.java.lugares
 
 import java.util.List
-import pista.Pista
-import personajes.Personaje
+import main.java.pista.Pista
+import main.java.personajes.Personaje
 
 class Biblioteca extends Lugar{
 	/**

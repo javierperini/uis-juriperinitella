@@ -1,24 +1,23 @@
-package detective
+package main.java.detective
 
-import lugares.Lugar
 import java.util.List
 
 class MapaMundi {
-	Pais pais
+	List<Pais> paises
 	
-	new(Pais pais){
-		this.pais=pais
+	new(List<Pais> paises){
+		this.paises=paises
 	}
-	def getNombrePais(){
-		pais.getNombre
+/*	def getNombrePais(){
+		paises.getNombre
 	}
 	def getCaracteristicasPais(){
-		pais.caracteristica
+		paises.caracteristica
 	}
 	def getPaisesLimitrofes(){
-		pais.paises
+		paises.paises
 	}
-	
+	*/
 	
 	
 }

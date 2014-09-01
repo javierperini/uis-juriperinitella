@@ -1,7 +1,7 @@
-package personajes
+package main.java.personajes
 
-import personajes.Personaje
-import lugares.Lugar
+import main.java.personajes.Personaje
+import main.java.lugares.Lugar
 
 class Informante extends Personaje {
 	
