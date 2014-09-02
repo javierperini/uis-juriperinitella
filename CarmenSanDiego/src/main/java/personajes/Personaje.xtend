@@ -8,6 +8,8 @@ abstract class Personaje {
 		this.nombre=nombre
 	}
 	
+	new(){}
+	
 	def void getInformacion()
 	
 	def boolean puedeRevelarPista()
