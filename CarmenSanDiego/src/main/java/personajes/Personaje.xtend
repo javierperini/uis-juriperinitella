@@ -1,12 +1,14 @@
 package main.java.personajes
 
-import main.java.lugares.Lugar
-
-
 abstract class Personaje {
-	String nombre
+	@Property String nombre
+	@Property String declaracion
+	
 	new(String nombre){
 		this.nombre=nombre
 	}
-	def  void getInformacion(Lugar lugar)
+	
+	def void getInformacion()
+	
+	def boolean puedeRevelarPista()
 }

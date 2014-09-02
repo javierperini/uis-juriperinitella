@@ -6,11 +6,26 @@ import main.java.personajes.Personaje
 
 class Biblioteca extends Lugar{
 	/**
-	 * Recibe una pista de lugar , una pista de senias caracteristicas
-	 * y el 50% de las veces recibe una de hobbies
+	 * INV. REP.: pistas debe estar compuesto por:
+	 * - un PistaLugar 
+	 * - un PistaSenia
+	 * - un PistaHobbie (50% de chances de revelarse)
 	 */
-	new(Personaje personaje, List<Pista> lista) {
-		super(personaje, lista)
+	new(Personaje personaje, List<Pista> pistas) {
+		super(personaje, pistas)
 	}
 	
+	override imprimirPistas() {
+		var rand = Math.random() * 1;
+		
+		ocupante.informacion
+		
+		if(ocupante.puedeRevelarPista) {
+			println(pistas.get(0).pista)
+			println(pistas.get(1).pista)
+			if(Math.round(rand) == 1)
+				println(pistas.get(2).pista)
+		}
+	}
+
 }

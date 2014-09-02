@@ -1,16 +1,23 @@
 package main.java.personajes
 
-import main.java.personajes.Personaje
-import main.java.lugares.Lugar
-
 class Informante extends Personaje {
+	
+	String intentoDeAsesinato
 	
 	new(String nombre) {
 		super(nombre)
+		intentoDeAsesinato = "CUIDADO! Un cuchillo volador pasó muy cerca de tu oreja."
 	}
 	
-	override getInformacion(Lugar lugar) {
-		lugar.imprimirPistas
+	override puedeRevelarPista() {
+		true
+	}
+	
+	override getInformacion() {
+//		var randomDouble = Math.random() * intentosDeAsesinato.length() - 1;
+//		var randomInt = Math.round(randomDouble) as int
+		
+		print("El informante " + this.nombre + " dice: " +/* intentosDeAsesinato.get(randomInt) */ intentoDeAsesinato + "\n")
 	}
 	
 }

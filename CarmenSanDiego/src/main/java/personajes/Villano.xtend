@@ -1,21 +1,34 @@
 package main.java.personajes
 
-import main.java.personajes.Personaje
-import main.java.lugares.Lugar
+import main.java.pista.PistaHobbie
+import main.java.pista.PistaSenia
 
 class Villano extends Personaje {
 	@Property String sexo
-	@Property String hobbies
-	@Property String seniasPart
-	new(String nombre,String sexo,String hobbies,String seniasPart) {
+	PistaHobbie hobbie
+	PistaSenia seniasPart
+	
+	new(String nombre, String sexo, PistaHobbie hobbie, PistaSenia seniasPart) {
 		super(nombre)
 		this.sexo=sexo
-		this.hobbies=hobbies
+		this.hobbie=hobbie
 		this.seniasPart=seniasPart
 	}
 	
-	override getInformacion(Lugar lugar) {
-		println("Me atrapaste!!!!")
+	override getInformacion() {
+		print("Me atrapaste!!")
+	}
+	
+	def String getSeniasPart() {
+		seniasPart.pista
+	}
+	
+	def String getHobbie() {
+		hobbie.pista
+	}
+	
+	override puedeRevelarPista() {
+		false
 	}
 	
 }

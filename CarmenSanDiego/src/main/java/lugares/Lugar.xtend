@@ -5,20 +5,19 @@ import main.java.personajes.Personaje
 import main.java.pista.Pista
 
 class Lugar {
-	Personaje personaje
-	List<Pista>pistas
-	/**
-	 * 
-	 */
-	new(Personaje personaje,List<Pista> lista){
-		this.personaje= personaje
-		this.pistas=lista
+	@Property Personaje ocupante
+	@Property List<Pista> pistas
+	
+	new(Personaje ocupante,List<Pista> pistas){
+		this.ocupante = ocupante
+		this.pistas = pistas
 	}
-	def pistas(){
-		personaje.getInformacion(this)	
-	}
+
 	def imprimirPistas(){
-		pistas.forEach[p|println(p.getPista)]
+		ocupante.informacion
+		
+		if(ocupante.puedeRevelarPista)
+			pistas.forEach[ print(it.pista + "\n") ]
 	}
 	
-	}
+}

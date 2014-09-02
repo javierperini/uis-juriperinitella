@@ -7,10 +7,12 @@ import main.java.personajes.Personaje
 
 class Embajada extends Lugar {
 	/**
-	 * Precondicon: Recibe solo dos pistas del lugar
+	 * INV. REP.: pistas debe estar compuesto por:
+	 * - dos PistaLugar
 	 */
-	new(Personaje personaje, List<Pista> lista) {
-		super(personaje, lista)
+	 
+	new(Personaje personaje, List<Pista> pistas) {
+		super(personaje, pistas)
 	}
-	
+
 }

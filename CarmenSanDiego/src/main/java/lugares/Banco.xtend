@@ -6,10 +6,12 @@ import main.java.personajes.Personaje
 
 class Banco extends Lugar {
 	/**
-	 * Recibe  una pista de lugar y una de senias caracteristicas
+	 * INV. REP.: pistas debe estar compuesto por:
+	 * - un PistaLugar
+	 * - un PistaSenia
 	 */
-	new(Personaje personaje, List<Pista> lista) {
-		super(personaje, lista)
+	new(Personaje personaje, List<Pista> pistas) {
+		super(personaje, pistas)
 	}
 	
 }

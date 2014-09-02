@@ -7,11 +7,24 @@ import main.java.personajes.Personaje
 
 class Club extends Lugar {
 	/**
-	 * Recibe dos pistas de senias caracteristicas
-	 *  y el  70% de los casos recibe una de hobbies
+	 * INV. REP.: pistas debe estar compuesto por:
+	 * - dos PistaSenia
+	 * - un PistaHobbie  (70% de chances de revelarse)
 	 */
 	new(Personaje personaje, List<Pista> lista) {
 		super(personaje, lista)
+	}
+	
+	override imprimirPistas() {
+		var rand = Math.random() * 10;
+		
+		ocupante.informacion
+		
+		if(ocupante.puedeRevelarPista)
+			println(pistas.get(0).pista)
+			println(pistas.get(1).pista)
+			if(Math.round(rand) <= 7)
+				println(pistas.get(2).pista)
 	}
 	
 }

@@ -1,7 +1,6 @@
 package main.java.personajes
 
 import main.java.personajes.Personaje
-import main.java.lugares.Lugar
 
 class Cuidador extends Personaje {
 	
@@ -9,8 +8,12 @@ class Cuidador extends Personaje {
 		super(nombre)
 	}
 	
-	override getInformacion(Lugar lugar) {
-		println("Te equivocaste de pais , el villano no paso por aca")	throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	override getInformacion() {
+		print( "El cuidador " + this.nombre + " dice: Te equivocaste de país, el villano no paso por acá\n" )
+	}
+	
+	override puedeRevelarPista() {
+		false
 	}
 	
 }
