@@ -25,7 +25,11 @@ public class VillanoTest {
 	public void setUp() throws Exception {
 		ph = new PistaHobbie("jugar a la canasta");
 		ps = new PistaSenia("lunar sobre la boca");
-		v = new Villano("Carmen Sandiego", "femenino", ph, ps);
+		v = new Villano();
+		v.setSexo("femenino");
+		v.setNombre("Carmen Sandiego");
+		v.setHobbie(ph);
+		v.setSeniasPart(ps);
 		
 		System.setOut(new PrintStream(outContent));
 		System.setErr(new PrintStream(errContent));

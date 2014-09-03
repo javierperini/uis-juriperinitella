@@ -38,7 +38,8 @@ public class BibliotecaTest {
 		/* Auxiliares */
 		ph = new PistaHobbie("Jugar a la canasta");
 		ps1 = new PistaSenia("Lunar sobre la boca");
-		v = new Villano("Carmen Sandiego", "femenino", ph, ps1);
+//		REVISAR CONSTRUCTOR VILLANO
+		v = new Villano();
 		c = new Cuidador("Pepito el pistolero");
 		i = new Informante("Anyi Tella Arena");
 		

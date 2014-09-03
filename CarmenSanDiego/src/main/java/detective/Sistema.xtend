@@ -14,14 +14,18 @@ class Sistema {
 			  Pais paisActual
 			  List<Pais> paisesVisitados
 			  Villano villanoArrestar
-			   OrdenDeArresto ordenDeArresto
+			  OrdenDeArresto ordenDeArresto
 	
-	new(Caso caso,List<Pais>paisesSistema,List<Villano> villanosSistema){
+	new(Caso caso, List<Pais> paisesSistema, List<Villano> villanosSistema){
 		this.caso=caso
 		this.paisesSistema=paisesSistema
 		this.villanosSistema=villanosSistema
 		this.paisActual=caso.paisInicio
 		this.ordenDeArresto= new OrdenDeArresto()
+	}
+	
+	new() {
+
 	}
 	
 	def paisesAViajar(){
@@ -47,7 +51,7 @@ class Sistema {
 	def generarOrdenDeArrestro(){
 		for(Villano villano: villanosSistema){
 			 if(villano.hobbie.equals(ordenDeArresto.pistaHobbie) && 
-			 	villano.seniasPart.equals(ordenDeArresto.pistaSenia))
+			 		villano.seniasPart.equals(ordenDeArresto.pistaSenia))
 			 	villanoArrestar= villano
 			}
 		 if( villanoArrestar== null){}

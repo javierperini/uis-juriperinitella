@@ -6,8 +6,9 @@ import main.java.lugares.Lugar
 
 class Pais {
 	@Property String nombre
-	@Property String caracteristica
+	@Property List<String> caracteristicas
 	@Property List<Lugar> lugares
+	@Property List<Pais> conexiones
 	@Property List<Pais> paisesLimitrofes
 	@Property Lugar  lugarActual
 	/**

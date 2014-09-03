@@ -1,5 +1,5 @@
 package main.java.ui
 
-class EditarPais {
+class EditarConexiones {
 	
 }

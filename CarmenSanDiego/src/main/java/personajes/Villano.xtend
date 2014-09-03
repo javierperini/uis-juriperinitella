@@ -23,8 +23,16 @@ class Villano extends Personaje {
 		seniasPart.pista
 	}
 	
+	def setSeniasPart(PistaSenia ps) {
+		seniasPart = ps
+	}
+	
 	def String getHobbie() {
 		hobbie.pista
+	}
+	
+	def setHobbie(PistaHobbie ph){
+		hobbie = ph
 	}
 	
 	override puedeRevelarPista() {

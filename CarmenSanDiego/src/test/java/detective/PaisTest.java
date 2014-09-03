@@ -1,12 +1,11 @@
 package test.java.detective;
 
-
-
 import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import main.java.detective.Pais;
 import main.java.lugares.Banco;
@@ -23,29 +22,39 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class PaisTest {
+	
 	private Cuidador c;
-	private PistaSenia ps;
 	private Informante i;
+
+	private List<Pista> pistas = new ArrayList<Pista>();
+	private PistaSenia ps;
 	private PistaLugar pl;
-	private Banco b;
+	
+	private ArrayList<Lugar> lugares = new ArrayList<Lugar>();
+	private Banco ba;
 	private Biblioteca bi;
-	private ArrayList<Pista> pistas;
-	private ArrayList<Lugar> lugares;
 	private Club cl;
-	private ArrayList<Pais> paises;
+
+	private ArrayList<String> caracs;
+	private String carac1;
+	private String carac2;
+	private String carac3;
+
+	private ArrayList<Pais> paises = new ArrayList<Pais>();
+	private ArrayList<Pais> paisesBra = new ArrayList<Pais>();
+	private ArrayList<Pais> paisesChi = new ArrayList<Pais>();
+	private ArrayList<Pais> paisesArg = new ArrayList<Pais>();
 	private Pais chile;
 	private Pais brasil;
 	private Pais argentina;
-	private ArrayList<Pais> paises2;
+
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
 
 	@Before
-	public void setUp(){
+	public void setUp() throws Exception{
 		/*Pistas*/
-		
-		pistas= new ArrayList<Pista>();
 		ps = new PistaSenia("Era muy alta");
 		pl = new PistaLugar("Quería visitar la torre Eiffel");
 		pistas.add(ps);
@@ -55,39 +64,55 @@ public class PaisTest {
 		c = new Cuidador("Pepito el pistolero");
 		i = new Informante("Anyi Tella Arena");
 		
-		/* Banco */
-		b = new Banco(c, pistas);
-		
-		/* Biblioteca */
+		/* Lugares */
+		ba = new Banco(c, pistas);
 		bi = new Biblioteca(i, pistas);
 		
 		/*Club*/
 		cl= new Club(i,pistas);
-		lugares= new ArrayList<Lugar>();
-		lugares.add(b);
+		lugares.add(ba);
 		lugares.add(bi);
 		lugares.add(cl);
 		
 		/*Paises*/
-		paises2= new ArrayList<Pais>();
+			/*Brasil*/
 		brasil= new Pais();
-		brasil.setCaracteristica("Los monos,Las favelas y Ronaldo de Fiesta");
 		brasil.setNombre("Brasil");
+		carac1 = "Los monos";
+		carac2 = "Las favelas";
+		carac3 = "Ronaldo de fiesta";
+		caracs = new ArrayList<String>();
+		caracs.add(carac1);caracs.add(carac2);caracs.add(carac3);
+		brasil.setCaracteristicas(caracs);
 		brasil.setLugares(lugares);
-		brasil.setPaisesLimitrofes(paises2);
+			/*Chile*/
 		chile= new Pais();
-		chile.setCaracteristica("Se viene el agua, La cordillera y el hijo de Memem");
 		chile.setNombre("Chile");
+		carac1 = "Se viene el agua";
+		carac2 = "La cordillera";
+		carac3 = "El hijo de Menem";
+		caracs = new ArrayList<String>();
+		caracs.add(carac1);caracs.add(carac2);caracs.add(carac3);
+		chile.setCaracteristicas(caracs);
 		chile.setLugares(lugares);
-		chile.setPaisesLimitrofes(paises2);
-		paises= new ArrayList<Pais>(); 
-		paises.add(brasil);
-		paises.add(chile);
+			/*Argentina*/
 		argentina= new Pais();
-		argentina.setCaracteristica("Obelisco,La Bombonera y Charly Garcia");
 		argentina.setNombre("Argentina");
+		carac1 = "Obelisco";
+		carac2 = "La bombonera";
+		carac3 = "Charly García";
+		caracs = new ArrayList<String>();
+		caracs.add(carac1);caracs.add(carac2);caracs.add(carac3);
+		argentina.setCaracteristicas(caracs);
 		argentina.setLugares(lugares);
-		argentina.setPaisesLimitrofes(paises);
+		
+		paisesBra.add(argentina);paisesBra.add(chile);
+		paisesChi.add(argentina);paisesBra.add(brasil);
+		paisesArg.add(brasil);paisesArg.add(chile);
+		/*paises.add(argentina);*/paises.add(brasil);paises.add(chile);
+		brasil.setPaisesLimitrofes(paisesBra);
+		chile.setPaisesLimitrofes(paisesChi);
+		argentina.setPaisesLimitrofes(paisesArg);
 		
 		System.setOut(new PrintStream(outContent));
 		System.setErr(new PrintStream(errContent));
@@ -95,31 +120,37 @@ public class PaisTest {
 	}
 	@Test
 	public void testNombreDePais(){
-		assertEquals("Argentina",argentina.getNombre());
-		assertEquals("Brasil",brasil.getNombre());
-		assertEquals("Chile",chile.getNombre());
+		assertEquals("Argentina", argentina.getNombre());
+		assertEquals("Brasil", brasil.getNombre());
+		assertEquals("Chile", chile.getNombre());
 	}
 	
 	@Test
 	public void testCaracteristicasDelPais(){
-		assertEquals("Obelisco,La Bombonera y Charly Garcia",argentina.getCaracteristica());
-		assertEquals("Los monos,Las favelas y Ronaldo de Fiesta",brasil.getCaracteristica());
-		assertEquals("Se viene el agua, La cordillera y el hijo de Memem",chile.getCaracteristica());
+		assertEquals("Obelisco", argentina.getCaracteristicas().get(0));
+		assertEquals("La bombonera", argentina.getCaracteristicas().get(1));
+		assertEquals("Charly García", argentina.getCaracteristicas().get(2));
+		assertEquals("Los monos", brasil.getCaracteristicas().get(0));
+		assertEquals("Las favelas", brasil.getCaracteristicas().get(1));
+		assertEquals("Ronaldo de fiesta", brasil.getCaracteristicas().get(2));
+		assertEquals("Se viene el agua", chile.getCaracteristicas().get(0));
+		assertEquals("La cordillera", chile.getCaracteristicas().get(1));
+		assertEquals("El hijo de Menem", chile.getCaracteristicas().get(2));
 	 }
 	
 	@Test
 	public void testPaisesLimitrofes(){
-		assertEquals(brasil,argentina.getPaisesLimitrofes().get(0));
-		assertEquals(chile,argentina.getPaisesLimitrofes().get(1));
+		assertEquals(brasil, argentina.getPaisesLimitrofes().get(0));
+		assertEquals(chile, argentina.getPaisesLimitrofes().get(1));
 	}
 	@Test
 	public void testIrALugar(){
 		argentina.irALugar(3);
-		assertEquals(cl.getClass(),argentina.getLugarActual().getClass());
+		assertEquals(cl.getClass(), argentina.getLugarActual().getClass());
 		argentina.irALugar(2);
-		assertEquals(bi.getClass(),argentina.getLugarActual().getClass());
+		assertEquals(bi.getClass(), argentina.getLugarActual().getClass());
 		argentina.irALugar(1);
-		assertEquals(b.getClass(),argentina.getLugarActual().getClass());
+		assertEquals(ba.getClass(), argentina.getLugarActual().getClass());
 	}
 	@Test
 	public void testHablarConPersonaje(){
@@ -129,3 +160,4 @@ public class PaisTest {
 	}
 
 }
+

@@ -9,13 +9,14 @@ class Caso {
 	@Property List<Pais> reocorridoVillano
 	@Property Villano villano
 	@Property String inicioCaso
+	
 	/**
-	 * paisInicio   el pais donde comienza la partida
-	 * recorridoVillano   el recorrido que hace el villano
-	 * Villano   el sospecho del caso
-	 * inicioCaso  el informe inicial del robo
+	 * @param paisInicio el pais donde comienza la partida
+	 * @param recorridoVillano el recorrido que hace el villano
+	 * @param villano el sospecho del caso
+	 * @param inicioCaso el informe inicial del robo
 	 */
-	new(Pais paisInicio,List<Pais> recorridoVillano, Villano villano,String inicioCaso){
+	new(Pais paisInicio, List<Pais> recorridoVillano, Villano villano, String inicioCaso){
 		this.paisInicio=paisInicio
 		this.reocorridoVillano=recorridoVillano
 		this.villano=villano

@@ -29,6 +29,7 @@ public class BancoTest {
 	private PistaHobbie ph;
 	private PistaSenia ps;
 	private PistaLugar pl;
+	
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
@@ -36,9 +37,10 @@ public class BancoTest {
 	public void setUp() throws Exception {
 		/* Auxiliares */
 		c = new Cuidador("Pepito el pistolero");
-		ph = new PistaHobbie("coleccionar monedas");
-		ps = new PistaSenia("Era muy alta");
-		v = new Villano("Carmen Sandiego", "femenino", ph, ps);
+//		ph = new PistaHobbie("coleccionar monedas");
+//		ps = new PistaSenia("Era muy alta");
+//		REVISAR. ARREGLAR CONSTRUCTORES VILLANO
+		v = new Villano();
 		i = new Informante("Anyi Tella Arena");
 
 		/* Banco */
