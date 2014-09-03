@@ -2,7 +2,9 @@ package main.java.personajes
 
 import main.java.pista.PistaHobbie
 import main.java.pista.PistaSenia
+import org.uqbar.commons.utils.Observable
 
+@Observable
 class Villano extends Personaje {
 	@Property String sexo
 	PistaHobbie hobbie

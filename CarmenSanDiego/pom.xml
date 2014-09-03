@@ -28,5 +28,10 @@
 	  		<version>4.11</version>
 	  		<scope>test</scope>
 	  	</dependency>
+	  	<dependency>
+	  		<groupId>org.uqbar-project</groupId>
+	  		<artifactId>uqbar-domain</artifactId>
+	  		<version>3.4-SNAPSHOT</version>
+  	</dependency>
 	</dependencies>
 </project>
