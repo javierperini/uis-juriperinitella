@@ -6,6 +6,12 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.MainWindow
+import org.uqbar.arena.widgets.Selector
+import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.layout.ColumnLayout
+import org.uqbar.arena.widgets.Button
+import java.awt.Color
+
 
 class NuevoVillano extends MainWindow<Villano>  {
 	new() {
@@ -14,11 +20,22 @@ class NuevoVillano extends MainWindow<Villano>  {
 
 	override createContents(Panel mainPanel) {
 		this.setTitle("Expedientes - Nuevo Villano")
-		mainPanel.setLayout(new VerticalLayout)
+		val form = new Panel(mainPanel)
+		form.layout = new ColumnLayout(2)	
+		val algo = new Panel(mainPanel)
+		algo.layout = new VerticalLayout
 		
-		new Label(mainPanel).setText("Nombre: " + (new TextBox(mainPanel).bindValueToProperty("nombre")))
-//		(new TextBox(mainPanel).bindValueToProperty("nombre"))
-		new Label(mainPanel).setText("Flopi te amo!!")
+		new Label(form).setText("Nombre: ")
+		new TextBox(form).bindValueToProperty("nombre")	
+		new Label(form).setText("Sexo")
+		new TextBox(form).bindValueToProperty("sexo")
+		new Label(form).setText("Señas Particulares: ")
+		new Button(form) => [
+			setBackground(Color::LIGHT_GRAY)
+			caption = "Editar Señas Particulares"
+//			onClick [ | new NuevoPais().startApplication ]
+		]
+		new Label(algo).setText("Javi puto")
 		
 //		new ErrorsPanel(mainPanel, "nombre: ")
 //
