@@ -11,53 +11,72 @@ import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.widgets.Button
 import java.awt.Color
+import org.uqbar.arena.widgets.tables.Table
+import main.java.pista.PistaSenia
+import org.uqbar.arena.widgets.tables.Column
+import org.uqbar.arena.bindings.ObservableProperty
+import org.uqbar.arena.windows.SimpleWindow
+import org.uqbar.arena.windows.WindowOwner
 
-
-class NuevoVillano extends MainWindow<Villano>  {
-	new() {
-		super(new Villano)
+class NuevoVillano extends SimpleWindow<Villano> {
+	
+	new(WindowOwner owner, Villano villano) {
+		super(owner, villano)
+		title = "Nuevo Villano"
+		taskDescription = "Crear Nuevo Villano"
 	}
 
 	override createContents(Panel mainPanel) {
 		this.setTitle("Expedientes - Nuevo Villano")
 		val form = new Panel(mainPanel)
-		form.layout = new ColumnLayout(2)	
-		val algo = new Panel(mainPanel)
-		algo.layout = new VerticalLayout
-		
+		form.setLayout(new ColumnLayout(2))
+
 		new Label(form).setText("Nombre: ")
-		new TextBox(form).bindValueToProperty("nombre")	
+		new TextBox(form).bindValueToProperty("nombre")
 		new Label(form).setText("Sexo")
 		new TextBox(form).bindValueToProperty("sexo")
 		new Label(form).setText("Señas Particulares: ")
 		new Button(form) => [
 			setBackground(Color::LIGHT_GRAY)
 			caption = "Editar Señas Particulares"
-//			onClick [ | new NuevoPais().startApplication ]
+					onClick [ | new EditarVillano(owner, modelObject).open ]
 		]
-		new Label(algo).setText("Javi puto")
+
+		var Table<PistaSenia> tablaDeSenias = new Table<PistaSenia>(mainPanel, PistaSenia)
+		tablaDeSenias.bindItemsToProperty("seniasPart")
+		tablaDeSenias.width = 200
 		
-//		new ErrorsPanel(mainPanel, "nombre: ")
-//
-//		new Label(mainPanel).setText("Ingrese la longitud en millas")
-//
-//		new TextBox(mainPanel).bindValueToProperty("sexo")
-//
-//		new Button(mainPanel) => [
-//			caption = "Convertir a kilÃ³metros"
-//			onClick [ | this.modelObject.convertir ]
-//		]
-//
-//		new Label(mainPanel)
-//			.setBackground(Color::ORANGE)
-//			.bindValueToProperty("kilometros")
-//
-//		new Label(mainPanel).setText(" kilÃ³metros")
+		new Column<PistaSenia>(tablaDeSenias) => [
+			title = "Seña" 
+			bindContentsToProperty("pista")
+		]
+
+	//		new ErrorsPanel(mainPanel, "nombre: ")
+	//
+	//		new Label(mainPanel).setText("Ingrese la longitud en millas")
+	//
+	//		new TextBox(mainPanel).bindValueToProperty("sexo")
+	//
+	//		new Button(mainPanel) => [
+	//			caption = "Convertir a kilÃ³metros"
+	//			onClick [ | this.modelObject.convertir ]
+	//		]
+	//
+	//		new Label(mainPanel)
+	//			.setBackground(Color::ORANGE)
+	//			.bindValueToProperty("kilometros")
+	//
+	//		new Label(mainPanel).setText(" kilÃ³metros")
+	}
+	
+	override protected addActions(Panel arg0) {
+		//
+	}
+	
+	override protected createFormPanel(Panel arg0) {
+		//
 	}
 
-	def static main(String[] args) {
-		
-		new NuevoVillano().startApplication
-	}
+
 
 }
