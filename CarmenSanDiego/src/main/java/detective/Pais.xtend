@@ -3,6 +3,8 @@ package main.java.detective
 import java.util.List
 import main.java.lugares.Lugar
 import org.uqbar.commons.utils.Observable
+import java.util.Map.Entry
+import org.uqbar.commons.model.ObservableUtils
 
 @Observable
 class Pais {
@@ -12,6 +14,7 @@ class Pais {
 	@Property List<Pais> conexiones
 	@Property List<Pais> paisesLimitrofes
 	@Property Lugar  lugarActual
+	@Property String caracSeleccionada
 	/**
 	 * INV. REP.: Un pais representa un lugar fisico en el juego
 	 * - Un pais no puede tener mas de 3 lugares para visitar.
@@ -41,6 +44,11 @@ class Pais {
 		}else{
 			//throw new exeptionNoEstaEnNingunLugar()
 		}
+	}
+	
+	def quitarCaracteristica(String carac) {
+		this.caracteristicas.filter[ c | c != carac]
+		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas )
 	}
 	
 	
