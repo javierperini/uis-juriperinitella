@@ -9,14 +9,24 @@ import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.MainWindow
 import org.uqbar.arena.windows.ErrorsPanel
 import main.java.detective.Pais
+import org.uqbar.arena.windows.SimpleWindow
+import org.uqbar.arena.windows.WindowOwner
 
-class EditarCaracteristicas extends MainWindow<Pais> {
+class EditarCaracteristicas extends SimpleWindow<Pais> {
 	
-	new(Pais model) {
-		super(model)
+	new(WindowOwner owner, Pais pais) {
+		super(owner, pais)
 	}
 	
 	override createContents(Panel arg0) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	override protected addActions(Panel arg0) {
+		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+	}
+	
+	override protected createFormPanel(Panel arg0) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	

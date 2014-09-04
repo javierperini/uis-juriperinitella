@@ -19,7 +19,6 @@ class MenuDeAcciones extends SimpleWindow<Sistema>{
 		title = "Que onda Carmen?"
 		taskDescription = "¿Dónde está Carmen Sandiego?"
 	}
-
 	
 	 override createContents(Panel mainPanel) {
 		this.setTitle("¿Dónde está Carmen Sandiego?")
@@ -34,16 +33,38 @@ class MenuDeAcciones extends SimpleWindow<Sistema>{
 		new Panel(mainPanel) => [
 				new Button(mainPanel) => [
 				caption = "Resolver Misterio"
-				onClick [ | new MapamundiWindow().open ]//Este no va, no tiene que abrir al mapamundi.
+				onClick [ | new MapamundiWindow(owner, modelObject).open ]//Este no va, no tiene que abrir al mapamundi.
 			]
 			new Button(mainPanel) => [
 				caption = "Mapamundi"
-				onClick [ | new MapamundiWindow().open ]
+				onClick [ | new MapamundiWindow(owner, modelObject).open ]
 			]
 			
 			new Button(mainPanel) => [
 				caption = "Expedientes"
 				onClick [ | new ExpedientesWindow(owner, modelObject).open ] //Prueba en la creacion del villano.
+			]
+			
+			// ----------------------- BOTONES DE PRUEBA --------------------------- 
+			
+			new Button(mainPanel) => [
+				caption = "prueba nuevo villano"
+				onClick [ | new NuevoVillano(owner, modelObject).open ]
+			]
+			
+			new Button(mainPanel) => [
+				caption = "prueba editar villano"
+				onClick [ | new EditarVillano(owner, modelObject.villanoSeleccionado).open ]
+			]
+			
+			new Button(mainPanel) => [
+				caption = "prueba nuevo pais"
+				onClick [ | new NuevoPais(owner, modelObject).open ]
+			]
+			
+			new Button(mainPanel) => [
+				caption = "prueba editar pais"
+				onClick [ | new EditarPais(owner, modelObject.paisSeleccionado).open ]
 			]
 		]
 	}

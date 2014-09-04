@@ -10,6 +10,9 @@ import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.layout.HorizontalLayout
+import main.java.pista.PistaSenia
+import main.java.pista.PistaHobbie
+import org.uqbar.arena.widgets.Button
 
 class ExpedientesWindow extends SimpleWindow<Sistema> {
 	
@@ -32,9 +35,43 @@ class ExpedientesWindow extends SimpleWindow<Sistema> {
 		]
 		
 		new Panel(colPanel) => [
-			layout = new HorizontalLayout
-			new Label(it).setText("Nombre: ")
-			new Label(it).setWidth(60).bindValueToProperty("villanoSeleccionado.nombre")
+			new Panel(it) => [
+				layout = new HorizontalLayout
+				new Label(it).setText("Nombre: ")
+				new Label(it).setWidth(60).bindValueToProperty("villanoSeleccionado.nombre")
+			]
+			
+			new Panel(it) => [
+				layout = new HorizontalLayout
+				new Label(it).setText("Sexo: ")
+				new Label(it).setWidth(100).bindValueToProperty("villanoSeleccionado.sexo")
+			]
+			
+			var Table<PistaSenia> seniasVillano = new Table<PistaSenia>(it, PistaSenia)
+			seniasVillano.bindItemsToProperty("villanoSeleccionado.seniasPart")
+			seniasVillano.bindValueToProperty("seniasVillanoSeleccionado")
+			new Column<PistaSenia>(seniasVillano) => [
+				title = "Señas" 
+				bindContentsToProperty("pista")
+			]
+			
+			var Table<PistaHobbie> hobbiesVillano = new Table<PistaHobbie>(it, PistaHobbie)
+			hobbiesVillano.bindItemsToProperty("villanoSeleccionado.hobbies")
+			hobbiesVillano.bindValueToProperty("hobbiesVillanoSeleccionado")
+			new Column<PistaHobbie>(hobbiesVillano) => [
+				title = "Hobbies" 
+				bindContentsToProperty("pista")
+			]	
+		]
+		
+		new Button(colPanel) => [
+				caption = "Editar"
+				onClick [ | new EditarVillano(owner, modelObject.villanoSeleccionado).open ]
+		]
+		
+		new Button(colPanel) => [
+				caption = "Aceptar"
+				onClick [ | close ]
 		]
 		
 		 

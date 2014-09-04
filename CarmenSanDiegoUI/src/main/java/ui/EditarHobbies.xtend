@@ -1,17 +1,14 @@
 package main.java.ui
 
-import org.uqbar.arena.windows.SimpleWindow
-import main.java.detective.Pais
 import org.uqbar.arena.windows.WindowOwner
+import main.java.personajes.Villano
+import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.widgets.Panel
 
-class EditarConexiones extends SimpleWindow<Pais> {
+class EditarHobbies extends SimpleWindow<Villano>{
 	
-	new(WindowOwner owner, Pais pais) {
-		super(owner, pais)
-	}
-	
-	override createContents(Panel arg0) {
+	new(WindowOwner owner, Villano villano) {
+		super(owner, villano)
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
@@ -22,6 +19,5 @@ class EditarConexiones extends SimpleWindow<Pais> {
 	override protected createFormPanel(Panel arg0) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
-
 	
 }
