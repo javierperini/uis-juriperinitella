@@ -64,6 +64,10 @@ class MapamundiWindow extends SimpleWindow<Sistema> {
 			]	
 		]
 		
+		new Button(colPanel) => [ //						****NO FUNCIONA****
+				caption = "Eliminar"
+				onClick [ | modelObject.getPaisesSistema().remove(modelObject.paisSeleccionado) ]
+		]
 		new Button(colPanel) => [
 				caption = "Editar"
 				onClick [ | new EditarPais(owner, modelObject.paisSeleccionado).open ]
@@ -73,10 +77,6 @@ class MapamundiWindow extends SimpleWindow<Sistema> {
 				onClick [ | new NuevoPais(owner, modelObject).open ]
 		]
 		
-		new Button(colPanel) => [
-				caption = "Aceptar"
-				onClick [ | close ]
-		]
 	}
 	
 	override protected addActions(Panel arg0) {

@@ -65,25 +65,17 @@ class ExpedientesWindow extends SimpleWindow<Sistema> {
 		]
 		
 		new Button(colPanel) => [
+				caption = "Nuevo"
+				onClick [ | new NuevoVillano(owner, modelObject).open ]
+		]
+		new Button(colPanel) => [
 				caption = "Editar"
 				onClick [ | new EditarVillano(owner, modelObject.villanoSeleccionado).open ]
 		]
-		
 		new Button(colPanel) => [
 				caption = "Aceptar"
 				onClick [ | close ]
 		]
-		
-		 
-//		new Label(form).setText("Nombre: ")
-//		new TextBox(form).bindValueToProperty("nombre")
-//		new Label(form).setText("Sexo")
-//		new TextBox(form).bindValueToProperty("sexo")
-//		new Label(form).setText("Señas Particulares: ")
-//		new Button(form) => [
-//			setBackground(Color::LIGHT_GRAY)
-//			caption = "Editar Señas Particulares"
-//					onClick [ | new EditarVillano(owner, modelObject).open ]
 	}
 	
 	override protected addActions(Panel arg0) {
