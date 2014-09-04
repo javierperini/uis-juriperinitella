@@ -23,7 +23,10 @@ class Pais {
 //		this.lugares=lugares
 //	}
 
-	new() {}
+	new() {
+		conexiones = #[]
+		caracteristicas = #["sda", "sdb", "afdsds"]
+	}
 	/**
 	 * i no puede ser <  a 0 ni > a 3
 	 */

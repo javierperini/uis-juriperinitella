@@ -12,8 +12,13 @@ class Sistema {
 	
 	@Property Caso caso
 	@Property List<Pais> paisesSistema
-	@Property List<Villano> villanosSistema
+	@Property List<Villano> villanosSistema = newArrayList()
 	@Property Villano villanoSeleccionado
+	@Property Pais paisSeleccionado
+	@Property PistaSenia seniasVillanoSeleccionado
+	@Property PistaHobbie hobbiesVillanoSeleccionado
+	@Property Villano villanoEnCreacion = new Villano()
+	@Property Pais paisEnCreacion = new Pais()
 			  Pais paisActual
 			  List<Pais> paisesVisitados
 			  Villano villanoArrestar
@@ -35,6 +40,14 @@ class Sistema {
 		var Villano c = new Villano()
 		c.nombre = "oggi junco"
 		villanosSistema = #[a, b, c]
+//		villanosSistema.add(a)
+//		villanosSistema.add(b)
+//		villanosSistema.add(c)
+		var Pais ap = new Pais
+		ap.nombre = "pais a"
+		var Pais bp = new Pais
+		bp.nombre = "pais b"
+		paisesSistema = #[ap, bp]
 	}
 	
 	def paisesAViajar(){
@@ -59,8 +72,8 @@ class Sistema {
 	
 	def generarOrdenDeArrestro(){
 		for(Villano villano: villanosSistema){
-			 if(villano.hobbie.equals(ordenDeArresto.pistaHobbie) && 
-			 		villano.seniasPart.equals(ordenDeArresto.pistaSenia))
+			 if(villano.hobbies.contains(ordenDeArresto.pistaHobbie) && 
+			 		villano.seniasPart.contains(ordenDeArresto.pistaSenia))
 			 	villanoArrestar= villano
 			}
 		 if( villanoArrestar== null){}
@@ -76,6 +89,10 @@ class Sistema {
 	}
 	def arrestar(){
 		villanoArrestar== caso.villano
+	}
+	
+	def void agregarVillanoALaLista() {
+		villanosSistema.add(villanoEnCreacion)
 	}
 	
 }

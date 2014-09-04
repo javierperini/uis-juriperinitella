@@ -10,7 +10,7 @@ import main.java.pista.Pista
 @Observable
 class Villano extends Personaje {
 	@Property String sexo
-	PistaHobbie hobbie
+	@Property List<PistaHobbie> hobbies
 	@Property List<PistaSenia> seniasPart = new ArrayList<PistaSenia>()
 	
 //	new(String nombre, String sexo, PistaHobbie hobbie, PistaSenia seniasPart) {
@@ -20,7 +20,10 @@ class Villano extends Personaje {
 //		this.seniasPart=seniasPart
 //	}
 	
-	new(){seniasPart = #[new PistaSenia("Hola, soy una pista"), new PistaSenia("javier feo"), new PistaSenia("anyi linda")]
+	new(){
+		seniasPart = #[new PistaSenia("Hola, soy una pista"), new PistaSenia("javier feo"), new PistaSenia("anyi linda")]
+		hobbies = #[new PistaHobbie("Hola, soy una pista"), new PistaHobbie("javier feo"), new PistaHobbie("anyi linda")]
+		sexo = "jarcodeando la vida entera"
 		
 	}
 	override getInformacion() {

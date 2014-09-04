@@ -7,6 +7,7 @@ import org.uqbar.commons.utils.Observable
 
 @Observable
 class Lugar {
+	@Property String nombre
 	@Property Personaje ocupante
 	@Property List<Pista> pistas
 	
