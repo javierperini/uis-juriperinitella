@@ -25,7 +25,7 @@ class Pais {
 
 	new() {
 		conexiones = #[]
-		caracteristicas = #["sda", "sdb", "afdsds"]
+		caracteristicas = #["Caracteristica", "Caracteristica2", "Caracteristica3"]
 	}
 	/**
 	 * i no puede ser <  a 0 ni > a 3
