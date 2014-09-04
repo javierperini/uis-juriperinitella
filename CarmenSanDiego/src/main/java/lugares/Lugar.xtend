@@ -3,7 +3,9 @@ package main.java.lugares
 import java.util.List
 import main.java.personajes.Personaje
 import main.java.pista.Pista
+import org.uqbar.commons.utils.Observable
 
+@Observable
 class Lugar {
 	@Property Personaje ocupante
 	@Property List<Pista> pistas

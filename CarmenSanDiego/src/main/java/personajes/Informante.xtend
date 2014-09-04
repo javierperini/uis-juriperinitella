@@ -1,5 +1,8 @@
 package main.java.personajes
 
+import org.uqbar.commons.utils.Observable
+
+@Observable
 class Informante extends Personaje {
 	
 	String intentoDeAsesinato

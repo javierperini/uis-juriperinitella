@@ -1,7 +1,9 @@
 package main.java.personajes
 
 import main.java.personajes.Personaje
+import org.uqbar.commons.utils.Observable
 
+@Observable
 class Cuidador extends Personaje {
 	
 	new(String nombre) {

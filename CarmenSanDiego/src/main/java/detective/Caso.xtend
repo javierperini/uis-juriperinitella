@@ -2,7 +2,9 @@ package main.java.detective
 
 import java.util.List
 import main.java.personajes.Villano
+import org.uqbar.commons.utils.Observable
 
+@Observable
 class Caso {
 
 	@Property Pais paisInicio

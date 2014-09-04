@@ -2,8 +2,9 @@ package main.java.detective
 
 import java.util.List
 import main.java.lugares.Lugar
+import org.uqbar.commons.utils.Observable
 
-
+@Observable
 class Pais {
 	@Property String nombre
 	@Property List<String> caracteristicas

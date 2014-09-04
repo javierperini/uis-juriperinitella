@@ -5,7 +5,9 @@ import main.java.personajes.Villano
 import main.java.detective.Caso
 import main.java.pista.PistaHobbie
 import main.java.pista.PistaSenia
+import org.uqbar.commons.utils.Observable
 
+@Observable
 class Sistema {
 	
 	@Property Caso caso
@@ -25,7 +27,13 @@ class Sistema {
 	}
 	
 	new() {
-
+		var Villano a = new Villano()
+		a.nombre = "javi"
+		var Villano b = new Villano()
+		b.nombre = "adri"
+		var Villano c = new Villano()
+		c.nombre = "oggi junco"
+		villanosSistema = #[a, b, c]
 	}
 	
 	def paisesAViajar(){
