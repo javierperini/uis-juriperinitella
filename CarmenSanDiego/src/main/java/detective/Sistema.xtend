@@ -13,6 +13,7 @@ class Sistema {
 	@Property Caso caso
 	@Property List<Pais> paisesSistema
 	@Property List<Villano> villanosSistema
+	@Property Villano villanoSeleccionado
 			  Pais paisActual
 			  List<Pais> paisesVisitados
 			  Villano villanoArrestar
