@@ -8,6 +8,8 @@ import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.layout.HorizontalLayout
 
 class ExpedientesWindow extends SimpleWindow<Sistema> {
 	
@@ -23,9 +25,16 @@ class ExpedientesWindow extends SimpleWindow<Sistema> {
 		
 		var Table<Villano> villanos = new Table<Villano>(colPanel, Villano)
 		villanos.bindItemsToProperty("villanosSistema")
+		villanos.bindValueToProperty("villanoSeleccionado")
 		new Column<Villano>(villanos) => [
 			title = "Villano" 
 			bindContentsToProperty("nombre")
+		]
+		
+		new Panel(colPanel) => [
+			layout = new HorizontalLayout
+			new Label(it).setText("Nombre: ")
+			new Label(it).setWidth(60).bindValueToProperty("villanoSeleccionado.nombre")
 		]
 		
 		 
