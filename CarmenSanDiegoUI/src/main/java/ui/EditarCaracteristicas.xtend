@@ -16,6 +16,7 @@ import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.bindings.ObservableProperty
 
 class EditarCaracteristicas extends SimpleWindow<Pais> {
 	
@@ -34,38 +35,18 @@ class EditarCaracteristicas extends SimpleWindow<Pais> {
 			setText("Caracteristicas")
 		]
 		new List(p) => [
-		bindItemsToProperty("caracteristicas")
-		bindValueToProperty("caracSeleccionada")	
+			bindItemsToProperty("caracteristicas")
+			bindValueToProperty("caracteristicaAEliminar")	
 		]
 		
 		var col = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new Button(col) => [
 			setBackground(Color::LIGHT_GRAY)	// al pedo
 			caption = "Eliminar"
-					onClick [ | modelObject.quitarCaracteristica("caracSeleccionada")]
-					bindEnabledToProperty("caracteristicas")
+					onClick [ | modelObject.quitarCaracteristica()]
 		]
-		
-//		var javi = new Panel(mainPanel).setLayout(new HorizontalLayout)
-		
-		
-		
-//		val form = new Panel(mainPanel)
-//		form.setLayout(new ColumnLayout(2))
-//		
-//		new Label(form).setText("Nombre: ")
-//		new TextBox(form).bindValueToProperty("nombre")
-//		new Label(form).setText("Sexo")
-//		new TextBox(form).bindValueToProperty("sexo")
-//		new Label(form).setText("Señas Particulares: ")
-//		new Button(form) => [
-//			setBackground(Color::LIGHT_GRAY)
-//			caption = "Editar Señas Particulares"
-//					onClick [ | new EditarVillano(owner, modelObject).open ]
-//		]
 
 	}
-	
 	
 	override protected addActions(Panel arg0) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
