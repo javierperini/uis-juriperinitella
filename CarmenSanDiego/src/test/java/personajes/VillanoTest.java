@@ -53,7 +53,7 @@ public class VillanoTest {
 
 	@Test
 	public void testGetHobbies() {
-		assertEquals(v.getHobbie(), "jugar a la canasta");
+		assertEquals(v.getHobbies().get(1), "jugar a la canasta");
 	}
 
 	@Test

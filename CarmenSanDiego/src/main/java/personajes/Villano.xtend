@@ -10,8 +10,11 @@ import main.java.pista.Pista
 @Observable
 class Villano extends Personaje {
 	@Property String sexo
-	@Property List<PistaHobbie> hobbies
+	@Property List<PistaHobbie> hobbies = new ArrayList<PistaHobbie>()
 	@Property List<PistaSenia> seniasPart = new ArrayList<PistaSenia>()
+			  PistaSenia seniaSel
+			  PistaHobbie hobbieSel
+			  
 	
 //	new(String nombre, String sexo, PistaHobbie hobbie, PistaSenia seniasPart) {
 //		super(nombre)
@@ -21,9 +24,15 @@ class Villano extends Personaje {
 //	}
 	
 	new(){
-		seniasPart = #[new PistaSenia("Hola, soy una pista"), new PistaSenia("javier feo"), new PistaSenia("anyi linda")]
-		hobbies = #[new PistaHobbie("Hola, soy una pista"), new PistaHobbie("javier feo"), new PistaHobbie("anyi linda")]
-		sexo = "jarcodeando la vida entera"
+		seniasPart = #[]
+		seniasPart.add(new PistaSenia("Hola, soy una pista"))
+		seniasPart.add(new PistaSenia("javier feo"))
+		seniasPart.add(new PistaSenia("anyi linda"))
+		hobbies = #[]
+		hobbies.add(new PistaHobbie("Le gustan los pantalones azules"))
+		hobbies.add(new PistaHobbie("Run beach Run"))
+		hobbies.add(new PistaHobbie("Ayer se fue, agarro sus cosas y se puso a navegar"))
+		sexo = "Mujer Amante"
 		
 	}
 	override getInformacion() {
@@ -32,6 +41,12 @@ class Villano extends Personaje {
 	
 	override puedeRevelarPista() {
 		false
+	}
+	def setHobbie(PistaHobbie h){
+		hobbies.add(h)
+	}
+	def	 setSeniasPart(PistaSenia p){
+		seniasPart.add(p)
 	}
 	
 }
