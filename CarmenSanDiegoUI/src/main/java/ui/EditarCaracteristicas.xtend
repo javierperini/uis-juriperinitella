@@ -30,7 +30,7 @@ class EditarCaracteristicas extends SimpleWindow<Pais> {
 		var p = new Panel(mainPanel)
 		p.setLayout(new VerticalLayout)
 		new Label(p) => [
-			setWidth(200)
+			setWidth(220)
 			setBackground(Color::LIGHT_GRAY)
 			setText("Caracteristicas")
 		]
@@ -45,7 +45,24 @@ class EditarCaracteristicas extends SimpleWindow<Pais> {
 			caption = "Eliminar"
 					onClick [ | modelObject.quitarCaracteristica()]
 		]
-
+		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
+		new TextBox(col2) => [
+			setWidth(100)
+			bindValueToProperty("caracteristicaParaAgregar")
+		]
+		new Button(col2) => [
+			setWidth(100)
+			setBackground(Color::LIGHT_GRAY)
+			caption = "Agregar"
+					onClick [ | modelObject.agregarCaracteristica()]
+		]
+		var ver = new Panel(mainPanel)
+		new Button(ver) => [
+			setWidth(220)
+			setBackground(Color::LIGHT_GRAY)
+			caption = "Aceptar"
+					onClick [ | close ]
+		]
 	}
 	
 	override protected addActions(Panel arg0) {
