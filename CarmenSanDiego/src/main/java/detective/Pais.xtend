@@ -13,10 +13,13 @@ class Pais {
 	@Property String nombre
 	@Property List<String> caracteristicas = new ArrayList<String>()
 	@Property List<Lugar> lugares
-	@Property List<Pais> conexiones
+	@Property List<Pais> conexiones = new ArrayList<Pais>()
 	@Property List<Pais> paisesLimitrofes
 	@Property Lugar  lugarActual
 	@Property String caracteristicaAEliminar
+	@Property String caracteristicaParaAgregar
+	@Property Pais conexionAEliminar
+	@Property Pais conexionParaAgregar
 	/**
 	 * INV. REP.: Un pais representa un lugar fisico en el juego
 	 * - Un pais no puede tener mas de 3 lugares para visitar.
@@ -29,7 +32,6 @@ class Pais {
 //	}
 
 	new() {
-		conexiones = #[]
 //		caracteristicas = #["Caracteristica", "Caracteristica2", "Caracteristica3"]
 		caracteristicas.add("Carac1")
 		caracteristicas.add("Carac2")
@@ -60,6 +62,21 @@ class Pais {
 		this.caracteristicas.remove(caracteristicaAEliminar)
 		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas)
 		}
+	
+	def agregarCaracteristica() {
+		this.caracteristicas.add(caracteristicaParaAgregar)
+		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas)
+	}
+	
+	def quitarConexion() {
+		this.conexiones.remove(conexionAEliminar)
+		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
+	}
+	
+	def agregarConexion() {
+		this.conexiones.add(conexionParaAgregar)
+		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
+	}
 	
 	
 }
