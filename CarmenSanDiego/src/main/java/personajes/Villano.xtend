@@ -20,12 +20,12 @@ class Villano extends Personaje {
 	
 			  
 	
-//	new(String nombre, String sexo, PistaHobbie hobbie, PistaSenia seniasPart) {
-//		super(nombre)
-//		this.sexo=sexo
-//		this.hobbie=hobbie
-//		this.seniasPart=seniasPart
-//	}
+	new(String nombre, String sexo, List<PistaHobbie> hobbies, List<PistaSenia> seniasPart) {
+		super(nombre)
+		this.sexo = sexo
+		this.hobbies = hobbies
+		this.seniasPart = seniasPart
+	}
 	
 	new(){
 		

@@ -28,15 +28,15 @@ public class OrdenDeArrestoTest {
 	@Test
 	public void testPistaHobbie() {
 //		assertEquals(null, orden.getPistaHobbie()); nos dijeron que no hagamos esto j3j3
-		orden.setPistaHobbie(ph);
-		assertEquals(ph, orden.getPistaHobbie());
+		orden.agregarPistaHobbie(ph);
+		assertEquals(ph, orden.getPistasHobbie().get(0));
 	}
 	
 	@Test
 	public void testPistaSenia() {
 //		assertEquals(null, orden.getPistaSenia()); idem
-		orden.setPistaSenia(ps);
-		assertEquals(ps, orden.getPistaSenia());
+		orden.agregarPistaSenia(ps);
+		assertEquals(ps, orden.getPistasSenia().get(0));
 	}
 	
 	@Test

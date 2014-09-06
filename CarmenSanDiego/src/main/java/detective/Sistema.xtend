@@ -11,18 +11,20 @@ import org.uqbar.commons.utils.Observable
 class Sistema {
 	
 	@Property Caso caso
-	@Property List<Pais> paisesSistema
+	@Property List<Pais> paisesSistema = newArrayList()
 	@Property List<Villano> villanosSistema = newArrayList()
+			  Pais paisActual
+	@Property List<Pais> paisesVisitados = newArrayList()
+			  Villano villanoArrestar
+			  OrdenDeArresto ordenDeArresto
+			  
+	/* UI */
 	@Property Villano villanoSeleccionado
 	@Property Pais paisSeleccionado
 	@Property PistaSenia seniasVillanoSeleccionado
 	@Property PistaHobbie hobbiesVillanoSeleccionado
 	@Property Villano villanoEnCreacion = new Villano()
 	@Property Pais paisEnCreacion = new Pais()
-			  Pais paisActual
-			  List<Pais> paisesVisitados
-			  Villano villanoArrestar
-			  OrdenDeArresto ordenDeArresto
 	
 	new(Caso caso, List<Pais> paisesSistema, List<Villano> villanosSistema){
 		this.caso=caso
@@ -50,18 +52,14 @@ class Sistema {
 		paisesSistema = #[ap, bp]
 	}
 	
-	def paisesAViajar(){
-		paisesSistema.remove(paisActual)
-	}
-	
 	def viajar(Pais pais){
-		paisActual=pais
+		paisActual = pais
 		paisesVisitados.add(pais)
 		paisesSistema.remove(pais)
 	}
 	
 	def volverAPaisAnterior(){
-		paisActual=paisesVisitados.get(0)
+		paisActual = paisesVisitados.get(0)
 		paisesVisitados.remove(paisesVisitados.get(0))
 		paisesSistema.add(paisesVisitados.get(0)) 
 	}
@@ -72,27 +70,32 @@ class Sistema {
 	
 	def generarOrdenDeArrestro(){
 		for(Villano villano: villanosSistema){
-			 if(villano.hobbies.contains(ordenDeArresto.pistaHobbie) && 
-			 		villano.seniasPart.contains(ordenDeArresto.pistaSenia))
-			 	villanoArrestar= villano
+			 if(villano.hobbies.containsAll(ordenDeArresto.pistasHobbie) && 
+			 		villano.seniasPart.containsAll(ordenDeArresto.pistasSenia))
+			 	villanoArrestar = villano
 			}
-		 if( villanoArrestar== null){}
+		 if( villanoArrestar == null){}
 		 	//throw new exceptionNingunVillano
 	}
 	
 	def completarHobbieOrdenDeArresto(PistaHobbie pista){
-		ordenDeArresto.setPistaHobbie(pista)
+		ordenDeArresto.pistasHobbie.add(pista)
 	}
 	
 	def completarSeniaOrdenDeArresto(PistaSenia pista){
-		ordenDeArresto.setPistaSenia(pista)
-	}
-	def arrestar(){
-		villanoArrestar== caso.villano
+		ordenDeArresto.pistasSenia.add(pista)
 	}
 	
-	def void agregarVillanoALaLista() {
-		villanosSistema.add(villanoEnCreacion)
+	def ganoElJuego(){
+		villanoArrestar == caso.villano
+	}
+	
+//	def void agregarVillanoALaLista() {
+//		villanosSistema.add(villanoEnCreacion)
+//	}
+	
+	def getOrdenDeArresto() {
+		ordenDeArresto
 	}
 	
 }

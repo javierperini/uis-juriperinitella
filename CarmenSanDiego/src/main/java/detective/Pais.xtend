@@ -20,16 +20,17 @@ class Pais {
 	@Property Pais conexionParaAgregar
 	@Property Pais lugarAEliminar
 	@Property Pais lugarParaAgregar
+
 	/**
 	 * INV. REP.: Un pais representa un lugar fisico en el juego
 	 * - Un pais no puede tener mas de 3 lugares para visitar.
 	 * - Los lugares a visitar no pueden ser iguales
 	 */
-//	new(String nombre, String caracteristica, List<Lugar>lugares){
-//		this.nombre=nombre
-//		this.caracteristica=caracteristica
-//		this.lugares=lugares
-//	}
+	new(String nombre, List<String> caracteristicas, List<Lugar>lugares){
+		this.nombre=nombre
+		this.caracteristicas=caracteristicas
+		this.lugares=lugares
+	}
 
 	new() {
 //		caracteristicas = #["Caracteristica", "Caracteristica2", "Caracteristica3"]
