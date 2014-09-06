@@ -1,18 +1,16 @@
 package main.java.detective
 
+import java.util.ArrayList
 import java.util.List
 import main.java.lugares.Lugar
-import org.uqbar.commons.utils.Observable
-import java.util.Map.Entry
 import org.uqbar.commons.model.ObservableUtils
-import scala.util.control.Breaks.TryBlock
-import java.util.ArrayList
+import org.uqbar.commons.utils.Observable
 
 @Observable
 class Pais {
 	@Property String nombre
 	@Property List<String> caracteristicas = new ArrayList<String>()
-	@Property List<Lugar> lugares
+	@Property List<Lugar> lugares = new ArrayList<Lugar>()
 	@Property List<Pais> conexiones = new ArrayList<Pais>()
 	@Property List<Pais> paisesLimitrofes
 	@Property Lugar  lugarActual
@@ -20,6 +18,8 @@ class Pais {
 	@Property String caracteristicaParaAgregar
 	@Property Pais conexionAEliminar
 	@Property Pais conexionParaAgregar
+	@Property Pais lugarAEliminar
+	@Property Pais lugarParaAgregar
 	/**
 	 * INV. REP.: Un pais representa un lugar fisico en el juego
 	 * - Un pais no puede tener mas de 3 lugares para visitar.
@@ -76,6 +76,16 @@ class Pais {
 	def agregarConexion() {
 		this.conexiones.add(conexionParaAgregar)
 		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
+	}
+	
+	def quitarLugar() {
+		this.conexiones.remove(lugarAEliminar)
+		ObservableUtils.firePropertyChanged(this, "lugares", lugares)
+	}
+	
+	def agregarLugar() {
+		this.conexiones.add(conexionParaAgregar)
+		ObservableUtils.firePropertyChanged(this, "lugares", lugares)
 	}
 	
 	
