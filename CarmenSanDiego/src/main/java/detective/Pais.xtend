@@ -5,16 +5,18 @@ import main.java.lugares.Lugar
 import org.uqbar.commons.utils.Observable
 import java.util.Map.Entry
 import org.uqbar.commons.model.ObservableUtils
+import scala.util.control.Breaks.TryBlock
+import java.util.ArrayList
 
 @Observable
 class Pais {
 	@Property String nombre
-	@Property List<String> caracteristicas
+	@Property List<String> caracteristicas = new ArrayList<String>()
 	@Property List<Lugar> lugares
 	@Property List<Pais> conexiones
 	@Property List<Pais> paisesLimitrofes
 	@Property Lugar  lugarActual
-	@Property String caracSeleccionada
+	@Property String caracteristicaAEliminar
 	/**
 	 * INV. REP.: Un pais representa un lugar fisico en el juego
 	 * - Un pais no puede tener mas de 3 lugares para visitar.
@@ -28,7 +30,10 @@ class Pais {
 
 	new() {
 		conexiones = #[]
-		caracteristicas = #["Caracteristica", "Caracteristica2", "Caracteristica3"]
+//		caracteristicas = #["Caracteristica", "Caracteristica2", "Caracteristica3"]
+		caracteristicas.add("Carac1")
+		caracteristicas.add("Carac2")
+		caracteristicas.add("Carac3")
 	}
 	/**
 	 * i no puede ser <  a 0 ni > a 3
@@ -46,10 +51,15 @@ class Pais {
 		}
 	}
 	
-	def quitarCaracteristica(String carac) {
-		this.caracteristicas.filter[ c | c != carac]
-		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas )
-	}
+//	def setCaracteristicas(List<String> carac){
+//		this._caracteristicas = carac
+//		ObservableUtils.firePropertyChanged(this, "caracteristicas", carac )
+//	}
+	
+	def quitarCaracteristica() {
+		this.caracteristicas.remove(caracteristicaAEliminar)
+		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas)
+		}
 	
 	
 }
