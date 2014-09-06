@@ -22,7 +22,7 @@ class ExpedientesWindow extends SimpleWindow<Sistema> {
 	}
 	
 	override createContents(Panel mainPanel) {
-//		this.setTitle("Expedientes - Nuevo Villano")
+		this.setTitle("Expedientes - Nuevo Villano")
 		val colPanel = new Panel(mainPanel)
 		colPanel.setLayout(new ColumnLayout(2))
 		

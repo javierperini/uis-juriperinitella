@@ -18,6 +18,7 @@ class EditarVillano extends SimpleWindow<Villano>{
 	
 new(WindowOwner owner, Villano villano) {
 		super(owner, villano)
+		
 	}
 
 	override createContents(Panel mainPanel) {
@@ -29,14 +30,17 @@ new(WindowOwner owner, Villano villano) {
 		new TextBox(colPanel).bindValueToProperty("nombre")
 		new Label(colPanel).setText("Sexo: ")
 		new TextBox(colPanel).bindValueToProperty("sexo")
+		
 
 		var Table<PistaSenia> tablaDeSenias = new Table<PistaSenia>(mainPanel, PistaSenia)
 		tablaDeSenias.bindItemsToProperty("seniasPart")
+		tablaDeSenias.bindValueToProperty("seniaSel")
 		tablaDeSenias.width = 200
 		new Column<PistaSenia>(tablaDeSenias) => [
 			title = "Señas particulares" 
 			bindContentsToProperty("pista")
 		]
+		
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	// al pedo
 			caption = "Editar Señas Particulares"
@@ -45,6 +49,7 @@ new(WindowOwner owner, Villano villano) {
 		
 		var Table<PistaHobbie> tablaDeHobbies = new Table<PistaHobbie>(mainPanel, PistaHobbie)
 		tablaDeHobbies.bindItemsToProperty("hobbies")
+		tablaDeHobbies.bindValueToProperty("hobbieSel")
 		tablaDeHobbies.width = 200
 		new Column<PistaHobbie>(tablaDeHobbies) => [
 			title = "Hobbies" 
