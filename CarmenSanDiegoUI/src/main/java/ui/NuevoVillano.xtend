@@ -41,7 +41,6 @@ class NuevoVillano extends SimpleWindow<Sistema> {
 			bindContentsToProperty("pista")
 		]
 		new Button(mainPanel) => [
-			setBackground(Color::LIGHT_GRAY)	// al pedo
 			caption = "Editar Señas Particulares"
 					onClick [ | new EditarSeniasParticulares(owner, modelObject.villanoEnCreacion).open ]
 		]
@@ -53,10 +52,11 @@ class NuevoVillano extends SimpleWindow<Sistema> {
 			title = "Hobbies" 
 			bindContentsToProperty("pista")
 		]
+		val p = modelObject.villanoEnCreacion
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	// al pedo
 			caption = "Editar hobbies"
-					onClick [ | new EditarHobbies(owner, modelObject.villanoEnCreacion).open ]
+					onClick [ | new EditarHobbies(owner,p).open ]
 		]
 		
 		new Button(mainPanel) => [

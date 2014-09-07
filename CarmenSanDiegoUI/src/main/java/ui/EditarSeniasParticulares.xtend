@@ -39,25 +39,24 @@ class EditarSeniasParticulares extends SimpleWindow<Villano> {
 		new Column<PistaSenia>(tablaDeSenias) => [
 			title = "Señas particulares" 
 			bindContentsToProperty("pista")
-			
 		]
 
 		var col = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new Button(col) => [
 			setBackground(Color::LIGHT_GRAY)	// al pedo
 			caption = "Eliminar"
-					onClick [ | modelObject.quitarSeniaPart()]
+					onClick [ | modelObject.quitarSeniaPart]
 		]
 		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new TextBox(col2) => [
 			setWidth(100)
-			bindValueToProperty("seniasPartParaAgregar")
+			bindValueToProperty("seniaParaAgregar")
 		]
 		new Button(col2) => [
 			setWidth(100)
 			setBackground(Color::LIGHT_GRAY)
 			caption = "Agregar"
-					onClick [ | modelObject.agregarSeniasPart()]
+					onClick [ | modelObject.agregarSeniasPart()] // NO FUNCA PORQUE HAY que usar un adapter
 		]
 		var ver = new Panel(mainPanel)
 		new Button(ver) => [

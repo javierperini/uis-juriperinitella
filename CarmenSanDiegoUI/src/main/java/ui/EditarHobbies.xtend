@@ -19,67 +19,55 @@ class EditarHobbies extends SimpleWindow<Villano>{
 	
 	new(WindowOwner owner, Villano villano) {
 		super(owner, villano)
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	override createContents(Panel mainPanel) {
-			this.setTitle("Editar Señas")
 		
+	} 
+	override createContents(Panel mainPanel) {
+			this.setTitle("Editar Hobbies")
+		// no funca ningun boton
 		var p = new Panel(mainPanel)
 		p.setLayout(new VerticalLayout)
 
-////		var Table<PistaHobbie> tablaDeSenias = new Table<PistaHobbie>(mainPanel, PistaHobbie)
-////		tablaDeSenias.bindItemsToProperty("seniasPart")
-////		tablaDeSenias.bindValueToProperty("seniaPartAEliminar")
-////		tablaDeSenias.width = 200
-////		new Column<PistaHobbie>(tablaDeSenias) => [
-////			title = "Señas particulares" 
-////			bindContentsToProperty("pista")
-////			
-////		]
-//
-//		new Label(p) => [
-//			setWidth(220)
-//			setBackground(Color::LIGHT_GRAY)
-//			setText("Caracteristicas")
-//		]
-//		
-//		new List(p) => [
-//			bindItemsToProperty("seniasPart")
-//			bindValueToProperty("seniaPartAEliminar")	
-//		]
-//		
-//		var col = new Panel(mainPanel).setLayout(new ColumnLayout(2))
-//		new Button(col) => [
-//			setBackground(Color::LIGHT_GRAY)	// al pedo
-//			caption = "Eliminar"
-//					onClick [ | modelObject.quitarSeniaPart()]
-//		]
-//		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
-//		new TextBox(col2) => [
-//			setWidth(100)
-//			bindValueToProperty("seniasPartParaAgregar")
-//		]
-//		new Button(col2) => [
-//			setWidth(100)
-//			setBackground(Color::LIGHT_GRAY)
-//			caption = "Agregar"
-//					onClick [ | modelObject.agregarSeniasPart()]
-//		]
-//		var ver = new Panel(mainPanel)
-//		new Button(ver) => [
-//			setWidth(220)
-//			setBackground(Color::LIGHT_GRAY)
-//			caption = "Aceptar"
-//					onClick [ | close ]
-//		]
+		var Table<PistaHobbie> tablaDeSenias = new Table<PistaHobbie>(mainPanel, PistaHobbie)
+		tablaDeSenias.bindItemsToProperty("hobbies")
+		tablaDeSenias.bindValueToProperty("hobbieAEliminar")
+		tablaDeSenias.width = 200
+		new Column<PistaHobbie>(tablaDeSenias) => [
+			title = "Señas Hobbies" 
+			bindContentsToProperty("pista")
+		]
+
+		var col = new Panel(mainPanel).setLayout(new ColumnLayout(2))
+		new Button(col) => [
+			setBackground(Color::LIGHT_GRAY)	// al pedo
+			caption = "Eliminar"
+					onClick [ | modelObject.quitarHobbies()]
+		]
+		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
+		new TextBox(col2) => [
+			setWidth(100)
+			bindValueToProperty("hobbieParaAgregar")
+		]
+		new Button(col2) => [
+			setWidth(100)
+			setBackground(Color::LIGHT_GRAY)
+			caption = "Agregar"
+					onClick [ | modelObject.agregarHobbies()] // NO FUNCA PORQUE HAY que usar un adapter
+		]
+		var ver = new Panel(mainPanel)
+		new Button(ver) => [
+			setWidth(220)
+			setBackground(Color::LIGHT_GRAY)
+			caption = "Aceptar"
+					onClick [ | close ]
+		]
 	}
 	
-	override protected addActions(Panel arg0) {
+	override protected addActions(Panel actionsPanel) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
-	override protected createFormPanel(Panel arg0) {
+	override protected createFormPanel(Panel mainPanel) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
-	
-}
+		
+	}
