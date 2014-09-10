@@ -1,7 +1,7 @@
-package main.java.detective
+package detective
 
 import java.util.List
-import main.java.personajes.Villano
+import personajes.Villano
 import org.uqbar.commons.utils.Observable
 
 @Observable

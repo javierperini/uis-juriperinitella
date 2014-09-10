@@ -1,6 +1,6 @@
-package main.java.personajes
+package personajes
 
-import main.java.personajes.Personaje
+import personajes.Personaje
 import org.uqbar.commons.utils.Observable
 
 @Observable

@@ -1,4 +1,4 @@
-package test.java.personajes;
+package personajes;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -6,9 +6,9 @@ import static org.junit.Assert.assertFalse;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import main.java.personajes.Villano;
-import main.java.pista.PistaHobbie;
-import main.java.pista.PistaSenia;
+import personajes.Villano;
+import pista.PistaHobbie;
+import pista.PistaSenia;
 
 import org.junit.Before;
 import org.junit.Test;

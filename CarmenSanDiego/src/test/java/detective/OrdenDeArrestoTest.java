@@ -1,10 +1,10 @@
-package test.java.detective;
+package detective;
 
 import static org.junit.Assert.*;
-import main.java.detective.OrdenDeArresto;
-import main.java.personajes.Villano;
-import main.java.pista.PistaHobbie;
-import main.java.pista.PistaSenia;
+import detective.OrdenDeArresto;
+import personajes.Villano;
+import pista.PistaHobbie;
+import pista.PistaSenia;
 
 import org.junit.Before;
 import org.junit.Test;

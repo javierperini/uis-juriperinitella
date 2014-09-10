@@ -1,13 +1,11 @@
-package main.java.detective
+package detective
 
 import java.util.List
-import main.java.personajes.Villano
-import main.java.detective.Caso
-import main.java.pista.PistaHobbie
-import main.java.pista.PistaSenia
-import org.uqbar.commons.utils.Observable
+import personajes.Villano
+import pista.PistaHobbie
+import pista.PistaSenia
 import org.uqbar.commons.model.ObservableUtils
-import java.util.ArrayList
+import org.uqbar.commons.utils.Observable
 
 @Observable
 class Sistema {
@@ -20,8 +18,8 @@ class Sistema {
 	@Property Pais paisSeleccionado
 	@Property PistaSenia seniasVillanoSeleccionado
 	@Property PistaHobbie hobbiesVillanoSeleccionado
-	@Property Villano villanoEnCreacion = new Villano()
-	@Property Pais paisEnCreacion = new Pais()
+	@Property Villano villanoEnCreacion
+	@Property Pais paisEnCreacion
 	@Property Pais paisActual
 	@Property  Villano villanoArrestar
 	@Property OrdenDeArresto ordenDeArresto
@@ -34,10 +32,7 @@ class Sistema {
 		this.ordenDeArresto= new OrdenDeArresto()
 	}
 	
-	new() {
-	
-	
-	}
+	new() { }
 	
 	def paisesAViajar(){
 		paisesSistema.remove(paisActual)
@@ -66,7 +61,7 @@ class Sistema {
 			 	villanoArrestar= villano
 			}
 		 if( villanoArrestar== null){
-		 	throw new ExceptionNingunVillano("No hay coincidencia con ningun villano")
+		 	throw new NingunVillanoException("No hay coincidencia con ningun villano")
 			}
 	}
 	
@@ -94,6 +89,15 @@ class Sistema {
 	def agregarPaisALaLista() {
 		paisesSistema.add(paisEnCreacion)
 		ObservableUtils.firePropertyChanged(this, "paisesSistema", paisesSistema)
+		
+	}
+	
+	def crearVillano() {
+		villanoEnCreacion = new Villano
+	}
+	
+	def crearPais() {
+		paisEnCreacion = new Pais
 	}
 	
 }

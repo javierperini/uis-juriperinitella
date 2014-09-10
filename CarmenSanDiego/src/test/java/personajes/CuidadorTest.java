@@ -1,10 +1,10 @@
-package test.java.personajes;
+package personajes;
 
 import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import main.java.personajes.Cuidador;
+import personajes.Cuidador;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,9 +1,9 @@
-package test.java.pistas;
+package pistas;
 
 import static org.junit.Assert.*;
-import main.java.pista.PistaHobbie;
-import main.java.pista.PistaLugar;
-import main.java.pista.PistaSenia;
+import pista.PistaHobbie;
+import pista.PistaLugar;
+import pista.PistaSenia;
 
 import org.junit.Before;
 import org.junit.Test;

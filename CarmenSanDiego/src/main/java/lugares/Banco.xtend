@@ -1,8 +1,8 @@
-package main.java.lugares
+package lugares
 
 import java.util.List
-import main.java.pista.Pista
-import main.java.personajes.Personaje
+import pista.Pista
+import personajes.Personaje
 import org.uqbar.commons.utils.Observable
 
 @Observable

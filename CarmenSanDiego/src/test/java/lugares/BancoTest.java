@@ -1,4 +1,4 @@
-package test.java.lugares;
+package lugares;
 
 import static org.junit.Assert.*;
 
@@ -7,14 +7,14 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import main.java.lugares.Banco;
-import main.java.personajes.Cuidador;
-import main.java.personajes.Informante;
-import main.java.personajes.Villano;
-import main.java.pista.Pista;
-import main.java.pista.PistaHobbie;
-import main.java.pista.PistaLugar;
-import main.java.pista.PistaSenia;
+import lugares.Banco;
+import personajes.Cuidador;
+import personajes.Informante;
+import personajes.Villano;
+import pista.Pista;
+import pista.PistaHobbie;
+import pista.PistaLugar;
+import pista.PistaSenia;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package test.java.detective;
+package detective;
 
 import static org.mockito.Mockito.*;
 import static org.junit.Assert.*;
@@ -6,16 +6,16 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import main.java.detective.Caso;
-import main.java.detective.Pais;
-import main.java.detective.Sistema;
-import main.java.lugares.Banco;
-import main.java.lugares.Club;
-import main.java.lugares.Embajada;
-import main.java.lugares.Lugar;
-import main.java.personajes.Villano;
-import main.java.pista.PistaHobbie;
-import main.java.pista.PistaSenia;
+import detective.Caso;
+import detective.Pais;
+import detective.Sistema;
+import lugares.Banco;
+import lugares.Club;
+import lugares.Embajada;
+import lugares.Lugar;
+import personajes.Villano;
+import pista.PistaHobbie;
+import pista.PistaSenia;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class SistemaTest {
 	
 	private List<Pais> paisesSistema = new ArrayList<Pais>();
 	private List<Villano> villanosSistema = new ArrayList<Villano>();
-	private Pais paisMock;
+//	private Pais paisMock;
 	private Villano villanoMock;
 
 	/* Caso */
@@ -122,23 +122,6 @@ public class SistemaTest {
 		assertEquals(s.getHobbiesVillanoSeleccionado(), villano.getHobbies().get(0));
 	}
 
-//	@Test
-//	public void testGetVillanoEnCreacion() {
-//		// ??
-//		fail("Not yet implemented");
-//	}
-//	
-//	@Test
-//	public void testGetPaisEnCreacion() {
-//		// ??
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testSistemaCasoListOfPaisListOfVillano() {
-//		// ké, me lo puso automaticamente junit
-//		fail("Not yet implemented");
-//	}
 	
 	@Test
 	public void testViajar() {
@@ -164,10 +147,6 @@ public class SistemaTest {
 		assertEquals(s.iniciarJuego(), "Hola, esto es una prueba del inicio del caso");
 	}
 
-//	@Test
-//	public void testGenerarOrdenDeArrestro() {
-//		fail("Not yet implemented");
-//	}
 
 	@Test
 	public void testCompletarHobbieOrdenDeArresto() {
@@ -181,14 +160,36 @@ public class SistemaTest {
 		assertEquals(s.getOrdenDeArresto().getPistasSenia().size(), 1);
 	}
 
-	@Test
-	public void testGanoElJuego() {
-	//	assertFalse(s.ganoElJuego());
-	}
+//	@Test
+//	public void testGanoElJuego() {
+//		assertFalse(s.ganoElJuego());
+//	}
 
 //	@Test
 //	public void testAgregarVillanoALaLista() {
 //		fail("Not yet implemented");
 //	}
 
+//	@Test
+//	public void testGenerarOrdenDeArrestro() {
+//		fail("Not yet implemented");
+//	}
+	
+//	@Test
+//	public void testGetVillanoEnCreacion() {
+//		// ??
+//		fail("Not yet implemented");
+//	}
+//	
+//	@Test
+//	public void testGetPaisEnCreacion() {
+//		// ??
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	public void testSistemaCasoListOfPaisListOfVillano() {
+//		// ké, me lo puso automaticamente junit
+//		fail("Not yet implemented");
+//	}
 }

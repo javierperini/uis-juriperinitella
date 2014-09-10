@@ -9,7 +9,6 @@
     <version>2.6.2</version>
 </parent>
   <build>
-    <sourceDirectory>src</sourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>

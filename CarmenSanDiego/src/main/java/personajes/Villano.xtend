@@ -1,8 +1,8 @@
-package main.java.personajes
+package personajes
 
 import java.util.List
-import main.java.pista.PistaHobbie
-import main.java.pista.PistaSenia
+import pista.PistaHobbie
+import pista.PistaSenia
 import org.uqbar.commons.model.ObservableUtils
 import org.uqbar.commons.utils.Observable
 

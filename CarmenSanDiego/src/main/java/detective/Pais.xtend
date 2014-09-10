@@ -1,8 +1,8 @@
-package main.java.detective
+package detective
 
 import java.util.ArrayList
 import java.util.List
-import main.java.lugares.Lugar
+import lugares.Lugar
 import org.uqbar.commons.model.ObservableUtils
 import org.uqbar.commons.utils.Observable
 
@@ -32,14 +32,12 @@ class Pais {
 		this.lugares=lugares
 	}
 
-	new() {
-
-	}
+	new() { }
+	
 	/**
 	 * i no puede ser <  a 0 ni > a 3
 	 */
-	def irALugar(int i){
-		
+	def irALugar(int i){		
 		lugarActual= lugares.get(i-1);
 	}
 	
@@ -47,7 +45,7 @@ class Pais {
 		if(lugarActual != null){
 		lugarActual.imprimirPistas	
 		}else{
-			throw new NoEstaEnNingunLugar("No fuiste a ningun lugar")
+			throw new NoEstaEnNingunLugarException("No fuiste a ningun lugar")
 		}
 	}
 	

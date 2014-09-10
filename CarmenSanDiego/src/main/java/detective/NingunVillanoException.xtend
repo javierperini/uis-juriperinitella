@@ -1,8 +1,8 @@
-package main.java.detective
+package detective
 
 import java.lang.Exception
 
-class ExceptionNingunVillano extends Exception {
+class NingunVillanoException extends Exception {
 	
 	new(String string) {
 		super(string)

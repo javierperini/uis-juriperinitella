@@ -1,4 +1,4 @@
-package main.java.pista
+package pista
 
 import org.uqbar.commons.utils.Observable
 

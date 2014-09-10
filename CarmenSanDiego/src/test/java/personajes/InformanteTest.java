@@ -1,7 +1,7 @@
-package test.java.personajes;
+package personajes;
 
 import static org.junit.Assert.*;
-import main.java.personajes.Informante;
+import personajes.Informante;
 
 import org.junit.Before;
 import org.junit.Test;

@@ -1,8 +1,8 @@
-package main.java.detective
+package detective
 
-import main.java.pista.PistaHobbie
-import main.java.pista.PistaSenia
-import main.java.personajes.Villano
+import pista.PistaHobbie
+import pista.PistaSenia
+import personajes.Villano
 import org.uqbar.commons.utils.Observable
 import java.util.List
 

@@ -1,4 +1,4 @@
-package test.java.detective;
+package detective;
 
 import static org.junit.Assert.*;
 
@@ -7,16 +7,16 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import main.java.detective.Pais;
-import main.java.lugares.Banco;
-import main.java.lugares.Biblioteca;
-import main.java.lugares.Club;
-import main.java.lugares.Lugar;
-import main.java.personajes.Cuidador;
-import main.java.personajes.Informante;
-import main.java.pista.Pista;
-import main.java.pista.PistaLugar;
-import main.java.pista.PistaSenia;
+import detective.Pais;
+import lugares.Banco;
+import lugares.Biblioteca;
+import lugares.Club;
+import lugares.Lugar;
+import personajes.Cuidador;
+import personajes.Informante;
+import pista.Pista;
+import pista.PistaLugar;
+import pista.PistaSenia;
 
 import org.junit.Before;
 import org.junit.Test;
