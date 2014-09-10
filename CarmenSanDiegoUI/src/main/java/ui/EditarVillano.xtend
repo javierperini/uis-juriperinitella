@@ -1,7 +1,7 @@
-package main.java.ui
+package ui
 
 import org.uqbar.arena.windows.SimpleWindow
-import main.java.personajes.Villano
+import personajes.Villano
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.layout.ColumnLayout
@@ -9,10 +9,10 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.widgets.Button
 import java.awt.Color
-import main.java.pista.PistaSenia
+import pista.PistaSenia
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.widgets.tables.Column
-import main.java.pista.PistaHobbie
+import pista.PistaHobbie
 
 class EditarVillano extends SimpleWindow<Villano>{
 	

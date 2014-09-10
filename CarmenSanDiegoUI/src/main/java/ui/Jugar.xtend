@@ -1,7 +1,7 @@
-package main.java.ui
+package ui
 
 import org.uqbar.arena.windows.MainWindow
-import main.java.detective.Sistema
+import detective.Sistema
 import org.uqbar.arena.widgets.Panel
 
 class Jugar extends MainWindow<Sistema>{

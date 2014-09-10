@@ -1,9 +1,9 @@
-package main.java.ui
+package ui
 
 import java.awt.Color
-import main.java.detective.Sistema
-import main.java.pista.PistaHobbie
-import main.java.pista.PistaSenia
+import detective.Sistema
+import pista.PistaHobbie
+import pista.PistaSenia
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
@@ -34,6 +34,7 @@ class NuevoVillano extends SimpleWindow<Sistema> {
 		var Table<PistaSenia> tablaDeSenias = new Table<PistaSenia>(mainPanel, PistaSenia)
 		tablaDeSenias.bindItemsToProperty("villanoEnCreacion.seniasPart")
 		tablaDeSenias.width = 200
+		tablaDeSenias.height = 50
 		new Column<PistaSenia>(tablaDeSenias) => [
 			title = "Señas particulares" 
 			bindContentsToProperty("pista")
@@ -46,6 +47,7 @@ class NuevoVillano extends SimpleWindow<Sistema> {
 		var Table<PistaHobbie> tablaDeHobbies = new Table<PistaHobbie>(mainPanel, PistaHobbie)
 		tablaDeHobbies.bindItemsToProperty("villanoEnCreacion.hobbies")
 		tablaDeHobbies.width = 200
+		tablaDeHobbies.height = 50
 		new Column<PistaHobbie>(tablaDeHobbies) => [
 			title = "Hobbies" 
 			bindContentsToProperty("pista")
@@ -59,10 +61,9 @@ class NuevoVillano extends SimpleWindow<Sistema> {
 		
 		new Button(mainPanel) => [
 			caption = "Aceptar"
-			
-					onClick [ |  modelObject.agregarVillanoALaLista				
-								close
-							]
+			onClick [ |  modelObject.agregarVillanoALaLista				
+						close
+					]
 		]
 	}
 	

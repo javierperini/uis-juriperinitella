@@ -1,8 +1,8 @@
-package main.java.ui
+package ui
 
 import java.awt.Color
-import main.java.personajes.Villano
-import main.java.pista.PistaHobbie
+import personajes.Villano
+import pista.PistaHobbie
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
@@ -29,6 +29,7 @@ class EditarHobbies extends SimpleWindow<Villano>{
 		tablaDeSenias.bindItemsToProperty("hobbies")
 		tablaDeSenias.bindValueToProperty("hobbieAEliminar")
 		tablaDeSenias.width = 200
+		tablaDeSenias.height = 50
 		new Column<PistaHobbie>(tablaDeSenias) => [
 			title = "Señas Hobbies" 
 			bindContentsToProperty("pista")

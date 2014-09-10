@@ -1,6 +1,6 @@
-package main.java.ui
+package ui
 
-import main.java.detective.Sistema
+import detective.Sistema
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
@@ -13,12 +13,10 @@ class MenuDeAcciones extends SimpleWindow<Sistema>{
 	
 	new(WindowOwner owner, Sistema sistema) {
 		super(owner, sistema)
-		title = "Que onda Carmen?"
-		taskDescription = "¿Dónde está Carmen Sandiego?"
+		title = "¿Dónde está Carmen Sandiego?"
 	}
 	
 	 override createContents(Panel mainPanel) {
-		this.setTitle("¿Dónde está Carmen Sandiego?")
 		mainPanel.setLayout(new VerticalLayout)
 		
 		new Panel(mainPanel) => [
@@ -30,7 +28,7 @@ class MenuDeAcciones extends SimpleWindow<Sistema>{
 		new Panel(mainPanel) => [
 				new Button(mainPanel) => [
 				caption = "Resolver Misterio"
-				onClick [ | new MapamundiWindow(owner, modelObject).open ]//Este no va, no tiene que abrir al mapamundi.
+				onClick [ | /**/ ]
 			]
 			new Button(mainPanel) => [
 				caption = "Mapamundi"

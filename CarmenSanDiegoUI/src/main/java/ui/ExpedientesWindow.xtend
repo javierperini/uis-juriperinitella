@@ -1,7 +1,7 @@
-package main.java.ui
+package ui
 
-import main.java.detective.Sistema
-import main.java.personajes.Villano
+import detective.Sistema
+import personajes.Villano
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.tables.Column
@@ -10,8 +10,8 @@ import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.layout.HorizontalLayout
-import main.java.pista.PistaSenia
-import main.java.pista.PistaHobbie
+import pista.PistaSenia
+import pista.PistaHobbie
 import org.uqbar.arena.widgets.Button
 
 class ExpedientesWindow extends SimpleWindow<Sistema> {
@@ -48,8 +48,9 @@ class ExpedientesWindow extends SimpleWindow<Sistema> {
 			]
 			
 			var Table<PistaSenia> seniasVillano = new Table<PistaSenia>(it, PistaSenia)
+			seniasVillano.height =200
 			seniasVillano.bindItemsToProperty("villanoSeleccionado.seniasPart")
-			seniasVillano.bindValueToProperty("seniasVillanoSeleccionado")
+//			seniasVillano.bindValueToProperty("seniasVillanoSeleccionado") NO HACE FALTA (BORRAR DEL MODELO)
 			new Column<PistaSenia>(seniasVillano) => [
 				title = "Señas" 
 				bindContentsToProperty("pista")
@@ -57,7 +58,7 @@ class ExpedientesWindow extends SimpleWindow<Sistema> {
 			
 			var Table<PistaHobbie> hobbiesVillano = new Table<PistaHobbie>(it, PistaHobbie)
 			hobbiesVillano.bindItemsToProperty("villanoSeleccionado.hobbies")
-			hobbiesVillano.bindValueToProperty("hobbiesVillanoSeleccionado")
+//			hobbiesVillano.bindValueToProperty("hobbiesVillanoSeleccionado") NO HACE FALTA (BORRAR DEL MODELO)
 			new Column<PistaHobbie>(hobbiesVillano) => [
 				title = "Hobbies" 
 				bindContentsToProperty("pista")

@@ -1,18 +1,16 @@
-package main.java.ui
+package ui
 
-import main.java.detective.Sistema
+import detective.Sistema
 import org.uqbar.arena.Application
-import main.java.personajes.Villano
+import personajes.Villano
 import java.util.List
-import main.java.detective.Pais
-import main.java.detective.Caso
-import main.java.pista.PistaSenia
-import main.java.pista.PistaHobbie
-import main.java.lugares.Lugar
+import detective.Pais
+import detective.Caso
+import pista.PistaSenia
+import pista.PistaHobbie
+import lugares.Lugar
 
 class CarmenApplication extends Application{
-	
-	
 	
 	List<Villano> villanos= newArrayList()
 	List<Pais> paisesSistema= newArrayList()
@@ -24,7 +22,7 @@ class CarmenApplication extends Application{
 	override createMainWindow() {
 		/*Pistas*/
 		seniasPart.add(new PistaSenia("Le gustan los pantalones azules"))
-		seniasPart.add(new PistaSenia("La sal no sal, y la azucar no endulza"))
+		seniasPart.add(new PistaSenia("La sal no sala, y la azucar no endulza"))
 		seniasPart.add(new PistaSenia("Borracho ahora sobrio y sin espinas. "))
 		hobbies.add(new PistaHobbie("Con mexicanos margaritas ,dos chicas: una sabe mentir "))
 		hobbies.add(new PistaHobbie("Run beach Run"))

@@ -1,8 +1,8 @@
-package main.java.ui
+package ui
 
 import java.awt.Color
-import main.java.personajes.Villano
-import main.java.pista.PistaSenia
+import personajes.Villano
+import pista.PistaSenia
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
@@ -29,6 +29,7 @@ class EditarSeniasParticulares extends SimpleWindow<Villano> {
 		tablaDeSenias.bindItemsToProperty("seniasPart")
 		tablaDeSenias.bindValueToProperty("seniaPartAEliminar")
 		tablaDeSenias.width = 200
+		tablaDeSenias.height = 50
 		new Column<PistaSenia>(tablaDeSenias) => [
 			title = "Señas particulares" 
 			bindContentsToProperty("pista")

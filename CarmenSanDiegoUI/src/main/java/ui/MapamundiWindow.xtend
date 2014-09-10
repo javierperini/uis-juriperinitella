@@ -1,8 +1,8 @@
-package main.java.ui
+package ui
 
-import main.java.detective.Pais
-import main.java.detective.Sistema
-import main.java.lugares.Lugar
+import detective.Pais
+import detective.Sistema
+import lugares.Lugar
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
@@ -17,6 +17,7 @@ class MapamundiWindow extends SimpleWindow<Sistema> {
 	
 	new(WindowOwner owner, Sistema sistema) {
 		super(owner, sistema)
+		title = "Mapamundi"
 	}
 	
 	override createContents(Panel mainPanel) {

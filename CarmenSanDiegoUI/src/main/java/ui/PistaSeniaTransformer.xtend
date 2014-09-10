@@ -1,8 +1,8 @@
-package main.java.ui
+package ui
 
 import org.uqbar.arena.bindings.Transformer
 import org.uqbar.commons.model.UserException
-import main.java.pista.PistaSenia
+import pista.PistaSenia
 
 class PistaSeniaTransformer implements Transformer<PistaSenia, String>{
 	

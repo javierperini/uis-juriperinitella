@@ -1,7 +1,7 @@
-package main.java.ui
+package ui
 
 import java.awt.Color
-import main.java.detective.Pais
+import detective.Pais
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button

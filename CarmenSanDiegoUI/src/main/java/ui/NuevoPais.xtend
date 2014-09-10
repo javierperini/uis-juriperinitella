@@ -1,24 +1,23 @@
-package main.java.ui
+package ui
 
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
-import main.java.detective.Sistema
+import detective.Sistema
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.Button
 import java.awt.Color
-import main.java.detective.Pais
-import main.java.lugares.Lugar
-
-// caracteristicas, conexiones, lugares de interes
+import detective.Pais
+import lugares.Lugar
 
 class NuevoPais extends SimpleWindow<Sistema>{
 	
 	new(WindowOwner owner, Sistema sistema) {
 		super(owner, sistema)
+		sistema.crearPais
 	}
 	
 	override createContents(Panel mainPanel) {

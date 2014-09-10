@@ -1,7 +1,7 @@
-package main.java.ui
+package ui
 
 import java.awt.Color
-import main.java.detective.Pais
+import detective.Pais
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.List
@@ -31,7 +31,6 @@ class EditarPais extends SimpleWindow<Pais>{
 			// TITULO REEMPLAZADO CON LABEL 
 			allowNull(false)
 			bindItemsToProperty("caracteristicas")
-			bindValueToProperty("caracteristicas")
 		]
 
 		new Button(mainPanel) => [
@@ -47,7 +46,6 @@ class EditarPais extends SimpleWindow<Pais>{
 
 		new List(mainPanel) => [
 			bindItemsToProperty("conexiones")
-			bindValueToProperty("nombre")
 		]
 
 		new Button(mainPanel) => [
@@ -63,7 +61,6 @@ class EditarPais extends SimpleWindow<Pais>{
 
 		new List(mainPanel) => [
 			bindItemsToProperty("lugares")
-			bindValueToProperty("nombre")		// ***CHEQUEAR ESTO***
 		]
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	
