@@ -1,18 +1,17 @@
 package main.java.ui
 
-import org.uqbar.arena.windows.MainWindow
+import main.java.detective.Pais
 import main.java.detective.Sistema
+import main.java.lugares.Lugar
+import org.uqbar.arena.layout.ColumnLayout
+import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.tables.Column
+import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.layout.ColumnLayout
-import org.uqbar.arena.widgets.tables.Table
-import main.java.detective.Pais
-import org.uqbar.arena.widgets.tables.Column
-import org.uqbar.arena.layout.HorizontalLayout
-import org.uqbar.arena.widgets.Label
-import main.java.lugares.Lugar
-import org.uqbar.arena.widgets.Button
 
 class MapamundiWindow extends SimpleWindow<Sistema> {
 	
@@ -66,7 +65,7 @@ class MapamundiWindow extends SimpleWindow<Sistema> {
 		
 		new Button(colPanel) => [ //						****NO FUNCIONA****
 				caption = "Eliminar"
-				onClick [ | modelObject.getPaisesSistema().remove(modelObject.paisSeleccionado) ]
+				onClick [ | modelObject.removerPais ]
 		]
 		new Button(colPanel) => [
 				caption = "Editar"

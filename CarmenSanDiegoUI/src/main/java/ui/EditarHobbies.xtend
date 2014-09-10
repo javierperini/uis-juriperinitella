@@ -1,19 +1,17 @@
 package main.java.ui
 
-import org.uqbar.arena.windows.WindowOwner
-import main.java.personajes.Villano
-import org.uqbar.arena.windows.SimpleWindow
-import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.layout.VerticalLayout
-import org.uqbar.arena.widgets.tables.Table
-import main.java.pista.PistaHobbie
-import org.uqbar.arena.widgets.tables.Column
-import org.uqbar.arena.layout.ColumnLayout
-import org.uqbar.arena.widgets.Button
 import java.awt.Color
+import main.java.personajes.Villano
+import main.java.pista.PistaHobbie
+import org.uqbar.arena.layout.ColumnLayout
+import org.uqbar.arena.layout.VerticalLayout
+import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
-import org.uqbar.arena.widgets.Label
-import org.uqbar.arena.widgets.List
+import org.uqbar.arena.widgets.tables.Column
+import org.uqbar.arena.widgets.tables.Table
+import org.uqbar.arena.windows.SimpleWindow
+import org.uqbar.arena.windows.WindowOwner
 
 class EditarHobbies extends SimpleWindow<Villano>{
 	
@@ -45,7 +43,9 @@ class EditarHobbies extends SimpleWindow<Villano>{
 		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new TextBox(col2) => [
 			setWidth(100)
-			bindValueToProperty("hobbieParaAgregar")
+			val bindingMonto = bindValueToProperty("hobbieParaAgregar")
+			bindingMonto.transformer =  new PistaHobbieTrasnformer
+			
 		]
 		new Button(col2) => [
 			setWidth(100)

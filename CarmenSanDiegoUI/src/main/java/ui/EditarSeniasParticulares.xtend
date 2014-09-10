@@ -50,7 +50,8 @@ class EditarSeniasParticulares extends SimpleWindow<Villano> {
 		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new TextBox(col2) => [
 			setWidth(100)
-			bindValueToProperty("seniaParaAgregar")
+			val bindingMonto = bindValueToProperty("seniaParaAgregar")
+			bindingMonto.transformer =  new PistaSeniaTransformer
 		]
 		new Button(col2) => [
 			setWidth(100)
