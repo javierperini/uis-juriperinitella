@@ -25,4 +25,8 @@ class Caso {
 		this.inicioCaso=inicioCaso
 		}
 		
+		new(){
+			
+		}
+		
 	}

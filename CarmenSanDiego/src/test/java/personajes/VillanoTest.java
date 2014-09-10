@@ -53,12 +53,12 @@ public class VillanoTest {
 
 	@Test
 	public void testGetHobbies() {
-		assertEquals(v.getHobbies().get(1), "jugar a la canasta");
+		assertEquals(v.getHobbies().get(0).getPista(), "jugar a la canasta");
 	}
 
 	@Test
 	public void testGetSeniasPart() {
-		assertEquals(v.getSeniasPart(), "lunar sobre la boca");
+		assertEquals(v.getSeniasPart().get(0).getPista(), "lunar sobre la boca");
 	}
 
 	@Test

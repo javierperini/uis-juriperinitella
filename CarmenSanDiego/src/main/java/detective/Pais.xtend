@@ -33,10 +33,7 @@ class Pais {
 	}
 
 	new() {
-//		caracteristicas = #["Caracteristica", "Caracteristica2", "Caracteristica3"]
-		caracteristicas.add("Carac1")
-		caracteristicas.add("Carac2")
-		caracteristicas.add("Carac3")
+
 	}
 	/**
 	 * i no puede ser <  a 0 ni > a 3

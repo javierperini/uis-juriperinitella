@@ -12,6 +12,7 @@ class Sistema {
 	
 	@Property Caso caso
 	@Property List<Pais> paisesSistema= newArrayList()
+	@Property List<Pais> paisesVisitados= newArrayList()
 	@Property List<Villano> villanosSistema = newArrayList()
 	@Property Villano villanoSeleccionado
 	@Property Pais paisSeleccionado
@@ -19,10 +20,9 @@ class Sistema {
 	@Property PistaHobbie hobbiesVillanoSeleccionado
 	@Property Villano villanoEnCreacion = new Villano()
 	@Property Pais paisEnCreacion = new Pais()
-			  Pais paisActual
-			  List<Pais> paisesVisitados
-			  Villano villanoArrestar
-			  OrdenDeArresto ordenDeArresto
+	@Property Pais paisActual
+	@Property  Villano villanoArrestar
+	@Property OrdenDeArresto ordenDeArresto
 	
 	new(Caso caso, List<Pais> paisesSistema, List<Villano> villanosSistema){
 		this.caso=caso
@@ -33,21 +33,7 @@ class Sistema {
 	}
 	
 	new() {
-		var Villano a = new Villano()
-		a.nombre = "javi"
-		var Villano b = new Villano()
-		b.nombre = "adri"
-		var Villano c = new Villano()
-		c.nombre = "oggi junco"
-		villanosSistema.add(a)
-		villanosSistema.add(b)
-		villanosSistema.add(c)
-		var Pais ap = new Pais
-		ap.nombre = "pais a"
-		var Pais bp = new Pais
-		bp.nombre = "pais b"
-	    paisesSistema.add(ap)
-	    paisesSistema.add(bp)
+	
 	
 	}
 	
@@ -63,8 +49,8 @@ class Sistema {
 	
 	def volverAPaisAnterior(){
 		paisActual=paisesVisitados.get(0)
-		paisesVisitados.remove(paisesVisitados.get(0))
 		paisesSistema.add(paisesVisitados.get(0)) 
+		paisesVisitados.remove(paisesVisitados.get(0))
 	}
 	
 	def iniciarJuego(){

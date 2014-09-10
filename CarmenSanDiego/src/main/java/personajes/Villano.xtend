@@ -30,16 +30,6 @@ class Villano extends Personaje {
 	
 	new(){
 		
-		seniasPart.add(new PistaSenia("Hola, soy una pista"))
-		seniasPart.add(new PistaSenia("javier feo"))
-		seniasPart.add(new PistaSenia("anyi linda"))
-	
-		
-		hobbies.add(new PistaHobbie("Le gustan los pantalones azules"))
-		hobbies.add(new PistaHobbie("Run beach Run"))
-		hobbies.add(new PistaHobbie("Ayer se fue, agarro sus cosas y se puso a navegar"))
-		sexo = "Mujer Amante"
-		
 	}
 	override getInformacion() {
 		print("Me atrapaste!!")

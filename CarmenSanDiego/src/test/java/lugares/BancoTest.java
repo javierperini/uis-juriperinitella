@@ -26,7 +26,6 @@ public class BancoTest {
 	private Villano v;
 	private Informante i;
 	private List<Pista> pistas = new ArrayList<Pista>();
-	private PistaHobbie ph;
 	private PistaSenia ps;
 	private PistaLugar pl;
 	
@@ -37,8 +36,7 @@ public class BancoTest {
 	public void setUp() throws Exception {
 		/* Auxiliares */
 		c = new Cuidador("Pepito el pistolero");
-//		ph = new PistaHobbie("coleccionar monedas");
-//		ps = new PistaSenia("Era muy alta");
+		ps = new PistaSenia("Era muy alta");
 //		REVISAR. ARREGLAR CONSTRUCTORES VILLANO
 		v = new Villano();
 		i = new Informante("Anyi Tella Arena");
