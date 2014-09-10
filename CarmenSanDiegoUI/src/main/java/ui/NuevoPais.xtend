@@ -66,6 +66,7 @@ class NuevoPais extends SimpleWindow<Sistema>{
 			caption = "Aceptar"
 			
 					onClick [ |  
+								modelObject.agregarPaisALaLista()
 								close
 							]
 		]

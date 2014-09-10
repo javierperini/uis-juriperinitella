@@ -40,6 +40,11 @@ class MapamundiWindow extends SimpleWindow<Sistema> {
 			
 			var Table<String> caracteristicas = new Table<String>(it, String)
 			caracteristicas.bindItemsToProperty("paisSeleccionado.caracteristicas")
+//			new Column<String>(caracteristicas) => [
+//				title = "Caracteristicas" 
+//				bindContentsToProperty("nombre")
+//			]
+
 
 			var Table<Pais> conexiones = new Table<Pais>(it, Pais)
 			conexiones.bindItemsToProperty("paisSeleccionado.conexiones")
