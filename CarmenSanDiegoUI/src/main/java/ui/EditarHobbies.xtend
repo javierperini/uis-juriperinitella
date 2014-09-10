@@ -21,7 +21,7 @@ class EditarHobbies extends SimpleWindow<Villano>{
 	} 
 	override createContents(Panel mainPanel) {
 			this.setTitle("Editar Hobbies")
-		// no funca ningun boton
+		
 		var p = new Panel(mainPanel)
 		p.setLayout(new VerticalLayout)
 
@@ -51,7 +51,7 @@ class EditarHobbies extends SimpleWindow<Villano>{
 			setWidth(100)
 			setBackground(Color::LIGHT_GRAY)
 			caption = "Agregar"
-					onClick [ | modelObject.agregarHobbies()] // NO FUNCA PORQUE HAY que usar un adapter
+					onClick [ | modelObject.agregarHobbies()] 
 		]
 		var ver = new Panel(mainPanel)
 		new Button(ver) => [

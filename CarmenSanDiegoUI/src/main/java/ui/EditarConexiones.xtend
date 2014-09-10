@@ -1,18 +1,16 @@
 package main.java.ui
 
-import org.uqbar.arena.windows.SimpleWindow
-import main.java.detective.Pais
-import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.layout.VerticalLayout
-import org.uqbar.arena.widgets.Label
 import java.awt.Color
-import org.uqbar.arena.widgets.List
-import org.uqbar.arena.widgets.Button
+import main.java.detective.Pais
 import org.uqbar.arena.layout.ColumnLayout
-import org.uqbar.arena.widgets.TextBox
+import org.uqbar.arena.layout.VerticalLayout
+import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.widgets.List
+import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Selector
-import main.java.detective.Sistema
+import org.uqbar.arena.windows.SimpleWindow
+import org.uqbar.arena.windows.WindowOwner
 
 class EditarConexiones extends SimpleWindow<Pais> {
 	
@@ -44,7 +42,6 @@ class EditarConexiones extends SimpleWindow<Pais> {
 		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new Selector(col2) => [
 			setWidth(100)
-//			bindItemsToProperty("owner.sistema.paisesSistema")
 			bindValueToProperty("conexionParaAgregar")
 		]
 		new Button(col2) => [

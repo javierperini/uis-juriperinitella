@@ -35,7 +35,7 @@ class EditarPais extends SimpleWindow<Pais>{
 		]
 
 		new Button(mainPanel) => [
-			setBackground(Color::LIGHT_GRAY)	// al pedo
+			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Características"
 					onClick [ | new EditarCaracteristicas(owner, modelObject).open ]
 		]
@@ -44,13 +44,7 @@ class EditarPais extends SimpleWindow<Pais>{
 			background = Color::MAGENTA
 			setText = "Conexiones"
 		]
-//		var Table<Pais> tablaDeConexiones = new Table<Pais>(mainPanel, Pais)
-//		tablaDeConexiones.bindItemsToProperty("conexiones")
-//		tablaDeConexiones.width = 200
-//		new Column<Pais>(tablaDeConexiones) => [
-//			title = "Conexiones"
-//			bindContentsToProperty("nombre")
-//		]
+
 		new List(mainPanel) => [
 			bindItemsToProperty("conexiones")
 			bindValueToProperty("nombre")
@@ -66,19 +60,13 @@ class EditarPais extends SimpleWindow<Pais>{
 			background = Color::MAGENTA
 			setText = "Lugares de interés"
 		]
-//		var Table<Lugar> tablaLugares = new Table<Lugar>(mainPanel, Lugar)
-//		tablaLugares.bindItemsToProperty("lugares")
-//		tablaLugares.width = 200
-//		new Column<Lugar>(tablaLugares) => [
-//			title = "Lugares de interés"
-//			bindContentsToProperty("nombre")
-//		]
+
 		new List(mainPanel) => [
 			bindItemsToProperty("lugares")
 			bindValueToProperty("nombre")		// ***CHEQUEAR ESTO***
 		]
 		new Button(mainPanel) => [
-			setBackground(Color::LIGHT_GRAY)	// al pedo
+			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Lugares"
 					onClick [ | new EditarLugaresInteres(owner, modelObject).open ]
 		]

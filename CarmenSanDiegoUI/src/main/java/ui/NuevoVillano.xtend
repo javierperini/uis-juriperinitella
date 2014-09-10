@@ -1,7 +1,7 @@
 package main.java.ui
 
 import java.awt.Color
-import main.java.personajes.Villano
+import main.java.detective.Sistema
 import main.java.pista.PistaHobbie
 import main.java.pista.PistaSenia
 import org.uqbar.arena.layout.ColumnLayout
@@ -13,14 +13,12 @@ import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import main.java.detective.Sistema
 
 class NuevoVillano extends SimpleWindow<Sistema> {
 	
 	new(WindowOwner owner, Sistema sistema) {
 		super(owner, sistema)
-//		title = "Nuevo Villano"
-//		taskDescription = "Crear Nuevo Villano"
+
 	}
 
 	override createContents(Panel mainPanel) {
@@ -54,7 +52,7 @@ class NuevoVillano extends SimpleWindow<Sistema> {
 		]
 		val p = modelObject.villanoEnCreacion
 		new Button(mainPanel) => [
-			setBackground(Color::LIGHT_GRAY)	// al pedo
+			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar hobbies"
 					onClick [ | new EditarHobbies(owner,p).open ]
 		]
@@ -66,23 +64,6 @@ class NuevoVillano extends SimpleWindow<Sistema> {
 								close
 							]
 		]
-
-	//		new ErrorsPanel(mainPanel, "nombre: ")
-	//
-	//		new Label(mainPanel).setText("Ingrese la longitud en millas")
-	//
-	//		new TextBox(mainPanel).bindValueToProperty("sexo")
-	//
-	//		new Button(mainPanel) => [
-	//			caption = "Convertir a kilÃ³metros"
-	//			onClick [ | this.modelObject.convertir ]
-	//		]
-	//
-	//		new Label(mainPanel)
-	//			.setBackground(Color::ORANGE)
-	//			.bindValueToProperty("kilometros")
-	//
-	//		new Label(mainPanel).setText(" kilÃ³metros")
 	}
 	
 	override protected addActions(Panel arg0) {

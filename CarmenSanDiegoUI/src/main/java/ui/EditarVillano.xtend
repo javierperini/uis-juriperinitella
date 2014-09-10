@@ -42,7 +42,7 @@ new(WindowOwner owner, Villano villano) {
 		]
 		
 		new Button(mainPanel) => [
-			setBackground(Color::LIGHT_GRAY)	// al pedo
+			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Señas Particulares"
 					onClick [ | new EditarSeniasParticulares(owner, modelObject).open ]
 		]
@@ -56,7 +56,7 @@ new(WindowOwner owner, Villano villano) {
 			bindContentsToProperty("pista")
 		]
 		new Button(mainPanel) => [
-			setBackground(Color::LIGHT_GRAY)	// al pedo
+			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar hobbies"
 					onClick [ | new EditarHobbies(owner, modelObject).open ]
 		]

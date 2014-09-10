@@ -30,12 +30,8 @@ class NuevoPais extends SimpleWindow<Sistema>{
 		var Table<String> tablaDeCaracteristicas = new Table<String>(mainPanel, String)
 		tablaDeCaracteristicas.bindItemsToProperty("paisEnCreacion.caracteristicas")
 		tablaDeCaracteristicas.width = 200
-//		new Column<String>(tablaDeCaracteristicas) => [
-//			title = "Características"
-//			bindContentsToProperty("paisEnCreacion.caracteristicas")			// *** NO FUNCIONA ***
-//		]
 		new Button(mainPanel) => [
-			setBackground(Color::LIGHT_GRAY)	// al pedo
+			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Características"
 					onClick [ | new EditarCaracteristicas(owner, modelObject.paisEnCreacion).open ]
 		]
@@ -48,7 +44,7 @@ class NuevoPais extends SimpleWindow<Sistema>{
 			bindContentsToProperty("nombre")
 		]
 		new Button(mainPanel) => [
-			setBackground(Color::LIGHT_GRAY)	// al pedo
+			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Conexiones"
 					onClick [ | new EditarConexiones(owner, modelObject.paisEnCreacion).open ]
 		]
@@ -61,7 +57,7 @@ class NuevoPais extends SimpleWindow<Sistema>{
 			bindContentsToProperty("nombre")
 		]
 		new Button(mainPanel) => [
-			setBackground(Color::LIGHT_GRAY)	// al pedo
+			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Lugares"
 					onClick [ | new EditarLugaresInteres(owner, modelObject.paisEnCreacion).open ]
 		]
@@ -69,17 +65,17 @@ class NuevoPais extends SimpleWindow<Sistema>{
 		new Button(mainPanel) => [
 			caption = "Aceptar"
 			
-					onClick [ |  // modelObject.agregarPaisALaLista				ARREGLAR!!!
+					onClick [ |  
 								close
 							]
 		]
 	}
 	override protected addActions(Panel arg0) {
-		//
+		
 	}
 	
 	override protected createFormPanel(Panel arg0) {
-		//
+		
 	}
 		
 		

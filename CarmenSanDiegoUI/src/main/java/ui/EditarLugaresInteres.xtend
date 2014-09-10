@@ -42,7 +42,6 @@ class EditarLugaresInteres  extends SimpleWindow<Pais> {
 		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new Selector(col2) => [
 			setWidth(100)
-//			bindItemsToProperty("owner.sistema.paisesSistema")
 			bindValueToProperty("lugarParaAgregar")
 		]
 		new Button(col2) => [

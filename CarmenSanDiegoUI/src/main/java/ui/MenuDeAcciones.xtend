@@ -2,15 +2,12 @@ package main.java.ui
 
 import main.java.detective.Sistema
 import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.windows.MainWindow
-import org.uqbar.arena.layout.VerticalLayout
-import org.uqbar.arena.Application
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import main.java.personajes.Villano
 
 class MenuDeAcciones extends SimpleWindow<Sistema>{
 	
@@ -43,28 +40,6 @@ class MenuDeAcciones extends SimpleWindow<Sistema>{
 			new Button(mainPanel) => [
 				caption = "Expedientes"
 				onClick [ | new ExpedientesWindow(owner, modelObject).open ] //Prueba en la creacion del villano.
-			]
-			
-			// ----------------------- BOTONES DE PRUEBA --------------------------- 
-			
-			new Button(mainPanel) => [
-				caption = "prueba nuevo villano"
-				onClick [ | new NuevoVillano(owner, modelObject).open ]
-			]
-			
-			new Button(mainPanel) => [
-				caption = "prueba editar villano"
-				onClick [ | new EditarVillano(owner, modelObject.villanoSeleccionado).open ]
-			]
-			
-			new Button(mainPanel) => [
-				caption = "prueba nuevo pais"
-				onClick [ | new NuevoPais(owner, modelObject).open ]
-			]
-			
-			new Button(mainPanel) => [
-				caption = "prueba editar pais"
-				onClick [ | new EditarPais(owner, modelObject.paisSeleccionado).open ]
 			]
 		]
 	}

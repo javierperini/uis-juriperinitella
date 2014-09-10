@@ -40,15 +40,9 @@ class MapamundiWindow extends SimpleWindow<Sistema> {
 			
 			var Table<String> caracteristicas = new Table<String>(it, String)
 			caracteristicas.bindItemsToProperty("paisSeleccionado.caracteristicas")
-//			caracteristicas.bindValueToProperty("seniasVillanoSeleccionado")
-//			new Column<String>(caracteristicas) => [
-//				title = "Características" 
-//				bindContentsToProperty("this")		//????????
-//			]
-			
+
 			var Table<Pais> conexiones = new Table<Pais>(it, Pais)
 			conexiones.bindItemsToProperty("paisSeleccionado.conexiones")
-//			conexiones.bindValueToProperty("hobbiesVillanoSeleccionado")
 			new Column<Pais>(conexiones) => [
 				title = "Conexiones" 
 				bindContentsToProperty("nombre")
@@ -56,14 +50,13 @@ class MapamundiWindow extends SimpleWindow<Sistema> {
 			
 			var Table<Lugar> lugares = new Table<Lugar>(it, Lugar)
 			lugares.bindItemsToProperty("paisSeleccionado.lugares")
-//			conexiones.bindValueToProperty("hobbiesVillanoSeleccionado")
 			new Column<Lugar>(lugares) => [
 				title = "Lugares de Interés" 
 				bindContentsToProperty("nombre")
 			]	
 		]
 		
-		new Button(colPanel) => [ //						****NO FUNCIONA****
+		new Button(colPanel) => [ 
 				caption = "Eliminar"
 				onClick [ | modelObject.removerPais ]
 		]
