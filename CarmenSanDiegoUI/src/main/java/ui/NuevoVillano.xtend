@@ -18,7 +18,7 @@ class NuevoVillano extends SimpleWindow<Sistema> {
 	
 	new(WindowOwner owner, Sistema sistema) {
 		super(owner, sistema)
-
+		sistema.crearVillano
 	}
 
 	override createContents(Panel mainPanel) {
@@ -60,7 +60,7 @@ class NuevoVillano extends SimpleWindow<Sistema> {
 		new Button(mainPanel) => [
 			caption = "Aceptar"
 			
-					onClick [ |  // modelObject.agregarVillanoALaLista				ARREGLAR!!!
+					onClick [ |  modelObject.agregarVillanoALaLista				
 								close
 							]
 		]
