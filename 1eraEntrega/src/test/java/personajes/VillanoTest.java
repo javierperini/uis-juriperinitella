@@ -1,0 +1,69 @@
+package personajes;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import personajes.Villano;
+import pista.PistaHobbie;
+import pista.PistaSenia;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public class VillanoTest {
+	
+	private Villano v;
+	private PistaSenia ps;
+	private PistaHobbie ph;
+	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+
+	@Before
+	public void setUp() throws Exception {
+		ph = new PistaHobbie("jugar a la canasta");
+		ps = new PistaSenia("lunar sobre la boca");
+		v = new Villano();
+		v.setSexo("femenino");
+		v.setNombre("Carmen Sandiego");
+		v.setHobbie(ph);
+		v.setSeniasPart(ps);
+		
+		System.setOut(new PrintStream(outContent));
+		System.setErr(new PrintStream(errContent));
+	}
+
+	@Test
+	public void testGetInformacion() {
+		v.getInformacion();
+		assertEquals("Me atrapaste!!", outContent.toString());
+	}
+
+	@Test
+	public void testPuedeRevelarPista() {
+		assertFalse(v.puedeRevelarPista());
+	}
+
+	@Test
+	public void testGetSexo() {
+		assertEquals(v.getSexo(), "femenino");
+	}
+
+	@Test
+	public void testGetHobbies() {
+		assertEquals(v.getHobbies().get(0).getPista(), "jugar a la canasta");
+	}
+
+	@Test
+	public void testGetSeniasPart() {
+		assertEquals(v.getSeniasPart().get(0).getPista(), "lunar sobre la boca");
+	}
+
+	@Test
+	public void testGetNombre() {
+		assertEquals(v.getNombre(), "Carmen Sandiego");
+	}
+
+}
