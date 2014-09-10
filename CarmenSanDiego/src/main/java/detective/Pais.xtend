@@ -50,7 +50,7 @@ class Pais {
 		if(lugarActual != null){
 		lugarActual.imprimirPistas	
 		}else{
-			//throw new exeptionNoEstaEnNingunLugar()
+			throw new NoEstaEnNingunLugar("No fuiste a ningun lugar")
 		}
 	}
 	

@@ -1,11 +1,10 @@
 package main.java.personajes
 
+import java.util.List
 import main.java.pista.PistaHobbie
 import main.java.pista.PistaSenia
-import org.uqbar.commons.utils.Observable
-import java.util.List
-import java.util.ArrayList
 import org.uqbar.commons.model.ObservableUtils
+import org.uqbar.commons.utils.Observable
 
 @Observable
 class Villano extends Personaje {
@@ -14,9 +13,11 @@ class Villano extends Personaje {
 	@Property List<PistaSenia> seniasPart = newArrayList()
 	@Property PistaSenia seniaSel
 	@Property PistaHobbie hobbieSel
+	@Property PistaHobbie hobbieAEliminar
+	@Property PistaHobbie hobbieParaAgregar
 	@Property PistaSenia seniaPartAEliminar
-	@Property PistaSenia caracteristicaParaAgregar
-	@Property PistaSenia seniasPartParaAgregar	
+	@Property PistaSenia seniaParaAgregar
+	
 	
 			  
 	
@@ -29,10 +30,10 @@ class Villano extends Personaje {
 	
 	new(){
 		
-		var PistaSenia a=new PistaSenia("Hola, soy una pista")
-		var PistaSenia b=new PistaSenia("javier feo")
-		var PistaSenia c=new PistaSenia("anyi linda")
-		seniasPart = #[a, b, c]
+		seniasPart.add(new PistaSenia("Hola, soy una pista"))
+		seniasPart.add(new PistaSenia("javier feo"))
+		seniasPart.add(new PistaSenia("anyi linda"))
+	
 		
 		hobbies.add(new PistaHobbie("Le gustan los pantalones azules"))
 		hobbies.add(new PistaHobbie("Run beach Run"))
@@ -60,8 +61,19 @@ class Villano extends Personaje {
 	}
 	
 	def agregarSeniasPart() {
-		seniasPart.add(caracteristicaParaAgregar)
+		seniasPart.add(seniaParaAgregar)
 		ObservableUtils.firePropertyChanged(this, "seniasPart", seniasPart)
 	}
 	
+	def agregarHobbies() {
+		hobbies.add(hobbieParaAgregar)
+		ObservableUtils.firePropertyChanged(this, "hobbies", hobbies)
+	}
+	
+	def quitarHobbies() {
+		hobbies.remove(hobbieAEliminar)
+		ObservableUtils.firePropertyChanged(this, "hobbies", hobbies)
+	}
+	
 }
+	

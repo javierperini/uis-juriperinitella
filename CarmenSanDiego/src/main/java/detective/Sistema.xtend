@@ -11,20 +11,18 @@ import org.uqbar.commons.utils.Observable
 class Sistema {
 	
 	@Property Caso caso
-	@Property List<Pais> paisesSistema = newArrayList()
+	@Property List<Pais> paisesSistema= newArrayList()
 	@Property List<Villano> villanosSistema = newArrayList()
-			  Pais paisActual
-	@Property List<Pais> paisesVisitados = newArrayList()
-			  Villano villanoArrestar
-			  OrdenDeArresto ordenDeArresto
-			  
-	/* UI */
 	@Property Villano villanoSeleccionado
 	@Property Pais paisSeleccionado
 	@Property PistaSenia seniasVillanoSeleccionado
 	@Property PistaHobbie hobbiesVillanoSeleccionado
 	@Property Villano villanoEnCreacion = new Villano()
 	@Property Pais paisEnCreacion = new Pais()
+			  Pais paisActual
+			  List<Pais> paisesVisitados
+			  Villano villanoArrestar
+			  OrdenDeArresto ordenDeArresto
 	
 	new(Caso caso, List<Pais> paisesSistema, List<Villano> villanosSistema){
 		this.caso=caso
@@ -41,25 +39,30 @@ class Sistema {
 		b.nombre = "adri"
 		var Villano c = new Villano()
 		c.nombre = "oggi junco"
-		villanosSistema = #[a, b, c]
-//		villanosSistema.add(a)
-//		villanosSistema.add(b)
-//		villanosSistema.add(c)
+		villanosSistema.add(a)
+		villanosSistema.add(b)
+		villanosSistema.add(c)
 		var Pais ap = new Pais
 		ap.nombre = "pais a"
 		var Pais bp = new Pais
 		bp.nombre = "pais b"
-		paisesSistema = #[ap, bp]
+	    paisesSistema.add(ap)
+	    paisesSistema.add(bp)
+	
+	}
+	
+	def paisesAViajar(){
+		paisesSistema.remove(paisActual)
 	}
 	
 	def viajar(Pais pais){
-		paisActual = pais
+		paisActual=pais
 		paisesVisitados.add(pais)
 		paisesSistema.remove(pais)
 	}
 	
 	def volverAPaisAnterior(){
-		paisActual = paisesVisitados.get(0)
+		paisActual=paisesVisitados.get(0)
 		paisesVisitados.remove(paisesVisitados.get(0))
 		paisesSistema.add(paisesVisitados.get(0)) 
 	}
@@ -70,32 +73,32 @@ class Sistema {
 	
 	def generarOrdenDeArrestro(){
 		for(Villano villano: villanosSistema){
-			 if(villano.hobbies.containsAll(ordenDeArresto.pistasHobbie) && 
-			 		villano.seniasPart.containsAll(ordenDeArresto.pistasSenia))
-			 	villanoArrestar = villano
+	//		 if(villano.hobbies.contains(ordenDeArresto.pistaHobbie) &&  --MODIFICAR LA CONDICION 
+		//	 		villano.seniasPart.contains(ordenDeArresto.pistaSenia))
+			 	villanoArrestar= villano
 			}
-		 if( villanoArrestar == null){}
-		 	//throw new exceptionNingunVillano
+		 if( villanoArrestar== null){
+		 	throw new ExceptionNingunVillano("No hay coincidencia con ningu villano")
+			}
 	}
 	
 	def completarHobbieOrdenDeArresto(PistaHobbie pista){
-		ordenDeArresto.pistasHobbie.add(pista)
+		ordenDeArresto.agregarPistaHobbie(pista)
 	}
 	
 	def completarSeniaOrdenDeArresto(PistaSenia pista){
-		ordenDeArresto.pistasSenia.add(pista)
+		ordenDeArresto.agregarPistaSenia(pista)
+	}
+	def arrestar(){
+		villanoArrestar== caso.villano
 	}
 	
-	def ganoElJuego(){
-		villanoArrestar == caso.villano
+	def void agregarVillanoALaLista() {
+		villanosSistema.add(villanoEnCreacion)
 	}
 	
-//	def void agregarVillanoALaLista() {
-//		villanosSistema.add(villanoEnCreacion)
-//	}
-	
-	def getOrdenDeArresto() {
-		ordenDeArresto
+	def getRemoverPais() {
+		paisesSistema.remove(paisSeleccionado)
 	}
 	
 }

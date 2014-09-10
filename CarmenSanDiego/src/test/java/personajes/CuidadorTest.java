@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-
 import main.java.personajes.Cuidador;
 
 import org.junit.Before;
@@ -12,7 +11,7 @@ import org.junit.Test;
 
 public class CuidadorTest {
 	
-	private Cuidador c;
+	private Cuidador  c;
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
