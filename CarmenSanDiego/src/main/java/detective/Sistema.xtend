@@ -6,6 +6,8 @@ import main.java.detective.Caso
 import main.java.pista.PistaHobbie
 import main.java.pista.PistaSenia
 import org.uqbar.commons.utils.Observable
+import org.uqbar.commons.model.ObservableUtils
+import java.util.ArrayList
 
 @Observable
 class Sistema {
@@ -64,7 +66,7 @@ class Sistema {
 			 	villanoArrestar= villano
 			}
 		 if( villanoArrestar== null){
-		 	throw new ExceptionNingunVillano("No hay coincidencia con ningu villano")
+		 	throw new ExceptionNingunVillano("No hay coincidencia con ningun villano")
 			}
 	}
 	
@@ -79,12 +81,19 @@ class Sistema {
 		villanoArrestar== caso.villano
 	}
 	
-	def void agregarVillanoALaLista() {
+	def agregarVillanoALaLista() {
 		villanosSistema.add(villanoEnCreacion)
+		ObservableUtils.firePropertyChanged(this, "villanosSistema", villanosSistema)
 	}
 	
 	def getRemoverPais() {
 		paisesSistema.remove(paisSeleccionado)
+		ObservableUtils.firePropertyChanged(this, "paisesSistema", paisesSistema)
+	}
+	
+	def agregarPaisALaLista() {
+		paisesSistema.add(paisEnCreacion)
+		ObservableUtils.firePropertyChanged(this, "paisesSistema", paisesSistema)
 	}
 	
 }
