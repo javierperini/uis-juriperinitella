@@ -1,69 +1,69 @@
-package ui
+package expediente
 
-import org.uqbar.arena.windows.SimpleWindow
-import personajes.Villano
-import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.layout.ColumnLayout
-import org.uqbar.arena.widgets.Label
-import org.uqbar.arena.widgets.TextBox
-import org.uqbar.arena.widgets.Button
 import java.awt.Color
-import pista.PistaSenia
-import org.uqbar.arena.widgets.tables.Table
-import org.uqbar.arena.widgets.tables.Column
+import detective.Sistema
 import pista.PistaHobbie
+import pista.PistaSenia
+import org.uqbar.arena.layout.ColumnLayout
+import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.TextBox
+import org.uqbar.arena.widgets.tables.Column
+import org.uqbar.arena.widgets.tables.Table
+import org.uqbar.arena.windows.SimpleWindow
+import org.uqbar.arena.windows.WindowOwner
 
-class EditarVillano extends SimpleWindow<Villano>{
+class NuevoVillano extends SimpleWindow<Sistema> {
 	
-new(WindowOwner owner, Villano villano) {
-		super(owner, villano)
-		
+	new(WindowOwner owner, Sistema sistema) {
+		super(owner, sistema)
+		sistema.crearVillano
 	}
 
 	override createContents(Panel mainPanel) {
-		this.setTitle("Expedientes - Editar Villano")
+		this.setTitle("Expedientes - Nuevo Villano")
 		val colPanel = new Panel(mainPanel)
 		colPanel.setLayout(new ColumnLayout(2))
 
 		new Label(colPanel).setText("Nombre: ")
-		new TextBox(colPanel).bindValueToProperty("nombre")
+		new TextBox(colPanel).bindValueToProperty("villanoEnCreacion.nombre")
 		new Label(colPanel).setText("Sexo: ")
-		new TextBox(colPanel).bindValueToProperty("sexo")
-		
+		new TextBox(colPanel).bindValueToProperty("villanoEnCreacion.sexo")
 
 		var Table<PistaSenia> tablaDeSenias = new Table<PistaSenia>(mainPanel, PistaSenia)
-		tablaDeSenias.bindItemsToProperty("seniasPart")
-		tablaDeSenias.bindValueToProperty("seniaSel")
+		tablaDeSenias.bindItemsToProperty("villanoEnCreacion.seniasPart")
 		tablaDeSenias.width = 200
+		tablaDeSenias.height = 50
 		new Column<PistaSenia>(tablaDeSenias) => [
 			title = "Señas particulares" 
 			bindContentsToProperty("pista")
 		]
-		
 		new Button(mainPanel) => [
-			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Señas Particulares"
-					onClick [ | new EditarSeniasParticulares(owner, modelObject).open ]
+					onClick [ | new EditarSeniasParticulares(owner, modelObject.villanoEnCreacion).open ]
 		]
 		
 		var Table<PistaHobbie> tablaDeHobbies = new Table<PistaHobbie>(mainPanel, PistaHobbie)
-		tablaDeHobbies.bindItemsToProperty("hobbies")
-		tablaDeHobbies.bindValueToProperty("hobbieSel")
+		tablaDeHobbies.bindItemsToProperty("villanoEnCreacion.hobbies")
 		tablaDeHobbies.width = 200
+		tablaDeHobbies.height = 50
 		new Column<PistaHobbie>(tablaDeHobbies) => [
 			title = "Hobbies" 
 			bindContentsToProperty("pista")
 		]
+		val p = modelObject.villanoEnCreacion
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar hobbies"
-					onClick [ | new EditarHobbies(owner, modelObject).open ]
+					onClick [ | new EditarHobbies(owner,p).open ]
 		]
 		
 		new Button(mainPanel) => [
 			caption = "Aceptar"
-					onClick [ | close ]
+			onClick [ |  modelObject.agregarVillanoALaLista				
+						close
+					]
 		]
 	}
 	
@@ -74,5 +74,7 @@ new(WindowOwner owner, Villano villano) {
 	override protected createFormPanel(Panel arg0) {
 		//
 	}
+
+
 
 }

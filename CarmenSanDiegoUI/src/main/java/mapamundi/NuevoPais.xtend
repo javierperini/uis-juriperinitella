@@ -1,4 +1,4 @@
-package ui
+package mapamundi
 
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
@@ -12,6 +12,7 @@ import org.uqbar.arena.widgets.Button
 import java.awt.Color
 import detective.Pais
 import lugares.Lugar
+import expediente.EditarCaracteristicas
 
 class NuevoPais extends SimpleWindow<Sistema>{
 	

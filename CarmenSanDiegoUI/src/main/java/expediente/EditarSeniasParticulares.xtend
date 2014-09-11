@@ -1,8 +1,8 @@
-package ui
+package expediente
 
 import java.awt.Color
 import personajes.Villano
-import pista.PistaHobbie
+import pista.PistaSenia
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
@@ -13,46 +13,45 @@ import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 
-class EditarHobbies extends SimpleWindow<Villano>{
+class EditarSeniasParticulares extends SimpleWindow<Villano> {
 	
 	new(WindowOwner owner, Villano villano) {
 		super(owner, villano)
 		
 	} 
 	override createContents(Panel mainPanel) {
-			this.setTitle("Editar Hobbies")
+			this.setTitle("Editar Señas")
 		
 		var p = new Panel(mainPanel)
 		p.setLayout(new VerticalLayout)
 
-		var Table<PistaHobbie> tablaDeSenias = new Table<PistaHobbie>(mainPanel, PistaHobbie)
-		tablaDeSenias.bindItemsToProperty("hobbies")
-		tablaDeSenias.bindValueToProperty("hobbieAEliminar")
+		var Table<PistaSenia> tablaDeSenias = new Table<PistaSenia>(mainPanel, PistaSenia)
+		tablaDeSenias.bindItemsToProperty("seniasPart")
+		tablaDeSenias.bindValueToProperty("seniaPartAEliminar")
 		tablaDeSenias.width = 200
 		tablaDeSenias.height = 50
-		new Column<PistaHobbie>(tablaDeSenias) => [
-			title = "Señas Hobbies" 
+		new Column<PistaSenia>(tablaDeSenias) => [
+			title = "Señas particulares" 
 			bindContentsToProperty("pista")
 		]
 
 		var col = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new Button(col) => [
-			setBackground(Color::LIGHT_GRAY)	// al pedo
+			setBackground(Color::LIGHT_GRAY)	
 			caption = "Eliminar"
-					onClick [ | modelObject.quitarHobbies()]
+					onClick [ | modelObject.quitarSeniaPart]
 		]
 		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new TextBox(col2) => [
 			setWidth(100)
-			val bindingMonto = bindValueToProperty("hobbieParaAgregar")
-			bindingMonto.transformer =  new PistaHobbieTrasnformer
-			
+			val bindingMonto = bindValueToProperty("seniaParaAgregar")
+			bindingMonto.transformer =  new PistaSeniaTransformer
 		]
 		new Button(col2) => [
 			setWidth(100)
 			setBackground(Color::LIGHT_GRAY)
 			caption = "Agregar"
-					onClick [ | modelObject.agregarHobbies()] 
+					onClick [ | modelObject.agregarSeniasPart()] 
 		]
 		var ver = new Panel(mainPanel)
 		new Button(ver) => [
@@ -72,3 +71,5 @@ class EditarHobbies extends SimpleWindow<Villano>{
 	}
 		
 	}
+	
+	

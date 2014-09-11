@@ -1,20 +1,21 @@
-package ui
+package expediente
 
 import org.uqbar.arena.bindings.Transformer
 import org.uqbar.commons.model.UserException
-import pista.PistaHobbie
+import pista.PistaSenia
 
-class PistaHobbieTrasnformer implements Transformer<PistaHobbie, String> {
+class PistaSeniaTransformer implements Transformer<PistaSenia, String>{
+	
 
 	override getModelType() {
-		PistaHobbie
+		PistaSenia
 		}
 
 	override getViewType() {
 		String
 	}
 
-	override modelToView(PistaHobbie valueFromModel) {
+	override modelToView(PistaSenia valueFromModel) {
 		valueFromModel.toString
 	}
 
@@ -23,13 +24,11 @@ class PistaHobbieTrasnformer implements Transformer<PistaHobbie, String> {
 			null
 		else
 			try
-				new PistaHobbie(valueFromView)
+				new PistaSenia(valueFromView)
 			catch (Exception e)//falta crea exception
 				throw new UserException("El valor ingresado debe ser un número", e)
 				}
 	
 
 }
-	
-
 	

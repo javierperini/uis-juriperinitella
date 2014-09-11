@@ -1,4 +1,4 @@
-package ui
+package mapamundi
 
 import java.awt.Color
 import detective.Pais
@@ -12,43 +12,43 @@ import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 
-class EditarConexiones extends SimpleWindow<Pais> {
+class EditarLugaresInteres  extends SimpleWindow<Pais> {
 	
 	new(WindowOwner owner, Pais pais) {
 		super(owner, pais)
 	}
 	
 	override createContents(Panel mainPanel) {
-		this.setTitle("Editar Conexiones")
+		this.setTitle("Editar Lugares")
 		
 		var p = new Panel(mainPanel)
 		p.setLayout(new VerticalLayout)
 		new Label(p) => [
 			setWidth(220)
 			setBackground(Color::LIGHT_GRAY)
-			setText("Conexiones")
+			setText("Lugares de Interes")
 		]
 		new List(p) => [
-			bindItemsToProperty("conexiones")
-			bindValueToProperty("conexionAEliminar")	
+			bindItemsToProperty("lugares")
+			bindValueToProperty("lugarAEliminar")	
 		]
 		
 		var col = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new Button(col) => [
 			setBackground(Color::LIGHT_GRAY)	// al pedo
 			caption = "Eliminar"
-					onClick [ | modelObject.quitarConexion()]
+					onClick [ | modelObject.quitarLugar()]
 		]
 		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new Selector(col2) => [
 			setWidth(100)
-			bindValueToProperty("conexionParaAgregar")
+			bindValueToProperty("lugarParaAgregar")
 		]
 		new Button(col2) => [
 			setWidth(100)
 			setBackground(Color::LIGHT_GRAY)
 			caption = "Agregar"
-					onClick [ | modelObject.agregarConexion()]
+					onClick [ | modelObject.agregarLugar()]
 		]
 		var ver = new Panel(mainPanel)
 		new Button(ver) => [
@@ -66,6 +66,7 @@ class EditarConexiones extends SimpleWindow<Pais> {
 	override protected createFormPanel(Panel arg0) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
+
 
 	
 }

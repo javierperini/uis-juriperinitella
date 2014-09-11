@@ -1,57 +1,54 @@
-package ui
+package expediente
 
 import java.awt.Color
-import personajes.Villano
-import pista.PistaSenia
+import detective.Pais
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
-import org.uqbar.arena.widgets.tables.Column
-import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 
-class EditarSeniasParticulares extends SimpleWindow<Villano> {
+class EditarCaracteristicas extends SimpleWindow<Pais> {
 	
-	new(WindowOwner owner, Villano villano) {
-		super(owner, villano)
-		
-	} 
+	new(WindowOwner owner, Pais pais) {
+		super(owner, pais)
+	}
+	
 	override createContents(Panel mainPanel) {
-			this.setTitle("Editar Señas")
+		this.setTitle("Editar Caracteristicas")
 		
 		var p = new Panel(mainPanel)
 		p.setLayout(new VerticalLayout)
-
-		var Table<PistaSenia> tablaDeSenias = new Table<PistaSenia>(mainPanel, PistaSenia)
-		tablaDeSenias.bindItemsToProperty("seniasPart")
-		tablaDeSenias.bindValueToProperty("seniaPartAEliminar")
-		tablaDeSenias.width = 200
-		tablaDeSenias.height = 50
-		new Column<PistaSenia>(tablaDeSenias) => [
-			title = "Señas particulares" 
-			bindContentsToProperty("pista")
+		new Label(p) => [
+			setWidth(220)
+			setBackground(Color::LIGHT_GRAY)
+			setText("Caracteristicas")
 		]
-
+		new List(p) => [
+			bindItemsToProperty("caracteristicas")
+			bindValueToProperty("caracteristicaAEliminar")	
+		]
+		
 		var col = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new Button(col) => [
 			setBackground(Color::LIGHT_GRAY)	
 			caption = "Eliminar"
-					onClick [ | modelObject.quitarSeniaPart]
+					onClick [ | modelObject.quitarCaracteristica()]
 		]
 		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new TextBox(col2) => [
 			setWidth(100)
-			val bindingMonto = bindValueToProperty("seniaParaAgregar")
-			bindingMonto.transformer =  new PistaSeniaTransformer
+			bindValueToProperty("caracteristicaParaAgregar")
 		]
 		new Button(col2) => [
 			setWidth(100)
 			setBackground(Color::LIGHT_GRAY)
 			caption = "Agregar"
-					onClick [ | modelObject.agregarSeniasPart()] 
+					onClick [ | modelObject.agregarCaracteristica()]
 		]
 		var ver = new Panel(mainPanel)
 		new Button(ver) => [
@@ -62,14 +59,12 @@ class EditarSeniasParticulares extends SimpleWindow<Villano> {
 		]
 	}
 	
-	override protected addActions(Panel actionsPanel) {
+	override protected addActions(Panel arg0) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
 	
-	override protected createFormPanel(Panel mainPanel) {
+	override protected createFormPanel(Panel arg0) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")
 	}
-		
-	}
 	
-	
+}

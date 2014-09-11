@@ -8,6 +8,8 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+import mapamundi.MapamundiWindow
+import expediente.ExpedientesWindow
 
 class MenuDeAcciones extends SimpleWindow<Sistema>{
 	

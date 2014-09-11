@@ -1,4 +1,4 @@
-package ui
+package mapamundi
 
 import detective.Pais
 import detective.Sistema

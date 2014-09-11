@@ -50,7 +50,7 @@ class CarmenApplication extends Application{
 		var Caso caso= new Caso
 		var sistema= new Sistema(caso,paisesSistema,villanos)
 		
-		new MenuDeAcciones(this,sistema )
+		new MenuDeAcciones(this, sistema)
 	}
 	
 	def static main(String[] args) {

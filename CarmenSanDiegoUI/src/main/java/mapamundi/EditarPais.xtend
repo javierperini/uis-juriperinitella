@@ -1,4 +1,4 @@
-package ui
+package mapamundi
 
 import java.awt.Color
 import detective.Pais
@@ -9,6 +9,7 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+import expediente.EditarCaracteristicas
 
 class EditarPais extends SimpleWindow<Pais>{
 	
@@ -25,7 +26,7 @@ class EditarPais extends SimpleWindow<Pais>{
 		
 		new Label(mainPanel) => [
 			background = Color::MAGENTA
-			setText = "Características"
+			text = "Características"
 		]
 		new List(mainPanel) => [
 			// TITULO REEMPLAZADO CON LABEL 
@@ -41,7 +42,7 @@ class EditarPais extends SimpleWindow<Pais>{
 		
 		new Label(mainPanel) => [
 			background = Color::MAGENTA
-			setText = "Conexiones"
+			text = "Conexiones"
 		]
 
 		new List(mainPanel) => [
@@ -56,7 +57,7 @@ class EditarPais extends SimpleWindow<Pais>{
 		
 		new Label(mainPanel) => [
 			background = Color::MAGENTA
-			setText = "Lugares de interés"
+			text = "Lugares de interés"
 		]
 
 		new List(mainPanel) => [

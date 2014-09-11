@@ -1,4 +1,4 @@
-package ui
+package expediente
 
 import detective.Sistema
 import personajes.Villano
@@ -13,6 +13,8 @@ import org.uqbar.arena.layout.HorizontalLayout
 import pista.PistaSenia
 import pista.PistaHobbie
 import org.uqbar.arena.widgets.Button
+import expediente.NuevoVillano
+import expediente.EditarVillano
 
 class ExpedientesWindow extends SimpleWindow<Sistema> {
 	
