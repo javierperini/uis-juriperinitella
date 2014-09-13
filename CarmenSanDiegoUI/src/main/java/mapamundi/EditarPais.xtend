@@ -16,7 +16,6 @@ class EditarPais extends SimpleWindow<Pais>{
 	new(WindowOwner parent, Pais model) {
 		super(parent, model)
 	}
-	
 		
 	override createContents(Panel mainPanel) {
 		this.setTitle("Mapamundi - Editar País")
