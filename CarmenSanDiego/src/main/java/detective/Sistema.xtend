@@ -14,12 +14,7 @@ class Sistema {
 	@Property List<Pais> paisesSistema= newArrayList()
 	@Property List<Pais> paisesVisitados= newArrayList()
 	@Property List<Villano> villanosSistema = newArrayList()
-	@Property Villano villanoSeleccionado
-	@Property Pais paisSeleccionado
-	@Property PistaSenia seniasVillanoSeleccionado
-	@Property PistaHobbie hobbiesVillanoSeleccionado
 	@Property Villano villanoEnCreacion
-	@Property Pais paisEnCreacion
 	@Property Pais paisActual
 	@Property  Villano villanoArrestar
 	@Property OrdenDeArresto ordenDeArresto
@@ -79,17 +74,6 @@ class Sistema {
 	def agregarVillanoALaLista() {
 		villanosSistema.add(villanoEnCreacion)
 		ObservableUtils.firePropertyChanged(this, "villanosSistema", villanosSistema)
-	}
-	
-	def getRemoverPais() {
-		paisesSistema.remove(paisSeleccionado)
-		ObservableUtils.firePropertyChanged(this, "paisesSistema", paisesSistema)
-	}
-	
-	def agregarPaisALaLista() {
-		paisesSistema.add(paisEnCreacion)
-		ObservableUtils.firePropertyChanged(this, "paisesSistema", paisesSistema)
-		
 	}
 	
 	def crearVillano() {
