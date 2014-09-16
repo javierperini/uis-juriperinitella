@@ -1,5 +1,8 @@
 package mapamundi
 
+import detective.Sistema
+import detective.Pais
+
 class MapamundiAppModel {
 //	@Property Sistema sistema
 //	@Property Pais paisSeleccionado

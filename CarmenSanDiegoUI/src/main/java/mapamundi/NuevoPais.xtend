@@ -47,7 +47,7 @@ class NuevoPais extends SimpleWindow<Sistema>{
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Conexiones"
-					onClick [ | new EditarConexiones(owner, modelObject.paisEnCreacion).open ]
+					onClick [ | new EditarConexiones(owner, modelObject.paisEnCreacion, modelObject).open ]
 		]
 		
 		var Table<Lugar> tablaLugares = new Table<Lugar>(mainPanel, Lugar)

@@ -64,11 +64,11 @@ class MapamundiWindow extends SimpleWindow<Sistema> {
 		
 		new Button(colPanel) => [ 
 				caption = "Eliminar"
-				onClick [ | modelObject.removerPais ]
+//				onClick [ | modelObject.removerPais ]
 		]
 		new Button(colPanel) => [
 				caption = "Editar"
-				onClick [ | new EditarPais(owner, modelObject.paisSeleccionado).open ]
+				onClick [ | new EditarPais(owner, modelObject.paisSeleccionado, modelObject).open ]
 		]
 		new Button(colPanel) => [
 				caption = "Nuevo"

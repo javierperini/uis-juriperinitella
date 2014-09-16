@@ -9,19 +9,19 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import expediente.EditarCaracteristicas
+import detective.Sistema
 
-class EditarPais extends SimpleWindow<Pais>{
+class EditarPais extends SimpleWindow<EditarPaisAppModel>{
 	
-	new(WindowOwner parent, Pais model) {
-		super(parent, model)
+	new(WindowOwner parent, Pais model, Sistema sis) {
+		super(parent, new EditarPaisAppModel(model, sis))
 	}
 		
 	override createContents(Panel mainPanel) {
 		this.setTitle("Mapamundi - Editar País")
 
 		new Label(mainPanel).setText("Nombre: ")
-		new TextBox(mainPanel).bindValueToProperty("nombre")
+		new TextBox(mainPanel).bindValueToProperty("pais.nombre")
 		
 		new Label(mainPanel) => [
 			background = Color::MAGENTA
@@ -30,13 +30,13 @@ class EditarPais extends SimpleWindow<Pais>{
 		new List(mainPanel) => [
 			// TITULO REEMPLAZADO CON LABEL 
 			allowNull(false)
-			bindItemsToProperty("caracteristicas")
+			bindItemsToProperty("pais.caracteristicas")
 		]
 
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Características"
-					onClick [ | new EditarCaracteristicas(owner, modelObject).open ]
+					onClick [ | new EditarCaracteristicas(owner, modelObject.pais).open ]
 		]
 		
 		new Label(mainPanel) => [
@@ -45,13 +45,13 @@ class EditarPais extends SimpleWindow<Pais>{
 		]
 
 		new List(mainPanel) => [
-			bindItemsToProperty("conexiones")
+			bindItemsToProperty("pais.conexiones")
 		]
 
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	// al pedo
 			caption = "Editar Conexiones"
-					onClick [ | new EditarConexiones(owner, modelObject).open ]
+					onClick [ | new EditarConexiones(owner, modelObject.pais, modelObject.sistema).open ]
 		]
 		
 		new Label(mainPanel) => [
@@ -60,12 +60,12 @@ class EditarPais extends SimpleWindow<Pais>{
 		]
 
 		new List(mainPanel) => [
-			bindItemsToProperty("lugares")
+			bindItemsToProperty("pais.lugares")
 		]
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Lugares"
-					onClick [ | new EditarLugaresInteres(owner, modelObject).open ]
+					onClick [ | new EditarLugaresInteres(owner, modelObject.pais).open ]
 		]
 		
 		new Button(mainPanel) => [

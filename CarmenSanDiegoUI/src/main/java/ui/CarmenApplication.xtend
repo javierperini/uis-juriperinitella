@@ -49,7 +49,8 @@ class CarmenApplication extends Application{
 		
 		/*Caso*/
 		var Caso caso= new Caso
-		var sistema= new Sistema(caso,paisesSistema,villanos)
+		var sistema = new Sistema(caso,paisesSistema,villanos)
+		
 		
 		new MenuDeAcciones(this, sistema)
 	}

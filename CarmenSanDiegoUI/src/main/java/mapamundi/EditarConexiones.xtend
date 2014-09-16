@@ -11,11 +11,12 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+import detective.Sistema
 
-class EditarConexiones extends SimpleWindow<Pais> {
+class EditarConexiones extends SimpleWindow<EditarConexionesAppModel> {
 	
-	new(WindowOwner owner, Pais pais) {
-		super(owner, pais)
+	new(WindowOwner owner, Pais p, Sistema s) {
+		super(owner, new EditarConexionesAppModel(p, s))
 	}
 	
 	override createContents(Panel mainPanel) {
@@ -29,7 +30,7 @@ class EditarConexiones extends SimpleWindow<Pais> {
 			setText("Conexiones")
 		]
 		new List(p) => [
-			bindItemsToProperty("conexiones")
+			bindItemsToProperty("pais.conexiones")
 			bindValueToProperty("conexionAEliminar")	
 		]
 		
@@ -42,6 +43,7 @@ class EditarConexiones extends SimpleWindow<Pais> {
 		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new Selector(col2) => [
 			setWidth(100)
+			bindItemsToProperty("sistema.paisesSistema")
 			bindValueToProperty("conexionParaAgregar")
 		]
 		new Button(col2) => [

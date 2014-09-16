@@ -1,4 +1,4 @@
-package expediente
+package mapamundi
 
 import java.awt.Color
 import detective.Pais
