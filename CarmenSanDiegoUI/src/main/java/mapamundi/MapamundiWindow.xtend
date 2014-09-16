@@ -12,11 +12,12 @@ import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+import org.uqbar.arena.windows.Dialog
 
-class MapamundiWindow extends SimpleWindow<Sistema> {
+class MapamundiWindow extends Dialog<MapamundiAppModel> {
 		
 	new(WindowOwner owner, Sistema sistema) {
-		super(owner, sistema)
+		super(owner, new MapamundiAppModel(sistema))
 		title = "Mapamundi"
 	}
 	
@@ -25,7 +26,8 @@ class MapamundiWindow extends SimpleWindow<Sistema> {
 		colPanel.setLayout(new ColumnLayout(2))
 		
 		var Table<Pais> paises = new Table<Pais>(colPanel, Pais)
-		paises.bindItemsToProperty("paisesSistema")
+		paises.height = 200
+		paises.bindItemsToProperty("sistema.paisesSistema")
 		paises.bindValueToProperty("paisSeleccionado")
 		new Column<Pais>(paises) => [
 			title = "Paises" 
@@ -64,15 +66,15 @@ class MapamundiWindow extends SimpleWindow<Sistema> {
 		
 		new Button(colPanel) => [ 
 				caption = "Eliminar"
-//				onClick [ | modelObject.removerPais ]
+				onClick [ | modelObject.removerPais ]
 		]
 		new Button(colPanel) => [
-				caption = "Editar"
-				onClick [ | new EditarPais(owner, modelObject.paisSeleccionado, modelObject).open ]
+				caption = "Editar"  //DEBERIA TENER 3 PARAMETROS ESTO NO ANDA
+				onClick [ | new EditarPais(owner,  modelObject.paisSeleccionado).open ]
 		]
 		new Button(colPanel) => [
 				caption = "Nuevo"
-				onClick [ | new NuevoPais(owner, modelObject).open ]
+				onClick [ | new NuevoPais(owner, modelObject.sistema).open ]
 		]
 		
 	}

@@ -12,11 +12,11 @@ import org.uqbar.arena.windows.WindowOwner
 import detective.Sistema
 
 class EditarPais extends SimpleWindow<EditarPaisAppModel>{
-	
+		
 	new(WindowOwner parent, Pais model, Sistema sis) {
 		super(parent, new EditarPaisAppModel(model, sis))
 	}
-		
+	
 	override createContents(Panel mainPanel) {
 		this.setTitle("Mapamundi - Editar País")
 

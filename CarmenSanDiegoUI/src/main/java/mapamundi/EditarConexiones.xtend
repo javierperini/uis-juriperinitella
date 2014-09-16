@@ -60,7 +60,7 @@ class EditarConexiones extends SimpleWindow<EditarConexionesAppModel> {
 			caption = "Aceptar"
 					onClick [ | close ]
 		]
-	}
+	]}
 	
 	override protected addActions(Panel arg0) {
 		throw new UnsupportedOperationException("TODO: auto-generated method stub")

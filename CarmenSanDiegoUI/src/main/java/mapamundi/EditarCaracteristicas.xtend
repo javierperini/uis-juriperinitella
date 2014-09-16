@@ -11,6 +11,7 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+import detective.Sistema
 
 class EditarCaracteristicas extends SimpleWindow<Pais> {
 	

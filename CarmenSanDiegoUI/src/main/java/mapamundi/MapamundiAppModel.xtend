@@ -2,18 +2,30 @@ package mapamundi
 
 import detective.Sistema
 import detective.Pais
+import org.uqbar.commons.utils.Observable
 
+@Observable
 class MapamundiAppModel {
-//	@Property Sistema sistema
-//	@Property Pais paisSeleccionado
-//	
-//	def removerPais(){
-//		sistema.paisesSistema.remove(paisSeleccionado)
-//		// ?? ObservableUtils.firePropertyChanged(this, "paisesSistema", paisesSistema)
-//	}
-//	
-//	def agregarPais(Pais p){
-//		sistema.paisesSistema.add(p)
-//		// ?? ObservableUtils.firePropertyChanged(this, "paisesSistema", paisesSistema)
-//	}
+	
+	@Property Sistema sistema
+	@Property Pais paisSeleccionado
+	@Property Pais paisEnCreacion
+	
+	new(Sistema sistema) {
+		this.sistema=sistema
+	}
+	
+	def removerPais(){
+		sistema.removerPais(paisSeleccionado)
+		
+	}
+	
+	def crearPais() {
+		paisEnCreacion = new Pais
+	}
+	
+	def agregarPais(){
+		sistema.agregarPais(paisEnCreacion)
+		
+	}
 }
