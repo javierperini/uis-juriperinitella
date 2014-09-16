@@ -19,11 +19,14 @@ class EditarConexionesAppModel {
 	
 	def quitarConexion() {
 		this.pais.conexiones.remove(conexionAEliminar)
-		ObservableUtils.firePropertyChanged(this, "conexiones", pais.conexiones)
+		ObservableUtils.firePropertyChanged(this, "pais.conexiones", pais.conexiones)
 	}
 	
-	def agregarConexion() {
-		this.pais.conexiones.add(conexionParaAgregar)
-		ObservableUtils.firePropertyChanged(this, "conexiones", pais.conexiones)
+//	def agregarConexion() {
+//		this.pais.conexiones.add(conexionParaAgregar)
+//		ObservableUtils.firePropertyChanged(this, "pais.conexiones", pais.conexiones)
+//	}
+	def agregarConexion(){
+		this.pais.agregarConexion(conexionParaAgregar)
 	}
 }

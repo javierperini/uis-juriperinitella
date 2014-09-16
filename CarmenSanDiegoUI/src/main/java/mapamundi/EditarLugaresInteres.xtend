@@ -11,11 +11,12 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+import detective.Sistema
 
-class EditarLugaresInteres  extends SimpleWindow<Pais> {
+class EditarLugaresInteres  extends SimpleWindow<EditarLugaresInteresAppModel> {
 	
-	new(WindowOwner owner, Pais pais) {
-		super(owner, pais)
+	new(WindowOwner owner, Pais pais, Sistema sis) {
+		super(owner, new EditarLugaresInteresAppModel(pais, sis))
 	}
 	
 	override createContents(Panel mainPanel) {
@@ -29,7 +30,7 @@ class EditarLugaresInteres  extends SimpleWindow<Pais> {
 			setText("Lugares de Interes")
 		]
 		new List(p) => [
-			bindItemsToProperty("lugares")
+			bindItemsToProperty("pais.lugares")
 			bindValueToProperty("lugarAEliminar")	
 		]
 		
@@ -42,6 +43,7 @@ class EditarLugaresInteres  extends SimpleWindow<Pais> {
 		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new Selector(col2) => [
 			setWidth(100)
+			bindItemsToProperty("sistema.lugaresSistema")
 			bindValueToProperty("lugarParaAgregar")
 		]
 		new Button(col2) => [

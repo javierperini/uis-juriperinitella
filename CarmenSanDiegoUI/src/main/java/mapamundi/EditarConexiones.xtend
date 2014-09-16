@@ -12,6 +12,7 @@ import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import detective.Sistema
+import org.uqbar.arena.widgets.tables.Column
 
 class EditarConexiones extends SimpleWindow<EditarConexionesAppModel> {
 	
@@ -31,8 +32,8 @@ class EditarConexiones extends SimpleWindow<EditarConexionesAppModel> {
 		]
 		new List(p) => [
 			bindItemsToProperty("pais.conexiones")
-			bindValueToProperty("conexionAEliminar")	
-		]
+			bindValueToProperty("conexionAEliminar")
+			
 		
 		var col = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new Button(col) => [

@@ -65,7 +65,7 @@ class EditarPais extends SimpleWindow<EditarPaisAppModel>{
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Lugares"
-					onClick [ | new EditarLugaresInteres(owner, modelObject.pais).open ]
+					onClick [ | new EditarLugaresInteres(owner, modelObject.pais, modelObject.sistema).open ]
 		]
 		
 		new Button(mainPanel) => [
