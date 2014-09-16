@@ -12,7 +12,6 @@ import lugares.Lugar
 
 class CarmenApplication extends Application{
 	
-	
 	List<Villano> villanos= newArrayList()
 	List<Pais> paisesSistema= newArrayList()
 	List<PistaSenia> seniasPart = newArrayList()

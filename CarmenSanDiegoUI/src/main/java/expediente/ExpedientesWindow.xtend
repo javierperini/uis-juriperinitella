@@ -15,12 +15,13 @@ import pista.PistaHobbie
 import org.uqbar.arena.widgets.Button
 import expediente.NuevoVillano
 import expediente.EditarVillano
+import org.uqbar.arena.windows.Dialog
 
-class ExpedientesWindow extends SimpleWindow<Sistema> {
+class ExpedientesWindow extends Dialog<ExpedientesAppModel> {
 	
 
 	new(WindowOwner owner, Sistema sistema) {
-		super(owner, sistema)
+		super(owner, new ExpedientesAppModel(sistema))
 		title = "Expedientes"
 	}
 	
@@ -30,7 +31,7 @@ class ExpedientesWindow extends SimpleWindow<Sistema> {
 		colPanel.setLayout(new ColumnLayout(2))
 		
 		var Table<Villano> villanos = new Table<Villano>(colPanel, Villano)
-		villanos.bindItemsToProperty("villanosSistema")
+		villanos.bindItemsToProperty("sistema.villanosSistema")
 		villanos.bindValueToProperty("villanoSeleccionado")
 		new Column<Villano>(villanos) => [
 			title = "Villano" 
@@ -53,7 +54,6 @@ class ExpedientesWindow extends SimpleWindow<Sistema> {
 			var Table<PistaSenia> seniasVillano = new Table<PistaSenia>(it, PistaSenia)
 			seniasVillano.height =200
 			seniasVillano.bindItemsToProperty("villanoSeleccionado.seniasPart")
-//			seniasVillano.bindValueToProperty("seniasVillanoSeleccionado") NO HACE FALTA (BORRAR DEL MODELO)
 			new Column<PistaSenia>(seniasVillano) => [
 				title = "Señas" 
 				bindContentsToProperty("pista")
@@ -61,7 +61,6 @@ class ExpedientesWindow extends SimpleWindow<Sistema> {
 			
 			var Table<PistaHobbie> hobbiesVillano = new Table<PistaHobbie>(it, PistaHobbie)
 			hobbiesVillano.bindItemsToProperty("villanoSeleccionado.hobbies")
-//			hobbiesVillano.bindValueToProperty("hobbiesVillanoSeleccionado") NO HACE FALTA (BORRAR DEL MODELO)
 			new Column<PistaHobbie>(hobbiesVillano) => [
 				title = "Hobbies" 
 				bindContentsToProperty("pista")
@@ -70,8 +69,9 @@ class ExpedientesWindow extends SimpleWindow<Sistema> {
 		
 		new Button(colPanel) => [
 				caption = "Nuevo"
-				onClick [ | new NuevoVillano(owner, modelObject).open ]
+				onClick [ | new NuevoVillano(owner, modelObject.sistema).open ]
 		]
+		
 		new Button(colPanel) => [
 				caption = "Editar"
 				onClick [ | new EditarVillano(owner, modelObject.villanoSeleccionado).open ]
