@@ -14,7 +14,7 @@ import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 
 class MapamundiWindow extends SimpleWindow<Sistema> {
-	
+		
 	new(WindowOwner owner, Sistema sistema) {
 		super(owner, sistema)
 		title = "Mapamundi"
@@ -25,7 +25,7 @@ class MapamundiWindow extends SimpleWindow<Sistema> {
 		colPanel.setLayout(new ColumnLayout(2))
 		
 		var Table<Pais> paises = new Table<Pais>(colPanel, Pais)
-		paises.bindItemsToProperty("sistema.paisesSistema")
+		paises.bindItemsToProperty("paisesSistema")
 		paises.bindValueToProperty("paisSeleccionado")
 		new Column<Pais>(paises) => [
 			title = "Paises" 
@@ -74,6 +74,7 @@ class MapamundiWindow extends SimpleWindow<Sistema> {
 				caption = "Nuevo"
 				onClick [ | new NuevoPais(owner, modelObject).open ]
 		]
+		
 	}
 	
 	override protected addActions(Panel arg0) {

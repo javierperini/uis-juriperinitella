@@ -14,14 +14,15 @@ import detective.Pais
 import lugares.Lugar
 import expediente.EditarCaracteristicas
 
-class NuevoPais extends SimpleWindow<MapamundiAppModel>{
+class NuevoPais extends SimpleWindow<Sistema>{
 	
-	new(WindowOwner owner, MapamundiAppModel map) {
-		super(owner, map)
+	
+	new(WindowOwner owner, Sistema sistema) {
+		super(owner, sistema)
+		sistema.crearPais
 	}
 	
 	override createContents(Panel mainPanel) {
-		var paisEnCreacion = new Pais()
 		this.setTitle("Mapamundi - Nuevo País")
 
 		new Label(mainPanel).setText("Nombre: ")
@@ -33,7 +34,7 @@ class NuevoPais extends SimpleWindow<MapamundiAppModel>{
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Características"
-					onClick [ | new EditarCaracteristicas(owner, paisEnCreacion).open ]
+					onClick [ | new EditarCaracteristicas(owner, modelObject.paisEnCreacion).open ]
 		]
 		
 		var Table<Pais> tablaDeConexiones = new Table<Pais>(mainPanel, Pais)
@@ -46,7 +47,7 @@ class NuevoPais extends SimpleWindow<MapamundiAppModel>{
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Conexiones"
-					onClick [ | new EditarConexiones(owner, paisEnCreacion).open ]
+					onClick [ | new EditarConexiones(owner, modelObject.paisEnCreacion).open ]
 		]
 		
 		var Table<Lugar> tablaLugares = new Table<Lugar>(mainPanel, Lugar)
@@ -59,14 +60,14 @@ class NuevoPais extends SimpleWindow<MapamundiAppModel>{
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Lugares"
-					onClick [ | new EditarLugaresInteres(owner, paisEnCreacion).open ]
+					onClick [ | new EditarLugaresInteres(owner, modelObject.paisEnCreacion).open ]
 		]
 		
 		new Button(mainPanel) => [
 			caption = "Aceptar"
 			
 					onClick [ |  
-								modelObject.agregarPais(paisEnCreacion)
+								modelObject.agregarPaisALaLista()
 								close
 							]
 		]

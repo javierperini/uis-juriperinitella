@@ -12,6 +12,7 @@ import lugares.Lugar
 
 class CarmenApplication extends Application{
 	
+	
 	List<Villano> villanos= newArrayList()
 	List<Pais> paisesSistema= newArrayList()
 	List<PistaSenia> seniasPart = newArrayList()
@@ -50,10 +51,7 @@ class CarmenApplication extends Application{
 		var Caso caso= new Caso
 		var sistema= new Sistema(caso,paisesSistema,villanos)
 		
-		var CarmenApplicationAppModel caam = new CarmenApplicationAppModel
-		caam.sistema = sistema
-		
-		new MenuDeAcciones(this, caam)
+		new MenuDeAcciones(this, sistema)
 	}
 	
 	def static main(String[] args) {

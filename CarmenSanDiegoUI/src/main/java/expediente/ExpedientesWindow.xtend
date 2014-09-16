@@ -16,10 +16,11 @@ import org.uqbar.arena.widgets.Button
 import expediente.NuevoVillano
 import expediente.EditarVillano
 
-class ExpedientesWindow extends SimpleWindow<ExpedientesAppModel> {
+class ExpedientesWindow extends SimpleWindow<Sistema> {
 	
-	new(WindowOwner owner, ExpedientesAppModel eam) {
-		super(owner, eam)
+
+	new(WindowOwner owner, Sistema sistema) {
+		super(owner, sistema)
 		title = "Expedientes"
 	}
 	
@@ -29,7 +30,7 @@ class ExpedientesWindow extends SimpleWindow<ExpedientesAppModel> {
 		colPanel.setLayout(new ColumnLayout(2))
 		
 		var Table<Villano> villanos = new Table<Villano>(colPanel, Villano)
-		villanos.bindItemsToProperty("sistema.villanosSistema")
+		villanos.bindItemsToProperty("villanosSistema")
 		villanos.bindValueToProperty("villanoSeleccionado")
 		new Column<Villano>(villanos) => [
 			title = "Villano" 
@@ -52,6 +53,7 @@ class ExpedientesWindow extends SimpleWindow<ExpedientesAppModel> {
 			var Table<PistaSenia> seniasVillano = new Table<PistaSenia>(it, PistaSenia)
 			seniasVillano.height =200
 			seniasVillano.bindItemsToProperty("villanoSeleccionado.seniasPart")
+//			seniasVillano.bindValueToProperty("seniasVillanoSeleccionado") NO HACE FALTA (BORRAR DEL MODELO)
 			new Column<PistaSenia>(seniasVillano) => [
 				title = "Señas" 
 				bindContentsToProperty("pista")
@@ -59,6 +61,7 @@ class ExpedientesWindow extends SimpleWindow<ExpedientesAppModel> {
 			
 			var Table<PistaHobbie> hobbiesVillano = new Table<PistaHobbie>(it, PistaHobbie)
 			hobbiesVillano.bindItemsToProperty("villanoSeleccionado.hobbies")
+//			hobbiesVillano.bindValueToProperty("hobbiesVillanoSeleccionado") NO HACE FALTA (BORRAR DEL MODELO)
 			new Column<PistaHobbie>(hobbiesVillano) => [
 				title = "Hobbies" 
 				bindContentsToProperty("pista")
