@@ -16,8 +16,6 @@ class Pais {
 	@Property Lugar  lugarActual
 	@Property String caracteristicaAEliminar
 	@Property String caracteristicaParaAgregar
-	@Property Pais conexionAEliminar
-	@Property Pais conexionParaAgregar
 	@Property Pais lugarAEliminar
 	@Property Pais lugarParaAgregar
 
@@ -64,23 +62,13 @@ class Pais {
 		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas)
 	}
 	
-	def quitarConexion() {
-		this.conexiones.remove(conexionAEliminar)
-		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
-	}
-	
-	def agregarConexion() {
-		this.conexiones.add(conexionParaAgregar)
-		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
-	}
-	
 	def quitarLugar() {
 		this.conexiones.remove(lugarAEliminar)
 		ObservableUtils.firePropertyChanged(this, "lugares", lugares)
 	}
 	
 	def agregarLugar() {
-		this.conexiones.add(conexionParaAgregar)
+		this.conexiones.add(lugarParaAgregar)
 		ObservableUtils.firePropertyChanged(this, "lugares", lugares)
 	}
 	
