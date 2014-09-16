@@ -6,6 +6,7 @@ import pista.PistaHobbie
 import pista.PistaSenia
 import org.uqbar.commons.model.ObservableUtils
 import org.uqbar.commons.utils.Observable
+import lugares.Lugar
 
 @Observable
 class Sistema {
@@ -14,6 +15,7 @@ class Sistema {
 	@Property List<Pais> paisesSistema= newArrayList()
 	@Property List<Pais> paisesVisitados= newArrayList()
 	@Property List<Villano> villanosSistema = newArrayList()
+	@Property List<Lugar> lugaresSistema = newArrayList()
 	@Property Villano villanoEnCreacion
 	@Property Pais paisActual
 	@Property  Villano villanoArrestar

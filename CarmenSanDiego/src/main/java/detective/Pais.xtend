@@ -16,8 +16,7 @@ class Pais {
 	@Property Lugar  lugarActual
 	@Property String caracteristicaAEliminar
 	@Property String caracteristicaParaAgregar
-	@Property Pais lugarAEliminar
-	@Property Pais lugarParaAgregar
+	
 
 	/**
 	 * INV. REP.: Un pais representa un lugar fisico en el juego
@@ -62,14 +61,9 @@ class Pais {
 		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas)
 	}
 	
-	def quitarLugar() {
-		this.conexiones.remove(lugarAEliminar)
-		ObservableUtils.firePropertyChanged(this, "lugares", lugares)
-	}
-	
-	def agregarLugar() {
-		this.conexiones.add(lugarParaAgregar)
-		ObservableUtils.firePropertyChanged(this, "lugares", lugares)
+	def agregarConexion(Pais conex) {
+		this.conexiones.add(conex)
+		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
 	}
 	
 	
