@@ -51,18 +51,33 @@ class Pais {
 //		ObservableUtils.firePropertyChanged(this, "caracteristicas", carac )
 //	}
 	
-	def quitarCaracteristica() {
-		this.caracteristicas.remove(caracteristicaAEliminar)
+	def quitarCaracteristica(String caracteristica) {
+		this.caracteristicas.remove(caracteristica)
 		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas)
 		}
 	
-	def agregarCaracteristica() {
-		this.caracteristicas.add(caracteristicaParaAgregar)
+	def agregarCaracteristica(String caracteristica) {
+		this.caracteristicas.add(caracteristica)
 		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas)
 	}
 	
 	def agregarConexion(Pais conex) {
 		this.conexiones.add(conex)
+		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
+	}
+	
+	def quitarLugar(Lugar lugar) {
+		lugares.remove(lugar)
+		ObservableUtils.firePropertyChanged(this, "lugares", lugares)
+	}
+	
+	def agregarLugar(Lugar lugar) {
+		lugares.add(lugar)
+		ObservableUtils.firePropertyChanged(this, "lugares", lugares)
+	}
+	
+	def quitarConexion(Pais pais) {
+		conexiones.remove(pais)
 		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
 	}
 	
