@@ -120,7 +120,7 @@ public class CasoTest {
 		argentina.setPaisesLimitrofes(paisesArg);
 		
 		/*Caso*/
-		this.caso= new Caso(argentina, paises, v, "Se robaron las papasFritas de todo MCDONALDS");
+		this.caso= new Caso(argentina, paises, v, "Se robaron las papasFritas de todo MCDONALDS","Robo de PapasFritas");
 	}
 
 	@Test

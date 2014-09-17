@@ -84,8 +84,21 @@ class Sistema {
 		villanoEnCreacion = new Villano
 	}
 	
-	def crearPais() {
-		paisEnCreacion = new Pais
+	
+	
+	def removerPais(Pais pais) {
+		paisesSistema.remove(pais)
+		ObservableUtils.firePropertyChanged(this, "paisesSistema", paisesSistema)
+		
+	}
+	
+	def agregarPais(Pais pais) {
+		paisesSistema.add(pais)
+		ObservableUtils.firePropertyChanged(this, "paisesSistema", paisesSistema)
+	}
+	
+	def getNombreCaso() {
+		caso.nombreCaso
 	}
 	
 }

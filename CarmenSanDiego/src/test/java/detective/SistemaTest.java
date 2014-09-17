@@ -51,6 +51,8 @@ public class SistemaTest {
 	private PistaSenia seniaPart;
 	private List<PistaSenia> seniasPart = new ArrayList<PistaSenia>();
 
+	private String nombreCaso;
+
 	
 	@Before
 	public void setUp() throws Exception{
@@ -72,8 +74,9 @@ public class SistemaTest {
 		seniasPart.add(seniaPart);
 		villano = new Villano("Carmen Sandiego", "F", hobbies, seniasPart);
 		inicioCaso = "Hola, esto es una prueba del inicio del caso";
+		nombreCaso = "Hola, esto es una prueba del nombre del caso";
 		
-		caso = new Caso(paisInicio, recorridoVillano, villano, inicioCaso);
+		caso = new Caso(paisInicio, recorridoVillano, villano, inicioCaso, nombreCaso);
 		villanoMock = mock(Villano.class);
 		paisesSistema.add(argentina);paisesSistema.add(brasil);paisesSistema.add(chile);
 		villanosSistema.add(villanoMock);
@@ -95,32 +98,32 @@ public class SistemaTest {
 	public void testGetVillanosSistema() {
 		assertEquals(s.getVillanosSistema(), villanosSistema);
 	}
-
-	@Test
-	public void testGetVillanoSeleccionado() {
-		s.setVillanoSeleccionado(villano);
-		assertEquals(s.getVillanoSeleccionado(), villano);
-	}
+// NO SE TIENEN QUE TESTEAR, SON PARTE EL APPMODEL
+//	@Test
+//	public void testGetVillanoSeleccionado() {
+//		s.setVillanoSeleccionado(villano);
+//		assertEquals(s.getVillanoSeleccionado(), villano);
+//	}
 
 	@Test
 	public void testGetPaisSeleccionado() {
 		s.setPaisSeleccionado(paisInicio);
 		assertEquals(s.getPaisSeleccionado(), paisInicio);
 	}
-
-	@Test
-	public void testGetSeniasVillanoSeleccionado() {
-		s.setVillanoSeleccionado(villano);
-		s.setSeniasVillanoSeleccionado(villano.getSeniasPart().get(0));
-		assertEquals(s.getSeniasVillanoSeleccionado(), villano.getSeniasPart().get(0));
-	}
-
-	@Test // Daban mal porque dependian de los hobbies seleccionados
-	public void testGetHobbiesVillanoSeleccionado() {
-		s.setVillanoSeleccionado(villano);
-		s.setHobbiesVillanoSeleccionado(villano.getHobbies().get(0));
-		assertEquals(s.getHobbiesVillanoSeleccionado(), villano.getHobbies().get(0));
-	}
+//  IDEM ANTERIOR, PERTECEN AL APPMODEL
+//	@Test
+//	public void testGetSeniasVillanoSeleccionado() {
+//		s.setVillanoSeleccionado(villano);
+//		s.setSeniasVillanoSeleccionado(villano.getSeniasPart().get(0));
+//		assertEquals(s.getSeniasVillanoSeleccionado(), villano.getSeniasPart().get(0));
+//	}
+//
+//	@Test // Daban mal porque dependian de los hobbies seleccionados
+//	public void testGetHobbiesVillanoSeleccionado() {
+//		s.setVillanoSeleccionado(villano);
+//		s.setHobbiesVillanoSeleccionado(villano.getHobbies().get(0));
+//		assertEquals(s.getHobbiesVillanoSeleccionado(), villano.getHobbies().get(0));
+//	}
 
 	
 	@Test
