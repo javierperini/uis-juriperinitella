@@ -47,7 +47,7 @@ class CarmenApplication extends Application{
 	    paisesSistema.add(bp)
 		
 		/*Caso*/
-		var Caso caso= new Caso
+		var Caso caso= new Caso(ap, paisesSistema, a, "Se robaron las papasFritas de todo MCDONALDS","Robo de PapasFritas")
 		var sistema = new Sistema(caso,paisesSistema,villanos)
 		
 		

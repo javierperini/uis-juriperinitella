@@ -1,6 +1,8 @@
 package ui
 
 import detective.Sistema
+import expediente.ExpedientesWindow
+import mapamundi.MapamundiWindow
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
@@ -8,9 +10,7 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import mapamundi.MapamundiWindow
-import expediente.ExpedientesWindow
-import expediente.ExpedientesAppModel
+import resolverMisterio.InicioDeJuegoWin
 
 class MenuDeAcciones extends SimpleWindow<Sistema>{
 	
@@ -32,7 +32,7 @@ class MenuDeAcciones extends SimpleWindow<Sistema>{
 		new Panel(mainPanel) => [
 				new Button(mainPanel) => [
 				caption = "Resolver Misterio"
-				onClick [ | /**/ ]
+				onClick [ | new InicioDeJuegoWin(owner,modelObject).open ]
 			]
 			new Button(mainPanel) => [
 				caption = "Mapamundi"
@@ -41,10 +41,13 @@ class MenuDeAcciones extends SimpleWindow<Sistema>{
 			
 			new Button(mainPanel) => [
 				caption = "Expedientes"
-				onClick [ | new ExpedientesWindow(owner, modelObject).open ]
-			]
+
+				onClick [ | new ExpedientesWindow(owner, modelObject).open ] 
+			]		
 		]
+
 	}
+	
 	
 	
 	override protected addActions(Panel arg0) {
