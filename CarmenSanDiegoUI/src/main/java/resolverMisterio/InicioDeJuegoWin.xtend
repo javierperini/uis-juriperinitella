@@ -21,27 +21,17 @@ class InicioDeJuegoWin extends SimpleWindow<Sistema> {
 		title= modelObject.nombreCaso
 		
 		new Panel(mainPanel) => [
-			layout = new HorizontalLayout()
-		 ]
+			layout = new VerticalLayout	 ]
 		 modelObject.caso
 		 new Label(mainPanel).setText("Detective, tenemos un caso para usted!!! ")
 		 new Panel (mainPanel) => [
 			layout = new HorizontalLayout()
 			width= 100
 			new Label(it).bindValueToProperty("caso.descripcion")
-//			new Label(it).setText(" \n ")
-//			new Label(it).setText(",el villano mas conocido como ")
-//			new Label(it).bindValueToProperty("caso.villano.nombre")
-//			new Label(it).setText(" el sospechoso del caso es de sexo")
-//			new Label(it).bindValueToProperty("caso.villano.sexo")
-			
-			
-		 ]
-		
-		 
+			 ]
 		 new Button(mainPanel)=>[
 		 	caption= "Aceptar  el Caso"
-		 	//onClick =[| new ResolverMisterioWindows(owner,modelObject)]
+		 	onClick =[| new ResolverMisterioWindows(owner,modelObject).open]
 		 ] 
 		
 	}
