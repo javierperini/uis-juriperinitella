@@ -1,7 +1,7 @@
 package mapamundi
 
+import detective.Sistema
 import java.awt.Color
-import detective.Pais
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
@@ -11,12 +11,13 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import detective.Sistema
+import detective.Pais
 
-class EditarCaracteristicas extends SimpleWindow<Pais> {
+class EditarCaracteristicas extends SimpleWindow<MapamundiAppModel> {
 	
-	new(WindowOwner owner, Pais pais) {
-		super(owner, pais)
+	new(WindowOwner owner, Sistema sis, Pais pais) {
+		super(owner, new MapamundiAppModel(sis))
+		modelObject.paisSeleccionado = pais
 	}
 	
 	override createContents(Panel mainPanel) {
@@ -30,7 +31,8 @@ class EditarCaracteristicas extends SimpleWindow<Pais> {
 			setText("Caracteristicas")
 		]
 		new List(p) => [
-			bindItemsToProperty("caracteristicas")
+			height = 60
+			bindItemsToProperty("paisSeleccionado.caracteristicas")
 			bindValueToProperty("caracteristicaAEliminar")	
 		]
 		

@@ -1,7 +1,9 @@
 package mapamundi
 
-import java.awt.Color
 import detective.Pais
+import detective.Sistema
+import java.awt.Color
+import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
@@ -11,13 +13,12 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import detective.Sistema
-import org.uqbar.arena.widgets.tables.Column
 
-class EditarConexiones extends SimpleWindow<EditarConexionesAppModel> {
+class EditarConexiones extends SimpleWindow<MapamundiAppModel> {
 	
-	new(WindowOwner owner, Pais p, Sistema s) {
-		super(owner, new EditarConexionesAppModel(p, s))
+	new(WindowOwner owner, Sistema s, Pais pais) {
+		super(owner, new MapamundiAppModel(s))
+		modelObject.paisSeleccionado = pais
 	}
 	
 	override createContents(Panel mainPanel) {
@@ -31,7 +32,8 @@ class EditarConexiones extends SimpleWindow<EditarConexionesAppModel> {
 			setText("Conexiones")
 		]
 		new List(p) => [
-			bindItemsToProperty("pais.conexiones")
+			height = 60
+			bindItemsToProperty("paisSeleccionado.conexiones").adapter = new PropertyAdapter(Pais, "nombre")
 			bindValueToProperty("conexionAEliminar")
 			
 		
@@ -44,7 +46,7 @@ class EditarConexiones extends SimpleWindow<EditarConexionesAppModel> {
 		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new Selector(col2) => [
 			setWidth(100)
-			bindItemsToProperty("sistema.paisesSistema")
+			bindItemsToProperty("sistema.paisesSistema").adapter = new PropertyAdapter(Pais, "nombre")
 			bindValueToProperty("conexionParaAgregar")
 		]
 		new Button(col2) => [

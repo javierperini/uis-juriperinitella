@@ -10,9 +10,8 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.tables.Table
-import org.uqbar.arena.windows.SimpleWindow
-import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.windows.Dialog
+import org.uqbar.arena.windows.WindowOwner
 
 class MapamundiWindow extends Dialog<MapamundiAppModel> {
 		
@@ -42,6 +41,7 @@ class MapamundiWindow extends Dialog<MapamundiAppModel> {
 			]
 			
 			var Table<String> caracteristicas = new Table<String>(it, String)
+			caracteristicas.height = 60
 			caracteristicas.bindItemsToProperty("paisSeleccionado.caracteristicas")
 //			new Column<String>(caracteristicas) => [
 //				title = "Caracteristicas" 
@@ -50,6 +50,7 @@ class MapamundiWindow extends Dialog<MapamundiAppModel> {
 
 
 			var Table<Pais> conexiones = new Table<Pais>(it, Pais)
+			conexiones.height = 60
 			conexiones.bindItemsToProperty("paisSeleccionado.conexiones")
 			new Column<Pais>(conexiones) => [
 				title = "Conexiones" 
@@ -57,6 +58,7 @@ class MapamundiWindow extends Dialog<MapamundiAppModel> {
 			]
 			
 			var Table<Lugar> lugares = new Table<Lugar>(it, Lugar)
+			lugares.height = 60
 			lugares.bindItemsToProperty("paisSeleccionado.lugares")
 			new Column<Lugar>(lugares) => [
 				title = "Lugares de Interés" 
@@ -70,7 +72,7 @@ class MapamundiWindow extends Dialog<MapamundiAppModel> {
 		]
 		new Button(colPanel) => [
 				caption = "Editar"  //DEBERIA TENER 3 PARAMETROS ESTO NO ANDA
-				onClick [ | new EditarPais(owner,  modelObject.paisSeleccionado).open ]
+				onClick [ | new EditarPais(owner,  modelObject.sistema, modelObject.paisSeleccionado).open ]
 		]
 		new Button(colPanel) => [
 				caption = "Nuevo"

@@ -1,7 +1,9 @@
 package mapamundi
 
+import detective.Sistema
 import java.awt.Color
-import detective.Pais
+import lugares.Lugar
+import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
@@ -11,12 +13,11 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import detective.Sistema
 
-class EditarLugaresInteres  extends SimpleWindow<EditarLugaresInteresAppModel> {
+class EditarLugaresInteres  extends SimpleWindow<MapamundiAppModel> {
 	
-	new(WindowOwner owner, Pais pais, Sistema sis) {
-		super(owner, new EditarLugaresInteresAppModel(pais, sis))
+	new(WindowOwner owner, Sistema sis) {
+		super(owner, new MapamundiAppModel(sis))
 	}
 	
 	override createContents(Panel mainPanel) {
@@ -30,7 +31,8 @@ class EditarLugaresInteres  extends SimpleWindow<EditarLugaresInteresAppModel> {
 			setText("Lugares de Interes")
 		]
 		new List(p) => [
-			bindItemsToProperty("pais.lugares")
+			height = 60
+			bindItemsToProperty("paisSeleccionado.lugares").adapter = new PropertyAdapter(Lugar, "nombre")
 			bindValueToProperty("lugarAEliminar")	
 		]
 		
@@ -43,7 +45,7 @@ class EditarLugaresInteres  extends SimpleWindow<EditarLugaresInteresAppModel> {
 		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new Selector(col2) => [
 			setWidth(100)
-			bindItemsToProperty("sistema.lugaresSistema")
+			bindItemsToProperty("sistema.lugaresSistema").adapter = new PropertyAdapter(Lugar, "nombre")
 			bindValueToProperty("lugarParaAgregar")
 		]
 		new Button(col2) => [
