@@ -5,27 +5,19 @@ import pista.PistaHobbie
 import pista.PistaSenia
 import org.uqbar.commons.model.ObservableUtils
 import org.uqbar.commons.utils.Observable
+import pista.Pista
 
 @Observable
 class Villano extends Personaje {
 	@Property String sexo
 	@Property List<PistaHobbie> hobbies =  newArrayList()
-	@Property List<PistaSenia> seniasPart = newArrayList()
-	@Property PistaSenia seniaSel
-	@Property PistaHobbie hobbieSel
-	@Property PistaHobbie hobbieAEliminar
-	@Property PistaHobbie hobbieParaAgregar
-	@Property PistaSenia seniaPartAEliminar
-	@Property PistaSenia seniaParaAgregar
-	
-	
-			  
-	
+	@Property List<PistaSenia> seniasParticulares = newArrayList()
+
 	new(String nombre, String sexo, List<PistaHobbie> hobbies, List<PistaSenia> seniasPart) {
 		super(nombre)
 		this.sexo = sexo
 		this.hobbies = hobbies
-		this.seniasPart = seniasPart
+		this.seniasParticulares = seniasPart
 	}
 	
 	new(){
@@ -38,32 +30,33 @@ class Villano extends Personaje {
 	override puedeRevelarPista() {
 		false
 	}
+	
 	def setHobbie(PistaHobbie h){
 		hobbies.add(h)
 	}
+	
 	def	 setSeniasPart(PistaSenia p){
-		seniasPart.add(p)
+		getSeniasParticulares.add(p)
 	}
 	
-	def quitarSeniaPart() {
-		seniasPart.remove(seniaPartAEliminar)
-		ObservableUtils.firePropertyChanged(this, "seniasPart", seniasPart)
+	def quitarSeniaParticular(PistaSenia pista) {
+		seniasParticulares.remove(pista)
+		ObservableUtils.firePropertyChanged(this, "seniasParticulares", seniasParticulares)
 	}
 	
-	def agregarSeniasPart() {
-		seniasPart.add(seniaParaAgregar)
-		ObservableUtils.firePropertyChanged(this, "seniasPart", seniasPart)
+	def agregarSeniaParticular(PistaSenia pista) {
+		seniasParticulares.add(pista)
+		ObservableUtils.firePropertyChanged(this, "seniasPart", seniasParticulares)
 	}
 	
-	def agregarHobbies() {
-		hobbies.add(hobbieParaAgregar)
+	def quitarHobbie(PistaHobbie pista) {
+		hobbies.remove(pista)
 		ObservableUtils.firePropertyChanged(this, "hobbies", hobbies)
 	}
 	
-	def quitarHobbies() {
-		hobbies.remove(hobbieAEliminar)
+	def agregarHobbie(PistaHobbie pista) {
+		hobbies.add(pista)
 		ObservableUtils.firePropertyChanged(this, "hobbies", hobbies)
 	}
-	
 }
 	
