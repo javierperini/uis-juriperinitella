@@ -1,12 +1,12 @@
 package detective
 
 import java.util.List
+import lugares.Lugar
+import org.uqbar.commons.utils.Observable
 import personajes.Villano
 import pista.PistaHobbie
 import pista.PistaSenia
 import org.uqbar.commons.model.ObservableUtils
-import org.uqbar.commons.utils.Observable
-import lugares.Lugar
 
 @Observable
 class Sistema {
@@ -76,13 +76,9 @@ class Sistema {
 		villanoArrestar== caso.villano
 	}
 	
-	def agregarVillanoALaLista() {
-		villanosSistema.add(villanoEnCreacion)
+	def agregarVillanoALaLista(Villano villano) {
+		villanosSistema.add(villano)
 		ObservableUtils.firePropertyChanged(this, "villanosSistema", villanosSistema)
-	}
-	
-	def crearVillano() {
-		villanoEnCreacion = new Villano
 	}
 	
 	
