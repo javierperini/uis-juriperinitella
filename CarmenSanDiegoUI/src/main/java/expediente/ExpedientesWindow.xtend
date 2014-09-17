@@ -1,25 +1,21 @@
 package expediente
 
 import detective.Sistema
-import personajes.Villano
 import org.uqbar.arena.layout.ColumnLayout
+import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.tables.Column
 import org.uqbar.arena.widgets.tables.Table
-import org.uqbar.arena.windows.SimpleWindow
-import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.widgets.Label
-import org.uqbar.arena.layout.HorizontalLayout
-import pista.PistaSenia
-import pista.PistaHobbie
-import org.uqbar.arena.widgets.Button
-import expediente.NuevoVillano
-import expediente.EditarVillano
 import org.uqbar.arena.windows.Dialog
+import org.uqbar.arena.windows.WindowOwner
+import personajes.Villano
+import pista.PistaHobbie
+import pista.PistaSenia
 
 class ExpedientesWindow extends Dialog<ExpedientesAppModel> {
 	
-
 	new(WindowOwner owner, Sistema sistema) {
 		super(owner, new ExpedientesAppModel(sistema))
 		title = "Expedientes"
@@ -48,11 +44,11 @@ class ExpedientesWindow extends Dialog<ExpedientesAppModel> {
 			new Panel(it) => [
 				layout = new HorizontalLayout
 				new Label(it).setText("Sexo: ")
-				new Label(it).setWidth(100).bindValueToProperty("villanoSeleccionado.sexo")
+				new Label(it).setWidth(60).bindValueToProperty("villanoSeleccionado.sexo")
 			]
 			
 			var Table<PistaSenia> seniasVillano = new Table<PistaSenia>(it, PistaSenia)
-			seniasVillano.height =200
+			seniasVillano.height = 50
 			seniasVillano.bindItemsToProperty("villanoSeleccionado.seniasPart")
 			new Column<PistaSenia>(seniasVillano) => [
 				title = "Señas" 
@@ -60,6 +56,7 @@ class ExpedientesWindow extends Dialog<ExpedientesAppModel> {
 			]
 			
 			var Table<PistaHobbie> hobbiesVillano = new Table<PistaHobbie>(it, PistaHobbie)
+			hobbiesVillano.height = 50
 			hobbiesVillano.bindItemsToProperty("villanoSeleccionado.hobbies")
 			new Column<PistaHobbie>(hobbiesVillano) => [
 				title = "Hobbies" 
@@ -74,7 +71,7 @@ class ExpedientesWindow extends Dialog<ExpedientesAppModel> {
 		
 		new Button(colPanel) => [
 				caption = "Editar"
-				onClick [ | new EditarVillano(owner, modelObject.villanoSeleccionado).open ]
+				onClick [ | new EditarVillano(owner, modelObject.sistema, modelObject.villanoSeleccionado).open ]
 		]
 		new Button(colPanel) => [
 				caption = "Aceptar"

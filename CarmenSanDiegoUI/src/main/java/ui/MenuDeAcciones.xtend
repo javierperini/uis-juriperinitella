@@ -41,7 +41,7 @@ class MenuDeAcciones extends SimpleWindow<Sistema>{
 			
 			new Button(mainPanel) => [
 				caption = "Expedientes"
-				onClick [ | new ExpedientesWindow(owner, modelObject).open ] //Prueba en la creacion del villano.
+				onClick [ | new ExpedientesWindow(owner, modelObject).open ]
 			]
 		]
 	}
