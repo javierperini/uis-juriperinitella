@@ -124,6 +124,7 @@ public class SistemaTest {
 //		s.setHobbiesVillanoSeleccionado(villano.getHobbies().get(0));
 //		assertEquals(s.getHobbiesVillanoSeleccionado(), villano.getHobbies().get(0));
 //	}
+>>>>>>> .r79
 
 	
 	@Test
