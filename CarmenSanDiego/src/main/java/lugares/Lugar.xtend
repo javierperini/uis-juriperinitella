@@ -11,8 +11,7 @@ class Lugar {
 	@Property Personaje ocupante
 	@Property List<Pista> pistas
 	
-	new(String nombre, Personaje ocupante,List<Pista> pistas){
-		this.nombre = nombre
+	new(Personaje ocupante,List<Pista> pistas){
 		this.ocupante = ocupante
 		this.pistas = pistas
 	}
