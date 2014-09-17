@@ -8,15 +8,16 @@ import personajes.Villano
 
 class NuevoVillano extends EdicionVillano {
 	
-	new(WindowOwner owner, Sistema sistema) {
-		super(owner, sistema, new Villano)
+	new(WindowOwner owner, ExpedientesAppModel model) {
+		super(owner, model)
+		modelObject.villanoSeleccionado = new Villano
 		title = "Expedientes - Nuevo Villano"
 	}
 
 	override botonAceptar(Panel mainPanel) {
 		new Button(mainPanel) => [
 			caption = "Aceptar"
-					onClick [ | modelObject.sistema.villanosSistema.add(modelObject.villanoSeleccionado)
+					onClick [ | modelObject.sistema.agregarVillanoALaLista(modelObject.villanoSeleccionado)
 								close
 					]
 		]

@@ -49,7 +49,7 @@ class ExpedientesWindow extends Dialog<ExpedientesAppModel> {
 			
 			var Table<PistaSenia> seniasVillano = new Table<PistaSenia>(it, PistaSenia)
 			seniasVillano.height = 50
-			seniasVillano.bindItemsToProperty("villanoSeleccionado.seniasPart")
+			seniasVillano.bindItemsToProperty("villanoSeleccionado.seniasParticulares")
 			new Column<PistaSenia>(seniasVillano) => [
 				title = "Señas" 
 				bindContentsToProperty("pista")
@@ -66,12 +66,12 @@ class ExpedientesWindow extends Dialog<ExpedientesAppModel> {
 		
 		new Button(colPanel) => [
 				caption = "Nuevo"
-				onClick [ | new NuevoVillano(owner, modelObject.sistema).open ]
+				onClick [ | new NuevoVillano(owner, modelObject).open ]
 		]
 		
 		new Button(colPanel) => [
 				caption = "Editar"
-				onClick [ | new EditarVillano(owner, modelObject.sistema, modelObject.villanoSeleccionado).open ]
+				onClick [ | new EditarVillano(owner, modelObject).open ]
 		]
 		new Button(colPanel) => [
 				caption = "Aceptar"

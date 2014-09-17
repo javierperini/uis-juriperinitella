@@ -5,7 +5,6 @@ import org.uqbar.commons.model.UserException
 import pista.PistaSenia
 
 class PistaSeniaTransformer implements Transformer<PistaSenia, String>{
-	
 
 	override getModelType() {
 		PistaSenia
@@ -26,8 +25,8 @@ class PistaSeniaTransformer implements Transformer<PistaSenia, String>{
 			try
 				new PistaSenia(valueFromView)
 			catch (Exception e)//falta crea exception
-				throw new UserException("El valor ingresado debe ser un número", e)
-				}
+				throw new UserException("", e)
+	}
 	
 
 }

@@ -11,8 +11,10 @@ class ExpedientesAppModel {
 
 	@Property Sistema sistema
 	@Property Villano villanoSeleccionado
-	@Property PistaSenia seniaSeleccionada
-	@Property PistaHobbie hobbieSeleccionado
+	@Property PistaSenia pistaSeniaSeleccionada
+	@Property PistaSenia pistaSeniaParaAgregar
+	@Property PistaHobbie pistaHobbieSeleccionada
+	@Property PistaHobbie pistaHobbieParaAgregar
 	
 	new(Sistema sistema){
 		this.sistema = sistema
