@@ -23,11 +23,12 @@ class Sistema {
 	@Property Pais paisEnCreacion
 	@Property Pais paisSeleccionado
 	
-	new(Caso caso, List<Pais> paisesSistema, List<Villano> villanosSistema){
+	new(Caso caso, List<Pais> paisesSistema, List<Villano> villanosSistema, List<Lugar> lugares){
 		this.caso=caso
 		this.paisesSistema=paisesSistema
 		this.villanosSistema=villanosSistema
 		this.paisActual=caso.paisInicio
+		this.lugaresSistema = lugares
 		this.ordenDeArresto= new OrdenDeArresto()
 	}
 	
