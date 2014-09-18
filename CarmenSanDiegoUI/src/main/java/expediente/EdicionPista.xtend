@@ -62,7 +62,9 @@ class EdicionPista extends Dialog<ExpedientesAppModel> {
 			setWidth(220)
 			//setBackground(Color::LIGHT_GRAY)
 			caption = "Aceptar"
-					onClick [ | close ]
+					onClick [ | 
+								close
+					]
 		]
 	}
 	
