@@ -46,7 +46,7 @@ class Villano extends Personaje {
 	
 	def agregarSeniaParticular(PistaSenia pista) {
 		seniasParticulares.add(pista)
-		ObservableUtils.firePropertyChanged(this, "seniasPart", seniasParticulares)
+		ObservableUtils.firePropertyChanged(this, "seniasParticulares", seniasParticulares)
 	}
 	
 	def quitarHobbie(PistaHobbie pista) {

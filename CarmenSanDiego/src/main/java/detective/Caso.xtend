@@ -32,13 +32,13 @@ class Caso {
 		}
 		
 		def getDescripcion() '''
-	«inicioCaso»,
-	en «paisInicio.nombre» a las 9 horas del dia miercoles
-	el villano mas conocido como  «villano.nombre».
-	  El sospechoso del caso es de sexo «villano.sexo».
- 	  El crimnal fue muy prolijo y la escena del crimen
- 	no contaba con pista alguna,su misión 
- 	como detective es desifrar el responsable de tal crímen y apresarlo.
+	   «inicioCaso»,
+	   en «paisInicio.nombre» a las 9 horas del dia miercoles
+	   el villano mas conocido como  «villano.nombre».
+	   El sospechoso del caso es un «villano.sexo».
+	   Él fue muy prolijo y la escena del crimen
+	   no contaba con pista alguna,su misión 
+	   como detective es desifrar el responsable de tal crímen y apresarlo.
 	'''
 		
 	}
