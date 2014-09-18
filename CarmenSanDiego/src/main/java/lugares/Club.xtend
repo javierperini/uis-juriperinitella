@@ -13,8 +13,8 @@ class Club extends Lugar {
 	 * - dos PistaSenia
 	 * - un PistaHobbie  (70% de chances de revelarse)
 	 */
-	new(Personaje personaje, List<Pista> lista) {
-		super(personaje, lista)
+	new(String nombre, Personaje personaje, List<Pista> lista) {
+		super(nombre, personaje, lista)
 	}
 	
 	override imprimirPistas() {

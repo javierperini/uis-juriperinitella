@@ -13,8 +13,8 @@ class Embajada extends Lugar {
 	 * - dos PistaLugar
 	 */
 	 
-	new(Personaje personaje, List<Pista> pistas) {
-		super(personaje, pistas)
+	new(String nombre, Personaje personaje, List<Pista> pistas) {
+		super(nombre, personaje, pistas)
 	}
 
 }

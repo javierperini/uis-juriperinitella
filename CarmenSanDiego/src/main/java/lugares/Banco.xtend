@@ -12,8 +12,8 @@ class Banco extends Lugar {
 	 * - un PistaLugar
 	 * - un PistaSenia
 	 */
-	new(Personaje personaje, List<Pista> pistas) {
-		super(personaje, pistas)
+	new(String nombre, Personaje personaje, List<Pista> pistas) {
+		super(nombre, personaje, pistas)
 	}
 	
 }

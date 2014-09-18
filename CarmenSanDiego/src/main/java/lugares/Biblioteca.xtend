@@ -13,8 +13,8 @@ class Biblioteca extends Lugar{
 	 * - un PistaSenia
 	 * - un PistaHobbie (50% de chances de revelarse)
 	 */
-	new(Personaje personaje, List<Pista> pistas) {
-		super(personaje, pistas)
+	new(String nombre, Personaje personaje, List<Pista> pistas) {
+		super(nombre, personaje, pistas)
 	}
 	
 	override imprimirPistas() {
