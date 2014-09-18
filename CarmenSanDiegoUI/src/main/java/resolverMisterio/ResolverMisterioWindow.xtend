@@ -6,7 +6,7 @@ import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.layout.VerticalLayout
 
-class ResolverMisterioWindows extends SimpleWindow<Sistema> {
+class ResolverMisterioWindow extends SimpleWindow<Sistema> {
 	
 	new(WindowOwner owner, Sistema sistema) {
 		super(owner,sistema)

@@ -9,11 +9,10 @@ import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
 
-class InicioDeJuegoWin extends SimpleWindow<Sistema> {
+class InicioDeJuegoWindow extends SimpleWindow<Sistema> {
 	
-	new(WindowOwner parent, Sistema sistema) {
-		super(parent, sistema)
-		
+	new(WindowOwner owner, Sistema sistema) {
+		super(owner, sistema)		
 		}
 
 	override createContents(Panel mainPanel) {
@@ -31,7 +30,7 @@ class InicioDeJuegoWin extends SimpleWindow<Sistema> {
 			 ]
 		 new Button(mainPanel)=>[
 		 	caption= "Aceptar  el Caso"
-		 	onClick =[| new ResolverMisterioWindows(owner,modelObject).open]
+		 	onClick =[| new ResolverMisterioWindow(owner,modelObject).open]
 		 ] 
 		
 	}

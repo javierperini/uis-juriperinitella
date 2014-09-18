@@ -10,7 +10,7 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import resolverMisterio.InicioDeJuegoWin
+import resolverMisterio.InicioDeJuegoWindow
 
 class MenuDeAcciones extends SimpleWindow<Sistema>{
 	
@@ -32,7 +32,7 @@ class MenuDeAcciones extends SimpleWindow<Sistema>{
 		new Panel(mainPanel) => [
 				new Button(mainPanel) => [
 				caption = "Resolver Misterio"
-				onClick [ | new InicioDeJuegoWin(owner,modelObject).open ]
+				onClick [ | new InicioDeJuegoWindow(owner,modelObject).open ]
 			]
 			new Button(mainPanel) => [
 				caption = "Mapamundi"
