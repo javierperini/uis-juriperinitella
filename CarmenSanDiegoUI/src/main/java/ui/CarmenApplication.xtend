@@ -9,18 +9,27 @@ import detective.Caso
 import pista.PistaSenia
 import pista.PistaHobbie
 import lugares.Lugar
+import pista.Pista
+import lugares.Club
+import lugares.Embajada
+import lugares.Biblioteca
 
 class CarmenApplication extends Application{
 	
 	List<Villano> villanos= newArrayList()
 	List<Pais> paisesSistema= newArrayList()
+	List<Pista> pistas = newArrayList()
 	List<PistaSenia> seniasPart = newArrayList()
 	List<PistaHobbie> hobbies = newArrayList()
 	List<String> caracteristicas=newArrayList()
 	List<Lugar>lugares=newArrayList()
+	List<Lugar>lugaresPais=newArrayList()
 	
 	override createMainWindow() {
 		/*Pistas*/
+		pistas.add(new Pista("cuchillo"))
+		pistas.add(new Pista("arma"))
+		pistas.add(new Pista("chrarco de sangre!!"))
 		seniasPart.add(new PistaSenia("Le gustan los pantalones azules"))
 		seniasPart.add(new PistaSenia("La sal no sala, y la azucar no endulza"))
 		seniasPart.add(new PistaSenia("Borracho ahora sobrio y sin espinas. "))
@@ -40,15 +49,20 @@ class CarmenApplication extends Application{
 		caracteristicas.add("Incendios")
 		caracteristicas.add("Fiesta")
 		
+		/*Lugares */
+		lugares.add(new Club(a, pistas))
+		lugares.add(new Embajada(b, pistas))
+		lugares.add(new Biblioteca(c, pistas))
+		
 		/*Pais */
-		var Pais ap = new Pais("Argentina",caracteristicas,lugares)
-		var Pais bp = new Pais("Brasil",caracteristicas,lugares)
+		var Pais ap = new Pais("Argentina",caracteristicas,lugaresPais)
+		var Pais bp = new Pais("Brasil",caracteristicas,lugaresPais)
 		paisesSistema.add(ap)
 	    paisesSistema.add(bp)
 		
 		/*Caso*/
 		var Caso caso= new Caso(ap, paisesSistema, a, "Se robaron las papasFritas de todo MCDONALDS","Robo de PapasFritas")
-		var sistema = new Sistema(caso,paisesSistema,villanos)
+		var sistema = new Sistema(caso,paisesSistema,villanos, lugares)
 		
 		
 		new MenuDeAcciones(this, sistema)
