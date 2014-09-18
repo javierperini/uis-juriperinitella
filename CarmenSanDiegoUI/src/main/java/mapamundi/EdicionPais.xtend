@@ -60,7 +60,7 @@ class EdicionPais extends SimpleWindow<MapamundiAppModel>{
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Lugares"
-					onClick [ | new EditarLugaresInteres(owner, modelObject.sistema).open ]
+					onClick [ | new EditarLugaresInteres(owner, modelObject.sistema, modelObject.paisSeleccionado).open ]
 		]
 		
 		botonAceptar(mainPanel)

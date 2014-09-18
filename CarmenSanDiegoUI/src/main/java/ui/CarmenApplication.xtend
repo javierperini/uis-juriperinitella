@@ -50,9 +50,9 @@ class CarmenApplication extends Application{
 		caracteristicas.add("Fiesta")
 		
 		/*Lugares */
-		lugares.add(new Club(a, pistas))
-		lugares.add(new Embajada(b, pistas))
-		lugares.add(new Biblioteca(c, pistas))
+		lugares.add(new Club("Club", a, pistas))
+		lugares.add(new Embajada("Embajada", b, pistas))
+		lugares.add(new Biblioteca("Biblioteca", c, pistas))
 		
 		/*Pais */
 		var Pais ap = new Pais("Argentina",caracteristicas,lugaresPais)

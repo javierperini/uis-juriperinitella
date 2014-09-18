@@ -13,11 +13,13 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
+import detective.Pais
 
 class EditarLugaresInteres  extends SimpleWindow<MapamundiAppModel> {
 	
-	new(WindowOwner owner, Sistema sis) {
+	new(WindowOwner owner, Sistema sis, Pais pais) {
 		super(owner, new MapamundiAppModel(sis))
+		modelObject.paisSeleccionado = pais
 	}
 	
 	override createContents(Panel mainPanel) {
