@@ -39,7 +39,6 @@ class MapamundiWindow extends Dialog<MapamundiAppModel> {
 				new Label(it).setText("Nombre: ")
 				new Label(it).setWidth(60).bindValueToProperty("paisSeleccionado.nombre")
 			]
-			
 			var Table<String> caracteristicas = new Table<String>(it, String)
 			caracteristicas.height = 60
 			caracteristicas.bindItemsToProperty("paisSeleccionado.caracteristicas")
@@ -47,8 +46,6 @@ class MapamundiWindow extends Dialog<MapamundiAppModel> {
 //				title = "Caracteristicas" 
 //				bindContentsToProperty("nombre")
 //			]
-
-
 			var Table<Pais> conexiones = new Table<Pais>(it, Pais)
 			conexiones.height = 60
 			conexiones.bindItemsToProperty("paisSeleccionado.conexiones")
@@ -56,7 +53,6 @@ class MapamundiWindow extends Dialog<MapamundiAppModel> {
 				title = "Conexiones" 
 				bindContentsToProperty("nombre")
 			]
-			
 			var Table<Lugar> lugares = new Table<Lugar>(it, Lugar)
 			lugares.height = 60
 			lugares.bindItemsToProperty("paisSeleccionado.lugares")
@@ -68,25 +64,28 @@ class MapamundiWindow extends Dialog<MapamundiAppModel> {
 		
 		new Button(colPanel) => [ 
 				caption = "Eliminar"
+				width = 50
 				onClick [ | modelObject.removerPais ]
 		]
 		new Button(colPanel) => [
-				caption = "Editar"  //DEBERIA TENER 3 PARAMETROS ESTO NO ANDA
-				onClick [ | new EditarPais(owner,  modelObject.sistema, modelObject.paisSeleccionado).open ]
+				caption = "Editar"
+				width = 50
+				onClick [ | new EditarPais(owner,  modelObject).open ]
+//				onClick [ | new EditarPais(owner,  modelObject.sistema, modelObject.paisSeleccionado).open ]
 		]
 		new Button(colPanel) => [
 				caption = "Nuevo"
-				onClick [ | new NuevoPais(owner, modelObject.sistema).open ]
+				width = 50
+				onClick [ | new NuevoPais(owner, modelObject).open ]
+//				onClick [ | new NuevoPais(owner, modelObject.sistema).open ]
 		]
-		
+		new Button(colPanel) => [
+				caption = "Aceptar"
+				width = 100
+				onClick [ | close ]
+		]
 	}
 	
-	override protected addActions(Panel arg0) {
-		//
-	}
-	
-	override protected createFormPanel(Panel arg0) {
-		//
-	}
-	
+	override protected addActions(Panel arg0) { }
+	override protected createFormPanel(Panel arg0) { }
 }

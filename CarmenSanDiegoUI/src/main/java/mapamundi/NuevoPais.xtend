@@ -9,16 +9,22 @@ import org.uqbar.arena.widgets.Button
 class NuevoPais extends EdicionPais{
 	
 	
-	new(WindowOwner owner, Sistema sistema) {
-		super(owner, sistema, new Pais())
+	new(WindowOwner owner, MapamundiAppModel model) {
+		super(owner, model)
+		modelObject.paisSeleccionado = new Pais
 		title = "Mapamundi - Nuevo Pais"
 	}
 	
 	override botonAceptar(Panel mainPanel) {		
 		new Button(mainPanel) => [
 			caption = "Aceptar"
-			onClick [ | modelObject.agregarPaisALaLista()
-						close ]
+			onClick [ | if(modelObject.paisSeleccionado.nombre == "") {
+							//tirar error
+						} else {
+							modelObject.agregarPaisALaLista()
+							close
+						}
+					]
 		]
 	}
 

@@ -15,10 +15,13 @@ import detective.Pais
 
 class EditarCaracteristicas extends SimpleWindow<MapamundiAppModel> {
 	
-	new(WindowOwner owner, Sistema sis, Pais pais) {
-		super(owner, new MapamundiAppModel(sis))
-		modelObject.paisSeleccionado = pais
+	new(WindowOwner owner, MapamundiAppModel model) {
+		super(owner, model)
 	}
+//	new(WindowOwner owner, Sistema sis, Pais pais) {
+//		super(owner, new MapamundiAppModel(sis))
+//		modelObject.paisSeleccionado = pais
+//	}
 	
 	override createContents(Panel mainPanel) {
 		this.setTitle("Editar Caracteristicas")

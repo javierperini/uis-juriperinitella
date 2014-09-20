@@ -28,35 +28,21 @@ class MenuDeAcciones extends SimpleWindow<Sistema>{
 			new Label(mainPanel).setText("¿Qué hacemos ahora, detective?") 
 		] 
 		
-		
-		new Panel(mainPanel) => [
-				new Button(mainPanel) => [
-				caption = "Resolver Misterio"
-				onClick [ | new InicioDeJuegoWindow(owner,modelObject).open ]
-			]
-			new Button(mainPanel) => [
-				caption = "Mapamundi"
-				onClick [ | new MapamundiWindow(owner, modelObject).open ]
-			]
-			
-			new Button(mainPanel) => [
-				caption = "Expedientes"
-
-				onClick [ | new ExpedientesWindow(owner, modelObject).open ] 
-			]		
+		new Button(mainPanel) => [
+		caption = "Resolver Misterio"
+		onClick [ | new InicioDeJuegoWindow(owner,modelObject).open ]
 		]
+		new Button(mainPanel) => [
+			caption = "Mapamundi"
+			onClick [ | new MapamundiWindow(owner, modelObject).open ]
+		]
+		new Button(mainPanel) => [
+			caption = "Expedientes"
+			onClick [ | new ExpedientesWindow(owner, modelObject).open ] 
+		]		
 
 	}
-	
-	
-	
-	override protected addActions(Panel arg0) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
-	override protected createFormPanel(Panel arg0) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
-		
+
+	override protected addActions(Panel arg0) {	}
+	override protected createFormPanel(Panel arg0) { }
 }

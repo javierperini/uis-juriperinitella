@@ -22,7 +22,6 @@ class ExpedientesWindow extends Dialog<ExpedientesAppModel> {
 	}
 	
 	override createContents(Panel mainPanel) {
-		this.setTitle("Expedientes - Nuevo Villano")
 		val colPanel = new Panel(mainPanel)
 		colPanel.setLayout(new ColumnLayout(2))
 		
@@ -66,25 +65,21 @@ class ExpedientesWindow extends Dialog<ExpedientesAppModel> {
 		
 		new Button(colPanel) => [
 				caption = "Nuevo"
+				width = 50
 				onClick [ | new NuevoVillano(owner, modelObject).open ]
 		]
-		
 		new Button(colPanel) => [
 				caption = "Editar"
+				width = 50
 				onClick [ | new EditarVillano(owner, modelObject).open ]
 		]
 		new Button(colPanel) => [
 				caption = "Aceptar"
+				width = 100
 				onClick [ | close ]
 		]
 	}
 	
-	override protected addActions(Panel arg0) {
-		//
-	}
-	
-	override protected createFormPanel(Panel arg0) {
-		//
-	}
-	
+	override protected addActions(Panel arg0) { }
+	override protected createFormPanel(Panel arg0) { }
 }

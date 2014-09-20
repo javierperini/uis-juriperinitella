@@ -12,9 +12,9 @@ class ExpedientesAppModel {
 	@Property Sistema sistema
 	@Property Villano villanoSeleccionado
 	@Property PistaSenia pistaSeniaSeleccionada
-	@Property PistaSenia pistaSeniaParaAgregar
+	@Property PistaSenia pistaSeniaParaAgregar // = new PistaSenia("") hacer esto no lo arregla
 	@Property PistaHobbie pistaHobbieSeleccionada
-	@Property PistaHobbie pistaHobbieParaAgregar
+	@Property PistaHobbie pistaHobbieParaAgregar// = new PistaHobbie("") hacer esto no lo arregla
 	
 	new(Sistema sistema){
 		this.sistema = sistema

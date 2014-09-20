@@ -13,6 +13,7 @@ import pista.Pista
 import lugares.Club
 import lugares.Embajada
 import lugares.Biblioteca
+import lugares.Banco
 
 class CarmenApplication extends Application{
 	
@@ -53,6 +54,7 @@ class CarmenApplication extends Application{
 		lugares.add(new Club("Club", a, pistas))
 		lugares.add(new Embajada("Embajada", b, pistas))
 		lugares.add(new Biblioteca("Biblioteca", c, pistas))
+		lugares.add(new Banco("Banco", a, pistas))
 		
 		/*Pais */
 		var Pais ap = new Pais("Argentina",caracteristicas,lugaresPais)

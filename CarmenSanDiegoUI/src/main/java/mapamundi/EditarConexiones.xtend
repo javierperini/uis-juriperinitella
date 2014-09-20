@@ -15,10 +15,9 @@ import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 
 class EditarConexiones extends SimpleWindow<MapamundiAppModel> {
-	
-	new(WindowOwner owner, Sistema s, Pais pais) {
-		super(owner, new MapamundiAppModel(s))
-		modelObject.paisSeleccionado = pais
+	// borre el new anterior, es igual a los otros
+	new(WindowOwner owner, MapamundiAppModel model) {
+		super(owner, model)
 	}
 	
 	override createContents(Panel mainPanel) {
@@ -35,42 +34,44 @@ class EditarConexiones extends SimpleWindow<MapamundiAppModel> {
 			height = 60
 			bindItemsToProperty("paisSeleccionado.conexiones").adapter = new PropertyAdapter(Pais, "nombre")
 			bindValueToProperty("conexionAEliminar")
-			
-		
-		var col = new Panel(mainPanel).setLayout(new ColumnLayout(2))
-		new Button(col) => [
-			setBackground(Color::LIGHT_GRAY)	// al pedo
-			caption = "Eliminar"
-					onClick [ | modelObject.quitarConexion()]
-		]
-		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
-		new Selector(col2) => [
-			setWidth(100)
-			bindItemsToProperty("sistema.paisesSistema").adapter = new PropertyAdapter(Pais, "nombre")
-			bindValueToProperty("conexionParaAgregar")
-		]
-		new Button(col2) => [
-			setWidth(100)
-			setBackground(Color::LIGHT_GRAY)
-			caption = "Agregar"
-					onClick [ | modelObject.agregarConexion()]
-		]
-		var ver = new Panel(mainPanel)
-		new Button(ver) => [
-			setWidth(220)
-			setBackground(Color::LIGHT_GRAY)
-			caption = "Aceptar"
-					onClick [ | close ]
-		]
-	]}
-	
-	override protected addActions(Panel arg0) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
-	override protected createFormPanel(Panel arg0) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
 
+			var col = new Panel(mainPanel).setLayout(new ColumnLayout(2))
+			new Button(col) => [
+				setBackground(Color::LIGHT_GRAY)	// al pedo
+				caption = "Eliminar"
+						onClick [ | modelObject.quitarConexion()]
+			]
+			var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
+			new Selector(col2) => [
+				setWidth(100)
+				bindItemsToProperty("sistema.paisesSistema").adapter = new PropertyAdapter(Pais, "nombre")
+				bindValueToProperty("conexionParaAgregar")
+			]
+			new Button(col2) => [
+				setWidth(100)
+				setBackground(Color::LIGHT_GRAY)
+				caption = "Agregar"
+						onClick [ | if(modelObject.paisSeleccionado != modelObject.conexionParaAgregar){
+										if(!modelObject.paisSeleccionado.conexiones.contains(modelObject.conexionParaAgregar)) {
+											modelObject.agregarConexion()
+											} else {
+												//tirar error por pais repetido											
+											}
+									} else {
+										//tirar error por ser el mismo pais
+									}
+								]
+			]
+			var ver = new Panel(mainPanel)
+			new Button(ver) => [
+				setWidth(220)
+				setBackground(Color::LIGHT_GRAY)
+				caption = "Aceptar"
+						onClick [ | close ]
+			]
+		]
+	}
 	
+	override protected addActions(Panel arg0) { }
+	override protected createFormPanel(Panel arg0) { }
 }

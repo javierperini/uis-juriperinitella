@@ -15,10 +15,13 @@ import lugares.Lugar
 
 class EdicionPais extends SimpleWindow<MapamundiAppModel>{
 	
-	new(WindowOwner parent, Sistema sis, Pais pais) {
-		super(parent, new MapamundiAppModel(sis))
-		modelObject.paisSeleccionado = pais
+	new(WindowOwner parent, MapamundiAppModel model) {
+		super(parent, model)
 	}
+//	new(WindowOwner parent, Sistema sis, Pais pais) {
+//		super(parent, new MapamundiAppModel(sis))
+//		modelObject.paisSeleccionado = pais
+//	}
 	
 	override createContents(Panel mainPanel) {
 
@@ -32,7 +35,8 @@ class EdicionPais extends SimpleWindow<MapamundiAppModel>{
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Características"
-					onClick [ | new EditarCaracteristicas(owner, modelObject.sistema, modelObject.paisSeleccionado).open ]
+			onClick [ | new EditarCaracteristicas(owner, modelObject).open ]
+//					onClick [ | new EditarCaracteristicas(owner, modelObject.sistema, modelObject.paisSeleccionado).open ]
 		]
 		
 		var Table<Pais> tablaDeConexiones = new Table<Pais>(mainPanel, Pais)
@@ -46,7 +50,8 @@ class EdicionPais extends SimpleWindow<MapamundiAppModel>{
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Conexiones"
-					onClick [ | new EditarConexiones(owner, modelObject.sistema, modelObject.paisSeleccionado).open ]
+			onClick [ | new EditarConexiones(owner, modelObject).open ]
+//					onClick [ | new EditarConexiones(owner, modelObject.sistema, modelObject.paisSeleccionado).open ]
 		]
 		
 		var Table<Lugar> tablaLugares = new Table<Lugar>(mainPanel, Lugar)
@@ -60,7 +65,8 @@ class EdicionPais extends SimpleWindow<MapamundiAppModel>{
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Lugares"
-					onClick [ | new EditarLugaresInteres(owner, modelObject.sistema, modelObject.paisSeleccionado).open ]
+			onClick [ | new EditarLugaresInteres(owner, modelObject).open ]
+//					onClick [ | new EditarLugaresInteres(owner, modelObject.sistema, modelObject.paisSeleccionado).open ]
 		]
 		
 		botonAceptar(mainPanel)
@@ -68,12 +74,6 @@ class EdicionPais extends SimpleWindow<MapamundiAppModel>{
 	
 	def botonAceptar(Panel mainPanel){}
 	
-	override protected addActions(Panel actionsPanel) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
-	override protected createFormPanel(Panel mainPanel) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
-	
+	override protected addActions(Panel actionsPanel) { }
+	override protected createFormPanel(Panel mainPanel) { }
 }

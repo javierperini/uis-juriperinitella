@@ -17,10 +17,13 @@ import detective.Pais
 
 class EditarLugaresInteres  extends SimpleWindow<MapamundiAppModel> {
 	
-	new(WindowOwner owner, Sistema sis, Pais pais) {
-		super(owner, new MapamundiAppModel(sis))
-		modelObject.paisSeleccionado = pais
+	new(WindowOwner owner, MapamundiAppModel model) {
+		super(owner, model)
 	}
+//	new(WindowOwner owner, Sistema sis, Pais pais) {
+//		super(owner, new MapamundiAppModel(sis))
+//		modelObject.paisSeleccionado = pais
+//	}
 	
 	override createContents(Panel mainPanel) {
 		this.setTitle("Editar Lugares")
@@ -54,7 +57,12 @@ class EditarLugaresInteres  extends SimpleWindow<MapamundiAppModel> {
 			setWidth(100)
 			setBackground(Color::LIGHT_GRAY)
 			caption = "Agregar"
-					onClick [ | modelObject.agregarLugar()]
+			onClick [ | if(!modelObject.paisSeleccionado.lugares.contains(modelObject.lugarParaAgregar)) {
+							modelObject.agregarLugar()
+						} else {
+							//tirar error por pais repetido											
+						}
+					]
 		]
 		var ver = new Panel(mainPanel)
 		new Button(ver) => [
