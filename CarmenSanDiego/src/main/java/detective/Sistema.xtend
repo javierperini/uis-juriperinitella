@@ -14,6 +14,7 @@ class Sistema {
 	@Property Caso caso
 	@Property List<Pais> paisesSistema= newArrayList()
 	@Property List<Pais> paisesVisitados= newArrayList()
+	@Property List<Pais> paisesFallidos= newArrayList()
 	@Property List<Villano> villanosSistema = newArrayList()
 	@Property List<Lugar> lugaresSistema = newArrayList()
 	@Property Villano villanoEnCreacion
@@ -22,6 +23,7 @@ class Sistema {
 	@Property OrdenDeArresto ordenDeArresto
 	@Property Pais paisEnCreacion
 	@Property Pais paisSeleccionado
+	@Property String paisesRecorridos
 	
 	new(Caso caso, List<Pais> paisesSistema, List<Villano> villanosSistema, List<Lugar> lugares){
 		this.caso=caso
@@ -30,6 +32,7 @@ class Sistema {
 		this.paisActual=caso.paisInicio
 		this.lugaresSistema = lugares
 		this.ordenDeArresto= new OrdenDeArresto()
+		this.paisesRecorridos=caso.nombrePaisInicio()
 	}
 	
 	new() { }
@@ -41,7 +44,13 @@ class Sistema {
 	def viajar(Pais pais){
 		paisActual=pais
 		paisesVisitados.add(pais)
+		pasarAString(pais.nombre)
 		paisesSistema.remove(pais)
+	}
+	
+	def pasarAString(String string) {
+		paisesRecorridos.concat("<-")
+		 paisesRecorridos.concat(string)	
 	}
 	
 	def volverAPaisAnterior(){
@@ -80,9 +89,7 @@ class Sistema {
 		villanosSistema.add(villano)
 		ObservableUtils.firePropertyChanged(this, "villanosSistema", villanosSistema)
 	}
-	
-	
-	
+
 	def removerPais(Pais pais) {
 		paisesSistema.remove(pais)
 		ObservableUtils.firePropertyChanged(this, "paisesSistema", paisesSistema)
@@ -96,6 +103,11 @@ class Sistema {
 	
 	def getNombreCaso() {
 		caso.nombreCaso
+	}
+	
+	def nombreDelLugar(int i) {
+		
+		paisActual.lugar(i);
 	}
 	
 	

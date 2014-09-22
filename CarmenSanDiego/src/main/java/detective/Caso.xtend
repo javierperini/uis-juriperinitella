@@ -40,5 +40,9 @@ class Caso {
 	   no contaba con pista alguna,su misión 
 	   como detective es desifrar el responsable de tal crímen y apresarlo.
 	'''
+	
+	def nombrePaisInicio() {
+		paisInicio.nombre
+	}
 		
 	}

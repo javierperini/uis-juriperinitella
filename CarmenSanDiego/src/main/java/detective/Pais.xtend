@@ -81,5 +81,9 @@ class Pais {
 		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
 	}
 	
+	def lugar(int i) {
+		lugares.get(i).nombre
+	}
+	
 	
 }
