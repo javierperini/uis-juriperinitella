@@ -32,16 +32,16 @@ class CarmenApplication extends Application{
 		pistas.add(new Pista("arma"))
 		pistas.add(new Pista("chrarco de sangre!!"))
 		seniasPart.add(new PistaSenia("Le gustan los pantalones azules"))
-		seniasPart.add(new PistaSenia("La sal no sala, y la azucar no endulza"))
+		seniasPart.add(new PistaSenia("La sal no sala, y el azucar no endulza"))
 		seniasPart.add(new PistaSenia("Borracho ahora sobrio y sin espinas. "))
 		hobbies.add(new PistaHobbie("Con mexicanos margaritas ,dos chicas: una sabe mentir "))
 		hobbies.add(new PistaHobbie("Run beach Run"))
 		hobbies.add(new PistaHobbie("Ayer se fue, agarro sus cosas y se puso a navegar"))
 		
 		/*Villano */
-		var Villano a = new Villano("Don Ramon","Hombre",hobbies,seniasPart)
+		var Villano a = new Villano("Don Ramon","Masculino",hobbies,seniasPart)
 		var Villano b = new Villano("Maria Jose","?",hobbies,seniasPart)
-		var Villano c = new Villano("Raquel","La Mujer de los muchachos",hobbies,seniasPart)
+		var Villano c = new Villano("Raquel","Femenino",hobbies,seniasPart)
 		villanos.add(a)
 		villanos.add(b)
 		villanos.add(c)
@@ -55,7 +55,10 @@ class CarmenApplication extends Application{
 		lugares.add(new Embajada("Embajada", b, pistas))
 		lugares.add(new Biblioteca("Biblioteca", c, pistas))
 		lugares.add(new Banco("Banco", a, pistas))
-		
+		//----
+		lugaresPais.add(new Club("Club", a, pistas))
+		lugaresPais.add(new Embajada("Embajada", b, pistas))
+		lugaresPais.add(new Biblioteca("Biblioteca", c, pistas))
 		/*Pais */
 		var Pais ap = new Pais("Argentina",caracteristicas,lugaresPais)
 		var Pais bp = new Pais("Brasil",caracteristicas,lugaresPais)
