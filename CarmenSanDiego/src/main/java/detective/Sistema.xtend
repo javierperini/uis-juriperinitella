@@ -104,11 +104,7 @@ class Sistema {
 	def getNombreCaso() {
 		caso.nombreCaso
 	}
-	
-	def nombreDelLugar(int i) {
-		
-		paisActual.lugar(i);
+	def paisDeInicio(){
+		caso.paisInicio
 	}
-	
-	
 }

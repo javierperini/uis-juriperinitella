@@ -32,13 +32,14 @@ class Caso {
 		}
 		
 		def getDescripcion() '''
-	   «inicioCaso»,
-	   en «paisInicio.nombre» a las 9 horas del dia miercoles
-	   el villano mas conocido como  «villano.nombre».
-	   El sospechoso del caso es un «villano.sexo».
-	   Él fue muy prolijo y la escena del crimen
-	   no contaba con pista alguna,su misión 
-	   como detective es desifrar el responsable de tal crímen y apresarlo.
+	   «inicioCaso».
+	   A las 9 horas del dia miercoles en «paisInicio.nombre»
+	  Identificado como un tesoro muy antiguo.
+	   La persona sospechosa vista en la escena del crimen es: «villano.sexo».
+	   
+	   Su mision: 
+	   Como detective , realizar el seguimiento de la persona sospechosa de «paisInicio.nombre» a su
+	    escondite y arrestarla.
 	'''
 	
 	def nombrePaisInicio() {
