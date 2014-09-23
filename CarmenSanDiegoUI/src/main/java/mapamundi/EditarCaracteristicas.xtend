@@ -1,6 +1,5 @@
 package mapamundi
 
-import detective.Sistema
 import java.awt.Color
 import org.uqbar.arena.layout.ColumnLayout
 import org.uqbar.arena.layout.VerticalLayout
@@ -11,7 +10,6 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import detective.Pais
 
 class EditarCaracteristicas extends SimpleWindow<MapamundiAppModel> {
 	
@@ -55,6 +53,7 @@ class EditarCaracteristicas extends SimpleWindow<MapamundiAppModel> {
 			setBackground(Color::LIGHT_GRAY)
 			caption = "Agregar"
 					onClick [ | modelObject.agregarCaracteristica()]
+					bindEnabledToProperty("puedeAgregarCaracteristica")
 		]
 		var ver = new Panel(mainPanel)
 		new Button(ver) => [

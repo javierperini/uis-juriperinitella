@@ -50,7 +50,10 @@ class EdicionPais extends SimpleWindow<MapamundiAppModel>{
 		new Button(mainPanel) => [
 			setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar Conexiones"
-			onClick [ | new EditarConexiones(owner, modelObject).open ]
+			onClick [ | 
+						modelObject.quitarPaisSeleccionado()
+						new EditarConexiones(owner, modelObject).open
+			]
 //					onClick [ | new EditarConexiones(owner, modelObject.sistema, modelObject.paisSeleccionado).open ]
 		]
 		

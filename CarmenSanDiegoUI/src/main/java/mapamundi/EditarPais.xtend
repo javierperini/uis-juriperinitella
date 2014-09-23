@@ -15,12 +15,11 @@ class EditarPais extends EdicionPais {
 	override botonAceptar(Panel mainPanel) {		
 		new Button(mainPanel) => [
 			caption = "Aceptar"
-			onClick [ | if(modelObject.paisSeleccionado.nombre == "") {
-							//tirar error
-						} else {
-							close
-						}
+			onClick [ | 
+						modelObject.agregarPaisSeleccionado()
+						close
 					]
+			bindEnabledToProperty("paisSeleccionado.puedeAceptar")
 		]
 	}	
 //	new(WindowOwner owner, Sistema sistema, Pais pais) {

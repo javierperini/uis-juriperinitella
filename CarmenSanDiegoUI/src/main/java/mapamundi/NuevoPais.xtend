@@ -18,13 +18,18 @@ class NuevoPais extends EdicionPais{
 	override botonAceptar(Panel mainPanel) {		
 		new Button(mainPanel) => [
 			caption = "Aceptar"
-			onClick [ | if(modelObject.paisSeleccionado.nombre == "") {
-							//tirar error
-						} else {
-							modelObject.agregarPaisALaLista()
-							close
-						}
-					]
+//			onClick [ | if(modelObject.paisSeleccionado.nombre == "") {
+//							//tirar error
+//						} else {
+//							modelObject.agregarPaisALaLista()
+//							close
+//						}
+//					]
+			onClick [ | modelObject.agregarPaisSeleccionado()
+						modelObject.agregarPaisALaLista()
+						close	
+			]
+			bindEnabledToProperty("paisSeleccionado.puedeAceptar")			
 		]
 	}
 

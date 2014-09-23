@@ -44,21 +44,17 @@ class EditarConexiones extends SimpleWindow<MapamundiAppModel> {
 			var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 			new Selector(col2) => [
 				setWidth(100)
-				bindItemsToProperty("sistema.paisesSistema").adapter = new PropertyAdapter(Pais, "nombre")
+				bindItemsToProperty("paisesAMostrar").adapter = new PropertyAdapter(Pais, "nombre")
 				bindValueToProperty("conexionParaAgregar")
 			]
 			new Button(col2) => [
 				setWidth(100)
 				setBackground(Color::LIGHT_GRAY)
 				caption = "Agregar"
-						onClick [ | if(modelObject.paisSeleccionado != modelObject.conexionParaAgregar){
-										if(!modelObject.paisSeleccionado.conexiones.contains(modelObject.conexionParaAgregar)) {
-											modelObject.agregarConexion()
-											} else {
-												//tirar error por pais repetido											
-											}
+						onClick [ | if(!modelObject.paisSeleccionado.conexiones.contains(modelObject.conexionParaAgregar)) {
+										modelObject.agregarConexion()
 									} else {
-										//tirar error por ser el mismo pais
+										//tirar error por pais repetido											
 									}
 								]
 			]
