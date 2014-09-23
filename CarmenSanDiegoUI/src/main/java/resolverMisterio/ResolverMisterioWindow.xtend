@@ -61,20 +61,21 @@ class ResolverMisterioWindow extends Dialog<ResolverAppModel> {
 		new Panel(colPanel)=>[
 			layout =  new VerticalLayout
 			new Button(it) => [
-				var lugar=modelObject.nombreDelLugar(0)
-				caption = lugar
+				var lugar2=modelObject.nombreDelLugar(0)
+				caption = lugar2
 				width = 100
-				onClick [ | ]
+				modelObject.lugar(0)
+				onClick [ | new LugaresWindows(owner,modelObject).open ]
 			]
 			new Button(it) => [
 				caption = modelObject.nombreDelLugar(1)
 				width = 100
-				onClick [ | ]
+				onClick [ | new LugaresWindows(owner,modelObject).open ]
 			]	
 			new Button(it) => [
 				caption = modelObject.nombreDelLugar(2)
 				width = 100
-				onClick [ | ]
+				onClick [ | new LugaresWindows(owner,modelObject).open]
 			]
 		]
 	}
@@ -91,12 +92,12 @@ class ResolverMisterioWindow extends Dialog<ResolverAppModel> {
 				new Button(it) => [
 					caption = "Orden de Arresto"
 					width = 150
-					onClick [ | ]
+					onClick [ | new OrdenDeArrestoWindows(owner,modelObject).open]
 				]
 				new Button(it) => [
 					caption = "Viajar"
 					width = 100
-					onClick [ | ]
+					onClick [ | new ViajarWindows(owner,modelObject).open ]
 				]
 				new Button(it) => [
 					caption = "Expediente"
