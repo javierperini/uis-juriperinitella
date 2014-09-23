@@ -14,8 +14,6 @@ class Pais {
 	@Property List<Pais> conexiones = new ArrayList<Pais>()
 	@Property List<Pais> paisesLimitrofes
 	@Property Lugar  lugarActual
-	@Property String caracteristicaAEliminar
-	@Property String caracteristicaParaAgregar
 	
 
 	/**
@@ -44,6 +42,17 @@ class Pais {
 		}else{
 			throw new NoEstaEnNingunLugarException("No fuiste a ningun lugar")
 		}
+	}
+	
+	def isPuedeAceptar(){
+		nombre != null &&
+		nombre != "" &&
+		!nombre.startsWith(" ")
+	}
+	
+	def setNombre(String nombre){
+		this._nombre = nombre
+		ObservableUtils.firePropertyChanged(this, "puedeAceptar", puedeAceptar)
 	}
 	
 //	def setCaracteristicas(List<String> carac){
