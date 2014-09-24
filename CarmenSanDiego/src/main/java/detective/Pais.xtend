@@ -91,7 +91,7 @@ class Pais {
 	}
 	
 	def lugar(int i) {
-		lugares.get(i).nombre
+		lugares.get(i)
 	}
 	
 	
