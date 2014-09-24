@@ -14,16 +14,16 @@ import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import detective.Pais
+import lugares.Club
+import lugares.Biblioteca
+import lugares.Banco
+import lugares.Embajada
 
 class EditarLugaresInteres  extends SimpleWindow<MapamundiAppModel> {
 	
 	new(WindowOwner owner, MapamundiAppModel model) {
 		super(owner, model)
 	}
-//	new(WindowOwner owner, Sistema sis, Pais pais) {
-//		super(owner, new MapamundiAppModel(sis))
-//		modelObject.paisSeleccionado = pais
-//	}
 	
 	override createContents(Panel mainPanel) {
 		this.setTitle("Editar Lugares")
@@ -50,14 +50,27 @@ class EditarLugaresInteres  extends SimpleWindow<MapamundiAppModel> {
 		var col2 = new Panel(mainPanel).setLayout(new ColumnLayout(2))
 		new Selector(col2) => [
 			setWidth(100)
-			bindItemsToProperty("sistema.lugaresSistema").adapter = new PropertyAdapter(Lugar, "nombre")
-			bindValueToProperty("lugarParaAgregar")
+			bindItemsToProperty("lugares")
+			bindValueToProperty("nombreLugarParaAgregar")
 		]
 		new Button(col2) => [
 			setWidth(100)
 			setBackground(Color::LIGHT_GRAY)
 			caption = "Agregar"
-			onClick [ | if(!modelObject.paisSeleccionado.lugares.contains(modelObject.lugarParaAgregar)) {
+			// HORRIBLE, ARREGLAR
+			onClick [ | if(modelObject.nombreLugarParaAgregar == "Club") {
+							modelObject.lugarParaAgregar = new Club("", null, null)
+						}
+						if(modelObject.nombreLugarParaAgregar == "Biblioteca") {
+							modelObject.lugarParaAgregar = new Biblioteca("", null, null)
+						}
+						if(modelObject.nombreLugarParaAgregar == "Banco") {
+							modelObject.lugarParaAgregar = new Banco("", null, null)
+						}
+						if(modelObject.nombreLugarParaAgregar == "Embajada") {
+							modelObject.lugarParaAgregar = new Embajada("", null, null)
+						}
+						if(!modelObject.paisSeleccionado.lugares.contains(modelObject.lugarParaAgregar)) {
 							modelObject.agregarLugar()
 						} else {
 							//tirar error por pais repetido											
@@ -73,13 +86,9 @@ class EditarLugaresInteres  extends SimpleWindow<MapamundiAppModel> {
 		]
 	}
 	
-	override protected addActions(Panel arg0) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
+	override protected addActions(Panel arg0) { }
 	
-	override protected createFormPanel(Panel arg0) {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
-	}
+	override protected createFormPanel(Panel arg0) { }
 
 
 	

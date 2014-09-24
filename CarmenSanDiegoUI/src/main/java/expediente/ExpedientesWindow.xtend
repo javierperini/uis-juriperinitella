@@ -63,21 +63,25 @@ class ExpedientesWindow extends Dialog<ExpedientesAppModel> {
 			]	
 		]
 		
-		new Button(colPanel) => [
+		mostrarBotones(colPanel)
+	}
+	
+	def mostrarBotones(Panel mainPanel) {
+		new Button(mainPanel) => [
 				caption = "Nuevo"
 				width = 50
 				onClick [ | new NuevoVillano(owner, modelObject).open ]
 		]
-		new Button(colPanel) => [
+		new Button(mainPanel) => [
 				caption = "Editar"
 				width = 50
 				onClick [ | new EditarVillano(owner, modelObject).open ]
 		]
-		new Button(colPanel) => [
+		new Button(mainPanel) => [
 				caption = "Aceptar"
 				width = 100
 				onClick [ | close ]
-		]
+		]		
 	}
 	
 	override protected addActions(Panel arg0) { }

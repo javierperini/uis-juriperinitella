@@ -16,6 +16,8 @@ class MapamundiAppModel {
 	@Property Pais paisSeleccionado
 	@Property Pais conexionAEliminar
 	@Property Pais conexionParaAgregar
+	@Property List<String> lugares = #["Club", "Embajada", "Biblioteca", "Banco"] 
+	@Property String nombreLugarParaAgregar
 	@Property Lugar lugarAEliminar
 	@Property Lugar lugarParaAgregar
 	@Property String caracteristicaAEliminar
