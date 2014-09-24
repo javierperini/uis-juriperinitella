@@ -22,7 +22,7 @@ class Villano extends Personaje {
 	new() {}
 
 	override getInformacion() {
-		"ALTO! Deténgase, " + nombre + "!!!"
+		"ALTO! Deténgase, villano!!!"
 	}
 
 	override puedeRevelarPista() {

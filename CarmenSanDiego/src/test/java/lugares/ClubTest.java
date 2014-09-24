@@ -69,7 +69,7 @@ public class ClubTest {
 	public void testPistasVillano() {
 		cl = new Club("Club", v, pistas);
 		assertEquals(cl.interrogarOcupante().size(), 1);
-		assertEquals(cl.interrogarOcupante().get(0), "Me encontraste!!");
+		assertEquals(cl.interrogarOcupante().get(0), "ALTO! Deténgase, villano!!!");
 	}
 
 	@Test
