@@ -21,7 +21,7 @@ class Pais {
 	 * - Un pais no puede tener mas de 3 lugares para visitar.
 	 * - Los lugares a visitar no pueden ser iguales
 	 */
-	new(String nombre, List<String> caracteristicas, List<Lugar>lugares){
+	new(String nombre, List<String> caracteristicas, List<Lugar>lugares, List<Pais> conexiones){
 		this.nombre=nombre
 		this.caracteristicas=caracteristicas
 		this.lugares=lugares

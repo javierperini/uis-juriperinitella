@@ -20,7 +20,7 @@ class Informante extends Personaje {
 //		var randomDouble = Math.random() * intentosDeAsesinato.length() - 1;
 //		var randomInt = Math.round(randomDouble) as int
 		
-		print("El informante " + this.nombre + " dice: " +/* intentosDeAsesinato.get(randomInt) */ intentoDeAsesinato + "\n")
+	"El informante " + this.nombre + " dice: " +/* intentosDeAsesinato.get(randomInt) */ intentoDeAsesinato
 	}
 	
 }

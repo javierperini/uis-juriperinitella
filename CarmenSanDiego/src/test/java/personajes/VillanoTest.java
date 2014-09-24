@@ -58,7 +58,7 @@ public class VillanoTest {
 
 	@Test
 	public void testGetSeniasPart() {
-		assertEquals(v.getSeniasPart().get(0).getPista(), "lunar sobre la boca");
+		assertEquals(v.getSeniasParticulares().get(0).getPista(), "lunar sobre la boca");
 	}
 
 	@Test

@@ -27,11 +27,8 @@ class Caso {
 		this.nombreCaso=nombreCaso
 		}
 		
-		new(){
-			
-		}
-		
-		def getDescripcion() '''
+	def getDescripcion() 
+	'''
 	   «inicioCaso».
 	   A las 9 horas del dia miercoles en «paisInicio.nombre»
 	  Identificado como un tesoro muy antiguo.

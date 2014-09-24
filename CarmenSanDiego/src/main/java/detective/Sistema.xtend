@@ -14,24 +14,17 @@ class Sistema {
 	@Property Caso caso
 	@Property List<Pais> paisesSistema= newArrayList()
 	@Property List<Pais> paisesVisitados= newArrayList()
-	@Property List<Pais> paisesFallidos= newArrayList()
 	@Property List<Villano> villanosSistema = newArrayList()
 	@Property List<Lugar> lugaresSistema = newArrayList()
-	@Property Villano villanoEnCreacion
 	@Property Pais paisActual
 	@Property  Villano villanoArrestar
-	@Property OrdenDeArresto ordenDeArresto
-	@Property Pais paisEnCreacion
-	@Property Pais paisSeleccionado
 	@Property String paisesRecorridos
 	
-	new(Caso caso, List<Pais> paisesSistema, List<Villano> villanosSistema, List<Lugar> lugares){
+	new(Caso caso, List<Pais> paisesSistema, List<Villano> villanosSistema){
 		this.caso=caso
 		this.paisesSistema=paisesSistema
 		this.villanosSistema=villanosSistema
 		this.paisActual=caso.paisInicio
-		this.lugaresSistema = lugares
-		this.ordenDeArresto= new OrdenDeArresto()
 		this.paisesRecorridos=caso.nombrePaisInicio()
 	}
 	
@@ -74,13 +67,6 @@ class Sistema {
 			}
 	}
 	
-	def completarHobbieOrdenDeArresto(PistaHobbie pista){
-		ordenDeArresto.agregarPistaHobbie(pista)
-	}
-	
-	def completarSeniaOrdenDeArresto(PistaSenia pista){
-		ordenDeArresto.agregarPistaSenia(pista)
-	}
 	def arrestar(){
 		villanoArrestar== caso.villano
 	}

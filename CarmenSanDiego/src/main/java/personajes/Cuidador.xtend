@@ -11,11 +11,10 @@ class Cuidador extends Personaje {
 	}
 	
 	override getInformacion() {
-		print( "El cuidador " + this.nombre + " dice: Te equivocaste de país, el villano no paso por acá\n" )
+		"El cuidador " + this.nombre + " dice: Te equivocaste de país, el villano no paso por acá"
 	}
 	
 	override puedeRevelarPista() {
 		false
-	}
-	
+	}	
 }

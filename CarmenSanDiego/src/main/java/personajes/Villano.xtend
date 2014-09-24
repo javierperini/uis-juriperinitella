@@ -20,9 +20,6 @@ class Villano extends Personaje {
 		this.seniasParticulares = seniasPart
 	}
 	
-	new(){
-		
-	}
 	override getInformacion() {
 		print("Me atrapaste!!")
 	}

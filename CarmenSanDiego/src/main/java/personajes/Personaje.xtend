@@ -13,7 +13,7 @@ abstract class Personaje {
 	
 	new(){}
 	
-	def void getInformacion()
+	def String getInformacion()
 	
 	def boolean puedeRevelarPista()
 }
