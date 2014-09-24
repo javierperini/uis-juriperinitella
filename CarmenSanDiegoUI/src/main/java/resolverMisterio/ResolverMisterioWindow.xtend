@@ -26,11 +26,15 @@ class ResolverMisterioWindow extends Dialog<ResolverAppModel> {
 		panelDeArriba(colPanel)
 		panelDeAcciones(colPanel)
 		panelBotonesDeLugar(colPanel)
+		panelPaisesVisitados(colPanel)
+		recorridoVillano(mainPanel)
+	}
+	
+	def recorridoVillano(Panel mainPanel) {
 		new Panel(mainPanel)=>[
 			layout= new VerticalLayout
 			new Label(it).setText("Recorrido Criminal: ")
 			new Label(it).setWidth(300).bindValueToProperty("paisesRecorridos")]
-		panelPaisesVisitados(colPanel)
 	}
 	
 	def panelDeArriba(Panel colPanel) {

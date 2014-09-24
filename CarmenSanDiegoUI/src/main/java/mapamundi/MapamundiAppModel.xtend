@@ -34,7 +34,6 @@ class MapamundiAppModel {
 	}
 	def agregarPaisSeleccionado(){
 		paisesAMostrar.add(paisSeleccionado)
-		sistema.agregarPais(paisSeleccionado)
 		ObservableUtils.firePropertyChanged(this, "paisesAMostrar", paisesAMostrar)
 	}
 	
@@ -84,4 +83,9 @@ class MapamundiAppModel {
 		this._caracteristicaParaAgregar = carac
 		ObservableUtils.firePropertyChanged(this, "puedeAgregarCaracteristica", puedeAgregarCaracteristica)
 	}
+	
+	def agregarPaisALaLista() {
+		sistema.agregarPais(paisSeleccionado)
+	}
+	
 }

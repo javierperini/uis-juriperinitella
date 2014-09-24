@@ -26,7 +26,7 @@ class NuevoPais extends EdicionPais{
 //						}
 //					]
 			onClick [ | modelObject.agregarPaisSeleccionado()
-//						modelObject.agregarPaisALaLista()
+						modelObject.agregarPaisALaLista()
 						close	
 			]
 			bindEnabledToProperty("paisSeleccionado.puedeAceptar")			
