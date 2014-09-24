@@ -66,17 +66,17 @@ class ResolverMisterioWindow extends Dialog<ResolverAppModel> {
 				caption = lugar2
 				width = 100
 				modelObject.lugar(0)
-				onClick [ | new LugaresWindows(owner,modelObject).open ]
+				onClick [ | new LugaresWindow(owner, modelObject, 0).open ]
 			]
 			new Button(it) => [
 				caption = modelObject.nombreDelLugar(1)
 				width = 100
-				onClick [ | new LugaresWindows(owner,modelObject).open ]
+				onClick [ | new LugaresWindow(owner,modelObject, 1).open ]
 			]	
 			new Button(it) => [
 				caption = modelObject.nombreDelLugar(2)
 				width = 100
-				onClick [ | new LugaresWindows(owner,modelObject).open]
+				onClick [ | new LugaresWindow(owner,modelObject, 2).open]
 			]
 		]
 	}
@@ -103,7 +103,7 @@ class ResolverMisterioWindow extends Dialog<ResolverAppModel> {
 				new Button(it) => [
 					caption = "Expediente"
 					width = 100
-					onClick [ | ]
+					onClick [ | new MostrarExpedientes(owner, modelObject.sistema).open ]
 				]	
 			]
 		]
