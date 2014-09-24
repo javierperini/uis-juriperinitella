@@ -30,7 +30,7 @@ class LugaresWindow extends SimpleWindow<ResolverAppModel> {
 	}
 	
 	def verificarJugada(Panel panel) {
-			if (modelObject.lugarActual.ocupante.getInformacion() == "Me encontraste!!"){
+			if (modelObject.lugarActual.ocupante.getInformacion() == "ALTO! Deténgase, villano!!!"){
 				new Button(panel)=>[
 				caption = "Continuar"
 				width = 100
