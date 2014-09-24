@@ -76,21 +76,21 @@ class CarmenApplication extends Application{
 		/*Pistas Afagnistan */
 		var List<Pista> pistasLugarAfg=newArrayList
 		pistasLugarAfg.add(new PistaLugar("Planeaba caminar por Caminito ")) pistasLugarAfg.add(new PistaLugar("Queria comer Asado")) pistasLugarAfg.add(new PistaLugar("Cambio su dinero a pesos"))
-		pistasLugarAfg.add(new PistaLugar("Tenia una bandera Celeste y Blanca")) pistasLugarAfg.add(new PistaHobbie("Le gusta Viajar en moto ")) pistasLugarAfg.add(new PistaHobbie("Hablar con turistas"))
-		var List<Pista> pistasSenias=newArrayList
-		pistasSenias.add(new PistaSenia("Lunar en la frente")) pistasSenias.add(new PistaSenia("Parche ")) pistasSenias.add(new PistaHobbie("Cicatriz en la cara"))
+		pistasLugarAfg.add(new PistaLugar("Tenia una bandera Celeste y Blanca")) pistasLugarAfg.add(new PistaSenia("Le gusta Viajar en moto ")) pistasLugarAfg.add(new PistaHobbie("Hablar con turistas"))
+		pistasLugarAfg.add(new PistaSenia("Cicatriz en la cara"))
 		
 		/*Pistas Egipto */
 		var List<Pista> pistasLugarEgip=newArrayList
 		pistasLugarEgip.add(new PistaLugar("Hablo del islam"))  pistasLugarEgip.add(new PistaLugar("Queria conocer las montañas Hindu Kush")) pistasLugarEgip.add(new PistaLugar("Llevaba una bandera negra, roja y verde"))
 	    pistasLugarEgip.add(new PistaHobbie("Le gusta Viajar en moto "))  pistasLugarEgip.add(new PistaHobbie("Cicatriz en la cara "))
-		var List<Pista> pistasSenias2=newArrayList
-		pistasSenias.add(new PistaSenia("Tiene bigote")) pistasSenias.add(new PistaSenia("Pelo Negro ")) pistasSenias.add(new PistaHobbie("Futbol"))
+		pistasLugarEgip.add(new PistaSenia("Le gusta Viajar en moto ")) pistasLugarEgip.add(new PistaHobbie("Hablar con turistas"))
+		pistasLugarEgip.add(new PistaSenia("Cicatriz en la cara"))
 		
 			
 		/*Pistas Argentina */
 		var List<Pista> pistasLugarArg=newArrayList
 		pistasLugarArg.add(new PistaLugar("Cuidado el villano esta cerca"))  pistasLugarArg.add(new PistaLugar("El villano esta en el pais")) 
+	    pistasLugarArg.add(new PistaSenia("Cuidado el villano esta cerca"))  pistasLugarArg.add(new PistaSenia("El villano esta en el pais")) 
 	    
 		/*Pistas donde no esta el villano*/
 		var List<Pista> pistasSinVillano=newArrayList
