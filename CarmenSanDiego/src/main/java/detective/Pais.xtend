@@ -1,6 +1,5 @@
 package detective
 
-import java.util.ArrayList
 import java.util.List
 import lugares.Lugar
 import org.uqbar.commons.model.ObservableUtils
@@ -9,9 +8,9 @@ import org.uqbar.commons.utils.Observable
 @Observable
 class Pais {
 	@Property String nombre
-	@Property List<String> caracteristicas = new ArrayList<String>()
-	@Property List<Lugar> lugares = new ArrayList<Lugar>()
-	@Property List<Pais> conexiones = new ArrayList<Pais>()
+	@Property List<String> caracteristicas = newArrayList
+	@Property List<Lugar> lugares = newArrayList
+	@Property List<Pais> conexiones = newArrayList
 	@Property List<Pais> paisesLimitrofes
 	@Property Lugar lugarActual
 

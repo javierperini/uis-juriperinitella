@@ -31,7 +31,7 @@ public class VillanoTest {
 
 	@Test
 	public void testGetInformacion() {
-		assertEquals(v.getInformacion(), "Me encontraste!!");
+		assertEquals(v.getInformacion(), "ALTO! Deténgase, villano!!!");
 	}
 
 	@Test

@@ -29,13 +29,13 @@ class Caso {
 
 	def getDescripcion() '''
 		 «inicioCaso».
-		 A las 9 horas del dia miercoles en «paisInicio.nombre»
 		Identificado como un tesoro muy antiguo.
-		 La persona sospechosa vista en la escena del crimen es: «villano.sexo».
+		Esto sucedió a las 9 horas del día miércoles en «paisInicio.nombre»
+		La persona sospechosa vista en la escena del crimen es de sexo «villano.sexo».
 		 
-		 Su mision: 
-		 Como detective , realizar el seguimiento de la persona sospechosa de «paisInicio.nombre» a su
-		  escondite y arrestarla.
+		Su misión: 
+		Realizar el seguimiento de la persona sospechosa de «paisInicio.nombre»
+		a su escondite y arrestarla.
 	'''
 
 	def nombrePaisInicio() {

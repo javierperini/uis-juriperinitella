@@ -67,7 +67,7 @@ public class BibliotecaTest {
 	public void testPistasVillano() {
 		b = new Biblioteca("Biblioteca", v, pistas);
 		assertEquals(b.interrogarOcupante().size(), 1);
-		assertEquals(b.interrogarOcupante().get(0), "Me encontraste!!");
+		assertEquals(b.interrogarOcupante().get(0), "ALTO! Deténgase, villano!!!");
 	}
 
 	@Test

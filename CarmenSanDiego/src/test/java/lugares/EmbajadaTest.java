@@ -68,7 +68,7 @@ public class EmbajadaTest {
 	public void testPistasVillano() {
 		embajada = new Embajada("Embajada", v, pistas);
 		assertEquals(embajada.interrogarOcupante().size(), 1);
-		assertEquals(embajada.interrogarOcupante().get(0), "Me encontraste!!");
+		assertEquals(embajada.interrogarOcupante().get(0), "ALTO! Deténgase, villano!!!");
 	}
 
 	@Test
