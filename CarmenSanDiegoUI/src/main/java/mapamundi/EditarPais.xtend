@@ -16,7 +16,7 @@ class EditarPais extends EdicionPais {
 		new Button(mainPanel) => [
 			caption = "Aceptar"
 			onClick [ | 
-						modelObject.agregarPaisSeleccionado()
+//						modelObject.agregarPaisSeleccionado()
 						close
 					]
 			bindEnabledToProperty("paisSeleccionado.puedeAceptar")

@@ -26,6 +26,10 @@ class ResolverMisterioWindow extends Dialog<ResolverAppModel> {
 		panelDeArriba(colPanel)
 		panelDeAcciones(colPanel)
 		panelBotonesDeLugar(colPanel)
+		new Panel(mainPanel)=>[
+			layout= new VerticalLayout
+			new Label(it).setText("Recorrido Criminal: ")
+			new Label(it).setWidth(200).bindValueToProperty("paisesRecorridos")]
 		panelPaisesVisitados(colPanel)
 	}
 	
@@ -40,11 +44,8 @@ class ResolverMisterioWindow extends Dialog<ResolverAppModel> {
 	}
 	
 	def panelPaisesVisitados(Panel colPanel) {
-		new Panel(colPanel)=>[
-			layout= new VerticalLayout
-			new Label(it).setText("Recorrido Criminal: ")
-			new Label(it).setWidth(100).bindValueToProperty("paisesRecorridos")
-			new Panel(it)=>[
+		
+			new Panel(colPanel)=>[
 				layout= new VerticalLayout
 				new Label(it).setText("Destinos Fallido: ")
 				var Table<Pais> paisesFallidos = new Table<Pais>(it, Pais)
@@ -54,7 +55,7 @@ class ResolverMisterioWindow extends Dialog<ResolverAppModel> {
 					bindContentsToProperty("nombre")
 				]
 			]
-		]
+		
 	}
 	
 	def panelBotonesDeLugar(Panel colPanel) {
@@ -86,7 +87,7 @@ class ResolverMisterioWindow extends Dialog<ResolverAppModel> {
 			new Panel(it)=>[
 				layout = new HorizontalLayout
 				new Label(it).setText("Orden ya emitida: ")
-				new Label(it).setWidth(100).bindValueToProperty("sistema.ordenDeArresto.villano.nombre")
+				new Label(it).setWidth(100).bindValueToProperty("villanoAtrapado.nombre")
 				]
 			new Panel(it)=>[
 				new Button(it) => [
@@ -104,7 +105,6 @@ class ResolverMisterioWindow extends Dialog<ResolverAppModel> {
 					width = 100
 					onClick [ | ]
 				]	
-			
 			]
 		]
 	}	

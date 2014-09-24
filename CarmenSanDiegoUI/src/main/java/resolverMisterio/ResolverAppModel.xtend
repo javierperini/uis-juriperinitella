@@ -5,23 +5,28 @@ import detective.Sistema
 import java.util.List
 import org.uqbar.commons.utils.Observable
 import lugares.Lugar
+import personajes.Villano
+import org.uqbar.commons.model.ObservableUtils
 
 @Observable
 class ResolverAppModel {
 	
 	@Property Sistema sistema
 	@Property Pais paisActual
+	@Property Pais paisSeleccionado=new Pais
 	@Property List<Pais> paisesFallidos=newArrayList()
 	@Property List<Pais> paisesVisitados=newArrayList()
 	@Property String paisesRecorridos
 	@Property Lugar lugarActual
+	@Property Villano villanoAtrapado
 			  StringBuffer paisesBuffer
 	
 	
 	new(Sistema sistema) {
 		this.sistema=sistema
 		this.paisActual= sistema.paisDeInicio
-		this.paisesRecorridos=paisActual.nombre
+		//this.paisesRecorridos=paisActual.nombre
+		this.paisesBuffer= new StringBuffer(paisActual.nombre)
 	 	
 	}
 	
@@ -29,11 +34,12 @@ class ResolverAppModel {
 		paisActual.lugar(i).nombre
 	}
 		
-	def viajar(Pais pais){
-		paisActual=pais
-		paisesVisitados.add(pais)
-		pasarAString(pais.nombre)
-		
+	def viajar(){
+		actualizarPaisActual(paisSeleccionado)
+		paisesVisitados.add(paisActual)
+	
+//		ObservableUtils.firePropertyChanged(this, "paisesVisitados", paisesVisitados)
+		//pasarAString(paisActual.nombre)
 	}
 	
 	def pasarAString(String string) {
@@ -43,10 +49,13 @@ class ResolverAppModel {
 	}
 	
 	def volverAPaisAnterior(){
-		paisActual=paisesVisitados.get(0)
-		sacarDelRecorrido(paisActual.nombre)
-		paisesFallidos.add(paisesVisitados.get(0))
-		paisesVisitados.remove(paisesVisitados.get(0))
+		//sacarDelRecorrido(paisActual.nombre)
+		actualizarPaisActual(paisesVisitados.get(0))
+		paisesFallidos.add(paisActual)
+		paisesVisitados.remove(paisActual)
+		
+		ObservableUtils.firePropertyChanged(this, "paisesFallidos", paisesFallidos)
+		ObservableUtils.firePropertyChanged(this, "paisesVisitados", paisesVisitados)
 	}
 	//Metodo para sacar los paises de recorrido villano
 	def sacarDelRecorrido(String paisActual) {
@@ -54,9 +63,16 @@ class ResolverAppModel {
 		paisesBuffer.replace(paisesBuffer.length()-borrar, paisesBuffer.length(), "")
 		paisesRecorridos=paisesBuffer.toString	
 	}
-	
+	def actualizarPaisActual(Pais pais){
+		paisActual= pais
+		ObservableUtils.firePropertyChanged(this, "paisActual", paisActual)
+	}
 	def lugar(int i){
 		lugarActual=paisActual.lugar(i)
+	}
+	
+	def agregarVillanoOrden(Villano villano) {
+	 	
 	}
 	
 	

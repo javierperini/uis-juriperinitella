@@ -25,6 +25,8 @@ class CarmenApplication extends Application{
 	List<String> caracteristicas=newArrayList()
 	List<Lugar>lugares=newArrayList()
 	List<Lugar>lugaresPais=newArrayList()
+	List<Lugar>lugaresPais2=newArrayList()
+	
 	
 	override createMainWindow() {
 		/*Pistas*/
@@ -59,9 +61,15 @@ class CarmenApplication extends Application{
 		lugaresPais.add(new Club("Club", a, pistas))
 		lugaresPais.add(new Embajada("Embajada", b, pistas))
 		lugaresPais.add(new Biblioteca("Biblioteca", c, pistas))
+		//----
+		lugaresPais2.add(new Biblioteca("Biblioteca", c, pistas))
+		lugaresPais2.add(new Embajada("Embajada", b, pistas))
+		lugaresPais2.add(new Club("Club", a, pistas))
+		/* */
+		var Pais bp = new Pais("Brasil",caracteristicas,lugaresPais)
+		
 		/*Pais */
 		var Pais ap = new Pais("Argentina",caracteristicas,lugaresPais)
-		var Pais bp = new Pais("Brasil",caracteristicas,lugaresPais)
 		paisesSistema.add(ap)
 	    paisesSistema.add(bp)
 		

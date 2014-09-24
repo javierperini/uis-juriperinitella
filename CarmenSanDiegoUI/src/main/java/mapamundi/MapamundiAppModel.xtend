@@ -30,9 +30,9 @@ class MapamundiAppModel {
 		this.paisesAMostrar.remove(paisSeleccionado)
 		ObservableUtils.firePropertyChanged(this, "paisesAMostrar", paisesAMostrar)
 	}
-	
 	def agregarPaisSeleccionado(){
-		this.paisesAMostrar.add(paisSeleccionado)
+		paisesAMostrar.add(paisSeleccionado)
+		sistema.agregarPais(paisSeleccionado)
 		ObservableUtils.firePropertyChanged(this, "paisesAMostrar", paisesAMostrar)
 	}
 	
@@ -42,10 +42,6 @@ class MapamundiAppModel {
 	
 	def crearPais() {
 		paisSeleccionado = new Pais
-	}
-	
-	def agregarPaisALaLista(){
-		sistema.agregarPais(paisSeleccionado)
 	}
 	
 //	Metodos para la edicion de lugares de un pais
