@@ -25,6 +25,7 @@ class Pais {
 		this.nombre=nombre
 		this.caracteristicas=caracteristicas
 		this.lugares=lugares
+		this.conexiones=conexiones
 	}
 
 	new() { }
