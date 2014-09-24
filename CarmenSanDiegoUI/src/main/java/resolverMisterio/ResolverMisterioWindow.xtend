@@ -31,6 +31,8 @@ class ResolverMisterioWindow extends Dialog<ResolverAppModel> {
 			new Label(it).setText("Recorrido Criminal: ")
 			new Label(it).setWidth(200).bindValueToProperty("paisesRecorridos")]
 		panelPaisesVisitados(colPanel)
+//		new Label(colPanel).setText("Estás en: " +modelObject.paisAnterior.nombre)
+		
 	}
 	
 	def panelDeArriba(Panel colPanel) {

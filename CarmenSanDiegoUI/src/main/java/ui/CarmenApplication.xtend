@@ -20,15 +20,7 @@ import pista.PistaLugar
 
 class CarmenApplication extends Application{
 	
-	List<Villano> villanos= newArrayList()
-	List<Pais> paisesSistema= newArrayList()
-	List<Pista> pistas = newArrayList()
-	List<PistaSenia> seniasPart = newArrayList()
-	List<PistaHobbie> hobbies = newArrayList()
-	List<String> caracteristicas=newArrayList()
-	List<Lugar>lugares=newArrayList()
-	List<Lugar>lugaresPais=newArrayList()
-	List<Lugar>lugaresPais2=newArrayList()
+
 	
 	override createMainWindow() {
 		
@@ -45,8 +37,14 @@ class CarmenApplication extends Application{
 		hobbies.add(new PistaHobbie("Run beach Run"))
 		hobbies.add(new PistaHobbie("Ayer se fue, agarro sus cosas y se puso a navegar"))	
 		var Villano villano = new Villano("Don Ramon", "Masculino", hobbies, seniasPart)
-
-		var Pais conexionEgipto1 = new Pais("Afganistán", null, null, null)
+		
+		var List<Lugar>lugares=newArrayList
+		lugares.add(new Club("Club el faraón", null,null));lugares.add(new Embajada("Embajada", null, null));lugares.add(new Biblioteca("Biblioteca", null,null))
+		var List<Pais>conexiones=newArrayList
+		var Pais argentina = new Pais("Argentina", null, lugares, null)
+		conexiones.add(argentina)
+		var List<String>caracteristicas=newArrayList
+		var Pais conexionEgipto1 = new Pais("Afganistán", caracteristicas, lugares, conexiones)
 		var Pais conexionEgipto2 = new Pais("Argelia", null, null, null)
 		var Pais conexionEgipto3 = new Pais("Estados Unidos", null, null, null)
 		var List<Pais> conexionesEgipto = newArrayList
@@ -68,8 +66,8 @@ class CarmenApplication extends Application{
 		caracsEgipto.add("mucho calor");caracsEgipto.add("pirámides")
 		var Pais paisInicio = new Pais("Egipto", caracsEgipto, lugaresEgipto, conexionesEgipto)
 		
-		var Pais argentina = new Pais("Argentina", null, null, null)
-		var Pais brasil = new Pais("Brasil", null, null, null)
+		
+		var Pais brasil = new Pais("Brasil", null, null, conexiones)
 		var List<Pais> paises = newArrayList
 		paises.add(argentina) paises.add(brasil) paises.add(paisInicio) paises.add(conexionEgipto1) paises.add(conexionEgipto2) paises.add(conexionEgipto3)
 

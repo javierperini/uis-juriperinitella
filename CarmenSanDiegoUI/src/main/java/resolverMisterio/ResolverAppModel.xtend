@@ -21,6 +21,8 @@ class ResolverAppModel {
 	@Property Villano villanoAtrapado
 			  StringBuffer paisesBuffer
 	
+	@Property Pais paisAnterior
+	
 	
 	new(Sistema sistema) {
 		this.sistema=sistema
@@ -35,9 +37,14 @@ class ResolverAppModel {
 	}
 		
 	def viajar(){
-		actualizarPaisActual(paisSeleccionado)
-		paisesVisitados.add(paisActual)
-	
+		if(!paisesVisitados.empty){
+			paisAnterior= paisesVisitados.get(0)
+			actualizarPaisActual(paisSeleccionado)
+			paisesVisitados.add(paisActual)
+		}else{
+			actualizarPaisActual(paisSeleccionado)
+			paisesVisitados.add(paisActual)
+		}
 //		ObservableUtils.firePropertyChanged(this, "paisesVisitados", paisesVisitados)
 		//pasarAString(paisActual.nombre)
 	}
@@ -50,9 +57,9 @@ class ResolverAppModel {
 	
 	def volverAPaisAnterior(){
 		//sacarDelRecorrido(paisActual.nombre)
-		actualizarPaisActual(paisesVisitados.get(0))
 		paisesFallidos.add(paisActual)
 		paisesVisitados.remove(paisActual)
+		actualizarPaisActual(paisAnterior)
 		
 		ObservableUtils.firePropertyChanged(this, "paisesFallidos", paisesFallidos)
 		ObservableUtils.firePropertyChanged(this, "paisesVisitados", paisesVisitados)

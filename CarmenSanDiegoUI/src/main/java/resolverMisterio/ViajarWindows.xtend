@@ -1,18 +1,15 @@
 package resolverMisterio
 
-import org.uqbar.arena.windows.SimpleWindow
-import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.layout.ColumnLayout
-import org.uqbar.arena.widgets.Label
-import org.uqbar.arena.widgets.tables.Table
 import detective.Pais
-import pista.Pista
-import org.uqbar.arena.widgets.tables.Column
-import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.layout.VerticalLayout
 import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.tables.Column
+import org.uqbar.arena.widgets.tables.Table
 import org.uqbar.arena.windows.Dialog
+import org.uqbar.arena.windows.WindowOwner
 
 class ViajarWindows extends Dialog<ResolverAppModel> {
 	

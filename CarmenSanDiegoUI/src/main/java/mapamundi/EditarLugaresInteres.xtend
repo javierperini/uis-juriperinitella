@@ -59,16 +59,16 @@ class EditarLugaresInteres  extends SimpleWindow<MapamundiAppModel> {
 			caption = "Agregar"
 			// HORRIBLE, ARREGLAR
 			onClick [ | if(modelObject.nombreLugarParaAgregar == "Club") {
-							modelObject.lugarParaAgregar = new Club("", null, null)
+							modelObject.setLugarParaAgregar (new Club("Club", null, null))
 						}
 						if(modelObject.nombreLugarParaAgregar == "Biblioteca") {
-							modelObject.lugarParaAgregar = new Biblioteca("", null, null)
+							modelObject.setLugarParaAgregar(new Biblioteca("Biblioteca", null, null))
 						}
 						if(modelObject.nombreLugarParaAgregar == "Banco") {
-							modelObject.lugarParaAgregar = new Banco("", null, null)
+							modelObject.setLugarParaAgregar(new Banco("Banco", null, null))
 						}
 						if(modelObject.nombreLugarParaAgregar == "Embajada") {
-							modelObject.lugarParaAgregar = new Embajada("", null, null)
+							modelObject.setLugarParaAgregar(new Embajada("Embajada", null, null))
 						}
 						if(!modelObject.paisSeleccionado.lugares.contains(modelObject.lugarParaAgregar)) {
 							modelObject.agregarLugar()
