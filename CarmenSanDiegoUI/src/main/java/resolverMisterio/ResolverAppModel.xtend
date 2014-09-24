@@ -92,5 +92,14 @@ class ResolverAppModel {
 	 	
 	}
 	
-	
+	def	String interrogarOcupante(){
+		var List<String> list = lugarActual.interrogarOcupante
+		var String res
+		for(var i = 0; i<list.size(); i++){
+			res += list.get(i)
+			res += "\n"
+		}
+		
+		res
+	}	
 }
