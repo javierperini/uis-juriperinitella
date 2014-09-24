@@ -1,13 +1,10 @@
 package resolverMisterio
 
+import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.widgets.Label
 
 class FinDelJuego extends SimpleWindow<ResolverAppModel>{
-	
-	String text
 	
 	new(WindowOwner parent, ResolverAppModel model) {
 		super(parent, model)
