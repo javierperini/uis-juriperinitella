@@ -37,17 +37,17 @@ class ExpedientesWindow extends Dialog<ExpedientesAppModel> {
 			new Panel(it) => [
 				layout = new HorizontalLayout
 				new Label(it).setText("Nombre: ")
-				new Label(it).setWidth(60).bindValueToProperty("villanoSeleccionado.nombre")
+				new Label(it).setWidth(100).bindValueToProperty("villanoSeleccionado.nombre")
 			]
 			
 			new Panel(it) => [
 				layout = new HorizontalLayout
 				new Label(it).setText("Sexo: ")
-				new Label(it).setWidth(60).bindValueToProperty("villanoSeleccionado.sexo")
+				new Label(it).setWidth(100).bindValueToProperty("villanoSeleccionado.sexo")
 			]
 			
 			var Table<PistaSenia> seniasVillano = new Table<PistaSenia>(it, PistaSenia)
-			seniasVillano.height = 50
+			seniasVillano.height = 100
 			seniasVillano.bindItemsToProperty("villanoSeleccionado.seniasParticulares")
 			new Column<PistaSenia>(seniasVillano) => [
 				title = "Señas" 
@@ -55,7 +55,7 @@ class ExpedientesWindow extends Dialog<ExpedientesAppModel> {
 			]
 			
 			var Table<PistaHobbie> hobbiesVillano = new Table<PistaHobbie>(it, PistaHobbie)
-			hobbiesVillano.height = 50
+			hobbiesVillano.height = 100
 			hobbiesVillano.bindItemsToProperty("villanoSeleccionado.hobbies")
 			new Column<PistaHobbie>(hobbiesVillano) => [
 				title = "Hobbies" 
@@ -69,12 +69,12 @@ class ExpedientesWindow extends Dialog<ExpedientesAppModel> {
 	def mostrarBotones(Panel mainPanel) {
 		new Button(mainPanel) => [
 				caption = "Nuevo"
-				width = 50
+				width = 70
 				onClick [ | new NuevoVillano(owner, modelObject).open ]
 		]
 		new Button(mainPanel) => [
 				caption = "Editar"
-				width = 50
+				width = 70
 				onClick [ | new EditarVillano(owner, modelObject).open ]
 		]
 		new Button(mainPanel) => [

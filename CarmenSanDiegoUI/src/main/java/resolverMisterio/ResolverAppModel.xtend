@@ -87,10 +87,7 @@ class ResolverAppModel {
 		ObservableUtils.firePropertyChanged(this, "lugarActual", lugarActual)
 		
 	}
-	
-	def agregarVillanoOrden(Villano villano) {
-	 	
-	}
+
 	
 	def	String interrogarOcupante(){
 		var List<String> list = lugarActual.interrogarOcupante

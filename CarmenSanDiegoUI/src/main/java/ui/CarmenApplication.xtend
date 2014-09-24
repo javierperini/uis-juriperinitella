@@ -76,15 +76,21 @@ class CarmenApplication extends Application{
 		/*Pistas Afagnistan */
 		var List<Pista> pistasLugarAfg=newArrayList
 		pistasLugarAfg.add(new PistaLugar("Planeaba caminar por Caminito ")) pistasLugarAfg.add(new PistaLugar("Queria comer Asado")) pistasLugarAfg.add(new PistaLugar("Cambio su dinero a pesos"))
-		pistasLugarAfg.add(new PistaLugar("Tenia una bandera Celeste y Blanca")) pistasLugarAfg.add(new PistaSenia("Le gusta Viajar en moto ")) pistasLugarAfg.add(new PistaHobbie("Hablar con turistas"))
-		pistasLugarAfg.add(new PistaSenia("Cicatriz en la cara"))
+		var List<Pista> pistasLugarAfg2=newArrayList
+		pistasLugarAfg2.add(new PistaLugar("Tenia una bandera Celeste y Blanca")) pistasLugarAfg2.add(new PistaSenia("Le gusta Viajar en moto ")) pistasLugarAfg2.add(new PistaHobbie("Hablar con turistas"))
+		var List<Pista> pistasLugarAfg3=newArrayList
+		pistasLugarAfg3.add(new PistaHobbie("Tiene una cicatriz en la cara ")) pistasLugarAfg3.add(new PistaLugar("Planeaba hablar con Maradona "))
+		pistasLugarAfg3.add(new PistaLugar("Tenia la mano de Peron")) 
 		
 		/*Pistas Egipto */
 		var List<Pista> pistasLugarEgip=newArrayList
-		pistasLugarEgip.add(new PistaLugar("Hablo del islam"))  pistasLugarEgip.add(new PistaLugar("Queria conocer las montañas Hindu Kush")) pistasLugarEgip.add(new PistaLugar("Llevaba una bandera negra, roja y verde"))
-	    pistasLugarEgip.add(new PistaHobbie("Le gusta Viajar en moto "))  pistasLugarEgip.add(new PistaHobbie("Cicatriz en la cara "))
-		pistasLugarEgip.add(new PistaSenia("Le gusta Viajar en moto ")) pistasLugarEgip.add(new PistaHobbie("Hablar con turistas"))
-		pistasLugarEgip.add(new PistaSenia("Cicatriz en la cara"))
+		pistasLugarEgip.add(new PistaLugar("Hablo del islam"))  pistasLugarEgip.add(new PistaLugar("Llevaba una bandera negra, roja y verde"))
+	    pistasLugarEgip.add(new PistaLugar("Usan turbantes")) 
+	    var List<Pista> pistasLugarEgip2=newArrayList
+	    pistasLugarEgip2.add(new PistaHobbie("Le gusta Viajar en moto "))  pistasLugarEgip2.add(new PistaHobbie("Tiene una cicatriz en la cara "))pistasLugarEgip2.add(new PistaLugar("Llevaba una bandera negra, roja y verde"))
+		var List<Pista> pistasLugarEgip3=newArrayList
+		pistasLugarEgip3.add(new PistaSenia("Le gusta Viajar en moto ")) pistasLugarEgip3.add(new PistaLugar("Queria conocer las montañas Hindu Kush"))
+	
 		
 			
 		/*Pistas Argentina */
@@ -102,11 +108,11 @@ class CarmenApplication extends Application{
 		
 		/*Lugares Egipto */
 		var List<Lugar>lugaresEgipto=newArrayList
-		lugaresEgipto.add(new Embajada("Embajada",personajeLugEgip1,pistasLugarEgip));lugaresEgipto.add(new Biblioteca("Biblioteca",personajeLugEgip2,pistasLugarEgip));lugaresEgipto.add(new Club("Club el faraón",personajeLugEgip3,pistasLugarEgip))
-		
+		lugaresEgipto.add(new Embajada("Embajada",personajeLugEgip1,pistasLugarEgip3));lugaresEgipto.add(new Biblioteca("Biblioteca",personajeLugEgip1,pistasLugarEgip2));lugaresEgipto.add(new Club("Club ",personajeLugEgip3,pistasLugarEgip))
+
 		/*Lugares Afagnistan */
 		var List<Lugar>lugaresAfg=newArrayList
-		lugaresAfg.add(new Embajada("Embajada",personajeAfg,pistasLugarAfg));lugaresAfg.add(new Biblioteca("Biblioteca",personajeAfg2,pistasLugarAfg));lugaresAfg.add(new Club("Club ",personajeAfg3,pistasLugarAfg))
+		lugaresAfg.add(new Embajada("Embajada",personajeAfg,pistasLugarAfg2));lugaresAfg.add(new Biblioteca("Biblioteca",personajeAfg2,pistasLugarAfg));lugaresAfg.add(new Club("Club ",personajeAfg3,pistasLugarAfg3))
 		
 		/*Lugares Argentina */
 		var List<Lugar>lugaresArg=newArrayList

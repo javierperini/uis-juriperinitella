@@ -37,7 +37,7 @@ class EdicionVillano extends Dialog<ExpedientesAppModel> {
 		]
 		
 		new Button(mainPanel) => [
-			//setBackground(Color::LIGHT_GRAY)	
+				
 			caption = "Editar Señas Particulares"
 					onClick [ | new EditarSeniasParticulares(owner, modelObject).open ]
 		]
@@ -51,10 +51,10 @@ class EdicionVillano extends Dialog<ExpedientesAppModel> {
 			bindContentsToProperty("pista")
 		]
 		new Button(mainPanel) => [
-		//	setBackground(Color::LIGHT_GRAY)	
 			caption = "Editar hobbies"
 					onClick [ | new EditarHobbies(owner, modelObject).open ]
 		]
+		
 
 		botonAceptar(mainPanel)
 	}
