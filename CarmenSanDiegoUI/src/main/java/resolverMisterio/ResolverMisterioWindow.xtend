@@ -29,10 +29,8 @@ class ResolverMisterioWindow extends Dialog<ResolverAppModel> {
 		new Panel(mainPanel)=>[
 			layout= new VerticalLayout
 			new Label(it).setText("Recorrido Criminal: ")
-			new Label(it).setWidth(200).bindValueToProperty("paisesRecorridos")]
+			new Label(it).setWidth(300).bindValueToProperty("paisesRecorridos")]
 		panelPaisesVisitados(colPanel)
-//		new Label(colPanel).setText("Estás en: " +modelObject.paisAnterior.nombre)
-		
 	}
 	
 	def panelDeArriba(Panel colPanel) {
@@ -51,6 +49,7 @@ class ResolverMisterioWindow extends Dialog<ResolverAppModel> {
 				layout= new VerticalLayout
 				new Label(it).setText("Destinos Fallido: ")
 				var Table<Pais> paisesFallidos = new Table<Pais>(it, Pais)
+					paisesFallidos.height = 100
 					paisesFallidos.bindItemsToProperty("paisesFallidos")
 				new Column<Pais>(paisesFallidos) => [
 					title = "Paises Fallidos" 
@@ -64,8 +63,7 @@ class ResolverMisterioWindow extends Dialog<ResolverAppModel> {
 		new Panel(colPanel)=>[
 			layout =  new VerticalLayout
 			new Button(it) => [
-				var lugar2=modelObject.nombreDelLugar(0)
-				caption = lugar2
+				caption =modelObject.botonUno
 				width = 100
 				modelObject.lugar(0)
 				onClick [ | new LugaresWindow(owner, modelObject, 0).open ]

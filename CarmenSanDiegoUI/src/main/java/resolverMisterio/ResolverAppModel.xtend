@@ -14,53 +14,58 @@ class ResolverAppModel {
 	@Property Sistema sistema
 	@Property Pais paisActual
 	@Property Pais paisSeleccionado=new Pais
-	@Property List<Pais> paisesFallidos=newArrayList()
-	@Property List<Pais> paisesVisitados=newArrayList()
+	@Property Pais paisAnterior
 	@Property String paisesRecorridos
+	@Property List<Pais> paisesFallidos=newArrayList
+	@Property List<Pais> paisesVisitados=newArrayList
+	@Property List<Lugar> lugaresActuales=newArrayList
 	@Property Lugar lugarActual
 	@Property Villano villanoAtrapado
+	@Property String botonUno
 			  StringBuffer paisesBuffer
 	
-	@Property Pais paisAnterior
 	
 	
 	new(Sistema sistema) {
 		this.sistema=sistema
 		this.paisActual= sistema.paisDeInicio
-		//this.paisesRecorridos=paisActual.nombre
+		this.lugaresActuales=paisActual.lugares
+		this.botonUno=lugaresActuales.get(0).nombre
+		this.paisesVisitados.add(paisActual)
 		this.paisesBuffer= new StringBuffer(paisActual.nombre)
 	 	
 	}
 	
 	def nombreDelLugar(int i) {
-		paisActual.lugar(i).nombre
+		lugaresActuales.get(i).nombre
 	}
 		
-	def viajar(){
-		if(!paisesVisitados.empty){
-			paisAnterior= paisesVisitados.get(0)
-			actualizarPaisActual(paisSeleccionado)
-			paisesVisitados.add(paisActual)
-		}else{
-			actualizarPaisActual(paisSeleccionado)
-			paisesVisitados.add(paisActual)
-		}
-//		ObservableUtils.firePropertyChanged(this, "paisesVisitados", paisesVisitados)
-		//pasarAString(paisActual.nombre)
-	}
-	
 	def pasarAString(String string) {
 		paisesBuffer.append("<-")
 		paisesBuffer.append(string)
 		paisesRecorridos=paisesBuffer.toString	
 	}
 	
+	def viajar(){
+			paisAnterior=paisActual
+			sacarPaisFallido(paisSeleccionado)
+			actualizarPaisActual(paisSeleccionado)
+			paisesVisitados.add(paisActual)
+			pasarAString(paisActual.nombre)
+	}
+	/*
+	 * El usuario se equivoca y vuelve al paisAnterior por error
+	 */
+	def sacarPaisFallido(Pais pais) {
+		paisesFallidos.remove(pais)
+		ObservableUtils.firePropertyChanged(this, "paisesFallidos", paisesFallidos)
+	}
+	
 	def volverAPaisAnterior(){
-		//sacarDelRecorrido(paisActual.nombre)
+		sacarDelRecorrido(paisActual.nombre)
 		paisesFallidos.add(paisActual)
 		paisesVisitados.remove(paisActual)
 		actualizarPaisActual(paisAnterior)
-		
 		ObservableUtils.firePropertyChanged(this, "paisesFallidos", paisesFallidos)
 		ObservableUtils.firePropertyChanged(this, "paisesVisitados", paisesVisitados)
 	}
@@ -73,9 +78,14 @@ class ResolverAppModel {
 	def actualizarPaisActual(Pais pais){
 		paisActual= pais
 		ObservableUtils.firePropertyChanged(this, "paisActual", paisActual)
+		ObservableUtils.firePropertyChanged(this, "lugaresActuales", lugaresActuales)
+		ObservableUtils.firePropertyChanged(this, "botonUno", botonUno)
+		
 	}
 	def lugar(int i){
-		lugarActual=paisActual.lugar(i)
+		lugarActual=lugaresActuales.get(i)
+		ObservableUtils.firePropertyChanged(this, "lugarActual", lugarActual)
+		
 	}
 	
 	def agregarVillanoOrden(Villano villano) {

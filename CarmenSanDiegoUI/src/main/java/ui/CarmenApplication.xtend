@@ -38,8 +38,15 @@ class CarmenApplication extends Application{
 		hobbies.add(new PistaHobbie("Ayer se fue, agarro sus cosas y se puso a navegar"))	
 		var Villano villano = new Villano("Don Ramon", "Masculino", hobbies, seniasPart)
 		
+		var List<Pista> pistasLugar=newArrayList
+		pistasLugar.add(new PistaLugar("Planeaba ir Algun lugar ")) pistasLugar.add(new PistaSenia("Era colorada")) pistasLugar.add(new PistaHobbie("Jugar al poker"))
+		var List<Pista> pistasSenias=newArrayList
+		pistasSenias.add(new PistaSenia("Lunar en la frente")) pistasSenias.add(new PistaSenia("Parche ")) pistasSenias.add(new PistaHobbie("Futbol"))
+		var Personaje personajeLug = new Informante("Ahmed")
+		var Personaje personajeLug2 = new Informante("Luis")
+		var Personaje personajeLug3 = new Informante("Camila")
 		var List<Lugar>lugares=newArrayList
-		lugares.add(new Club("Club el faraón", null,null));lugares.add(new Embajada("Embajada", null, null));lugares.add(new Biblioteca("Biblioteca", null,null))
+		lugares.add(new Embajada("Embajada",personajeLug2,pistasLugar));lugares.add(new Biblioteca("Biblioteca",personajeLug3,pistasLugar));lugares.add(new Club("Club el faraón",personajeLug,pistasLugar))
 		var List<Pais>conexiones=newArrayList
 		var Pais argentina = new Pais("Argentina", null, lugares, null)
 		conexiones.add(argentina)
