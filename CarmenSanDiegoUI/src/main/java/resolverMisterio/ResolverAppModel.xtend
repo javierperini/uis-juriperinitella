@@ -20,7 +20,7 @@ class ResolverAppModel {
 	@Property List<Pais> paisesVisitados=newArrayList
 	@Property List<Lugar> lugaresActuales=newArrayList
 	@Property Lugar lugarActual
-	@Property Villano villanoAtrapado
+	@Property Villano villanoAtrapado 
 	@Property String botonUno
 			  StringBuffer paisesBuffer
 	
@@ -94,7 +94,7 @@ class ResolverAppModel {
 	
 	def	String interrogarOcupante(){
 		var List<String> list = lugarActual.interrogarOcupante
-		var String res
+		var String res = ""
 		for(var i = 0; i<list.size(); i++){
 			res += list.get(i)
 			res += "\n"

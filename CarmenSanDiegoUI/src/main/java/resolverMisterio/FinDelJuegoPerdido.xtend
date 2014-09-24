@@ -17,7 +17,10 @@ class FinDelJuegoPerdido extends FinDelJuego{
 		p.setLayout(new VerticalLayout)
 		
 		new Label(p).setText("Malas noticias :(")
-		new Label(p).setText("A detenido a " + modelObject.villanoAtrapado.nombre + "pero usted tenia una orden contra" + modelObject.villanoAtrapado.nombre)
+		if(modelObject.villanoAtrapado != null)
+			new Label(p).setText("A detenido a " + modelObject.sistema.caso.villano.nombre + " pero usted tenia una orden contra " + modelObject.villanoAtrapado.nombre)
+		else
+			new Label(p).setText("A detenido a " + modelObject.sistema.caso.villano.nombre + " pero usted no tenia una orden de arresto contra el")
 		new Label(p).setText("Lamentablemente este crimen quedara impune")
 	}
 	

@@ -18,11 +18,19 @@ class LugaresWindow extends SimpleWindow<ResolverAppModel> {
 	override createContents(Panel mainPanel){
 		val panel = new Panel(mainPanel)
 		panel.setLayout(new VerticalLayout)
-		new Label(panel).setText("Estás Visitando: " + modelObject.paisActual.nombre)
+		new Label(panel).setText("Estás Visitando: " + modelObject.lugarActual.nombre)
 		if(modelObject.lugarActual.ocupante.puedeRevelarPista) {
 			new Label(panel).setText(modelObject.interrogarOcupante)
 		} else {
-			new Label(panel).setText("que onda si no puede revelar la pista?")
+			new Label(panel).setText(modelObject.lugarActual.ocupante.getInformacion())
+			if (modelObject.lugarActual.ocupante.getInformacion() == "Me encontraste!!"){
+				if(modelObject.villanoAtrapado == null || modelObject.sistema.caso.villano.nombre != modelObject.villanoAtrapado.nombre){
+					new FinDelJuegoPerdido(owner, modelObject).open
+				}
+				else{
+					new FinDelJuegoGanado(owner, modelObject).open
+				}
+			}
 		}
 	}
 	
