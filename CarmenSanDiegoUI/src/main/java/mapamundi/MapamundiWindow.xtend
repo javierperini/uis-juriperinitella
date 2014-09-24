@@ -37,24 +37,21 @@ class MapamundiWindow extends Dialog<MapamundiAppModel> {
 			new Panel(it) => [
 				layout = new HorizontalLayout
 				new Label(it).setText("Nombre: ")
-				new Label(it).setWidth(60).bindValueToProperty("paisSeleccionado.nombre")
+				new Label(it).setWidth(100).bindValueToProperty("paisSeleccionado.nombre")
 			]
 			var Table<String> caracteristicas = new Table<String>(it, String)
-			caracteristicas.height = 60
+			caracteristicas.height = 100
 			caracteristicas.bindItemsToProperty("paisSeleccionado.caracteristicas")
-//			new Column<String>(caracteristicas) => [
-//				title = "Caracteristicas" 
-//				bindContentsToProperty("nombre")
-//			]
+
 			var Table<Pais> conexiones = new Table<Pais>(it, Pais)
-			conexiones.height = 60
+			conexiones.height = 100
 			conexiones.bindItemsToProperty("paisSeleccionado.conexiones")
 			new Column<Pais>(conexiones) => [
 				title = "Conexiones" 
 				bindContentsToProperty("nombre")
 			]
 			var Table<Lugar> lugares = new Table<Lugar>(it, Lugar)
-			lugares.height = 60
+			lugares.height = 100
 			lugares.bindItemsToProperty("paisSeleccionado.lugares")
 			new Column<Lugar>(lugares) => [
 				title = "Lugares de Interés" 
@@ -64,20 +61,20 @@ class MapamundiWindow extends Dialog<MapamundiAppModel> {
 		
 		new Button(colPanel) => [ 
 				caption = "Eliminar"
-				width = 50
+				width = 60
 				onClick [ | modelObject.removerPais ]
 		]
+		
 		new Button(colPanel) => [
 				caption = "Editar"
-				width = 50
+				width = 60
 				onClick [ | new EditarPais(owner,  modelObject).open ]
-//				onClick [ | new EditarPais(owner,  modelObject.sistema, modelObject.paisSeleccionado).open ]
 		]
+		
 		new Button(colPanel) => [
 				caption = "Nuevo"
-				width = 50
+				width = 60
 				onClick [ | new NuevoPais(owner, modelObject).open ]
-//				onClick [ | new NuevoPais(owner, modelObject.sistema).open ]
 		]
 		new Button(colPanel) => [
 				caption = "Aceptar"
