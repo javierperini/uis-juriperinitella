@@ -4,16 +4,12 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.WindowOwner
 import personajes.Villano
-import pista.PistaHobbie
-import java.util.ArrayList
-import pista.PistaSenia
 
 class NuevoVillano extends EdicionVillano {
-		ArrayList<PistaHobbie> pistaH=newArrayList
-		ArrayList<PistaSenia> pistaB=newArrayList
+		
 	new(WindowOwner owner, ExpedientesAppModel model) {
 		super(owner, model)
-		modelObject.villanoSeleccionado = new Villano("", "", pistaH, pistaB)
+		modelObject.villanoSeleccionado = new Villano()
 		title = "Expedientes - Nuevo Villano"
 	}
 
