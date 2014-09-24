@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class PistaTest {
-	
+
 	private PistaHobbie ph;
 	private PistaLugar pl;
 	private PistaSenia ps;
@@ -27,9 +27,4 @@ public class PistaTest {
 		assertEquals(pl.getPista(), "Escuché que iba a visitar las pirámides");
 		assertEquals(ps.getPista(), "Tenía un parche en el ojo derecho");
 	}
-	@Test
-	public void testVillano(){
-		//CUANDO ARREGLEN EL COSTRUCTOR DE VILLANO LO TESTEO
-	}
-
 }

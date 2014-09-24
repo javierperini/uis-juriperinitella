@@ -9,7 +9,7 @@ import pista.PistaSenia
 @Observable
 class Villano extends Personaje {
 	@Property String sexo
-	@Property List<PistaHobbie> hobbies =  newArrayList()
+	@Property List<PistaHobbie> hobbies = newArrayList()
 	@Property List<PistaSenia> seniasParticulares = newArrayList()
 
 	new(String nombre, String sexo, List<PistaHobbie> hobbies, List<PistaSenia> seniasPart) {
@@ -18,41 +18,40 @@ class Villano extends Personaje {
 		this.hobbies = hobbies
 		this.seniasParticulares = seniasPart
 	}
-	
+
 	override getInformacion() {
 		"Me encontraste!!"
 	}
-	
+
 	override puedeRevelarPista() {
 		false
 	}
-	
-	def setHobbie(PistaHobbie h){
+
+	def setHobbie(PistaHobbie h) {
 		hobbies.add(h)
 	}
-	
-	def	 setSeniasPart(PistaSenia p){
+
+	def setSeniasPart(PistaSenia p) {
 		getSeniasParticulares.add(p)
 	}
-	
+
 	def quitarSeniaParticular(PistaSenia pista) {
 		seniasParticulares.remove(pista)
 		ObservableUtils.firePropertyChanged(this, "seniasParticulares", seniasParticulares)
 	}
-	
+
 	def agregarSeniaParticular(PistaSenia pista) {
 		seniasParticulares.add(pista)
 		ObservableUtils.firePropertyChanged(this, "seniasParticulares", seniasParticulares)
 	}
-	
+
 	def quitarHobbie(PistaHobbie pista) {
 		hobbies.remove(pista)
 		ObservableUtils.firePropertyChanged(this, "hobbies", hobbies)
 	}
-	
+
 	def agregarHobbie(PistaHobbie pista) {
 		hobbies.add(pista)
 		ObservableUtils.firePropertyChanged(this, "hobbies", hobbies)
 	}
 }
-	

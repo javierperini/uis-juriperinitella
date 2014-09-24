@@ -3,42 +3,35 @@ package personajes;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
-import personajes.Villano;
-import pista.PistaHobbie;
-import pista.PistaSenia;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import pista.PistaHobbie;
+import pista.PistaSenia;
+
 public class VillanoTest {
-	
+
 	private Villano v;
+	private List<PistaSenia> ls = new ArrayList<PistaSenia>();
 	private PistaSenia ps;
+	private List<PistaHobbie> lh = new ArrayList<PistaHobbie>();
 	private PistaHobbie ph;
-	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
 	@Before
 	public void setUp() throws Exception {
 		ph = new PistaHobbie("jugar a la canasta");
+		lh.add(ph);
 		ps = new PistaSenia("lunar sobre la boca");
-		v = new Villano();
-		v.setSexo("femenino");
-		v.setNombre("Carmen Sandiego");
-		v.setHobbie(ph);
-		v.setSeniasPart(ps);
-		
-		System.setOut(new PrintStream(outContent));
-		System.setErr(new PrintStream(errContent));
+		ls.add(ps);
+		v = new Villano("Carmen Sandiego", "Femenino", lh, ls);
 	}
 
 	@Test
 	public void testGetInformacion() {
-		v.getInformacion();
-		assertEquals("Me atrapaste!!", outContent.toString());
+		assertEquals(v.getInformacion(), "Me encontraste!!");
 	}
 
 	@Test
@@ -48,7 +41,7 @@ public class VillanoTest {
 
 	@Test
 	public void testGetSexo() {
-		assertEquals(v.getSexo(), "femenino");
+		assertEquals(v.getSexo(), "Femenino");
 	}
 
 	@Test
@@ -58,7 +51,8 @@ public class VillanoTest {
 
 	@Test
 	public void testGetSeniasPart() {
-		assertEquals(v.getSeniasParticulares().get(0).getPista(), "lunar sobre la boca");
+		assertEquals(v.getSeniasParticulares().get(0).getPista(),
+				"lunar sobre la boca");
 	}
 
 	@Test

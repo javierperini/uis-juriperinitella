@@ -1,26 +1,23 @@
 package lugares;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
-
-import lugares.Banco;
-import personajes.Cuidador;
-import personajes.Informante;
-import personajes.Villano;
-import pista.Pista;
-import pista.PistaHobbie;
-import pista.PistaLugar;
-import pista.PistaSenia;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import personajes.Cuidador;
+import personajes.Informante;
+import personajes.Villano;
+import pista.Pista;
+import pista.PistaLugar;
+import pista.PistaSenia;
+
 public class BancoTest {
-	
+
 	private Banco b;
 	private Cuidador c;
 	private Villano v;
@@ -28,27 +25,20 @@ public class BancoTest {
 	private List<Pista> pistas = new ArrayList<Pista>();
 	private PistaSenia ps;
 	private PistaLugar pl;
-	
-	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
 	@Before
 	public void setUp() throws Exception {
 		/* Auxiliares */
 		c = new Cuidador("Pepito el pistolero");
 		ps = new PistaSenia("Era muy alta");
-//		REVISAR. ARREGLAR CONSTRUCTORES VILLANO
-		v = new Villano();
+		v = new Villano("Carmen Sandiego", "F", null, null);
 		i = new Informante("Anyi Tella Arena");
 
 		/* Banco */
 		pl = new PistaLugar("Quería visitar la torre Eiffel");
 		pistas.add(ps);
 		pistas.add(pl);
-		b = new Banco(c, pistas);
-		
-		System.setOut(new PrintStream(outContent));
-		System.setErr(new PrintStream(errContent));
+		b = new Banco("Banco", c, pistas);
 	}
 
 	@Test
@@ -62,24 +52,29 @@ public class BancoTest {
 	}
 
 	@Test
-	public void testImprimirPistasCuidador() {
-		b.imprimirPistas();
-		assertEquals("El cuidador Pepito el pistolero dice: Te equivocaste de país, el villano no paso por acá\n", outContent.toString());
-	}
-	
-	@Test
-	public void testImprimirPistasVillano() {
-		b = new Banco(v, pistas);
-		b.imprimirPistas();
-		assertEquals("Me atrapaste!!", outContent.toString());
-		
-	}
-	
-	@Test
-	public void testImprimirPistasInformante() {
-		b = new Banco(i, pistas);
-		b.imprimirPistas();
-		assertEquals("El informante Anyi Tella Arena dice: CUIDADO! Un cuchillo volador pasó muy cerca de tu oreja.\nEra muy alta\nQuería visitar la torre Eiffel\n", outContent.toString());
+	public void testPistasCuidador() {
+		assertEquals(b.interrogarOcupante().size(), 1);
+		assertEquals(
+				b.interrogarOcupante().get(0),
+				"El cuidador Pepito el pistolero dice: Te equivocaste de país, el villano no paso por acá");
 	}
 
+	@Test
+	public void testPistasVillano() {
+		b = new Banco("Banco", v, pistas);
+		assertEquals(b.interrogarOcupante().size(), 1);
+		assertEquals(b.interrogarOcupante().get(0), "Me encontraste!!");
+	}
+
+	@Test
+	public void testImprimirPistasInformante() {
+		b = new Banco("Banco", i, pistas);
+		assertTrue(b.interrogarOcupante().size() == 3
+				|| b.interrogarOcupante().size() == 4);
+		assertEquals(b.interrogarOcupante().get(0),
+				"El informante Anyi Tella Arena dice: ");
+		assertEquals(b.interrogarOcupante().get(1), "Era muy alta");
+		assertEquals(b.interrogarOcupante().get(2),
+				"Quería visitar la torre Eiffel");
+	}
 }

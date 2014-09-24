@@ -1,32 +1,25 @@
 package personajes;
 
-import static org.junit.Assert.*;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import personajes.Cuidador;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 import org.junit.Before;
 import org.junit.Test;
 
 public class CuidadorTest {
-	
-	private Cuidador  c;
-	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
+
+	private Cuidador c;
 
 	@Before
 	public void setUp() throws Exception {
 		c = new Cuidador("Adrián Juri");
-		
-		System.setOut(new PrintStream(outContent));
-		System.setErr(new PrintStream(errContent));
 	}
 
 	@Test
 	public void testGetInformacion() {
-		c.getInformacion();
-		assertEquals("El cuidador Adrián Juri dice: Te equivocaste de país, el villano no paso por acá\n", outContent.toString());
+		assertEquals(
+				c.getInformacion(),
+				"El cuidador Adrián Juri dice: Te equivocaste de país, el villano no paso por acá");
 	}
 
 	@Test

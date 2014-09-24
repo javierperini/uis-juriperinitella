@@ -17,9 +17,9 @@ import pista.PistaHobbie;
 import pista.PistaLugar;
 import pista.PistaSenia;
 
-public class BibliotecaTest {
+public class EmbajadaTest {
 
-	private Biblioteca b;
+	private Embajada embajada;
 	private Cuidador c;
 	private Villano v;
 	private Informante i;
@@ -27,6 +27,7 @@ public class BibliotecaTest {
 	private PistaLugar pl;
 	private PistaSenia ps;
 	private PistaHobbie ph;
+
 	@Before
 	public void setUp() throws Exception {
 		/* Auxiliares */
@@ -42,43 +43,44 @@ public class BibliotecaTest {
 		pistas.add(pl);
 		pistas.add(ps);
 		pistas.add(ph);
-		b = new Biblioteca("Biblioteca", c, pistas);
+		embajada = new Embajada("Embajada", c, pistas);
 	}
 
 	@Test
 	public void testGetOcupante() {
-		assertEquals(b.getOcupante(), c);
+		assertEquals(embajada.getOcupante(), c);
 	}
 
 	@Test
 	public void testGetPistas() {
-		assertEquals(b.getPistas().size(), 3);
+		assertEquals(embajada.getPistas().size(), 3);
 	}
 
 	@Test
 	public void testPistasCuidador() {
-		assertEquals(b.interrogarOcupante().size(), 1);
+		assertEquals(embajada.interrogarOcupante().size(), 1);
 		assertEquals(
-				b.interrogarOcupante().get(0),
+				embajada.interrogarOcupante().get(0),
 				"El cuidador Pepito el pistolero dice: Te equivocaste de país, el villano no paso por acá");
 	}
 
 	@Test
 	public void testPistasVillano() {
-		b = new Biblioteca("Biblioteca", v, pistas);
-		assertEquals(b.interrogarOcupante().size(), 1);
-		assertEquals(b.interrogarOcupante().get(0), "Me encontraste!!");
+		embajada = new Embajada("Embajada", v, pistas);
+		assertEquals(embajada.interrogarOcupante().size(), 1);
+		assertEquals(embajada.interrogarOcupante().get(0), "Me encontraste!!");
 	}
 
 	@Test
 	public void testImprimirPistasInformante() {
-		b = new Biblioteca("Biblioteca", i, pistas);
-		assertTrue(b.interrogarOcupante().size() == 3
-				|| b.interrogarOcupante().size() == 4);
-		assertEquals(b.interrogarOcupante().get(0),
+		embajada = new Embajada("Embajada", i, pistas);
+		assertTrue(embajada.interrogarOcupante().size() == 3
+				|| embajada.interrogarOcupante().size() == 4);
+		assertEquals(embajada.interrogarOcupante().get(0),
 				"El informante Anyi Tella Arena dice: ");
-		assertEquals(b.interrogarOcupante().get(1), "Se fue a la torre Eiffel");
-		assertEquals(b.interrogarOcupante().get(2), "Era muy alto");
+		assertEquals(embajada.interrogarOcupante().get(1),
+				"Se fue a la torre Eiffel");
+		assertEquals(embajada.interrogarOcupante().get(2), "Era muy alto");
 	}
 
 }

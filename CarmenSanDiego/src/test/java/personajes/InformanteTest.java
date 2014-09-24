@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class InformanteTest {
-	
+
 	private Informante i;
 
 	@Before
@@ -17,7 +17,7 @@ public class InformanteTest {
 
 	@Test
 	public void testGetInformacion() {
-		//??
+		// ??
 	}
 
 	@Test
