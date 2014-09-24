@@ -37,14 +37,6 @@ class Pais {
 		lugarActual= lugares.get(i-1);
 	}
 	
-	def hablarConElPersonaje(){
-		if(lugarActual != null){
-		lugarActual.imprimirPistas	
-		}else{
-			throw new NoEstaEnNingunLugarException("No fuiste a ningun lugar")
-		}
-	}
-	
 	def isPuedeAceptar(){
 		nombre != null &&
 		nombre != "" &&
