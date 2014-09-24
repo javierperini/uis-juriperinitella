@@ -30,10 +30,10 @@ class Lugar {
 	}
 	
 	def List<Pista> pistasOcupante() {
-		if(ocupante.puedeRevelarPista)
-			pistas
-		else
-			newArrayList
+//		if(ocupante.puedeRevelarPista)
+//			pistas
+//		else
+//			newArrayList
 	}
 	
 }
