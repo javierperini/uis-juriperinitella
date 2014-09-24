@@ -2,21 +2,20 @@ package mapamundi
 
 import detective.Pais
 import detective.Sistema
-import java.util.ArrayList
 import java.util.List
 import lugares.Lugar
-import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.model.ObservableUtils
+import org.uqbar.commons.utils.Observable
 
 @Observable
 class MapamundiAppModel {
 	
 	@Property Sistema sistema
-	@Property List<Pais> paisesAMostrar = new ArrayList<Pais>()
+	@Property List<Pais> paisesAMostrar = newArrayList
 	@Property Pais paisSeleccionado
 	@Property Pais conexionAEliminar
 	@Property Pais conexionParaAgregar
-	@Property List<String> lugares =#["Club","Embajada","Biblioteca","Banco"]
+	@Property List<String> lugares = #["Club","Embajada","Biblioteca","Banco"]
 	@Property String nombreLugarParaAgregar
 	@Property Lugar lugarAEliminar
 	@Property Lugar lugarParaAgregar
@@ -48,10 +47,12 @@ class MapamundiAppModel {
 //	Metodos para la edicion de lugares de un pais
 	def quitarLugar() {
 		paisSeleccionado.quitarLugar(lugarAEliminar)
+		ObservableUtils.firePropertyChanged(this, "puedeEliminarLugar", puedeEliminarLugar)
 	}
 	
 	def agregarLugar() {
 		paisSeleccionado.agregarLugar(lugarParaAgregar)
+		ObservableUtils.firePropertyChanged(this, "puedeAgregarLugar", puedeAgregarLugar)
 	}
 	
 //	Metodos para la edicion de las conexiones de un pais
@@ -88,4 +89,22 @@ class MapamundiAppModel {
 		sistema.agregarPais(paisSeleccionado)
 	}
 	
+	def isPuedeAgregarLugar(){
+		paisSeleccionado.lugares.size < 3
+	}
+	
+	def isPuedeEliminarLugar(){
+		paisSeleccionado.lugares.size < 3
+	}
+	
+	def containsLugar(Lugar l){
+		var Boolean b = false
+		for(var i = 0; i < paisSeleccionado.lugares.size;  i++){		
+			if (paisSeleccionado.lugares.get(i).nombre == l.nombre) {
+				b = true
+				return b
+			}
+		}
+		b
+	}
 }

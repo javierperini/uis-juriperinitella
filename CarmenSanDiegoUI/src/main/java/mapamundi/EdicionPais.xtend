@@ -1,17 +1,16 @@
 package mapamundi
 
-import org.uqbar.arena.windows.SimpleWindow
-import org.uqbar.arena.windows.WindowOwner
 import detective.Pais
-import detective.Sistema
-import org.uqbar.arena.widgets.Panel
-import org.uqbar.arena.widgets.Label
-import org.uqbar.arena.widgets.TextBox
-import org.uqbar.arena.widgets.tables.Table
-import org.uqbar.arena.widgets.Button
-import org.uqbar.arena.widgets.tables.Column
 import java.awt.Color
 import lugares.Lugar
+import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Label
+import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.widgets.TextBox
+import org.uqbar.arena.widgets.tables.Column
+import org.uqbar.arena.widgets.tables.Table
+import org.uqbar.arena.windows.SimpleWindow
+import org.uqbar.arena.windows.WindowOwner
 
 class EdicionPais extends SimpleWindow<MapamundiAppModel>{
 	

@@ -16,8 +16,8 @@ class FinDelJuegoGanado extends FinDelJuego{
 		var p = new Panel(mainPanel)
 		p.setLayout(new VerticalLayout)
 		
-		new Label(p).setText("En Hora Buena!!!")
-		new Label(p).setText("A detenido a " + modelObject.villanoAtrapado.nombre + " y recuperado " + modelObject.sistema.caso.nombreCaso)
+		new Label(p).setText("Enhorabuena!!!")
+		new Label(p).setText("Ha detenido a " + modelObject.villanoAtrapado.nombre + " y resuelto " + modelObject.sistema.caso.nombreCaso)
 		new Label(p).setText("Felicitaciones!!!")
 	}
 	

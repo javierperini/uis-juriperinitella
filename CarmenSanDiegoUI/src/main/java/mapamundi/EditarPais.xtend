@@ -1,6 +1,5 @@
 package mapamundi
 
-import detective.Pais
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.WindowOwner

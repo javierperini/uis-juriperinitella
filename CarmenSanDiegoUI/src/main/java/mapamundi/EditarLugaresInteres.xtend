@@ -1,7 +1,10 @@
 package mapamundi
 
-import detective.Sistema
 import java.awt.Color
+import lugares.Banco
+import lugares.Biblioteca
+import lugares.Club
+import lugares.Embajada
 import lugares.Lugar
 import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.layout.ColumnLayout
@@ -13,11 +16,6 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
-import detective.Pais
-import lugares.Club
-import lugares.Biblioteca
-import lugares.Banco
-import lugares.Embajada
 
 class EditarLugaresInteres  extends SimpleWindow<MapamundiAppModel> {
 	
@@ -57,6 +55,8 @@ class EditarLugaresInteres  extends SimpleWindow<MapamundiAppModel> {
 			setWidth(100)
 			setBackground(Color::LIGHT_GRAY)
 			caption = "Agregar"
+			bindEnabledToProperty("puedeAgregarLugar")
+			bindEnabledToProperty("puedeEliminarLugar")
 			// HORRIBLE, ARREGLAR
 			onClick [ | if(modelObject.nombreLugarParaAgregar == "Club") {
 							modelObject.setLugarParaAgregar (new Club("Club", null, null))
@@ -70,7 +70,7 @@ class EditarLugaresInteres  extends SimpleWindow<MapamundiAppModel> {
 						if(modelObject.nombreLugarParaAgregar == "Embajada") {
 							modelObject.setLugarParaAgregar(new Embajada("Embajada", null, null))
 						}
-						if(!modelObject.paisSeleccionado.lugares.contains(modelObject.lugarParaAgregar)) {
+						if(!modelObject.containsLugar(modelObject.lugarParaAgregar)) {
 							modelObject.agregarLugar()
 						} else {
 							//tirar error por pais repetido											

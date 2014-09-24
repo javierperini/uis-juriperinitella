@@ -1,7 +1,6 @@
 package mapamundi
 
 import detective.Pais
-import detective.Sistema
 import java.awt.Color
 import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.layout.ColumnLayout

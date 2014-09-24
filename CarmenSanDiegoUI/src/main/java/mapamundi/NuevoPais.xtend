@@ -1,10 +1,9 @@
 package mapamundi
 
 import detective.Pais
-import detective.Sistema
-import org.uqbar.arena.windows.WindowOwner
-import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.widgets.Panel
+import org.uqbar.arena.windows.WindowOwner
 
 class NuevoPais extends EdicionPais{
 	
