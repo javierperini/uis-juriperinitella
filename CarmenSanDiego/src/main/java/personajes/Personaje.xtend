@@ -10,6 +10,8 @@ abstract class Personaje {
 	new(String nombre) {
 		this.nombre = nombre
 	}
+	
+	new() {}
 
 	def String getInformacion()
 

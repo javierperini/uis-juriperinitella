@@ -18,9 +18,11 @@ class Villano extends Personaje {
 		this.hobbies = hobbies
 		this.seniasParticulares = seniasPart
 	}
+	
+	new() {}
 
 	override getInformacion() {
-		"Me encontraste!!"
+		"ALTO! Deténgase, " + nombre + "!!!"
 	}
 
 	override puedeRevelarPista() {
