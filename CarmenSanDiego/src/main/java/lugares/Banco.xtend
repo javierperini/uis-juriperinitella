@@ -16,4 +16,14 @@ class Banco extends Lugar {
 		super(nombre, personaje, pistas)
 	}
 	
+	override pistasOcupante() {
+		var List<Pista> res = newArrayList
+		
+		if(ocupante.puedeRevelarPista) {
+			res.add(pistas.get(0))
+			res.add(pistas.get(1))
+		}
+		
+		res
+	}
 }

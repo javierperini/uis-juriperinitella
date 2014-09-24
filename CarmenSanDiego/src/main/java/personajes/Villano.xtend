@@ -1,11 +1,10 @@
 package personajes
 
 import java.util.List
-import pista.PistaHobbie
-import pista.PistaSenia
 import org.uqbar.commons.model.ObservableUtils
 import org.uqbar.commons.utils.Observable
-import pista.Pista
+import pista.PistaHobbie
+import pista.PistaSenia
 
 @Observable
 class Villano extends Personaje {
@@ -21,7 +20,7 @@ class Villano extends Personaje {
 	}
 	
 	override getInformacion() {
-		print("Me atrapaste!!")
+		"Me encontraste!!"
 	}
 	
 	override puedeRevelarPista() {

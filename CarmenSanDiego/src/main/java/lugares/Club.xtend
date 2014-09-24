@@ -13,20 +13,22 @@ class Club extends Lugar {
 	 * - dos PistaSenia
 	 * - un PistaHobbie  (70% de chances de revelarse)
 	 */
-	new(String nombre, Personaje personaje, List<Pista> lista) {
-		super(nombre, personaje, lista)
+	new(String nombre, Personaje personaje, List<Pista> pistas) {
+		super(nombre, personaje, pistas)
 	}
 	
-	override imprimirPistas() {
+	override pistasOcupante() {
 		var rand = Math.random() * 10;
+		var List<Pista> res = newArrayList
 		
-		ocupante.informacion
-		
-		if(ocupante.puedeRevelarPista)
-			println(pistas.get(0).pista)
-			println(pistas.get(1).pista)
+		if(ocupante.puedeRevelarPista) {
+			res.add(pistas.get(0))
+			res.add(pistas.get(1))
 			if(Math.round(rand) <= 7)
-				println(pistas.get(2).pista)
+				res.add(pistas.get(2))
+		}
+		
+		res
 	}
 	
 }

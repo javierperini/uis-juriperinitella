@@ -17,17 +17,18 @@ class Biblioteca extends Lugar{
 		super(nombre, personaje, pistas)
 	}
 	
-	override imprimirPistas() {
+	override pistasOcupante() {
 		var rand = Math.random() * 1;
-		
-		ocupante.informacion
+		var List<Pista> res = newArrayList
 		
 		if(ocupante.puedeRevelarPista) {
-			println(pistas.get(0).pista)
-			println(pistas.get(1).pista)
+			res.add(pistas.get(0))
+			res.add(pistas.get(1))
 			if(Math.round(rand) == 1)
-				println(pistas.get(2).pista)
+				res.add(pistas.get(2))
 		}
+		
+		res
 	}
 
 }

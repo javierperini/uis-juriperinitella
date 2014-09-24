@@ -11,8 +11,6 @@ abstract class Personaje {
 		this.nombre=nombre
 	}
 	
-	new(){}
-	
 	def String getInformacion()
 	
 	def boolean puedeRevelarPista()

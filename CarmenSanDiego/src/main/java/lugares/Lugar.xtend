@@ -1,9 +1,9 @@
 package lugares
 
 import java.util.List
+import org.uqbar.commons.utils.Observable
 import personajes.Personaje
 import pista.Pista
-import org.uqbar.commons.utils.Observable
 
 @Observable
 class Lugar {
@@ -17,11 +17,23 @@ class Lugar {
 		this.pistas = pistas
 	}
 
-	def imprimirPistas(){
-		ocupante.informacion
+	def List<String> interrogarOcupante(){
+		var List<String> res = newArrayList
+		var List<Pista> pistasOcupante = pistasOcupante()
+		res.add(ocupante.informacion)
+		for (var i = 0; i<pistasOcupante.size(); i++){
+			res.add(pistasOcupante.get(i).pista)
+		}
+//		pistasOcupante.forEach[ res.add(it.pista) ] :(
 		
+		res
+	}
+	
+	def List<Pista> pistasOcupante() {
 		if(ocupante.puedeRevelarPista)
-			pistas.forEach[ print(it.pista + "\n") ]
+			pistas
+		else
+			newArrayList
 	}
 	
 }
