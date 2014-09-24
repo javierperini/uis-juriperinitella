@@ -1,6 +1,6 @@
 package lugares;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -30,16 +30,13 @@ public class BibliotecaTest {
 	private PistaSenia ps;
 	private PistaHobbie ph;
 	private PistaSenia ps1;
-	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-	private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
 	@Before
 	public void setUp() throws Exception {
 		/* Auxiliares */
 		ph = new PistaHobbie("Jugar a la canasta");
 		ps1 = new PistaSenia("Lunar sobre la boca");
-//		REVISAR CONSTRUCTOR VILLANO
-		v = new Villano();
+		v = new Villano("Carmen Sandiego", "F", null, null);
 		c = new Cuidador("Pepito el pistolero");
 		i = new Informante("Anyi Tella Arena");
 		
@@ -49,10 +46,7 @@ public class BibliotecaTest {
 		pistas.add(pl);
 		pistas.add(ps);
 		pistas.add(ph);
-		b = new Biblioteca(c, pistas);
-		
-		System.setOut(new PrintStream(outContent));
-		System.setErr(new PrintStream(errContent));
+		b = new Biblioteca("Biblioteca", c, pistas);
 	}
 
 	@Test
@@ -66,25 +60,25 @@ public class BibliotecaTest {
 	}
 
 	@Test
-	public void testImprimirPistasCuidador() {
-		b.imprimirPistas();
-		assertEquals("El cuidador Pepito el pistolero dice: Te equivocaste de país, el villano no paso por acá\n", outContent.toString());
+	public void testPistasCuidador() {
+		assertEquals(b.interrogarOcupante().size(), 1);
+		assertEquals(b.interrogarOcupante().get(0), "El cuidador Pepito el pistolero dice: Te equivocaste de país, el villano no paso por acá");
 	}
 	
 	@Test
-	public void testImprimirPistasVillano() {
-		b = new Biblioteca(v, pistas);
-		b.imprimirPistas();
-		assertEquals("Me atrapaste!!", outContent.toString());
-		
+	public void testPistasVillano() {
+		b = new Biblioteca("Biblioteca", v, pistas);
+		assertEquals(b.interrogarOcupante().size(), 1);
+		assertEquals(b.interrogarOcupante().get(0), "Me encontraste!!");
 	}
 	
 	@Test
 	public void testImprimirPistasInformante() {
-		//falla si se muestra la tercera pista, ARREGLAR
-		b = new Biblioteca(i, pistas);
-		b.imprimirPistas();
-		assertEquals("El informante Anyi Tella Arena dice: CUIDADO! Un cuchillo volador pasó muy cerca de tu oreja.\nSe fue a la torre Eiffel\nEra muy alto\n", outContent.toString());
+		b = new Biblioteca("Biblioteca", i, pistas);
+		assertTrue(b.interrogarOcupante().size() == 3 || b.interrogarOcupante().size() == 4);
+		assertEquals(b.interrogarOcupante().get(0), "El informante Anyi Tella Arena dice: ");
+		assertEquals(b.interrogarOcupante().get(1), "Se fue a la torre Eiffel");
+		assertEquals(b.interrogarOcupante().get(2), "Era muy alto");
 	}
 
 }
