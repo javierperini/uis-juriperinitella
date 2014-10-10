@@ -1,13 +1,12 @@
 h1 {
     text-align: center;
 }
-input.ng-invalid {
-	background-color: #CC4444;
-	color: white;
-}
 .paisActual {
     font-style: italic;
 }
 #tablaColumna {
     width: 30px;
+}
+.oculto {
+    display: none;
 }
