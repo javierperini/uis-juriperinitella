@@ -3,38 +3,36 @@
 
 <head>
     <title>¿Dónde está Carmen Sandiego?</title>
-    <link rel="stylesheet" href="src/css/app.css" />
-    
+        
     <!-- ANGULAR -->
     <script src="src/lib/angular.js"></script>
-    
-    <!-- Controller de la app -->
-    <script src="src/js/controllers.js"></script>
-    
     <!-- JQUERY -->
     <script src="src/lib/jquery-1.11.1.min.js"></script>
-
     <!-- BOOTSTRAP -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     
+    <!-- Controller de la app -->
+    <script src="src/js/controllers.js"></script>
+    <!-- .css propio -->
+    <link rel="stylesheet" href="src/css/app.css" />
 </head>
 
-<body >
+<body>
     <div class="container">
         <div class="page-header">
             <h1>
-				¿Qué hacemos ahora, detective?
-			</h1>
-		</div>        
+               ¿Qué hacemos ahora, detective?
+            </h1>
+        </div>
+        <p class="paisActualPanel">Estás en <span class="paisActual" data-ng-controller="PaisesCtrl">{{paisActual.nombre}}</span></p>
         <div class="row">
-            <div class="col-md-2" data-ng-controller="PaisesCtrl">
-                <p>Estás en <span class="paisActual">{{paisActual.nombre}}</span></p>
-                <table class="table table-striped table-hover tablaColumna">
+            <div class="col-md-2"  data-ng-controller="PaisesCtrl">
+                <table class="table table-hover">
                     <thead>
                         <tr><th>Visitados</th></tr>
                     </thead>
@@ -44,7 +42,7 @@
                        </tr>
                     </tbody>
                 </table>
-                <table class="table table-striped table-hover tablaColumna">
+                <table class="table table-hover">
                     <thead>
                         <tr><th>Fallidos</th></tr>
                     </thead>
@@ -55,51 +53,66 @@
                     </tbody>
                 </table>
             </div>
-            <br/>
-            <br/>
-            <br/>
             <div class="col-md-7">  <!-- verificar si data-ng-controller="PaisesCtrl" es necesario -->
-                <span style="text-align: center;">Lugares</span>
-                <br/>
-                <!-- botón funcionando
-                <button type="button" class="btn btn-default">
-                    <span class="glyphicon glyphicon-home"></span>
+                <p>Lugares</p> <!-- sacar? -->
+       <!--         <br/>
+                <button type="button" class="btn btn-default botonLugar">
+                    <span class="glyphicon glyphicon-home"/>
                     <br/>
-                    Banco  ponerle estilo 
-                </button>-->
-                <button ng-repeat="lugar in lugaresPais" type="button" class="btn btn-default" ng-click="revelarPista()">
-                    <span class="glyphicon glyphicon-search"></span>
+                    Banco
+                </button>
+                <button type="button" class="btn btn-default botonLugar">
+                    <span class="glyphicon glyphicon-tower"/>
+                    <br/>
+                    Club
+                </button>
+                <button type="button" class="btn btn-default botonLugar">
+                    <span class="glyphicon glyphicon-flag"/>
+                    <br/>
+                    Embajada
+                </button>
+                <button type="button" class="btn btn-default botonLugar">
+                    <span class="glyphicon glyphicon-book"/>
+                    <br/>
+                    Biblioteca
+                </button>
+                <br/> -->
+                <button ng-repeat="lugar in paisActual.lugares" type="button" class="btn btn-default" data-ng-controller="PaisesCtrl">
+                    <span onload="elegirIcono({{lugar.nombre}})"></span>
+                    <br/>
+                    {{lugar.nombre}}
                 </button>
                 <br/>
-                <div class="well well-lg oculto">
+                <div class="well oculto">
                     <span id="pistaSpan">Acá iría la pista</span>
-                </div>    
+                </div> 
             </div>
             <div class="col-md-3" data-ng-controller="VillanosCtrl">
-                <span style="text-align: center;">Orden de arresto</span>
+                <p><b>Orden de arresto</b></p> <!-- sacar <b> -->
                 <br/>
-                Emitida <i class="icon-search"></i> <!-- tick o cruz --> contra <span id="villanoOrden" class="oculto"/>
+                Emitida <!-- tick o cruz -->
                 <br/>
+                <span id="panelVillanoOrden" class="">contra &nbsp; <span class="glyphicon glyphicon-user"/><span id="villanoOrden"></span></span>
                 <br/>
                 <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="villanoOrden" data-toggle="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
                     Elegir villano <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="villanoOrden">
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Opcion 1</a></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Opcion 2</a></li>
-                        <li role="presentation" class="divider"></li>
-                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Opcion 3</a></li>
-                    </ul>
+                  </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="villanoOrden" data-ng-repeat="villano in villanos">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{villano.nombre}}</a></li>
+                  </ul>
+                <button type="button" class="btn btn-primary">Emitir orden</button>
                 </div>
+                
+                
+                
+                <br/>
                 <div class="well well-lg" data-ng-repeat="villano in villanos">
-                    <i class="icon-search"></i> {{villano.nombre}} <!-- silueta de persona -->
-                    <button type="submit" value="Emitir orden" class="btn" ng-click="emitirOrden()"></button>
+                    <span class="glyphicon glyphicon-user"/> {{villano.nombre}}
+                    <br/>
                 </div>
             </div>
-        </div>
+        </div>  
     </div>
-
 </body>
 </html>
-

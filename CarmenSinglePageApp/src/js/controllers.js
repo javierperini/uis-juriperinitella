@@ -5,24 +5,73 @@
 var carmenApp = angular.module('carmenApp', []);
 
 carmenApp.controller('PaisesCtrl', function ($scope) {
+    $scope.idBotonBanco = "glyphicon glyphicon-home";
+    $scope.idBotonBiblioteca = "glyphicon glyphicon-tower";
+    $scope.idBotonClub = "glyphicon glyphicon-flag";
+    $scope.idBotonEmbajada = "glyphicon glyphicon-book";
+    
     $scope.paisActual =
         {
             'nombre': 'argentina',
-            'caracteristicas': [ 'c1', 'c2', 'c3' ]
+            'caracteristicas': [ 'c1', 'c2', 'c3' ],
+            'lugares': [
+                        {
+                            'nombre': 'Banco'
+                        },
+                        {
+                            'nombre': 'Biblioteca'
+                        },
+                        {
+                            'nombre': 'Embajada'
+                        }
+                     ]
         };
     
     $scope.paisesSistema = [
         {
             'nombre': 'argentina',
-            'caracteristicas': [ 'c1', 'c2', 'c3' ]
+            'caracteristicas': [ 'c1', 'c2', 'c3' ],
+            'lugares': [
+                        {
+                            'nombre': 'Banco'
+                        },
+                        {
+                            'nombre': 'Biblioteca'
+                        },
+                        {
+                            'nombre': 'Embajada'
+                        }
+                     ]
         },
         {
             'nombre': 'estados unidos',
-            'caracteristicas': [ 'c1', 'c2', 'c3' ]
+            'caracteristicas': [ 'c1', 'c2', 'c3' ],
+            'lugares': [
+                        {
+                            'nombre': 'Banco'
+                        },
+                        {
+                            'nombre': 'Biblioteca'
+                        },
+                        {
+                            'nombre': 'Embajada'
+                        }
+                     ]
         },
         {
             'nombre': 'argelia',
-            'caracteristicas': []
+            'caracteristicas': [],
+            'lugares': [
+                        {
+                            'nombre': 'Banco'
+                        },
+                        {
+                            'nombre': 'Biblioteca'
+                        },
+                        {
+                            'nombre': 'Embajada'
+                        }
+                     ]
         }
     ];
     
@@ -43,6 +92,8 @@ carmenApp.controller('PaisesCtrl', function ($scope) {
             'caracteristicas': []
         }
     ];
+    
+    $scope.elegirIcono = function(nombreBoton) { }
     
     $scope.revelarPista = function() {
         document.getElementById("pistaSpan").style.display = 'block';
