@@ -5,10 +5,10 @@
 var carmenApp = angular.module('carmenApp', []);
 
 carmenApp.controller('PaisesCtrl', function ($scope) {
-    $scope.idBotonBanco = "glyphicon glyphicon-home";
-    $scope.idBotonBiblioteca = "glyphicon glyphicon-tower";
-    $scope.idBotonClub = "glyphicon glyphicon-flag";
-    $scope.idBotonEmbajada = "glyphicon glyphicon-book";
+    $scope.Banco = "glyphicon glyphicon-home";
+    $scope.Biblioteca = "glyphicon glyphicon-tower";
+    $scope.Club = "glyphicon glyphicon-flag";
+    $scope.Embajada = "glyphicon glyphicon-book";
     
     $scope.paisActual =
         {
@@ -16,13 +16,16 @@ carmenApp.controller('PaisesCtrl', function ($scope) {
             'caracteristicas': [ 'c1', 'c2', 'c3' ],
             'lugares': [
                         {
-                            'nombre': 'Banco'
+                            'nombre': 'Banco',
+                            'icono': 'glyphicon glyphicon-home'
                         },
                         {
-                            'nombre': 'Biblioteca'
+                            'nombre': 'Biblioteca',
+                            'icono': 'glyphicon glyphicon-tower'
                         },
                         {
-                            'nombre': 'Embajada'
+                            'nombre': 'Embajada',
+                            'icono': 'glyphicon glyphicon-book'
                         }
                      ]
         };
@@ -102,10 +105,15 @@ carmenApp.controller('PaisesCtrl', function ($scope) {
 
 carmenApp.controller('VillanosCtrl', function ($scope) {
     
-    $scope.emitirOrden = function () {
-        document.getElementById("villanoOrden").innerHTML = "{{villano.nombre}}";
+ /*   $scope.emitirOrden = function (nombreVillano) {
+        document.getElementById("villanoOrden").innerHTML = nombreVillano;
+        $scope.villanoOrden = nombreVillano;
         document.getElementById("villanoOrden").style.display = 'block';
-    };
+    }; */
+    
+    $scope.villanoOrden = '';
+    
+    $scope.emitida = false;
     
     $scope.villanos = [
         {
@@ -118,4 +126,13 @@ carmenApp.controller('VillanosCtrl', function ($scope) {
             'nombre': 'El cuco'
         }
     ];
+    
+    $scope.emitirOrden = function(){
+        $scope.emitida = true;
+    }
+    
+    $scope.panelFichas = false;
+    $scope.showPanelFichas = function(){
+        $scope.panelFichas = !($scope.panelFichas);
+    }
 });

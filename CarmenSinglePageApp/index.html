@@ -29,32 +29,44 @@
                ¿Qué hacemos ahora, detective?
             </h1>
         </div>
-        <p class="paisActualPanel">Estás en <span class="paisActual" data-ng-controller="PaisesCtrl">{{paisActual.nombre}}</span></p>
+        <div class="paisActualPanel centrar">Estás en 
+            <span class="paisActual" data-ng-controller="PaisesCtrl">
+                {{paisActual.nombre}}
+            </span>
+        </div>
+        <br/><br/>
         <div class="row">
-            <div class="col-md-2"  data-ng-controller="PaisesCtrl">
+            <div class="col-md-3"  data-ng-controller="PaisesCtrl">
                 <table class="table table-hover">
                     <thead>
-                        <tr><th>Visitados</th></tr>
+                        <tr><th class="tituloColumna">Visitados</th></tr> <!-- DAR ESTILO -->
                     </thead>
                     <tbody>
                         <tr data-ng-repeat="pais in paisesVisitados">
-                            <td>{{pais.nombre}}</td>
+                            <td><span class="glyphicon glyphicon-plane colorItems"></span> {{pais.nombre}}</td>
                        </tr>
                     </tbody>
                 </table>
                 <table class="table table-hover">
                     <thead>
-                        <tr><th>Fallidos</th></tr>
+                        <tr><th class="centrar">Fallidos</th></tr> <!-- DAR ESTILO IGUAL A VISITADOS -->
                     </thead>
                     <tbody>
                         <tr data-ng-repeat="pais in paisesFallidos">
-                            <td>{{pais.nombre}}</td>
+                            <td><span class="glyphicon glyphicon-plane colorItems"></span> {{pais.nombre}}</td> <!-- cambiar color -->
                         </tr>
                     </tbody>
                 </table>
+                <select class="input-large">
+                    <option>Países&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option> <!-- deshabilitar cuando esta opcion este seleccionada -->
+                    <!-- DIVISOR -->
+                    <option ng-repeat="pais in paisesSistema">{{pais.nombre}}</option>
+                </select>
+                &nbsp;
+                <button type="button" class="btn btn-primary centrar">Viajar</button>
             </div>
-            <div class="col-md-7">  <!-- verificar si data-ng-controller="PaisesCtrl" es necesario -->
-                <p>Lugares</p> <!-- sacar? -->
+            <div class="col-md-6" data-ng-controller="PaisesCtrl">  <!-- verificar si data-ng-controller="PaisesCtrl" es necesario -->
+                <div class="tituloColumna">Lugares</div>
        <!--         <br/>
                 <button type="button" class="btn btn-default botonLugar">
                     <span class="glyphicon glyphicon-home"/>
@@ -75,41 +87,61 @@
                     <span class="glyphicon glyphicon-book"/>
                     <br/>
                     Biblioteca
-                </button>
-                <br/> -->
-                <button ng-repeat="lugar in paisActual.lugares" type="button" class="btn btn-default" data-ng-controller="PaisesCtrl">
-                    <span onload="elegirIcono({{lugar.nombre}})"></span>
-                    <br/>
-                    {{lugar.nombre}}
-                </button>
+                </button> -->
+                <br/>
+                <div class="centrar">
+                    <span ng-repeat="lugar in paisActual.lugares">
+                        <span ng-class="boton"></span>
+                        <label ng-model="boton" class="oculto">{{lugar.icono}}</label> <!-- ARREGLAR -->
+                        <button type="button" class="btn btn-default">
+                            {{lugar.nombre}}
+                        </button>
+                    </span>
+                    
+                    <p ng-class="style">prueba</p>
+<input type="text" ng-model="style">
+                    
+                    
+                </div>
+                
                 <br/>
                 <div class="well oculto">
                     <span id="pistaSpan">Acá iría la pista</span>
                 </div> 
             </div>
             <div class="col-md-3" data-ng-controller="VillanosCtrl">
-                <p><b>Orden de arresto</b></p> <!-- sacar <b> -->
-                <br/>
-                Emitida <!-- tick o cruz -->
-                <br/>
-                <span id="panelVillanoOrden" class="">contra &nbsp; <span class="glyphicon glyphicon-user"/><span id="villanoOrden"></span></span>
-                <br/>
-                <div class="dropdown">
-                  <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                    Elegir villano <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="villanoOrden" data-ng-repeat="villano in villanos">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{villano.nombre}}</a></li>
-                  </ul>
-                <button type="button" class="btn btn-primary">Emitir orden</button>
+                <div class="tituloColumna">Orden de arresto</div>
+                <div id="ordenPanel">
+                        Emitida <span class="glyphicon glyphicon-remove colorItems" ng-hide="emitida"></span>
+                    <span id="panelVillanoOrden" ng-hide="!emitida">
+                        contra:
+                        <br/>
+                        <span class="glyphicon glyphicon-user"/>
+                        {{villanoOrden.nombre}}
+                    </span>
                 </div>
-                
-                
-                
                 <br/>
-                <div class="well well-lg" data-ng-repeat="villano in villanos">
-                    <span class="glyphicon glyphicon-user"/> {{villano.nombre}}
+                <select class="input-large" ng-model="villanoOrden">
+                    <option>Villanos</option> <!-- deshabilitar cuando esta opcion este seleccionada -->
+                    <!-- DIVISOR -->
+                    <option ng-repeat="villano in villanos">{{villano.nombre}}</option>
+                </select>
+                &nbsp;
+                <button type="button" class="btn btn-primary" ng-click="emitirOrden()">
+                    Emitir orden
+                </button>
+                <br/>
+                <br/>
+                <div class="centrar">
+                    <button type="button" class="btn btn-warning" ng-click="showPanelFichas()">
+                        Ver fichas
+                    </button>
                     <br/>
+                    <br/>
+                    <div class="well well-lg" data-ng-repeat="villano in villanos" ng-show="panelFichas">
+                        <span class="glyphicon glyphicon-user"></span> {{villano.nombre}}
+                        <br/>
+                    </div>
                 </div>
             </div>
         </div>  

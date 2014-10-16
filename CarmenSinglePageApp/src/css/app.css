@@ -6,16 +6,14 @@ h1 {
     text-align: center;
     font-weight: bold;
     font-size: 50px;
+    /*color: ; ELEGIR COLOR*/
 }
 .paisActualPanel{
     font-family: "Tahoma";
     font-size: 25px;
 }
-p{
-    text-align: center;
-}
 .paisActual {
-    font-style: italic;
+     /*font-style: italic; */
     font-weight: bold;
 }
 /*#tablasPaises {
@@ -27,4 +25,14 @@ p{
 }
 .oculto {
     display: none;
+}
+.centrar{
+    text-align: center;
+}
+.colorItems{
+    color: #FF0000;
+}
+.tituloColumna{
+    text-align: center;
+    font-weight: bold;
 }
