@@ -4,97 +4,61 @@
 
 var carmenApp = angular.module('carmenApp', []);
 
-carmenApp.controller('PaisesCtrl', function ($scope) {
+carmenApp.controller('PaisesCtrl', function ($scope,$http) {
     $scope.Banco = "glyphicon glyphicon-home";
     $scope.Biblioteca = "glyphicon glyphicon-tower";
     $scope.Club = "glyphicon glyphicon-flag";
     $scope.Embajada = "glyphicon glyphicon-book";
     
-    $scope.paisActual =
-        {
-            'nombre': 'argentina',
-            'caracteristicas': [ 'c1', 'c2', 'c3' ],
-            'lugares': [
-                        {
-                            'nombre': 'Banco',
-                            'icono': 'glyphicon glyphicon-home'
-                        },
-                        {
-                            'nombre': 'Biblioteca',
-                            'icono': 'glyphicon glyphicon-tower'
-                        },
-                        {
-                            'nombre': 'Embajada',
-                            'icono': 'glyphicon glyphicon-book'
-                        }
-                     ]
-        };
+    $scope.paisActual = function() {
+    	$http.get('/paisActual').success(function(data) {
+            $scope.paisActual = data;
+        })
+    }
+    $scope.paisesSis = function() {
+    	$http.get('/paises').success(function(data) {
+            $scope.paisesSistema = data;
+        })
+    }
     
-    $scope.paisesSistema = [
-        {
-            'nombre': 'argentina',
-            'caracteristicas': [ 'c1', 'c2', 'c3' ],
-            'lugares': [
-                        {
-                            'nombre': 'Banco'
-                        },
-                        {
-                            'nombre': 'Biblioteca'
-                        },
-                        {
-                            'nombre': 'Embajada'
-                        }
-                     ]
-        },
-        {
-            'nombre': 'estados unidos',
-            'caracteristicas': [ 'c1', 'c2', 'c3' ],
-            'lugares': [
-                        {
-                            'nombre': 'Banco'
-                        },
-                        {
-                            'nombre': 'Biblioteca'
-                        },
-                        {
-                            'nombre': 'Embajada'
-                        }
-                     ]
-        },
-        {
-            'nombre': 'argelia',
-            'caracteristicas': [],
-            'lugares': [
-                        {
-                            'nombre': 'Banco'
-                        },
-                        {
-                            'nombre': 'Biblioteca'
-                        },
-                        {
-                            'nombre': 'Embajada'
-                        }
-                     ]
-        }
-    ];
+    $scope.paisesVisitado =function() {
+    	$http.get('/paisVisitados').success(function(data) {
+            $scope.paisesVisitados = data;
+        })
+    }
     
-    $scope.paisesVisitados = [
-        {
-            'nombre': 'argentina',
-            'caracteristicas': [ 'c1', 'c2', 'c3' ]
-        },
-        {
-            'nombre': 'estados unidos',
-            'caracteristicas': [ 'c1', 'c2', 'c3' ]
-        }
-    ];
+    $scope.paisesFallido =function() {
+    	$http.get('/paisesFallidos').success(function(data) {
+            $scope.paisesFallidos = data;
+        })
+    }
+    $scope.paisActual();
+    $scope.paisesSis ();
+    $scope.paisesVisitado();
+    $scope.paisesFallido();
     
-    $scope.paisesFallidos = [
-        {
-            'nombre': 'argelia',
-            'caracteristicas': []
-        }
-    ];
+    $scope.viajar = function() {
+    	$http.post('/viajar', $scope.nuevoPais)
+    	.success(function(data) {
+            if (data.msg != '') {
+            	$scope.notificarMensaje('Viajaste a :' + data.nombre);
+            }
+            else {
+            	$scope.notificarError(data.error);
+            }
+            $scope.paisActual();
+            $scope.paisesFallido();
+            $scope.paisesVisitado();
+        })
+        .error(function(data, status) { 
+        	if (data.error) {
+        		$scope.notificarError("Error: " + data.error);
+        	}
+        	else {
+        		$scope.notificarError(status + ": " + data);
+        	}
+        })
+    }
     
     $scope.elegirIcono = function(nombreBoton) { }
     
@@ -103,29 +67,24 @@ carmenApp.controller('PaisesCtrl', function ($scope) {
     }
 });
 
-carmenApp.controller('VillanosCtrl', function ($scope) {
+carmenApp.controller('VillanosCtrl', function ($scope, $http) {
     
  /*   $scope.emitirOrden = function (nombreVillano) {
         document.getElementById("villanoOrden").innerHTML = nombreVillano;
         $scope.villanoOrden = nombreVillano;
-        document.getElementById("villanoOrden").style.display = 'block';
     }; */
     
     $scope.villanoOrden = '';
     
-    $scope.emitida = false;
+    $scope.emitida = false;  
+
+    $scope.villanosSistema = function() {
+    	$http.get('/villanos').success(function(data) {
+            $scope.villanos = data;
+        })
+    }
     
-    $scope.villanos = [
-        {
-            'nombre': 'Carmen Sandiego'
-        },
-        {
-            'nombre': 'Gaston Aguirre'
-        },
-        {
-            'nombre': 'El cuco'
-        }
-    ];
+    $scope.villanosSistema();
     
     $scope.emitirOrden = function(){
         $scope.emitida = true;
