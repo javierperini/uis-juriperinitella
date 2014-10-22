@@ -1,10 +1,8 @@
 'use strict';
-
-// TO DO: representar los lugares para bindearlo a los botones
-
+	
 var carmenApp = angular.module('carmenApp', []);
 
-carmenApp.controller('PaisesCtrl', function ($scope,$http) {
+carmenApp.controller('PaisesCtrl', function ($scope, $http) {
     $scope.Banco = "glyphicon glyphicon-home";
     $scope.Biblioteca = "glyphicon glyphicon-tower";
     $scope.Club = "glyphicon glyphicon-flag";
@@ -15,19 +13,19 @@ carmenApp.controller('PaisesCtrl', function ($scope,$http) {
             $scope.paisActual = data;
         })
     }
-    $scope.paisesSis = function() {
+    $scope.paisesSistema = function() {
     	$http.get('/paises').success(function(data) {
             $scope.paisesSistema = data;
         })
     }
     
-    $scope.paisesVisitado =function() {
+    $scope.paisesVisitados =function() {
     	$http.get('/paisVisitados').success(function(data) {
             $scope.paisesVisitados = data;
         })
     }
     
-    $scope.paisesFallido =function() {
+    $scope.paisesFallidos =function() {
     	$http.get('/paisesFallidos').success(function(data) {
             $scope.paisesFallidos = data;
         })
@@ -63,7 +61,7 @@ carmenApp.controller('PaisesCtrl', function ($scope,$http) {
     $scope.elegirIcono = function(nombreBoton) { }
     
     $scope.revelarPista = function() {
-        document.getElementById("pistaSpan").style.display = 'block';
+        /*document.getElementById("pistaSpan").style.display = 'block';*/
     }
 });
 

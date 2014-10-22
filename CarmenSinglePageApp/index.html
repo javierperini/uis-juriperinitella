@@ -11,10 +11,13 @@
     <!-- BOOTSTRAP -->
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<!--<script src="src/lib/bootstrap.min.js"></script> -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<!--<script src="src/lib/bootstrap.min.css"></script> NO FUNCIONA-->
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+	<!-- <script src="src/lib/bootstrap-theme.min.css"></script> NO FUNCIONA -->
     
     <!-- Controller de la app -->
     <script src="src/js/controllers.js"></script>
@@ -22,7 +25,7 @@
     <link rel="stylesheet" href="src/css/app.css" />
 </head>
 
-<body>
+<body>	<!-- buscar como darle trasparencia al well -->
     <div class="container">
         <div class="page-header">
             <h1>
@@ -57,13 +60,18 @@
                         </tr>
                     </tbody>
                 </table>
-                <select class="input-large" >
-                    <option>Países&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option> <!-- deshabilitar cuando esta opcion este seleccionada -->
-                    <!-- DIVISOR -->
-                    <option ng-repeat="pais in paisesSistema">{{pais.nombre}}</option>
-                </select>
-                &nbsp;
-                <button type="button" class="btn btn-primary centrar">Viajar</button>
+                <div class="well well-lg centrar">
+                    <select class="input-large" ng-model="paisSeleccionado">
+                        <option>Países&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option> <!-- deshabilitar cuando esta opcion este seleccionada -->
+                        <!-- DIVISOR -->
+                        <option ng-model="paisSeleccionado" ng-repeat="pais in paisesSistema">{{pais.nombre}}</option>
+                    </select>
+                    &nbsp;
+                    <button type="button" class="btn btn-primary" ng-click="viajarA()">Viajar</button>
+                    <br/>
+                    <br/>
+                    <button type="button" class="btn btn-primary" ng-click="volverAPaisAnterior()">Volver a país anterior</button>
+            </div>
             </div>
             <div class="col-md-6" data-ng-controller="PaisesCtrl">  <!-- verificar si data-ng-controller="PaisesCtrl" es necesario -->
                 <div class="tituloColumna">Lugares</div>
@@ -91,23 +99,25 @@
                 <br/>
                 <div class="centrar">
                     <span ng-repeat="lugar in paisActual.lugares">
-                        <span ng-class="boton"></span>
                         <label ng-model="boton" class="oculto">{{lugar.icono}}</label> <!-- ARREGLAR -->
-                        <button type="button" class="btn btn-default">
+                        <button type="button" class="btn btn-default" ng-click="revelarPista()">
+                            <label ng-class="boton"></label>
                             {{lugar.nombre}}
                         </button>
+                        <div class="well oculto">
+                            <span id="pistaSpan">{{lugar.pista}}</span>
+                        </div> 
                     </span>
                     
+                    
+                    
                     <p ng-class="style">prueba</p>
-<input type="text" ng-model="style">
+                    <input type="text" ng-model="style">
                     
-                    
-                </div>
-                
+   
+                </div>                
                 <br/>
-                <div class="well oculto">
-                    <span id="pistaSpan">Acá iría la pista</span>
-                </div> 
+                
             </div>
             <div class="col-md-3" data-ng-controller="VillanosCtrl">
                 <div class="tituloColumna">Orden de arresto</div>
@@ -121,7 +131,7 @@
                     </span>
                 </div>
                 <br/>
-                <select class="input-large" ng-model="villanoOrden">
+                <select class="input-large" ng-model="villanoSeleccionado">
                     <option>Villanos</option> <!-- deshabilitar cuando esta opcion este seleccionada -->
                     <!-- DIVISOR -->
                     <option ng-repeat="villano in villanos">{{villano.nombre}}</option>
