@@ -1,0 +1,17 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET    /paises                           controllers.Application.paisesSistema()
+GET    /villanos                         controllers.Application.villanosSistema()
+GET    /paisesVisitados					 controllers.Application.paisesVisitados()
+GET    /paisesFallidos					 controllers.Application.paisesFallidos()	
+GET    /paisActual                       controllers.Application.paisActual()
+
+
+
+POST	/viajar 					controllers.Application.viajar()
+ 
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en" ng-app="carmenApp">
+
+<head>
+    <title>¿Dónde está Carmen Sandiego?</title>
+        
+    <!-- ANGULAR -->
+    <script src="src/lib/angular.js"></script>
+    <!-- JQUERY -->
+    <script src="src/lib/jquery-1.11.1.min.js"></script>
+    <!-- BOOTSTRAP -->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    
+    <!-- Controller de la app -->
+    <script src="src/js/controllers.js"></script>
+    <!-- .css propio -->
+    <link rel="stylesheet" href="src/css/app.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>
+               ¿Qué hacemos ahora, detective?
+            </h1>
+        </div>
+        <div class="paisActualPanel centrar">Estás en 
+            <span class="paisActual" data-ng-controller="PaisesCtrl">
+                {{paisActual.nombre}}
+            </span>
+        </div>
+        <br/><br/>
+        <div class="row">
+            <div class="col-md-3"  data-ng-controller="PaisesCtrl">
+                <table class="table table-hover">
+                    <thead>
+                        <tr><th class="tituloColumna">Visitados</th></tr> <!-- DAR ESTILO -->
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="pais in paisesVisitados">
+                            <td><span class="glyphicon glyphicon-plane colorItems"></span> {{pais.nombre}}</td>
+                       </tr>
+                    </tbody>
+                </table>
+                <table class="table table-hover">
+                    <thead>
+                        <tr><th class="centrar">Fallidos</th></tr> <!-- DAR ESTILO IGUAL A VISITADOS -->
+                    </thead>
+                    <tbody>
+                        <tr data-ng-repeat="pais in paisesFallidos">
+                            <td><span class="glyphicon glyphicon-plane colorItems"></span> {{pais.nombre}}</td> <!-- cambiar color -->
+                        </tr>
+                    </tbody>
+                </table>
+                <select class="input-large" >
+                    <option>Países&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option> <!-- deshabilitar cuando esta opcion este seleccionada -->
+                    <!-- DIVISOR -->
+                    <option ng-repeat="pais in paisesSistema">{{pais.nombre}}</option>
+                </select>
+                &nbsp;
+                <button type="button" class="btn btn-primary centrar" data-ng-click="viajar()">Viajar</button>
+            </div>
+            <div class="col-md-6" data-ng-controller="PaisesCtrl">  <!-- verificar si data-ng-controller="PaisesCtrl" es necesario -->
+                <div class="tituloColumna">Lugares</div>
+       <!--         <br/>
+                <button type="button" class="btn btn-default botonLugar">
+                    <span class="glyphicon glyphicon-home"/>
+                    <br/>
+                    Banco
+                </button>
+                <button type="button" class="btn btn-default botonLugar">
+                    <span class="glyphicon glyphicon-tower"/>
+                    <br/>
+                    Club
+                </button>
+                <button type="button" class="btn btn-default botonLugar">
+                    <span class="glyphicon glyphicon-flag"/>
+                    <br/>
+                    Embajada
+                </button>
+                <button type="button" class="btn btn-default botonLugar">
+                    <span class="glyphicon glyphicon-book"/>
+                    <br/>
+                    Biblioteca
+                </button> -->
+                <br/>
+                <div class="centrar">
+                    <span ng-repeat="lugar in paisActual.lugares">
+                        <span ng-class="boton"></span>
+                        <label ng-model="boton" class="oculto">{{lugar.icono}}</label> <!-- ARREGLAR -->
+                        <button type="button" class="btn btn-default">
+                            {{lugar.nombre}}
+                        </button>
+                    </span>
+                    
+                    <p ng-class="style">prueba</p>
+<input type="text" ng-model="style">
+                    
+                    
+                </div>
+                
+                <br/>
+                <div class="well oculto">
+                    <span id="pistaSpan">Acá iría la pista</span>
+                </div> 
+            </div>
+            <div class="col-md-3" data-ng-controller="VillanosCtrl">
+                <div class="tituloColumna">Orden de arresto</div>
+                <div id="ordenPanel">
+                        Emitida <span class="glyphicon glyphicon-remove colorItems" ng-hide="emitida"></span>
+                    <span id="panelVillanoOrden" ng-hide="!emitida">
+                        contra:
+                        <br/>
+                        <span class="glyphicon glyphicon-user"/>
+                        {{villanoOrden.nombre}}
+                    </span>
+                </div>
+                <br/>
+                <select class="input-large" ng-model="villanoOrden">
+                    <option>Villanos</option> <!-- deshabilitar cuando esta opcion este seleccionada -->
+                    <!-- DIVISOR -->
+                    <option ng-repeat="villano in villanos">{{villano.nombre}}</option>
+                </select>
+                &nbsp;
+                <button type="button" class="btn btn-primary" ng-click="emitirOrden()">
+                    Emitir orden
+                </button>
+                <br/>
+                <br/>
+                <div class="centrar">
+                    <button type="button" class="btn btn-warning" ng-click="showPanelFichas()">
+                        Ver fichas
+                    </button>
+                    <br/>
+                    <br/>
+                    <div class="well well-lg" data-ng-repeat="villano in villanos" ng-show="panelFichas">
+                        <span class="glyphicon glyphicon-user"></span> {{villano.nombre}}
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</body>
+</html>

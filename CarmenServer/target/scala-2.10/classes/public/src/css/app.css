@@ -1,0 +1,38 @@
+body {
+    /*background-image: url("../lib/fondo.jpg");
+    background-position: top;*/
+}
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+    /*color: ; ELEGIR COLOR*/
+}
+.paisActualPanel{
+    font-family: "Tahoma";
+    font-size: 25px;
+}
+.paisActual {
+     /*font-style: italic; */
+    font-weight: bold;
+}
+/*#tablasPaises {
+    width: 30px;
+    
+} */
+.botonLugar {
+    width: 100px;
+}
+.oculto {
+    display: none;
+}
+.centrar{
+    text-align: center;
+}
+.colorItems{
+    color: #FF0000;
+}
+.tituloColumna{
+    text-align: center;
+    font-weight: bold;
+}
