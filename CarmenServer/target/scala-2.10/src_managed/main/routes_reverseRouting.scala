@@ -1,6 +1,6 @@
 // @SOURCE:/home/javier/Escritorio/Facultad/Interface/CarmenServer/conf/routes
-// @HASH:18f917d2250608b988666d57143e258f431c0d41
-// @DATE:Wed Oct 22 19:33:17 ART 2014
+// @HASH:92fb0edb7df40d779aabe0b26d49a560c8af89ed
+// @DATE:Mon Oct 27 20:41:02 ART 2014
 
 import Routes.{prefix => _prefix, defaultPrefix => _defaultPrefix}
 import play.core._
@@ -15,6 +15,9 @@ import Router.queryString
 
 // @LINE:17
 // @LINE:14
+// @LINE:13
+// @LINE:12
+// @LINE:11
 // @LINE:10
 // @LINE:9
 // @LINE:8
@@ -36,6 +39,9 @@ def at(file:String): Call = {
                           
 
 // @LINE:14
+// @LINE:13
+// @LINE:12
+// @LINE:11
 // @LINE:10
 // @LINE:9
 // @LINE:8
@@ -68,7 +74,25 @@ def paisActual(): Call = {
 }
                                                 
 
+// @LINE:12
+def pedirPista(): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "pista")
+}
+                                                
+
 // @LINE:14
+def prueba(): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "prueba")
+}
+                                                
+
+// @LINE:13
+def volverAPaisAnterior(): Call = {
+   Call("POST", _prefix + { _defaultPrefix } + "volverPaisAnterior")
+}
+                                                
+
+// @LINE:11
 def viajar(): Call = {
    Call("POST", _prefix + { _defaultPrefix } + "viajar")
 }
@@ -88,6 +112,9 @@ def paisesVisitados(): Call = {
 
 // @LINE:17
 // @LINE:14
+// @LINE:13
+// @LINE:12
+// @LINE:11
 // @LINE:10
 // @LINE:9
 // @LINE:8
@@ -114,6 +141,9 @@ def at : JavascriptReverseRoute = JavascriptReverseRoute(
               
 
 // @LINE:14
+// @LINE:13
+// @LINE:12
+// @LINE:11
 // @LINE:10
 // @LINE:9
 // @LINE:8
@@ -166,7 +196,40 @@ def paisActual : JavascriptReverseRoute = JavascriptReverseRoute(
 )
                         
 
+// @LINE:12
+def pedirPista : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.pedirPista",
+   """
+      function() {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "pista"})
+      }
+   """
+)
+                        
+
 // @LINE:14
+def prueba : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.prueba",
+   """
+      function() {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "prueba"})
+      }
+   """
+)
+                        
+
+// @LINE:13
+def volverAPaisAnterior : JavascriptReverseRoute = JavascriptReverseRoute(
+   "controllers.Application.volverAPaisAnterior",
+   """
+      function() {
+      return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "volverPaisAnterior"})
+      }
+   """
+)
+                        
+
+// @LINE:11
 def viajar : JavascriptReverseRoute = JavascriptReverseRoute(
    "controllers.Application.viajar",
    """
@@ -196,6 +259,9 @@ def paisesVisitados : JavascriptReverseRoute = JavascriptReverseRoute(
 
 // @LINE:17
 // @LINE:14
+// @LINE:13
+// @LINE:12
+// @LINE:11
 // @LINE:10
 // @LINE:9
 // @LINE:8
@@ -218,6 +284,9 @@ def at(path:String, file:String): play.api.mvc.HandlerRef[_] = new play.api.mvc.
                           
 
 // @LINE:14
+// @LINE:13
+// @LINE:12
+// @LINE:11
 // @LINE:10
 // @LINE:9
 // @LINE:8
@@ -250,7 +319,25 @@ def paisActual(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
 )
                       
 
+// @LINE:12
+def pedirPista(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.pedirPista(), HandlerDef(this, "controllers.Application", "pedirPista", Seq(), "POST", """""", _prefix + """pista""")
+)
+                      
+
 // @LINE:14
+def prueba(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.prueba(), HandlerDef(this, "controllers.Application", "prueba", Seq(), "POST", """""", _prefix + """prueba""")
+)
+                      
+
+// @LINE:13
+def volverAPaisAnterior(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
+   controllers.Application.volverAPaisAnterior(), HandlerDef(this, "controllers.Application", "volverAPaisAnterior", Seq(), "POST", """""", _prefix + """volverPaisAnterior""")
+)
+                      
+
+// @LINE:11
 def viajar(): play.api.mvc.HandlerRef[_] = new play.api.mvc.HandlerRef(
    controllers.Application.viajar(), HandlerDef(this, "controllers.Application", "viajar", Seq(), "POST", """""", _prefix + """viajar""")
 )

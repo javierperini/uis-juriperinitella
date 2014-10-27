@@ -3,87 +3,80 @@
 var carmenApp = angular.module('carmenApp', []);
 
 carmenApp.controller('PaisesCtrl', function ($scope, $http) {
-    $scope.Banco = "glyphicon glyphicon-home";
-    $scope.Biblioteca = "glyphicon glyphicon-tower";
-    $scope.Club = "glyphicon glyphicon-flag";
-    $scope.Embajada = "glyphicon glyphicon-book";
+//    $scope.Banco = "glyphicon glyphicon-home";
+//    $scope.Biblioteca = "glyphicon glyphicon-tower";
+//    $scope.Club = "glyphicon glyphicon-flag";
+//    $scope.Embajada = "glyphicon glyphicon-book";
     
-    $scope.paisActualF = function() {
+    $scope.actualizarPaisActual = function() {
     	$http.get('/paisActual').success(function(data) {
             $scope.paisActual = data;
-        })
-    }
-    $scope.paisesSisF= function() {
+            console.log(data);
+            })        
+        }
+    
+    $scope.actualizarPaisesSistema= function() {
     	$http.get('/paises').success(function(data) {
             $scope.paisesSistema = data;
         })
+       
     }
     
-    $scope.paisesVisitadosF =function() {
-    	$http.get('/paisVisitados').success(function(data) {
+    $scope.actualizarPaisesVisitados =function() {
+    	$http.get('/paisesVisitados').success(function(data) {
             $scope.paisesVisitados = data;
         })
     }
     
-    $scope.paisesFallidosF =function() {
+    $scope.actualizarPaisesFallidos = function() {
     	$http.get('/paisesFallidos').success(function(data) {
             $scope.paisesFallidos = data;
         })
     }
-    $scope.paisActualF();
-    $scope.paisesSisF ();
-    $scope.paisesVisitadosF();
-    $scope.paisesFallidosF();
+    
+    $scope.actualizarPagina = function() {
+    	$scope.actualizarPaisActual();
+    	$scope.actualizarPaisesSistema();
+    	$scope.actualizarPaisesVisitados();
+    	$scope.actualizarPaisesFallidos();
+    }
+
+    $scope.actualizarPagina();
     
     $scope.viajar = function() {
-    	alert('Apretaron viajar' + $scope.paisSeleccionado)
-    	$http.post('/viajar', $scope.paisSeleccionado)
+    	$http.post('/viajar' , {pais: $scope.paisSeleccionado} )
     	.success(function(data) {
-            if (data.msg != '') {
-            	$scope.notificarMensaje('Viajaste a :' + data.nombre);
-            }
-            else {
-            	$scope.notificarError(data.error);
-            }
-            $scope.paisActualF();
-            $scope.paisesSisF ();
-            $scope.paisesVisitadosF();
-            $scope.paisesFallidosF();
-        })
-        .error(function(data, status) { 
-        	if (data.error) {
-        		$scope.notificarError("Error: " + data.error);
-        	}
-        	else {
-        		$scope.notificarError(status + ": " + data);
-        	}
-        })
+    		$scope.actualizarPagina();
+    		
+          })
     }
-	/////////
-    $scope.msgs = [];
-	$scope.notificarMensaje = function(mensaje) {
-		$scope.msgs.push(mensaje);
-		$timeout(function(){
-			while($scope.msgs.length > 0) 
-				$scope.msgs.pop();
-	    }, 3000);
-	};
+    $scope.volverPaisAnterior = function(){
+    	$http.post('/volverPaisAnterior',$scope.paisActual)
+    	.success(function(data){
+    		$scope.actualizarPagina();
+    	})
+    }
+//    $scope.seleccionarPais = function(){
+//    	$http.get('/pais/'+ $scope.paisSeleccionado).success(function(data) {
+////            $scope.paisResultante = data;
+//            alert("El pais actual es "+ data);
+//            $scope.prueba(data)
+//    	})
+//        
+//      }
+    
+    $scope.pedirPista = function(nombreLugar){
+    	$http.post('/pista' ,{nombreLugar:nombreLugar}).
+    		success(function(data){
+    			$scope.pistaLugar = data;
+    		})
+    	
+    }
+    
 
-	$scope.errors = [];
-    $scope.notificarError = function(mensaje) {
-    	$scope.errors.push(mensaje);
-		$timeout(function(){
-			while($scope.errors.length > 0) 
-				$scope.errors.pop();
-	    }, 3000);
-    }
     
+    $scope.elegirIcono = function(nombreBoton) { }   /*document.getElementById("pistaSpan").style.display = 'block';*/
     
-    $scope.elegirIcono = function(nombreBoton) { }
-    
-    $scope.revelarPista = function() {
-        /*document.getElementById("pistaSpan").style.display = 'block';*/
-    }
 });
 
 carmenApp.controller('VillanosCtrl', function ($scope, $http) {

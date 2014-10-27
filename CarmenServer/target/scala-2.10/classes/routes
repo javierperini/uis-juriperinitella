@@ -8,10 +8,10 @@ GET    /villanos                         controllers.Application.villanosSistema
 GET    /paisesVisitados					 controllers.Application.paisesVisitados()
 GET    /paisesFallidos					 controllers.Application.paisesFallidos()	
 GET    /paisActual                       controllers.Application.paisActual()
-
-
-
-POST	/viajar 					controllers.Application.viajar()
+POST   /viajar				             controllers.Application.viajar()
+POST   /pista			                 controllers.Application.pedirPista()
+POST  /volverPaisAnterior                controllers.Application.volverAPaisAnterior()
+POST  /prueba                            controllers.Application.prueba()
  
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

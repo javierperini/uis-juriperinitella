@@ -7,14 +7,14 @@
 		revision="1.0-SNAPSHOT"
 		conf="test"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
-		date="20141019114053"/>
+		date="20141027204030"/>
 	<dependencies>
 		<module organisation="CarmenSanDiego" name="CarmenSanDiego">
 			<revision name="0.0.1-SNAPSHOT" status="integration" pubdate="20141015194355" resolver="Maven2 Local" artresolver="Maven2 Local" homepage="" downloaded="true" searched="true" default="false" conf="default(compile), default, compile, runtime, master" position="62">
-				<metadata-artifact status="successful" details="" size="1594" time="8" location="/home/javier/Escritorio/play-2.2.2/framework/../repository/cache/CarmenSanDiego/CarmenSanDiego/ivy-0.0.1-SNAPSHOT.xml" searched="true" original-local-location="/home/javier/Escritorio/play-2.2.2/framework/../repository/cache/CarmenSanDiego/CarmenSanDiego/ivy-0.0.1-SNAPSHOT.xml.original" origin-is-local="false" origin-location="file:/home/javier/.m2/repository/CarmenSanDiego/CarmenSanDiego/0.0.1-SNAPSHOT/CarmenSanDiego-0.0.1-SNAPSHOT.pom"/>
+				<metadata-artifact status="successful" details="" size="1594" time="27" location="/home/javier/Escritorio/play-2.2.2/framework/../repository/cache/CarmenSanDiego/CarmenSanDiego/ivy-0.0.1-SNAPSHOT.xml" searched="true" original-local-location="/home/javier/Escritorio/play-2.2.2/framework/../repository/cache/CarmenSanDiego/CarmenSanDiego/ivy-0.0.1-SNAPSHOT.xml.original" origin-is-local="false" origin-location="file:/home/javier/.m2/repository/CarmenSanDiego/CarmenSanDiego/0.0.1-SNAPSHOT/CarmenSanDiego-0.0.1-SNAPSHOT.pom"/>
 				<caller organisation="carmenserver" name="carmenserver_2.10" conf="test, compile, runtime" rev="0.0.1-SNAPSHOT" rev-constraint-default="0.0.1-SNAPSHOT" rev-constraint-dynamic="0.0.1-SNAPSHOT" callerrev="1.0-SNAPSHOT"/>
 				<artifacts>
-					<artifact name="CarmenSanDiego" type="jar" ext="jar" status="successful" details="" size="83821" time="2" location="/home/javier/Escritorio/play-2.2.2/framework/../repository/cache/CarmenSanDiego/CarmenSanDiego/jars/CarmenSanDiego-0.0.1-SNAPSHOT.jar">
+					<artifact name="CarmenSanDiego" type="jar" ext="jar" status="successful" details="" size="30258" time="2" location="/home/javier/Escritorio/play-2.2.2/framework/../repository/cache/CarmenSanDiego/CarmenSanDiego/jars/CarmenSanDiego-0.0.1-SNAPSHOT.jar">
 						<origin-location is-local="false" location="file:/home/javier/.m2/repository/CarmenSanDiego/CarmenSanDiego/0.0.1-SNAPSHOT/CarmenSanDiego-0.0.1-SNAPSHOT.jar"/>
 					</artifact>
 				</artifacts>

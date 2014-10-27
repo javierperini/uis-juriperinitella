@@ -28,7 +28,8 @@
             <h1>
                ¿Qué hacemos ahora, detective?
             </h1>
-        </div>
+
+        
         <div class="paisActualPanel centrar">Estás en 
             <span class="paisActual" data-ng-controller="PaisesCtrl">
                 {{paisActual.nombre}}
@@ -57,13 +58,16 @@
                         </tr>
                     </tbody>
                 </table>
-                <select class="input-large" >
+                <select class="input-large" ng-model="paisSeleccionado">
                     <option>Países&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option> <!-- deshabilitar cuando esta opcion este seleccionada -->
                     <!-- DIVISOR -->
                     <option ng-repeat="pais in paisesSistema">{{pais.nombre}}</option>
                 </select>
                 &nbsp;
                 <button type="button" class="btn btn-primary centrar" data-ng-click="viajar()">Viajar</button>
+                <br/>
+                <br/>
+                <button type="button" class="btn btn-primary" data-ng-click="volverPaisAnterior()" >Volver a país anterior</button>
             </div>
             <div class="col-md-6" data-ng-controller="PaisesCtrl">  <!-- verificar si data-ng-controller="PaisesCtrl" es necesario -->
                 <div class="tituloColumna">Lugares</div>
@@ -93,7 +97,7 @@
                     <span ng-repeat="lugar in paisActual.lugares">
                         <span ng-class="boton"></span>
                         <label ng-model="boton" class="oculto">{{lugar.icono}}</label> <!-- ARREGLAR -->
-                        <button type="button" class="btn btn-default">
+                        <button type="button" class="btn btn-default" ng-click="pedirPista(lugar.nombre)">
                             {{lugar.nombre}}
                         </button>
                     </span>
@@ -105,8 +109,11 @@
                 </div>
                 
                 <br/>
-                <div class="well oculto">
-                    <span id="pistaSpan">Acá iría la pista</span>
+                <div class="well centrar">
+                    <span ng-repeat="pista in pistaLugar">
+                    	{{pista}}
+                    	<br/>
+                    </span>
                 </div> 
             </div>
             <div class="col-md-3" data-ng-controller="VillanosCtrl">
@@ -127,7 +134,7 @@
                     <option ng-repeat="villano in villanos">{{villano.nombre}}</option>
                 </select>
                 &nbsp;
-                <button type="button" class="btn btn-primary" ng-click="emitirOrden()">
+                <button type="button" class="btn btn-primary">
                     Emitir orden
                 </button>
                 <br/>

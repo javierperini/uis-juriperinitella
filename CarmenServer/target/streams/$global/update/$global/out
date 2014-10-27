@@ -7,7 +7,7 @@
 [0m[[0mdebug[0m] [0m== resolving dependencies for carmenserver#carmenserver_2.10;1.0-SNAPSHOT [compile][0m
 [0m[[0mdebug[0m] [0m== resolving dependencies carmenserver#carmenserver_2.10;1.0-SNAPSHOT->org.scala-lang#scala-library;2.10.3 [compile->default(compile)][0m
 [0m[[0minfo[0m] [0mResolving org.scala-lang#scala-library;2.10.3 ...[0m
-[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@71cc2b7a[0m
+[0m[[0mdebug[0m] [0msbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@366afa06[0m
 [0m[[0mdebug[0m] [0msbt-chain: module revision found in cache: org.scala-lang#scala-library;2.10.3[0m
 [0m[[0mdebug[0m] [0m	local: revision in cache: org.scala-lang#scala-library;2.10.3[0m
 [0m[[0mdebug[0m] [0m	found org.scala-lang#scala-library;2.10.3 in sbt-chain[0m
@@ -782,7 +782,7 @@
 [0m[[0mdebug[0m] [0m		=> file:/home/javier/.m2/repository/CarmenSanDiego/CarmenSanDiego/0.0.1-SNAPSHOT/CarmenSanDiego-0.0.1-SNAPSHOT.pom (0.0.1-SNAPSHOT)[0m
 [0m[[0mdebug[0m] [0mdownloading file:/home/javier/.m2/repository/CarmenSanDiego/CarmenSanDiego/0.0.1-SNAPSHOT/CarmenSanDiego-0.0.1-SNAPSHOT.pom ...[0m
 [0m[[0mdebug[0m] [0m	Maven2 Local: downloading file:/home/javier/.m2/repository/CarmenSanDiego/CarmenSanDiego/0.0.1-SNAPSHOT/CarmenSanDiego-0.0.1-SNAPSHOT.pom[0m
-[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] CarmenSanDiego#CarmenSanDiego;0.0.1-SNAPSHOT!CarmenSanDiego.pom(pom.original) (8ms)[0m
+[0m[[0mdebug[0m] [0m	[SUCCESSFUL ] CarmenSanDiego#CarmenSanDiego;0.0.1-SNAPSHOT!CarmenSanDiego.pom(pom.original) (27ms)[0m
 [0m[[0mdebug[0m] [0m		tried /home/javier/Escritorio/play-2.2.2/repository/local/CarmenSanDiego/CarmenSanDiego/0.0.1-SNAPSHOT/jars/CarmenSanDiego.jar[0m
 [0m[[0mdebug[0m] [0m	maven-metadata not available: file:/home/javier/.m2/repository/CarmenSanDiego/CarmenSanDiego/0.0.1-SNAPSHOT/maven-metadata.xml[0m
 [0m[[0mdebug[0m] [0m		tried file:/home/javier/.m2/repository/CarmenSanDiego/CarmenSanDiego/0.0.1-SNAPSHOT/CarmenSanDiego-0.0.1-SNAPSHOT.jar[0m
@@ -5426,7 +5426,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#scala-compiler;2.10.3!scala-compiler.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.3!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 6334ms :: artifacts dl 144ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 7752ms :: artifacts dl 211ms[0m
 [0m[[0mdebug[0m] [0m	report for carmenserver#carmenserver_2.10;1.0-SNAPSHOT compile produced in /home/javier/Escritorio/Facultad/Interface/CarmenServer/target/resolution-cache/reports/carmenserver-carmenserver_2.10-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for carmenserver#carmenserver_2.10;1.0-SNAPSHOT runtime produced in /home/javier/Escritorio/Facultad/Interface/CarmenServer/target/resolution-cache/reports/carmenserver-carmenserver_2.10-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for carmenserver#carmenserver_2.10;1.0-SNAPSHOT test produced in /home/javier/Escritorio/Facultad/Interface/CarmenServer/target/resolution-cache/reports/carmenserver-carmenserver_2.10-test.xml[0m
@@ -5440,5 +5440,5 @@
 [0m[[0mdebug[0m] [0m	report for carmenserver#carmenserver_2.10;1.0-SNAPSHOT docs produced in /home/javier/Escritorio/Facultad/Interface/CarmenServer/target/resolution-cache/reports/carmenserver-carmenserver_2.10-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for carmenserver#carmenserver_2.10;1.0-SNAPSHOT pom produced in /home/javier/Escritorio/Facultad/Interface/CarmenServer/target/resolution-cache/reports/carmenserver-carmenserver_2.10-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for carmenserver#carmenserver_2.10;1.0-SNAPSHOT scala-tool produced in /home/javier/Escritorio/Facultad/Interface/CarmenServer/target/resolution-cache/reports/carmenserver-carmenserver_2.10-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (6334ms resolve - 144ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (7752ms resolve - 211ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

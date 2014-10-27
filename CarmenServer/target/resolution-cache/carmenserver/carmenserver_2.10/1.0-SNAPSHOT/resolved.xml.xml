@@ -4,7 +4,7 @@
 		module="carmenserver_2.10"
 		revision="1.0-SNAPSHOT"
 		status="integration"
-		publication="20141019114053"
+		publication="20141027204030"
 	>
 		<description>
 		CarmenServer
