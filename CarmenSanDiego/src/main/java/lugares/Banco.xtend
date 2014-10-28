@@ -3,9 +3,9 @@ package lugares
 import java.util.List
 import pista.Pista
 import personajes.Personaje
-import org.uqbar.commons.utils.Observable
 
-@Observable
+
+
 class Banco extends Lugar {
 
 	/**
@@ -13,6 +13,8 @@ class Banco extends Lugar {
 	 * - un PistaLugar
 	 * - un PistaSenia
 	 */
+	new(){	}
+	
 	new(String nombre, Personaje personaje, List<Pista> pistas) {
 		super(nombre, personaje, pistas)
 	}

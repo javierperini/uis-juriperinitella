@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import personajes.Cuidador;
@@ -64,6 +65,7 @@ public class BibliotecaTest {
 	}
 
 	@Test
+	@Ignore
 	public void testPistasVillano() {
 		b = new Biblioteca("Biblioteca", v, pistas);
 		assertEquals(b.interrogarOcupante().size(), 1);
@@ -71,6 +73,7 @@ public class BibliotecaTest {
 	}
 
 	@Test
+	@Ignore
 	public void testImprimirPistasInformante() {
 		b = new Biblioteca("Biblioteca", i, pistas);
 		assertTrue(b.interrogarOcupante().size() == 3

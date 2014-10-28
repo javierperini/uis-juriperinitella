@@ -4,9 +4,8 @@ import lugares.Lugar
 import java.util.List
 import pista.Pista
 import personajes.Personaje
-import org.uqbar.commons.utils.Observable
 
-@Observable
+
 class Club extends Lugar {
 
 	/**
@@ -14,9 +13,11 @@ class Club extends Lugar {
 	 * - dos PistaSenia
 	 * - un PistaHobbie  (70% de chances de revelarse)
 	 */
+	new(){}
 	new(String nombre, Personaje personaje, List<Pista> pistas) {
 		super(nombre, personaje, pistas)
 	}
+	
 
 	override pistasOcupante() {
 		var rand = Math.random() * 10;

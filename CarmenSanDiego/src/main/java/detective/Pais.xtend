@@ -2,10 +2,9 @@ package detective
 
 import java.util.List
 import lugares.Lugar
-import org.uqbar.commons.model.ObservableUtils
-import org.uqbar.commons.utils.Observable
 
-@Observable
+
+
 class Pais {
 	@Property String nombre
 	@Property List<String> caracteristicas = newArrayList
@@ -42,7 +41,7 @@ class Pais {
 
 	def setNombre(String nombre) {
 		this._nombre = nombre
-		ObservableUtils.firePropertyChanged(this, "puedeAceptar", puedeAceptar)
+//		ObservableUtils.firePropertyChanged(this, "puedeAceptar", puedeAceptar)
 	}
 
 	//	def setCaracteristicas(List<String> carac){
@@ -51,32 +50,32 @@ class Pais {
 	//	}
 	def quitarCaracteristica(String caracteristica) {
 		this.caracteristicas.remove(caracteristica)
-		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas)
+//		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas)
 	}
 
 	def agregarCaracteristica(String caracteristica) {
 		this.caracteristicas.add(caracteristica)
-		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas)
+//		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas)
 	}
 
 	def agregarConexion(Pais conex) {
 		this.conexiones.add(conex)
-		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
+//		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
 	}
 
 	def quitarLugar(Lugar lugar) {
 		lugares.remove(lugar)
-		ObservableUtils.firePropertyChanged(this, "lugares", lugares)
+//		ObservableUtils.firePropertyChanged(this, "lugares", lugares)
 	}
 
 	def agregarLugar(Lugar lugar) {
 		lugares.add(lugar)
-		ObservableUtils.firePropertyChanged(this, "lugares", lugares)
+//		ObservableUtils.firePropertyChanged(this, "lugares", lugares)
 	}
 
 	def quitarConexion(Pais pais) {
 		conexiones.remove(pais)
-		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
+//		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
 	}
 
 	def lugar(int i) {

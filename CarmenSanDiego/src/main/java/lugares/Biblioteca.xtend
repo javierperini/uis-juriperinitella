@@ -3,9 +3,8 @@ package lugares
 import java.util.List
 import pista.Pista
 import personajes.Personaje
-import org.uqbar.commons.utils.Observable
 
-@Observable
+
 class Biblioteca extends Lugar {
 
 	/**
@@ -14,6 +13,9 @@ class Biblioteca extends Lugar {
 	 * - un PistaSenia
 	 * - un PistaHobbie (50% de chances de revelarse)
 	 */
+	
+	
+	new(){}
 	new(String nombre, Personaje personaje, List<Pista> pistas) {
 		super(nombre, personaje, pistas)
 	}

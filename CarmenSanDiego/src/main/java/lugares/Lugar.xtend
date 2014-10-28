@@ -1,16 +1,23 @@
 package lugares
 
 import java.util.List
-import org.uqbar.commons.utils.Observable
+
 import personajes.Personaje
 import pista.Pista
 
-@Observable
-class Lugar {
-	@Property String nombre
-	@Property Personaje ocupante
-	@Property List<Pista> pistas
 
+class Lugar {
+	@Property 
+	String nombre
+	
+	@Property 
+	Personaje ocupante
+	
+	@Property 
+	List<Pista> pistas
+     new(){
+     	
+     }
 	new(String nombre, Personaje ocupante, List<Pista> pistas) {
 		this.nombre = nombre
 		this.ocupante = ocupante

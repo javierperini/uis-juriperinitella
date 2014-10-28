@@ -1,12 +1,10 @@
 package personajes
 
 import java.util.List
-import org.uqbar.commons.model.ObservableUtils
-import org.uqbar.commons.utils.Observable
 import pista.PistaHobbie
 import pista.PistaSenia
 
-@Observable
+
 class Villano extends Personaje {
 	@Property String sexo
 	@Property List<PistaHobbie> hobbies = newArrayList()
@@ -39,21 +37,21 @@ class Villano extends Personaje {
 
 	def quitarSeniaParticular(PistaSenia pista) {
 		seniasParticulares.remove(pista)
-		ObservableUtils.firePropertyChanged(this, "seniasParticulares", seniasParticulares)
+//		ObservableUtils.firePropertyChanged(this, "seniasParticulares", seniasParticulares)
 	}
 
 	def agregarSeniaParticular(PistaSenia pista) {
 		seniasParticulares.add(pista)
-		ObservableUtils.firePropertyChanged(this, "seniasParticulares", seniasParticulares)
+//		ObservableUtils.firePropertyChanged(this, "seniasParticulares", seniasParticulares)
 	}
 
 	def quitarHobbie(PistaHobbie pista) {
 		hobbies.remove(pista)
-		ObservableUtils.firePropertyChanged(this, "hobbies", hobbies)
+//		ObservableUtils.firePropertyChanged(this, "hobbies", hobbies)
 	}
 
 	def agregarHobbie(PistaHobbie pista) {
 		hobbies.add(pista)
-		ObservableUtils.firePropertyChanged(this, "hobbies", hobbies)
+//		ObservableUtils.firePropertyChanged(this, "hobbies", hobbies)
 	}
 }
