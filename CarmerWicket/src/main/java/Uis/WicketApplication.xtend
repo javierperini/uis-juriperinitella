@@ -1,7 +1,8 @@
 package Uis
 
 import org.apache.wicket.protocol.http.WebApplication
-import personajes.Villano
+import org.uqbar.commons.utils.ApplicationContext
+import detective.SetUpCarmen
 
 /**
  * Application object for your web application. If you want to run this application without deploying, run the Start class.
@@ -10,14 +11,14 @@ import personajes.Villano
  */
 class WicketApplication extends WebApplication {
 	
-	Villano v=new Villano();
 	
 	override getHomePage() {
-//		return HomePage
+		 HomePage
 	}
 	
 	override init() {
 		super.init()
+		ApplicationContext.instance.configureSingleton(SetUpCarmen, new SetUpCarmen)
 		// add your configuration here
 		
 	}
