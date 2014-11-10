@@ -1,5 +1,5 @@
 body {
-  background-image: url("../mundo-noite.jpg");
+  background-image: url("../img/mundo-noite.jpg");
  	}
 h1 {
     text-align: center;
@@ -9,7 +9,13 @@ h1 {
 }
 h2{
 	text-align: center;
+   font-family: inherit, sans-serif;
+    font-size:  50px;
 	color: #FBEFEF;
+}
+caption { 
+  background-color: #FFFFFF; 
+  text-align: right; 
 }
   .page-header {
   padding-bottom: 9px;
@@ -19,19 +25,48 @@ h2{
 .well{
 	background-color: rgba(245, 245, 245, 0.5);
 }
+.tituloColumna{
+    text-align: center;
+    font-weight: bold;
+}
+/* .btn-lg
+ {
+  padding: 50px 30px;
+  font-size: 18px;
+  line-height: 2ex;
+  border-radius: 6px;
+} */
 .centrar{
     text-align: center;
+}
+.alinearIzq{
+	margin-left: auto;
+	margin-right: auto;
+	width: 10em
 }
 .glyphicon-remove-circle{
 	font-size: 15px;
 	color: #FFFFFF;
 	text-align:right;
 }
-.table {
-font-family: Verdana, Arial, Helvetica, sans-serif;
-font-size:20px;
-text-align: left;
-color: #FBEFEF;
-width: 600px;
 
+/* .table {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	border: 1px solid green;
+	font-size:20px;
+	text-align: left;
+	color: #B40404;
+	width: 600px;
+} */
+
+.table-hover{
+	border: 1px solid #666;
+	background-color: #999;
+	color: black;
+	padding: 0.4em;
+	width: 700px;
+}
+.th {
+    background-color: black;
+    color: white;
 }

@@ -26,32 +26,46 @@
              Expediente  <span class="glyphicon glyphicon-user"/> </button>
       </div> 
         <h2 class="centrar">Mapamundi</h2>
-	  	
-	  		<table class="table  table-bordered table-condensed">
+	  	<div class="row">
+        		<div class="col-md-3" >
+        	
+	  		<table class="table  table-bordered  table-hover">
 	           		<thead>
 		           		<tr>
-		               		<th id="main">Paises</th>
+		               		<th id="main"  class="th">Paises</th>
 		               	</tr>
 		            </thead>
 					<tbody>
 		               	<tr wicket:id="paisesSistema">
 		                   	<td>
-		                   	    <span wicket:id="nombre">unNombre</span> 
+		                   	    <span wicket:id="nombre" ng-model="paisSeleccionado">unNombre</span> 
 		               	    </td> 
-		           	      	<td>
-		           	        	<div class="btn-group">
-		           	        		<button wicket:id="editar" class="btn-link glyphicon glyphicon-remove"></button>
-		           	        		<button wicket:id="eliminar" class="btn-link glyphicon glyphicon-pencil"></button>
-		           	        	</div>
-		   	                </td> 
+		           	      <!-- 	<td>
+		           	        	
+		   	                </td>  -->
 		               	</tr>
-	               	</tbody>
-	           	</table>
-	           	 <div class="form-actions">
-					<button wicket:id="nuevoPais" class="btn btn-primary btn btn-danger " type="submit">
-					   Nuevo  <span class="glyphicon glyphicon-globe"/></button>
-		         </div> 
-	      
+		            </tbody>
+		          	</table>
+		          	
+	           	 </div> 
+			<div class="col-md-3 ">
+				<div class="btn-group btn-group-lg">
+					<button wicket:id="nuevoPais" class="btn btn-primary btn btn-danger  btn-lg glyphicon glyphicon-plus-sign btn-group btn-group-lg ">
+						Nuevo </button>
+			
+						 <br/>
+	                    <br/>
+	            
+						<button wicket:id="editar" class="btn btn-primary btn btn-danger btn-lg glyphicon glyphicon-pencil btn-group btn-group-lg "> Editar</button>
+		           	     <br/>
+	                    <br/>
+	      			<button wicket:id="eliminar" class="btn btn-primary btn btn-danger  btn-lg  glyphicon glyphicon-remove-sign  btn-group btn-group-lg"> Eliminar</button>
+	      			</div>
+			 </div>
+			<!--  <div class="col-md-3 ">
+ 				<img src="img/mundo_animado.gif"  height="300" width="200"> 			 
+			 </div> -->
+	      </div>
 	 </form>
 	 </body>
 </html>

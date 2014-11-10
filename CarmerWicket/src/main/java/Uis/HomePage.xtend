@@ -32,6 +32,12 @@ class HomePage extends WebPage {
 		 form.addChild(new XButton("nuevoPais")
 			.onClick = [| ]
 		)
+		 form.addChild(new XButton("editar")
+			.onClick = [| ]
+		)
+		 form.addChild(new XButton("eliminar")
+			.onClick = [| ]
+		)
 	}
 	
 	def agregarPaisesSistema(Form<CarmenApp> form) {
@@ -39,9 +45,9 @@ class HomePage extends WebPage {
 		listView.populateItem = [ item |
 			item.model = item.modelObject.asCompoundModel
 			item.addChild(new Label("nombre"))
-			
-			item.addChild(new XButton("editar").onClick = [|])
-			item.addChild(new XButton("eliminar").onClick = [|])
+//			
+//			item.addChild(new XButton("editar").onClick = [|])
+//			item.addChild(new XButton("eliminar").onClick = [|])
 		]
 		form.addChild(listView)
 	}
