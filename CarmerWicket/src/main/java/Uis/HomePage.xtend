@@ -8,13 +8,8 @@ import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
 import org.uqbar.wicket.xtend.XButton
 import org.uqbar.wicket.xtend.XListView
 
-/**
- * 
- * @author ?
- */
 class HomePage extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
-	
 	@Property CarmenApp carmen
 
 	public new() {
@@ -55,14 +50,17 @@ class HomePage extends WebPage {
    def agregarBotonesFrontales(Form<CarmenApp> parent){
    	   //AGREGARLE COMPORTAMIENTO A LOS BOTONES
    	   parent.addChild(new XButton("mapaMundi")
-			.onClick = [| ]
+			.onClick =  [| ]
 		)
 		parent.addChild(new XButton("expediente")
-			.onClick = [| ]
+			.onClick = [| open(this.carmen)]
 		)
 	}
 	
+	def open(CarmenApp carmen){
+		responsePage = new Expediente(carmen)
 	
+	}
 	
 	
    	

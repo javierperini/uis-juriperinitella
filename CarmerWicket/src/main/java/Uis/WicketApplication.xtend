@@ -11,7 +11,7 @@ import detective.SetUpCarmen
  */
 class WicketApplication extends WebApplication {
 	
-	
+
 	override getHomePage() {
 		 HomePage
 	}
