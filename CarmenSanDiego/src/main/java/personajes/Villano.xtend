@@ -26,7 +26,10 @@ class Villano extends Personaje {
 	override puedeRevelarPista() {
 		false
 	}
-
+	 
+	override estasArrestado(){
+		true
+	}
 	def setHobbie(PistaHobbie h) {
 		hobbies.add(h)
 	}

@@ -15,4 +15,8 @@ abstract class Personaje {
 	def String getInformacion()
 
 	def boolean puedeRevelarPista()
+	
+	def estasArrestado(){
+		false
+	}
 }

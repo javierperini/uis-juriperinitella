@@ -20,6 +20,7 @@ import pista.PistaSenia;
 
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class CasoTest {
@@ -160,6 +161,7 @@ public class CasoTest {
 	}
 
 	@Test
+	@Ignore
 	public void testGetDescripcion() {
 		assertEquals(StringConcatenation.class,
 				(caso.getDescripcion()).getClass());

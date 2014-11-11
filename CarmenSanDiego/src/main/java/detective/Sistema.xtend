@@ -2,6 +2,7 @@ package detective
 
 import java.util.List
 import lugares.Lugar
+import personajes.Personaje
 import personajes.Villano
 
 class Sistema {
@@ -19,17 +20,31 @@ class Sistema {
 	@Property List<Lugar> lugaresActuales=newArrayList
 	@Property Lugar lugarActual
 	@Property Villano villanoAtrapado 
-	@Property String botonUno
-			  StringBuffer paisesBuffer
+	@Property Boolean encontrasteAlVillano = false;
+	@Property String  descripcionCaso;
+	@Property List<Personaje> informantes
+	@Property List<Personaje> cuidadores
 	
 	new(Caso caso, List<Pais> paisesSistema, List<Villano> villanosSistema) {
 		this.caso = caso
 		this.paisesSistema = paisesSistema
 		this.villanosSistema = villanosSistema
 		this.paisActual= caso.paisInicio
+		this.descripcionCaso= caso.getDescripcion
 		this.lugaresActuales=paisActual.lugares
-		this.botonUno=lugaresActuales.get(0).nombre
 		this.paisesVisitados.add(paisActual)	
+	}
+	
+	new(Caso caso, List<Pais> paisesSistema, List<Villano> villanosSistema, List<Personaje> informantes, List<Personaje> cuidadores) {
+		this.caso = caso
+		this.paisesSistema = paisesSistema
+		this.villanosSistema = villanosSistema
+		this.paisActual= caso.paisInicio
+		this.descripcionCaso= caso.getDescripcion
+		this.lugaresActuales=paisActual.lugares
+		this.paisesVisitados.add(paisActual)		
+		this.informantes=informantes
+		this.cuidadores=cuidadores
 	}
 
 	def nombreDelLugar(int i) {
@@ -37,12 +52,13 @@ class Sistema {
 	}
 	
 	def viajar(){
+	 if(paisSeleccionado.nombre!= paisActual.nombre){
 			paisAnterior=paisActual
 			sacarPaisFallido(paisSeleccionado)
 			actualizarPaisActual(paisSeleccionado)
 			paisesVisitados.add(paisActual)
-			
-	}
+		}
+	 }
 	/*
 	 * El usuario se equivoca y vuelve al paisAnterior por error
 	 */
@@ -51,10 +67,6 @@ class Sistema {
 	}
 	def buscarPais(String nombre){
 	  var	Pais res 
-//		paisesSistema.forEach[ if(it.nombre==nombre)
-//			                        res=it  
-//			                          
-//		] 
 	  for(Pais p :paisesSistema){
 	  	 if(p.nombre.equals(nombre))
 	  	      res= p
@@ -63,19 +75,10 @@ class Sistema {
 	}
 	
 	def volverAPaisAnterior(){
-//	 	sacarDelRecorrido(paisActual.nombre)
 		paisesFallidos.add(paisActual)
 		paisesVisitados.remove(paisActual)
 		actualizarPaisActual(paisAnterior)
 	}
-	
-	//Metodo para sacar los paises de recorrido villano
-	def sacarDelRecorrido(String paisActual) {
-		var borrar=paisActual.length+2
-		paisesBuffer.replace(paisesBuffer.length()-borrar, paisesBuffer.length(), "")
-		paisesRecorridos=paisesBuffer.toString	
-	}
-	
 	def actualizarPaisActual(Pais pais){
 		paisActual= pais
 	}
@@ -97,7 +100,7 @@ class Sistema {
 	}	
 	
 	def iniciarJuego() {
-		caso.inicioCaso
+		caso.getDescripcion
 	}
     
     def viajarA(String nombrePais){
@@ -129,12 +132,59 @@ class Sistema {
 	}
 	
 	def obtenerPistaDe(String nombreLugar){
-		var List<String> res;
+		var List<String> res
 		for(Lugar l : paisActual.lugares){
-			if(l.nombre == nombreLugar)
-				res = l.interrogarOcupante
-		}
+			if(l.nombre == nombreLugar){
+		  	  estaElVillano(l.ocupante)
+		  	  res=l.interrogarOcupante
+		  	}
+		  }
 	     res
+	}
+	def estaElVillano(Personaje personaje){
+		encontrasteAlVillano=personaje.estasArrestado
+	}
+	
+	def buscarLugar(String nombreLugar) {
+		var Lugar res
+		for(Lugar l:paisActual.lugares)
+	        if(l.nombre == nombreLugar)	
+	           res=l
+		res
+	}
+	
+	def ganeJuego(String nombreLugar){
+		var Personaje l= buscarLugar(nombreLugar).ocupante
+		var String res="Perdiste el juego, no tenias orden de arresto";
+		if(!(villanoAtrapado== null )){
+			if(villanoAtrapado.nombre==l.nombre){
+			    res="Ganaste el juego, felicitaciones! Tenias una orden para "+villanoAtrapado.nombre
+			}
+			else{
+				res = "Perdiste el juego, tenias orden contra "+villanoAtrapado.nombre+ " y el villano es " + l.nombre  
+			}
+		}
+		res
+	}
+	
+	def conexiones(){
+		paisActual.conexiones
+	}
+	
+	def emitirOrdenContra(String nombreVillano){
+		for(Villano villano:villanosSistema){
+			 if(villano.nombre.equals(nombreVillano))
+			    villanoAtrapado=villano
+		}
+	    villanoAtrapado
+	}
+	
+	def getInformante(int i) {
+		informantes.get(i)
+	}
+	
+	def getCuidador(int i) {
+		cuidadores.get(i)
 	}
 	
 }

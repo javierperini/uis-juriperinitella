@@ -33,7 +33,12 @@ class SetUpCarmen {
 		var Personaje personajeLugEgip1 = new Informante("Ahmed")
 		var Personaje personajeLugEgip2 = new Informante("Luis")
 		var Personaje personajeLugEgip3 = new Informante("Camila")
-	
+		
+		var List<Personaje> informantes=newArrayList
+		informantes.addAll(personajeAfg,personajeAfg2,personajeAfg3,personajeLugEgip1,personajeLugEgip3,personajeLugEgip2,personajeArg,personajeArg2)
+		var List<Personaje> cuidadores=newArrayList
+		informantes.addAll(personajeCuid,personajeCuid2,personajeCuid3)
+		
 		/*Pistas Villanos */
 		var List<PistaHobbie> hobbiesRamon = newArrayList
 		var List<PistaSenia> seniasPartRamon = newArrayList
@@ -132,7 +137,7 @@ class SetUpCarmen {
 		caracterAfg.add("Desierto enorme");caracterAfg.add("Montañas")
 		var List<Pais> conexionesAfg = newArrayList
 		conexionesAfg.add(conexionConAfag1) conexionesAfg.add(conexionConAfag2) conexionesAfg.add(conexionConAfag3)
-		var Pais conexionEgipto1 = new Pais("Afganistán", caracterAfg, lugaresAfg, conexionesAfg)
+		var Pais conexionEgipto1 = new Pais("Afganistan", caracterAfg, lugaresAfg, conexionesAfg)
 		
 		/*Egipto */
 		var List<String> caracsEgipto = newArrayList
@@ -148,14 +153,17 @@ class SetUpCarmen {
 		recorridoVillano.add(conexionEgipto1) recorridoVillano.add(conexionConAfag3) 
 		/*Sistema */
 		var Caso caso= new Caso(paisInicio, recorridoVillano, gaston, inicioCaso, nombreCaso)
-		 sistema = new Sistema(caso, paises, villanos)
+		 sistema = new Sistema(caso, paises, villanos,informantes,cuidadores)
 	 }
  
  def static void main(String[] args) {
  	
- 	var SetUpCarmen suc = new SetUpCarmen();
- 	print(suc.sistema.obtenerPistaDe("Embajada") )
- }
+		
+ 	var Sistema suc = new SetUpCarmen().sistema;
+		
+		print(suc.iniciarJuego)
+		
+ 	}
  
 	 
 }

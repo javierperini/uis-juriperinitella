@@ -26,17 +26,23 @@ class Caso {
 		this.nombreCaso = nombreCaso
 	}
 
-	def getDescripcion() '''
-		 «inicioCaso».
-		Identificado como un tesoro muy antiguo.
-		Esto sucedió a las 9 horas del día miércoles en «paisInicio.nombre»
-		La persona sospechosa vista en la escena del crimen es de sexo «villano.sexo».
-		 
-		Su misión: 
-		Realizar el seguimiento de la persona sospechosa de «paisInicio.nombre»
-		a su escondite y arrestarla.
-	'''
+//	def getDescripcion() '''
+//		 «inicioCaso».
+//		Identificado como un tesoro muy antiguo.
+//		Esto sucedió a las 9 horas del día miércoles en «paisInicio.nombre»
+//		La persona sospechosa vista en la escena del crimen es de sexo «villano.sexo».
+//		 
+//		Su misión: 
+//		Realizar el seguimiento de la persona sospechosa de «paisInicio.nombre»
+//		a su escondite y arrestarla.
+//	'''
 
+	def getDescripcion(){
+		inicioCaso +
+		", identificado como un tesoro muy antiguo. Esto sucedió a las 9 horas del día miércoles en " +paisInicio.nombre
+		+". La persona sospechosa vista en la escena del crimen es de sexo "+villano.sexo+". Su misión: realizar el seguimiento de la persona sospechosa de " +paisInicio.nombre+
+		" a su escondite y arrestarla."
+}
 	def nombrePaisInicio() {
 		paisInicio.nombre
 	}
