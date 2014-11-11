@@ -29,8 +29,8 @@ class Expediente extends WebPage{
 			item.addChild(new Label("nombre"))
 			
 			item.addChild(new XButton("editar").onClick = [|])
-			item.addChild(new XButton("eliminar").onClick = [|carmen.sistema.villanoSeleccionado = item.modelObject
-															  carmen.sistema.eliminarVillanoSeleccionado()	
+			item.addChild(new XButton("eliminar").onClick = [|carmen.villanoSeleccionado = item.modelObject
+															  carmen.eliminarVillanoSeleccionado()	
 			])
 		]
 		form.addChild(listView)
@@ -39,14 +39,14 @@ class Expediente extends WebPage{
 	
 	def agregarBotonesFrontales(Form<CarmenApp> parent){
    	   parent.addChild(new XButton("mapaMundi")
-			.onClick =  [| open(this.carmen)]
+			.onClick =  [| open()]
 		)
 		parent.addChild(new XButton("expediente")
 			.onClick = [| ]
 		)
 	}
 	
-	def open(CarmenApp carmer){
+	def open(){
 		responsePage = new HomePage()
 	}
 	
