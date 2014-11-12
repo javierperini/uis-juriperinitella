@@ -47,7 +47,7 @@ class Expediente extends WebPage{
 	}
 	
 	def open(){
-		responsePage = new HomePage()
+		responsePage = new HomePage(carmen)
 	}
 	
 	def agregarBotonNuevo(Form<CarmenApp> form) {

@@ -12,8 +12,9 @@ class HomePage extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
 	@Property CarmenApp carmen
 
-	public new() {
-		this.carmen = new CarmenApp()
+	public new(CarmenApp c) {
+//		this.carmen = if (c == null ) new CarmenApp() else c
+		this.carmen = c
 		val Form<CarmenApp> paisesForm = new Form<CarmenApp>("mapaMundiApp", new CompoundPropertyModel<CarmenApp>(this.carmen))		
 		this.agregarBotonesFrontales(paisesForm)
 		this.agregarPaisesSistema(paisesForm)
@@ -22,7 +23,7 @@ class HomePage extends WebPage {
  
 		// TODO Add your page's components here
     }
-	
+    
 	def agregarBotonNuevo(Form<CarmenApp> form) {
 		 form.addChild(new XButton("nuevoPais")
 			.onClick = [| ]
