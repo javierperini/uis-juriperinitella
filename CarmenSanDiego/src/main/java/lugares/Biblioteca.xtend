@@ -4,7 +4,9 @@ import java.util.List
 import pista.Pista
 import personajes.Personaje
 
+import org.uqbar.commons.utils.Observable
 
+@Observable
 class Biblioteca extends Lugar {
 
 	/**

@@ -5,7 +5,9 @@ import pista.Pista
 import personajes.Personaje
 
 
+import org.uqbar.commons.utils.Observable
 
+@Observable
 class Banco extends Lugar {
 
 	/**

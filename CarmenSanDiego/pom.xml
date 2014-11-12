@@ -52,5 +52,10 @@
 			<artifactId>mockito-all</artifactId>
 			<version>1.9.5</version>
 		</dependency>
+		<dependency>
+			<groupId>org.uqbar-project</groupId>
+			<artifactId>arena-jface</artifactId>
+			<version>3.3-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>

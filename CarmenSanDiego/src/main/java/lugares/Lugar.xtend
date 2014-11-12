@@ -5,7 +5,9 @@ import java.util.List
 import personajes.Personaje
 import pista.Pista
 
+import org.uqbar.commons.utils.Observable
 
+@Observable
 class Lugar {
 	@Property 
 	String nombre

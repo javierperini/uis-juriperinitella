@@ -2,9 +2,12 @@ package detective
 
 import java.util.List
 import lugares.Lugar
+import org.uqbar.commons.model.ObservableUtils
+import org.uqbar.commons.utils.Observable
 import personajes.Personaje
 import personajes.Villano
 
+@Observable
 class Sistema {
 
 	@Property Caso caso
@@ -109,18 +112,18 @@ class Sistema {
     }
 	def agregarVillanoALaLista(Villano villano) {
 		villanosSistema.add(villano)
-//		ObservableUtils.firePropertyChanged(this, "villanosSistema", villanosSistema)
+		ObservableUtils.firePropertyChanged(this, "villanosSistema", villanosSistema)
 	}
 
 	def removerPais(Pais pais) {
 		paisesSistema.remove(pais)
-//		ObservableUtils.firePropertyChanged(this, "paisesSistema", paisesSistema)
+		ObservableUtils.firePropertyChanged(this, "paisesSistema", paisesSistema)
 
 	}
 
 	def agregarPais(Pais pais) {
 		paisesSistema.add(pais)
-//		ObservableUtils.firePropertyChanged(this, "paisesSistema", paisesSistema)
+		ObservableUtils.firePropertyChanged(this, "paisesSistema", paisesSistema)
 	}
 
 	def getNombreCaso() {
@@ -186,5 +189,13 @@ class Sistema {
 	def getCuidador(int i) {
 		cuidadores.get(i)
 	}
+	
+	def eliminarVillano(Villano villano) {
+		villanosSistema.remove(villano)
+		ObservableUtils.firePropertyChanged(this, "villanosSistema", villanosSistema)
+		
+	}
+	
+
 	
 }

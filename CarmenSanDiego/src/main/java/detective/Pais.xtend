@@ -2,8 +2,8 @@ package detective
 
 import java.util.List
 import lugares.Lugar
-
-
+import org.uqbar.commons.model.ObservableUtils
+import org.uqbar.commons.utils.Observable
 
 class Pais {
 	@Property String nombre
@@ -18,6 +18,7 @@ class Pais {
 	 * - Un pais no puede tener mas de 3 lugares para visitar.
 	 * - Los lugares a visitar no pueden ser iguales
 	 */
+	 @Observable
 	new(String nombre, List<String> caracteristicas, List<Lugar> lugares, List<Pais> conexiones) {
 		this.nombre = nombre
 		this.caracteristicas = caracteristicas
@@ -41,7 +42,7 @@ class Pais {
 
 	def setNombre(String nombre) {
 		this._nombre = nombre
-//		ObservableUtils.firePropertyChanged(this, "puedeAceptar", puedeAceptar)
+		ObservableUtils.firePropertyChanged(this, "puedeAceptar", puedeAceptar)
 	}
 
 	//	def setCaracteristicas(List<String> carac){
@@ -50,7 +51,7 @@ class Pais {
 	//	}
 	def quitarCaracteristica(String caracteristica) {
 		this.caracteristicas.remove(caracteristica)
-//		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas)
+		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas)
 	}
 
 	def agregarCaracteristica(String caracteristica) {
@@ -60,22 +61,22 @@ class Pais {
 
 	def agregarConexion(Pais conex) {
 		this.conexiones.add(conex)
-//		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
+		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
 	}
 
 	def quitarLugar(Lugar lugar) {
 		lugares.remove(lugar)
-//		ObservableUtils.firePropertyChanged(this, "lugares", lugares)
+		ObservableUtils.firePropertyChanged(this, "lugares", lugares)
 	}
 
 	def agregarLugar(Lugar lugar) {
 		lugares.add(lugar)
-//		ObservableUtils.firePropertyChanged(this, "lugares", lugares)
+		ObservableUtils.firePropertyChanged(this, "lugares", lugares)
 	}
 
 	def quitarConexion(Pais pais) {
 		conexiones.remove(pais)
-//		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
+		ObservableUtils.firePropertyChanged(this, "conexiones", conexiones)
 	}
 
 	def lugar(int i) {

@@ -1,7 +1,9 @@
 package personajes
 
 
+import org.uqbar.commons.utils.Observable
 
+@Observable
 abstract class Personaje {
 	@Property String nombre
 	@Property String declaracion
