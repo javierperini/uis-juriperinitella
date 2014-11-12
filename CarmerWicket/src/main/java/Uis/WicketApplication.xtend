@@ -13,7 +13,7 @@ class WicketApplication extends WebApplication {
 	
 
 	override getHomePage() {
-		 Hm
+		 InitialPage
 	}
 	
 	override init() {

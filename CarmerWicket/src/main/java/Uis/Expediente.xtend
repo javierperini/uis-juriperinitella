@@ -16,7 +16,7 @@ class Expediente extends WebPage{
 		this.carmen = carmen
 		val Form<CarmenApp> villanosForm = new Form<CarmenApp>("expedienteApp", new CompoundPropertyModel<CarmenApp>(this.carmen)) 
 		this.agregarBotonesFrontales(villanosForm)
-		this.addChild(new Label("titulo", "Expedientes"))
+		this.addChild(new Label("titulo", "Carmen Edicion"))
 		this.agregarVillanosSistema(villanosForm)
 		this.agregarBotonNuevo(villanosForm)
 		this.addChild(villanosForm);
@@ -41,13 +41,13 @@ class Expediente extends WebPage{
    	   parent.addChild(new XButton("mapaMundi")
 			.onClick =  [| open()]
 		)
-		parent.addChild(new XButton("expediente")
-			.onClick = [| ]
-		)
+//		parent.addChild(new XButton("expediente")
+//			.onClick = [| ]
+//		)
 	}
 	
 	def open(){
-		responsePage = new HomePage(carmen)
+		responsePage = new MapamundiPage(carmen)
 	}
 	
 	def agregarBotonNuevo(Form<CarmenApp> form) {

@@ -1,6 +1,13 @@
 body {
   background-image: url("../img/mundo-noite.jpg");
  	}
+  .bodyInicial {
+  background-image: url("../img/logov19-00293.jpg");
+  
+ 	} 
+ .bodyExpediente {
+  background-image: url("../img/El-experimento-de-la-carcel-de-Stanford-2.jpg");
+ } 
 h1 {
     text-align: center;
     font-weight: bold;
@@ -24,18 +31,19 @@ caption {
 }
 .well{
 	background-color: rgba(245, 245, 245, 0.5);
+	width: 500px;
 }
 .tituloColumna{
     text-align: center;
     font-weight: bold;
 }
-/* .btn-lg
+ .btn-lg
  {
-  padding: 50px 30px;
+  padding: 15px 10px;
   font-size: 18px;
   line-height: 2ex;
   border-radius: 6px;
-} */
+} 
 .centrar{
     text-align: center;
 }

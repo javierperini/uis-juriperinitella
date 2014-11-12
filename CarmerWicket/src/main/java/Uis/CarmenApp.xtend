@@ -13,11 +13,12 @@ class CarmenApp {
 	@Property Villano villanoSeleccionado
 	
 	new(){
+
 		this.sistema = new SetUpCarmen().sistema	
 		this.paisesSistema = this.listaDePaisesSistema
 		this.villanosSistema = this.listaDeVillanosSistema
 	}
-	
+
 	def listaDePaisesSistema(){
 		return this.sistema.paisesSistema
 	}
@@ -31,5 +32,6 @@ class CarmenApp {
 		this.villanosSistema = this.listaDeVillanosSistema
 		this.villanoSeleccionado = null
 	}
-	
+
+
 }
