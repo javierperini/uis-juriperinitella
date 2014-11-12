@@ -43,6 +43,7 @@ caption {
   font-size: 18px;
   line-height: 2ex;
   border-radius: 6px;
+
 } 
 .centrar{
     text-align: center;
@@ -72,7 +73,7 @@ caption {
 	background-color: #999;
 	color: black;
 	padding: 0.4em;
-	width: 700px;
+	width: 100%;
 }
 .th {
     background-color: black;
