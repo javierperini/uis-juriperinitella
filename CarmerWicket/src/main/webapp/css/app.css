@@ -12,13 +12,17 @@ h1 {
     text-align: center;
     font-weight: bold;
     font-size: 50px;
-     color: #d31515;
+     color: #d31515; 
+    text-shadow: -1px 0 black, 0 1px black,
+	  1px 0 black, 0 -1px black
 }
 h2{
 	text-align: center;
    font-family: inherit, sans-serif;
     font-size:  50px;
 	color: #FBEFEF;
+	 text-shadow: -1px 0 black, 0 1px black,
+	  1px 0 black, 0 -1px black
 }
 caption { 
   background-color: #FFFFFF; 
@@ -47,6 +51,9 @@ caption {
 } 
 .centrar{
     text-align: center;
+}
+.alinearAIzq{
+    text-align: right;
 }
 .alinearIzq{
 	margin-left: auto;

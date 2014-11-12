@@ -54,16 +54,17 @@ class MapamundiPage extends WebPage {
 			item.model = item.modelObject.asCompoundModel
 			item.addChild(new Label("nombre"))
 			item.addChild(new XButton("editar").onClick = [|])
-			item.addChild(new XButton("eliminar").onClick = [|])
+			item.addChild(new XButton("eliminar").onClick = [| carmen.paisSeleccionado = item.modelObject
+															   carmen.eliminarPaisSeleccionado()])
 		]
 		form.addChild(listView)
 	}
 	
    def agregarBotonesFrontales(Form<CarmenApp> parent){
    	   //AGREGARLE COMPORTAMIENTO A LOS BOTONES
-   	   parent.addChild(new XButton("mapaMundi")
-			.onClick =  [| ]
-		)
+//   	   parent.addChild(new XButton("mapaMundi")
+//			.onClick =  [| ]
+//		)
 		parent.addChild(new XButton("expediente")
 			.onClick = [| open(this.carmen)]
 		)

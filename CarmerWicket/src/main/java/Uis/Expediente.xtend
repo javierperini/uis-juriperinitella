@@ -30,7 +30,7 @@ class Expediente extends WebPage{
 			
 			item.addChild(new XButton("editar").onClick = [|])
 			item.addChild(new XButton("eliminar").onClick = [|carmen.villanoSeleccionado = item.modelObject
-															  carmen.eliminarVillanoSeleccionado()	
+															  carmen.eliminarPaisSeleccionado()	
 			])
 		]
 		form.addChild(listView)

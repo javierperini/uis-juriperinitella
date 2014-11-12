@@ -9,28 +9,34 @@ import personajes.Villano
 class CarmenApp {
 	@Property List<Pais> paisesSistema
 	@Property Sistema sistema
+	@Property Pais paisSeleccionado
 	@Property List<Villano> villanosSistema
 	@Property Villano villanoSeleccionado
 	
 	new(){
 
 		this.sistema = new SetUpCarmen().sistema	
-		this.paisesSistema = this.listaDePaisesSistema
-		this.villanosSistema = this.listaDeVillanosSistema
+		this.paisesSistema = listaDePaisesSistema
+		this.villanosSistema = listaDeVillanosSistema
 	}
 
 	def listaDePaisesSistema(){
-		return this.sistema.paisesSistema
+		sistema.paisesSistema
 	}
 	
 	def listaDeVillanosSistema(){
-		return this.sistema.villanosSistema
+		sistema.villanosSistema
+	}
+	
+	def eliminarPaisSeleccionado() {
+		sistema.removerPais(paisSeleccionado)
+
+		paisSeleccionado = null
 	}
 	
 	def eliminarVillanoSeleccionado() {
-		this.sistema.elimarVillanoSeleccionado(this.villanoSeleccionado)
-		this.villanosSistema = this.listaDeVillanosSistema
-		this.villanoSeleccionado = null
+		sistema.eliminarVillano(villanoSeleccionado)
+		villanoSeleccionado = null
 	}
 
 
