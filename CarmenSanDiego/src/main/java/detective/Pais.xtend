@@ -4,7 +4,7 @@ import java.util.List
 import lugares.Lugar
 import org.uqbar.commons.model.ObservableUtils
 import org.uqbar.commons.utils.Observable
-
+ @Observable
 class Pais {
 	@Property String nombre
 	@Property List<String> caracteristicas = newArrayList
@@ -18,7 +18,7 @@ class Pais {
 	 * - Un pais no puede tener mas de 3 lugares para visitar.
 	 * - Los lugares a visitar no pueden ser iguales
 	 */
-	 @Observable
+	
 	new(String nombre, List<String> caracteristicas, List<Lugar> lugares, List<Pais> conexiones) {
 		this.nombre = nombre
 		this.caracteristicas = caracteristicas
@@ -56,7 +56,7 @@ class Pais {
 
 	def agregarCaracteristica(String caracteristica) {
 		this.caracteristicas.add(caracteristica)
-//		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas)
+		ObservableUtils.firePropertyChanged(this, "caracteristicas", caracteristicas)
 	}
 
 	def agregarConexion(Pais conex) {

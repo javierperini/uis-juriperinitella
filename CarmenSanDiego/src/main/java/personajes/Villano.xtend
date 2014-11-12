@@ -4,9 +4,6 @@ import java.util.List
 import pista.PistaHobbie
 import pista.PistaSenia
 
-import org.uqbar.commons.utils.Observable
-
-@Observable
 class Villano extends Personaje {
 	@Property String sexo
 	@Property List<PistaHobbie> hobbies = newArrayList()

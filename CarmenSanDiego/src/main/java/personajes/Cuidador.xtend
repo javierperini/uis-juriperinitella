@@ -3,9 +3,7 @@ package personajes
 import personajes.Personaje
 
 
-import org.uqbar.commons.utils.Observable
 
-@Observable
 class Cuidador extends Personaje {
 
 	new(String nombre) {
