@@ -23,4 +23,8 @@ class WicketApplication extends WebApplication {
 		
 	}
 	
+	def static getApp() {
+		get as WicketApplication
+	}
+	
 }

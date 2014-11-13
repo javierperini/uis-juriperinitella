@@ -23,8 +23,8 @@
 	   <div class="form-actions alinearAIzq">
 		<!-- 	<button wicket:id="mapaMundi" class="btn btn-primary " type="submit">
 			   MapaMundi  <span class="glyphicon glyphicon-globe"/></button> -->
-            <button wicket:id="expediente" class="btn btn-lg btn-success">
-              Ir a Expediente  <span class="glyphicon glyphicon-user"/> </button>
+            <button wicket:id="expediente" class="btn btn-lg btn-success glyphicon glyphicon-user">
+              Ir a Expediente  </button>
       </div> 
         <h2 class="centrar">Mapamundi</h2>
 	  	<div class="row">
@@ -34,14 +34,14 @@
 	           		<thead>
 		           		<tr>
 		               		<th id="main"  class="th">Paises</th>
-		               		<th id="main"  class="th">Acciones</th>
+		               		<th id="main"  class="th"></th>
 		               	</tr>
 		               	
 		            </thead>
 					<tbody>
 		               	<tr wicket:id="paisesSistema">
 		                   	<td>
-		                   	    <span wicket:id="nombre" ng-model="paisSeleccionado">unNombre</span> 
+		                   	    <span wicket:id="nombre" >unNombre</span> 
 		               	    </td> 
 		           	      <td>
 	           	        	<div class="btn-group">
@@ -61,16 +61,8 @@
 				<div class="btn-group btn-group-lg ">
 					<button wicket:id="nuevoPais" class="btn btn-primary btn btn-danger  btn-lg glyphicon glyphicon-plus-sign btn-group btn-group-lg ">
 						Nuevo </button>
-						
-						
-	           	        	</div>
-	           	        	<br/>
-	           	        	<br/>
-	           	        	&nbsp;&nbsp;
-	           	        	<div class="btn-group btn-group-lg">
-			<button wicket:id="editar1" class="btn btn-primary btn btn-danger  btn-lg btn-group btn-group-lg glyphicon glyphicon-pencil"></button>
-	           	        		<button wicket:id="eliminar1" class="btn btn-primary btn btn-danger btn-group btn-group-lg glyphicon glyphicon-remove"></button>
-					</div>
+				</div>
+	           
 			 </div>
 			 </div>
 	

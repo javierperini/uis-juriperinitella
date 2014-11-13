@@ -7,6 +7,7 @@ import org.apache.wicket.model.CompoundPropertyModel
 import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
 import org.uqbar.wicket.xtend.XButton
 import org.uqbar.wicket.xtend.XListView
+import detective.Pais
 
 class MapamundiPage extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
@@ -38,14 +39,9 @@ class MapamundiPage extends WebPage {
     
 	def agregarBotonNuevo(Form<CarmenApp> form) {
 		 form.addChild(new XButton("nuevoPais")
-			.onClick = [| ]
+			.onClick = [|editar(new Pais) ]
 		)
-		 form.addChild(new XButton("editar1")
-			.onClick = [| ]
-		)
-		 form.addChild(new XButton("eliminar1")
-			.onClick = [| ]
-		)
+	
 	}
 	
 	def agregarPaisesSistema(Form<CarmenApp> form) {
@@ -53,13 +49,15 @@ class MapamundiPage extends WebPage {
 		listView.populateItem = [ item |
 			item.model = item.modelObject.asCompoundModel
 			item.addChild(new Label("nombre"))
-			item.addChild(new XButton("editar").onClick = [|])
+			item.addChild(new XButton("editar").onClick = [|editar(item.modelObject)])
 			item.addChild(new XButton("eliminar").onClick = [| carmen.paisSeleccionado = item.modelObject
 															   carmen.eliminarPaisSeleccionado()])
 		]
 		form.addChild(listView)
 	}
 	
+	
+
    def agregarBotonesFrontales(Form<CarmenApp> parent){
    	   //AGREGARLE COMPORTAMIENTO A LOS BOTONES
 //   	   parent.addChild(new XButton("mapaMundi")
@@ -72,6 +70,10 @@ class MapamundiPage extends WebPage {
 	
 	def open(CarmenApp carmen){
 		responsePage = new Expediente(carmen)
+	}
+	
+	def editar(Pais p) {
+		responsePage = new EditarPais(p,this,carmen) 
 	}
 	
 	

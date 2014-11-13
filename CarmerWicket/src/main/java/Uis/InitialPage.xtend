@@ -11,7 +11,7 @@ class InitialPage extends WebPage {
 	
 	@Property CarmenApp carmen
 	
- public new() {
+ 	public new() {
 		this.carmen = new CarmenApp
 		val Form<CarmenApp> paisesForm = new Form<CarmenApp>("initialPage", new CompoundPropertyModel<CarmenApp>(this.carmen))		
 		this.agregarBotonesFrontales(paisesForm)

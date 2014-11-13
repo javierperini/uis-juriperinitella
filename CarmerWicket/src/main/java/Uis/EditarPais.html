@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+	<head>
+		   <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href="css/app.css" rel="stylesheet" media="screen">
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+ <!--     taBLAS 
+    <link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap-table.css">
+    <script src="jquery.min.js"></script>
+	<script src="bootstrap.min.js"></script>
+	<script src="bootstrap-table.js"></script>   -->
+  
+        <title>Carmen San Diego!</title>    
+    </head>
+    <body >
+   		<div class="page-header">
+        	<h1 wicket:id="titulo"> 
+        	</h1>
+		</div>
+		
+	    
+		<form wicket:id="edicionApp" class="form-horizontal">
+			    	<fieldset>
+	        	<div class="form-group">
+		        	<label class="control-label" for="nombre"><span class="glyphicon glyphicon-user"/>&nbsp;Nombre</label>
+		        	<div class="controls">
+		        		<input wicket:id="nombre" type="text" placeholder="Argentina" class="form-control" />
+		        	</div>
+	        	</div>
+	        	 <div class="form-actions">
+                    <button wicket:id="aceptar" type="submit" class="btn btn-primary">Aceptar</button>
+                    <button wicket:id="cancelar" type="submit" class="btn">Cancelar</button>
+                </div>
+	        	 </fieldset>
+		</form>
+    </body>    
+</html>
