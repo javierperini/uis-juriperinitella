@@ -10,38 +10,42 @@ import org.apache.wicket.markup.html.form.TextField
 import org.apache.wicket.markup.html.form.DropDownChoice
 import org.uqbar.wicket.xtend.XListView
 import org.uqbar.wicket.xtend.XButton
+import org.uqbar.commons.model.UserException
+import org.apache.wicket.model.PropertyModel
+import org.apache.wicket.markup.html.form.ListChoice
 
 class EditarPais extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
-	@Property CarmenApp carmen
+	@Property EdicionApp edicion
 	@Property boolean esNuevo
-	@Property Pais paisEditar
 	@Property MapamundiPage paginaAnterior
 	
-	new(Pais paisEditar,MapamundiPage paginaAnterior, CarmenApp carmen) {
-		this.carmen=carmen
-		this.paisEditar=paisEditar
+	new(MapamundiPage paginaAnterior, EdicionApp edicion) {
+		this.edicion=edicion
 		this.paginaAnterior=paginaAnterior
-		this.esNuevo= this.carmen.esNuevo(paisEditar)
+		this.esNuevo= this.edicion.esNuevo()
 		this.addChild(new Label("titulo", if (esNuevo) "Nuevo Pais" else "Editar Pais"))
-		val Form<Pais> edicionForm = new Form<Pais>("edicionApp", paisEditar.asCompoundModel) 
+		val Form<EdicionApp> edicionForm = new Form<EdicionApp>("edicionApp", new CompoundPropertyModel<EdicionApp>(this.edicion)) 
 		this.agregarCamposEdicion(edicionForm)
 		this.agregarAcciones(edicionForm)
 		this.addChild(edicionForm);
 	}
 	
-		def void agregarAcciones(Form<Pais> parent) {
+		def void agregarAcciones(Form<EdicionApp> parent) {
 		parent.addChild(new XButton("aceptar") => [
 			onClick = [|
-		
+//				try{
+//					carmen.validarMapamundiAgregar(); no me funciona 
 					if (esNuevo) {
-						carmen.creaPais(paisEditar)
+						edicion.creaPais()
 					} else {
-						carmen.borra(paisEditar)
-						carmen.creaPais(paisEditar)
+						edicion.borra()
+						edicion.creaPais()
 					}
 					volver()
-			
+//					}catch (UserException ex){
+//						// CATCHEAR!!
+//					}
 				]				
 		])
 		parent.addChild(new XButton("cancelar") => [
@@ -52,33 +56,52 @@ class EditarPais extends WebPage {
 	def volver() {
 		responsePage = paginaAnterior
 	}
-	def agregarCamposEdicion(Form<Pais> parent) {
+	def agregarCamposEdicion(Form<EdicionApp> parent) {
 		parent.addChild(new TextField<String>("nombre"))
-//			val listView = new XListView("caracteristicas")
-//			listView.populateItem = [ item |
-//				item.model = item.modelObject.asCompoundModel
-//				item.addChild(new Label(item.modelObject))
-//				item.addChild(new XButton("eliminar").onClick = [| carmen.caracteristicaSeleccionada = item.modelObject
-//																   carmen.eliminarCaracteristica(paisEditar)])
-//			]
-//			parent.addChild(new TextField<String>("nuevaCaracteristica"))
-//			
-//			val listView2 = new XListView("conexiones")
-//			listView2.populateItem = [ item |
-//				item.model = item.modelObject.asCompoundModel
-//				item.addChild(new Label(item.modelObject))
-//				item.addChild(new XButton("eliminar").onClick = [|])
-//			]
-//			
-//			parent.addChild(listView2)
-//			parent.addChild(listView)
+		val listCaracteristicas = new XListView("caracteristicas")
+		listCaracteristicas.populateItem = [ item |
+				item.model = item.modelObject.asCompoundModel
+				item.addChild(new Label("pista"))   
+				item.addChild(new XButton("eliminar").onClick = [| edicion.eliminarCaracteristica(item.modelObject)])
+		]
+		parent.addChild(new TextField<String>("nuevaCaracteristica"))
+		parent.addChild(new XButton("agregar").onClick = [|  edicion.agregarCaracteristica()])
+			// FIJAR LO DE LA VARIABLE
+			
+		val listConexiones = new XListView("conexiones")
+			listConexiones.populateItem = [ item |
+				item.model = item.modelObject.asCompoundModel
+				item.addChild(new Label("nombre"))   
+				item.addChild(new XButton("eliminar").onClick = [|edicion.eliminarConexion(item.modelObject) ])
+		]	
+
+    	parent.addChild(new DropDownChoice<EdicionApp>("paisSeleccionado") => [
+		choices = new PropertyModel(edicion.sistema,"paisesSistema")
+		choiceRenderer = choiceRenderer([m| m ])
+		]) 
+		// SACAR DE LAS CONEXIONES EL PAIS EDICION
+		parent.addChild(new XButton("agregarConexion").onClick = [|  edicion.agregarConexion()])
+		
+		val listLugares = new XListView("lugares")
+			listLugares.populateItem = [ item |
+				item.model = item.modelObject.asCompoundModel
+				item.addChild(new Label("nombre"))   
+				item.addChild(new XButton("eliminar").onClick = [|edicion.eliminarLugar(item.modelObject) ])
+		]	
+		
+		parent.addChild(new DropDownChoice<EdicionApp>("lugarSeleccionado") => [
+		choices = new PropertyModel(edicion.sistema,"lugaresSistema")
+		choiceRenderer = choiceRenderer([m| m ])
+		])
+		parent.addChild(new XButton("agregarLugar").onClick = [|  edicion.agregarLugar()])
+		
+		parent.addChild(listConexiones)
+		parent.addChild(listCaracteristicas)
+		parent.addChild(listLugares)
 		}
 
 
-//		parent.addChild(new DropDownChoice<Pais>("caracteristicas") => [
-//			choices = loadableModel([| Pais.home.allInstances ])
-//			choiceRenderer = choiceRenderer([Pais m| m])
-//		]) 
+	
 //		parent.addChild(new CheckBox("recibeResumenCuenta"))
 //		parent.addChild(new FeedbackPanel("feedbackPanel"))
 //	}

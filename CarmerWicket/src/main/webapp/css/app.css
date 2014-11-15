@@ -37,6 +37,7 @@ caption {
 	background-color: rgba(245, 245, 245, 0.5);
 	width: 500px;
 }
+ #tbody{height:80px;overflow-y:auto;width:400px;}
 .tituloColumna{
     text-align: center;
     font-weight: bold;
@@ -83,10 +84,10 @@ caption {
 	color: black;
 	padding: 0.4em;
 	width: 100%;
-	 
 	
 }
 .th {
+	
     background-color: black;
     color: white;
 }

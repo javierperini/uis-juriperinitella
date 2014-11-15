@@ -6,15 +6,18 @@ import java.util.List
 import detective.Sistema
 import personajes.Villano
 import java.io.Serializable
+import org.uqbar.commons.model.UserException
+import pista.Pista
 
 class CarmenApp  implements Serializable{
 	@Property List<Pais> paisesSistema
 	@Property Sistema sistema
-	@Property Pais paisSeleccionado
+	@Property Pais paisSeleccionado=new Pais
 	@Property List<Villano> villanosSistema
 	@Property Villano villanoSeleccionado
-	@Property String caracteristicaSeleccionada
-	@Property Pais conexionSeleccionada	
+	@Property Pista caracteristicaSeleccionada
+
+			
 	new(){
 
 		this.sistema = new SetUpCarmen().sistema	
@@ -40,19 +43,7 @@ class CarmenApp  implements Serializable{
 		sistema.eliminarVillano(villanoSeleccionado)
 		villanoSeleccionado = null
 	}
-	
-	def esNuevo(Pais p) {
-		!paisesSistema.contains(p)
-	}
-	
-	def eliminarCaracteristica(Pais pais) {
-		pais.quitarCaracteristica(caracteristicaSeleccionada)
-	}
-	
-	def eliminarConexion(Pais pais) {
-		pais.quitarConexion(conexionSeleccionada)
-	}
-	
+
 	def creaPais(Pais pais) {
 		sistema.agregarPais(pais)
 	}
@@ -61,7 +52,27 @@ class CarmenApp  implements Serializable{
 		sistema.removerPais(pais)
 	}
 	
+	def validarMapamundiEliminar(){
+		if(!paisSeleccionado.conexiones.empty)
+			throw new UserException("No se puede eliminar este país, tiene conexiones")		
+	}
 	
-
-
+	def validarMapamundiAgregar(){
+		if(nombrePaisExiste(paisSeleccionado.nombre))
+			throw new UserException("Elegí otro nombre, este país ya existe")
+		if(paisSeleccionado.conexiones.size() > 3)
+			throw new UserException("Un país no puede tener más de tres conexiones")
+	}
+	
+	def nombrePaisExiste(String pais) {
+		var boolean res = false;
+		for(var i = 0; i < sistema.paisesSistema.size(); i++){
+			if(sistema.paisesSistema.get(i).nombre == pais)
+				return true;
+		}
+		res
+	}
+	
+	
+	
 }

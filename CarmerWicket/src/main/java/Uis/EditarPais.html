@@ -26,16 +26,130 @@
 	    
 		<form wicket:id="edicionApp" class="form-horizontal">
 			    	<fieldset>
-	        	<div class="form-group">
-		        	<label class="control-label" for="nombre"><span class="glyphicon glyphicon-user"/>&nbsp;Nombre</label>
-		        	<div class="controls">
-		        		<input wicket:id="nombre" type="text" placeholder="Argentina" class="form-control" />
+			    <div class=" row">
+			     <br/>
+			    <div class="col-md-3" >
+				    <div class="form-group">
+			        	<label class="control-label" for="nombre"><span class="glyphicon glyphicon-user"/>&nbsp;Nombre</label>
+			        	<div class="controls">
+			        		<input wicket:id="nombre" type="text" placeholder="Argentina" class="form-control" />
+			        	</div>
 		        	</div>
-	        	</div>
-	        	 <div class="form-actions">
+		       
+	        	<table class="table  table-bordered  table-hover "  >
+	           		<thead>
+		           		<tr>
+		               		<th id="main"  class="th">Caracteristicas</th>
+		               		<th id="main"  class="th"></th>
+		               	</tr>
+		               	
+		            </thead>
+					<tbody id="tbody">
+		               	<tr wicket:id="caracteristicas">
+		             		<td>
+	                 	    <span wicket:id="pista" >unNombre</span> 
+		               	    </td> 
+		           	      <td>
+	           	        	<div class="btn-group">
+	           	    			<button wicket:id="eliminar" class="btn-link glyphicon glyphicon-remove"></button>
+	           	        	</div>
+	   	                </td> 
+	  					</tr>
+	  						
+		            </tbody>
+		          	</table> 
+		          	
+		          	<div class="form-group">
+			          	<label class="control-label" for="nombre">&nbsp;Nueva caracteristica</label>
+			          	<div class="controls">
+			        		<input wicket:id="nuevaCaracteristica" type="text" class="form-control" />
+			        	</div>
+			        	<div class="btn-group">
+		           	    	<button wicket:id="agregar" class="btn-lg  glyphicon glyphicon-plus"></button>
+		           	     </div>
+	           	      </div>
+	           	      <div class="form-actions">
                     <button wicket:id="aceptar" type="submit" class="btn btn-primary">Aceptar</button>
                     <button wicket:id="cancelar" type="submit" class="btn">Cancelar</button>
                 </div>
+	           	      </div>
+	           	     <div class="col-md-3" > 
+	           	     	<br/>
+	        <br/>
+	           <br/>
+	       
+	   
+	           	     <table class="table  table-bordered  table-hover" >
+	           		<thead>
+		           		<tr>
+		               		<th id="main"  class="th">Conexiones</th>
+		               		<th id="main"  class="th"></th>
+		               	</tr>
+		               	
+		            </thead>
+					<tbody>
+		               	<tr wicket:id="conexiones">
+		             		<td>
+	                 	    <span wicket:id="nombre" >unNombre</span> 
+		               	    </td> 
+		           	      <td>
+	           	        	<div class="btn-group">
+	           	    			<button wicket:id="eliminar" class="btn-link glyphicon glyphicon-remove"></button>
+	           	        	</div>
+	   	                </td> 
+	  					</tr>
+		            </tbody>
+		          	</table> 
+	           	    <div class="form-group">
+	           	    	<label for="conexiones"></label>
+			        	<select wicket:id="paisSeleccionado">
+			            </select>
+			            <div class="btn-group">
+	           	    		<button wicket:id="agregarConexion" class="btn-lg  glyphicon glyphicon-plus"></button>
+	           	     </div>
+                	</div>
+                	</div> 
+                	<div class="col-md-3" >
+                   	<br/>
+	        		<br/>
+	           		<br/>
+                	 <table class="table  table-bordered  table-hover" >
+	           		<thead>
+		           		<tr>
+		               		<th id="main"  class="th">Lugares</th>
+		               		<th id="main"  class="th"></th>
+		               	</tr>
+		               	
+		            </thead>
+					<tbody>
+		               	<tr wicket:id="lugares">
+		             		<td>
+	                 	    <span wicket:id="nombre" >unNombre</span> 
+		               	    </td> 
+		           	      <td>
+	           	        	<div class="btn-group">
+	           	    			<button wicket:id="eliminar" class="btn-link glyphicon glyphicon-remove"></button>
+	           	        	</div>
+	   	                </td> 
+	  					</tr>
+		            </tbody>
+		          	</table> 
+                	
+                	<div class="form-group">
+	           	    	<label for="lugares"></label>
+			        	<select wicket:id="lugarSeleccionado">
+			            </select>
+			            <div class="btn-group">
+	           	    		<button wicket:id="agregarLugar" class="btn-lg  glyphicon glyphicon-plus"></button>
+	           	    	 </div>
+                	</div> 
+                </div>
+                	
+                
+	        	
+	        	 
+                </div>	
+                
 	        	 </fieldset>
 		</form>
     </body>    

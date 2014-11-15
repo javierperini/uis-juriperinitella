@@ -8,13 +8,14 @@ import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
 import org.uqbar.wicket.xtend.XButton
 import org.uqbar.wicket.xtend.XListView
 import detective.Pais
+import org.uqbar.commons.model.UserException
 
 class MapamundiPage extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
 	@Property CarmenApp carmen
 
 	public new(CarmenApp c) {
-//		this.carmen = if (c == null ) new CarmenApp() else c
+
 		this.carmen = c
 		val Form<CarmenApp> paisesForm = new Form<CarmenApp>("mapaMundiApp", new CompoundPropertyModel<CarmenApp>(this.carmen))		
 		this.agregarBotonesFrontales(paisesForm)
@@ -22,21 +23,9 @@ class MapamundiPage extends WebPage {
 		this.agregarBotonNuevo(paisesForm)
 		this.addChild(paisesForm);
  
-		// TODO Add your page's components here
+
     }
-    
-    public new() {
-//		this.carmen = if (c == null ) new CarmenApp() else c
-		this.carmen = new CarmenApp
-		val Form<CarmenApp> paisesForm = new Form<CarmenApp>("mapaMundiApp", new CompoundPropertyModel<CarmenApp>(this.carmen))		
-		this.agregarBotonesFrontales(paisesForm)
-		this.agregarPaisesSistema(paisesForm)
-		this.agregarBotonNuevo(paisesForm)
-		this.addChild(paisesForm);
- 
-		// TODO Add your page's components here
-    }
-    
+	
 	def agregarBotonNuevo(Form<CarmenApp> form) {
 		 form.addChild(new XButton("nuevoPais")
 			.onClick = [|editar(new Pais) ]
@@ -50,8 +39,16 @@ class MapamundiPage extends WebPage {
 			item.model = item.modelObject.asCompoundModel
 			item.addChild(new Label("nombre"))
 			item.addChild(new XButton("editar").onClick = [|editar(item.modelObject)])
-			item.addChild(new XButton("eliminar").onClick = [| carmen.paisSeleccionado = item.modelObject
-															   carmen.eliminarPaisSeleccionado()])
+			item.addChild(new XButton("eliminar").onClick = [| 
+		 //Agregar un checkbox para los paises con o sin conexiones		
+				try{ 
+					carmen.validarMapamundiEliminar();
+					
+					carmen.borra(item.modelObject)
+					} catch (UserException ex){
+						// CATCHEAR!!
+					}
+					])
 		]
 		form.addChild(listView)
 	}
@@ -59,10 +56,7 @@ class MapamundiPage extends WebPage {
 	
 
    def agregarBotonesFrontales(Form<CarmenApp> parent){
-   	   //AGREGARLE COMPORTAMIENTO A LOS BOTONES
-//   	   parent.addChild(new XButton("mapaMundi")
-//			.onClick =  [| ]
-//		)
+
 		parent.addChild(new XButton("expediente")
 			.onClick = [| open(this.carmen)]
 		)
@@ -73,7 +67,7 @@ class MapamundiPage extends WebPage {
 	}
 	
 	def editar(Pais p) {
-		responsePage = new EditarPais(p,this,carmen) 
+		responsePage = new EditarPais(this,new EdicionApp(carmen.sistema,p))
 	}
 	
 	
