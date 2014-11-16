@@ -31,21 +31,25 @@ class EditarPais extends WebPage {
 		this.addChild(edicionForm);
 	}
 	
-		def void agregarAcciones(Form<EdicionApp> parent) {
+	def void agregarAcciones(Form<EdicionApp> parent) {
+		parent.addChild(new Label("exceptions"))
 		parent.addChild(new XButton("aceptar") => [
 			onClick = [|
-//				try{
-//					carmen.validarMapamundiAgregar(); no me funciona 
+				try{
+					edicion.setExceptions("")
+					edicion.agregarNombre()
 					if (esNuevo) {
+						edicion.validarMapamundiAgregar(); 
 						edicion.creaPais()
 					} else {
 						edicion.borra()
 						edicion.creaPais()
 					}
 					volver()
-//					}catch (UserException ex){
-//						// CATCHEAR!!
-//					}
+					}catch (UserException ex){
+						edicion.setExceptions(ex.message)
+						
+					}
 				]				
 		])
 		parent.addChild(new XButton("cancelar") => [
@@ -65,8 +69,15 @@ class EditarPais extends WebPage {
 				item.addChild(new XButton("eliminar").onClick = [| edicion.eliminarCaracteristica(item.modelObject)])
 		]
 		parent.addChild(new TextField<String>("nuevaCaracteristica"))
-		parent.addChild(new XButton("agregar").onClick = [|  edicion.agregarCaracteristica()])
-			// FIJAR LO DE LA VARIABLE
+		parent.addChild(new XButton("agregar").onClick = [|  
+				try{
+					edicion.setExceptions("")
+					edicion.validarCaracteristicas()
+					edicion.agregarCaracteristica()
+				} catch (UserException ex){
+					edicion.setExceptions(ex.message)
+				}
+		])
 			
 		val listConexiones = new XListView("conexiones")
 			listConexiones.populateItem = [ item |
@@ -80,7 +91,16 @@ class EditarPais extends WebPage {
 		choiceRenderer = choiceRenderer([m| m ])
 		]) 
 		// SACAR DE LAS CONEXIONES EL PAIS EDICION
-		parent.addChild(new XButton("agregarConexion").onClick = [|  edicion.agregarConexion()])
+		parent.addChild(new XButton("agregarConexion").onClick = [|  
+			try{ 
+				edicion.setExceptions("")
+				edicion.validarConexiones()
+				edicion.agregarConexion()
+			}catch(UserException ex){
+				edicion.setExceptions(ex.message)
+				
+			}
+		])
 		
 		val listLugares = new XListView("lugares")
 			listLugares.populateItem = [ item |
@@ -93,7 +113,14 @@ class EditarPais extends WebPage {
 		choices = new PropertyModel(edicion.sistema,"lugaresSistema")
 		choiceRenderer = choiceRenderer([m| m ])
 		])
-		parent.addChild(new XButton("agregarLugar").onClick = [|  edicion.agregarLugar()])
+		parent.addChild(new XButton("agregarLugar").onClick = [|  
+			try{
+				edicion.validarLugares()
+				edicion.agregarLugar()
+			} catch (UserException ex){
+				edicion.setExceptions(ex.message)
+			}
+		])
 		
 		parent.addChild(listConexiones)
 		parent.addChild(listCaracteristicas)

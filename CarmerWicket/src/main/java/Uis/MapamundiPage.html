@@ -33,7 +33,8 @@
 	           		<thead>
 		           		<tr>
 		               		<th id="main"  class="th">Paises</th>
-		               		<th id="main"  class="th"></th>
+		               		<!-- <th id="main"  class="th">Conexiones</th>
+ -->		               		<th id="main"  class="th"></th>
 		               	</tr>
 		               	
 		            </thead>
@@ -42,6 +43,9 @@
 		                   	<td>
 		                   	    <span wicket:id="nombre" >unNombre</span> 
 		               	    </td> 
+		               	  <!--   <td>
+	       	            	<input type="checkbox" wicket:id="tengoConexiones"/>
+	   	                	</td>  -->
 		           	      <td>
 	           	        	<div class="btn-group">
 	           	        		<button wicket:id="editar" class="btn-link glyphicon glyphicon-pencil"></button>
@@ -63,7 +67,9 @@
 				</div>
 	           
 			 </div>
+			  <label wicket:id="exceptions"></label>
 			 </div>
+			
 	
 	      </form>
 	 </body>

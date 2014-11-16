@@ -12,10 +12,11 @@ import pista.Pista
 class CarmenApp  implements Serializable{
 	@Property List<Pais> paisesSistema
 	@Property Sistema sistema
-	@Property Pais paisSeleccionado=new Pais
+	@Property Pais paisSeleccionado
 	@Property List<Villano> villanosSistema
 	@Property Villano villanoSeleccionado
 	@Property Pista caracteristicaSeleccionada
+	@Property String exceptions
 
 			
 	new(){
@@ -23,6 +24,7 @@ class CarmenApp  implements Serializable{
 		this.sistema = new SetUpCarmen().sistema	
 		this.paisesSistema = listaDePaisesSistema
 		this.villanosSistema = listaDeVillanosSistema
+		this.exceptions=""
 	}
 
 	def listaDePaisesSistema(){
@@ -43,36 +45,16 @@ class CarmenApp  implements Serializable{
 		sistema.eliminarVillano(villanoSeleccionado)
 		villanoSeleccionado = null
 	}
-
-	def creaPais(Pais pais) {
-		sistema.agregarPais(pais)
-	}
 	
 	def borra(Pais pais) {
 		sistema.removerPais(pais)
 	}
 	
-	def validarMapamundiEliminar(){
-		if(!paisSeleccionado.conexiones.empty)
+	def validarMapamundiEliminar(Pais pais){
+		if(!pais.conexiones.empty)
 			throw new UserException("No se puede eliminar este país, tiene conexiones")		
 	}
-	
-	def validarMapamundiAgregar(){
-		if(nombrePaisExiste(paisSeleccionado.nombre))
-			throw new UserException("Elegí otro nombre, este país ya existe")
-		if(paisSeleccionado.conexiones.size() > 3)
-			throw new UserException("Un país no puede tener más de tres conexiones")
-	}
-	
-	def nombrePaisExiste(String pais) {
-		var boolean res = false;
-		for(var i = 0; i < sistema.paisesSistema.size(); i++){
-			if(sistema.paisesSistema.get(i).nombre == pais)
-				return true;
-		}
-		res
-	}
-	
+
 	
 	
 }

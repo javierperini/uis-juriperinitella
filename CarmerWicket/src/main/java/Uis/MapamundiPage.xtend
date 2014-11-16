@@ -9,6 +9,7 @@ import org.uqbar.wicket.xtend.XButton
 import org.uqbar.wicket.xtend.XListView
 import detective.Pais
 import org.uqbar.commons.model.UserException
+import org.apache.wicket.markup.html.form.CheckBox
 
 class MapamundiPage extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
@@ -37,20 +38,26 @@ class MapamundiPage extends WebPage {
 		val listView = new XListView("paisesSistema")
 		listView.populateItem = [ item |
 			item.model = item.modelObject.asCompoundModel
+				
 			item.addChild(new Label("nombre"))
+//			val checkResumen = new CheckBox("tengoConexiones")
+//			checkResumen.setEnabled(false)
+//			item.addChild(checkResumen)
 			item.addChild(new XButton("editar").onClick = [|editar(item.modelObject)])
 			item.addChild(new XButton("eliminar").onClick = [| 
 		 //Agregar un checkbox para los paises con o sin conexiones		
 				try{ 
-					carmen.validarMapamundiEliminar();
+					carmen.validarMapamundiEliminar(item.modelObject);
 					
 					carmen.borra(item.modelObject)
 					} catch (UserException ex){
-						// CATCHEAR!!
+						carmen.setExceptions(ex.message)
 					}
 					])
 		]
 		form.addChild(listView)
+		form.addChild(new Label("exceptions"))
+		
 	}
 	
 	
@@ -67,7 +74,7 @@ class MapamundiPage extends WebPage {
 	}
 	
 	def editar(Pais p) {
-		responsePage = new EditarPais(this,new EdicionApp(carmen.sistema,p))
+		responsePage = new EditarPais(this,new EdicionApp(carmen,p))
 	}
 	
 	

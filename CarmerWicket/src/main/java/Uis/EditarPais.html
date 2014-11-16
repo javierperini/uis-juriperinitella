@@ -26,16 +26,14 @@
 	    
 		<form wicket:id="edicionApp" class="form-horizontal">
 			    	<fieldset>
-			    <div class=" row">
-			     <br/>
-			    <div class="col-md-3" >
-				    <div class="form-group">
-			        	<label class="control-label" for="nombre"><span class="glyphicon glyphicon-user"/>&nbsp;Nombre</label>
+			
+			        	<label class="control-label " for="nombre">Nombre</label>
 			        	<div class="controls">
-			        		<input wicket:id="nombre" type="text" placeholder="Argentina" class="form-control" />
+			        		<input wicket:id="nombre" type="text" placeholder="Japon"  />
 			        	</div>
-		        	</div>
-		       
+		           <div class=" row">
+			     <br/>
+			    <div class="col-lg-3 centrar" >
 	        	<table class="table  table-bordered  table-hover "  >
 	           		<thead>
 		           		<tr>
@@ -60,26 +58,17 @@
 		          	</table> 
 		          	
 		          	<div class="form-group">
-			          	<label class="control-label" for="nombre">&nbsp;Nueva caracteristica</label>
+			          	<label class="control-label" for="nombre">Nueva caracteristica</label>
 			          	<div class="controls">
-			        		<input wicket:id="nuevaCaracteristica" type="text" class="form-control" />
+			        		<input wicket:id="nuevaCaracteristica" type="text" class="" />
 			        	</div>
-			        	<div class="btn-group">
-		           	    	<button wicket:id="agregar" class="btn-lg  glyphicon glyphicon-plus"></button>
-		           	     </div>
+		           	    	<button wicket:id="agregar" class="btn-md btn-success  glyphicon glyphicon-ok  alinearDer"></button>
+		           	     
 	           	      </div>
-	           	      <div class="form-actions">
-                    <button wicket:id="aceptar" type="submit" class="btn btn-primary">Aceptar</button>
-                    <button wicket:id="cancelar" type="submit" class="btn">Cancelar</button>
-                </div>
+	           	  
 	           	      </div>
-	           	     <div class="col-md-3" > 
-	           	     	<br/>
-	        <br/>
-	           <br/>
-	       
-	   
-	           	     <table class="table  table-bordered  table-hover" >
+	           	     <div class="col-lg-3" > 
+	      			<table class="table  table-bordered  table-hover" >
 	           		<thead>
 		           		<tr>
 		               		<th id="main"  class="th">Conexiones</th>
@@ -102,17 +91,15 @@
 		          	</table> 
 	           	    <div class="form-group">
 	           	    	<label for="conexiones"></label>
-			        	<select wicket:id="paisSeleccionado">
+			        	<select wicket:id="paisSeleccionado" class="selector">
 			            </select>
 			            <div class="btn-group">
-	           	    		<button wicket:id="agregarConexion" class="btn-lg  glyphicon glyphicon-plus"></button>
+	           	    		<button wicket:id="agregarConexion" class="btn-md btn-success glyphicon glyphicon-ok"></button>
 	           	     </div>
                 	</div>
                 	</div> 
-                	<div class="col-md-3" >
-                   	<br/>
-	        		<br/>
-	           		<br/>
+                	<div class="col-lg-3" >
+                   	
                 	 <table class="table  table-bordered  table-hover" >
 	           		<thead>
 		           		<tr>
@@ -137,19 +124,20 @@
                 	
                 	<div class="form-group">
 	           	    	<label for="lugares"></label>
-			        	<select wicket:id="lugarSeleccionado">
+			        	<select wicket:id="lugarSeleccionado" class="selector">
 			            </select>
 			            <div class="btn-group">
-	           	    		<button wicket:id="agregarLugar" class="btn-lg  glyphicon glyphicon-plus"></button>
+	           	    		<button wicket:id="agregarLugar" class="btn-md btn-success glyphicon glyphicon-ok"></button>
 	           	    	 </div>
                 	</div> 
                 </div>
-                	
-                
-	        	
-	        	 
+           </div>
+               <div class="form-actions ">
+                    <button wicket:id="aceptar" type="submit" class="btn btn-primary">Aceptar</button>
+                    <button wicket:id="cancelar" type="submit" class="btn">Cancelar</button>
                 </div>	
                 
+	           	    	<label wicket:id="exceptions"></label>
 	        	 </fieldset>
 		</form>
     </body>    
