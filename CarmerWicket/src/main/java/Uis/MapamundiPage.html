@@ -3,74 +3,56 @@
 	<head>
 
 		<meta charset="utf-8" />
-		<title>Carmen Edicion</title> 
+		<title>Carmen SanDiego</title> 
 		   <!-- BOOTSTRAP -->
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link href="css/app.css" rel="stylesheet" media="screen">
-   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	    <!-- Latest compiled and minified JavaScript -->
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	    <!-- Latest compiled and minified CSS -->
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	    <link href="css/app.css" rel="stylesheet" media="screen">
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 	</head>
-	<body>
+	<body class="bodyMapamundi">
 		<div class="page-header">
-			<!--Me falta poner una imagen al lado del titulo  -->
-			<!-- <img src="Imagen-animada-Lupa-07.gif" width="55px" height="50px" alt="CarmenLogo" /> -->
-			<h1>Carmen Edicion</h1>	 
-		 </div>
-        <form wicket:id="mapaMundiApp" class="form-horizontal">
-	   <div class="form-actions alinearAIzq">
-		<!-- 	<button wicket:id="mapaMundi" class="btn btn-primary " type="submit">
-			   MapaMundi  <span class="glyphicon glyphicon-globe"/></button> -->
-            <button wicket:id="expediente" class="btn btn-lg btn-success glyphicon glyphicon-user">Ir a Expediente </button>
-      </div> 
-        <h2 class="centrar">Mapamundi</h2>
-	  	<div class="row">
-        		<div class="col-md-3" >
-        	
-	  		<table class="table  table-bordered  table-hover" >
+			<h1>Carmen Edici&oacute;n</h1>	 
+		</div>
+       	<form wicket:id="mapaMundiApp" class="form-vertical">
+	   	<div class="form-actions alinearDer">
+            <button wicket:id="expediente" class="btn btn-primary">
+            	<span class="glyphicon glyphicon-user"/> Ir a Expediente
+           	</button>
+        </div> 
+        	<h2 class="centrar">Mapamundi</h2>
+        	<div>
+	       		<table class="table table-bordered table-hover tablatrola pagination-centered">
 	           		<thead>
 		           		<tr>
 		               		<th id="main"  class="th">Paises</th>
-		               		<!-- <th id="main"  class="th">Conexiones</th>
- -->		               		<th id="main"  class="th"></th>
+			               		<th id="main"  class="th"></th>
 		               	</tr>
-		               	
 		            </thead>
 					<tbody>
 		               	<tr wicket:id="paisesSistema">
-		                   	<td>
+		               		<td>
 		                   	    <span wicket:id="nombre" >unNombre</span> 
 		               	    </td> 
-		               	  <!--   <td>
-	       	            	<input type="checkbox" wicket:id="tengoConexiones"/>
-	   	                	</td>  -->
-		           	      <td>
-	           	        	<div class="btn-group">
-	           	        		<button wicket:id="editar" class="btn-link glyphicon glyphicon-pencil"></button>
-	           	        		<button wicket:id="eliminar" class="btn-link glyphicon glyphicon-remove"></button>
-	           	        	</div>
-	   	                </td> 
-		           	      
-		           	      
+		           	        <td>
+	           	        		<div class="btn-group">
+	           	        			<button wicket:id="editar" class="btn-link glyphicon glyphicon-pencil"></button>
+	           	        			<button wicket:id="eliminar" class="btn-link glyphicon glyphicon-remove"></button>
+	           	        		</div>
+	   	                	</td> 
 		               	</tr>
 		            </tbody>
-		          	</table> 
-		          	
-		          	
-	           	 </div> 
-			<div class="col-md-3 ">
-				<div class="btn-group btn-group-lg ">
-					<button wicket:id="nuevoPais" class="btn btn-primary btn btn-danger  btn-lg glyphicon glyphicon-plus-sign btn-group btn-group-lg ">
-						Nuevo </button>
+		        </table>
+				<div>
+					<button wicket:id="nuevoPais" class="btn btn-danger btn-lg">
+							<span class="glyphicon glyphicon-plus-sign"/> Nuevo
+					</button>
 				</div>
-	           
-			 </div>
-			  <label wicket:id="exceptions"></label>
-			 </div>
-			
-	
-	      </form>
+		    </div>
+	        <label class="exceptions" wicket:id="exceptions"></label>
+		</form>
 	 </body>
 </html>

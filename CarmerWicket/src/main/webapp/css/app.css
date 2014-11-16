@@ -1,28 +1,28 @@
-body {
+.bodyMapamundi {
   background-image: url("../img/mundo-noite.jpg");
- 	}
-  .bodyInicial {
-  background-image: url("../img/vitage-bar.jpg");
-  
- 	} 
+ }
+  body {
+  background-image: url("../img/vintage-bar.jpg");
+ } 
  .bodyExpediente {
   background-image: url("../img/bar_scene-wide.jpg");
  } 
 h1 {
     text-align: center;
     font-weight: bold;
-    font-size: 50px;
-     color: #d31515; 
+    font-size: 70px;
+    color: #C6000A; 
     text-shadow: -1px 0 black, 0 1px black,
 	  1px 0 black, 0 -1px black;
 	 }
 h2{
 	text-align: center;
-   font-family: inherit, sans-serif;
-    font-size:  50px;
-	color: #FBEFEF;
-	 text-shadow: -1px 0 black, 0 1px black,
-	  1px 0 black, 0 -1px black
+    font-weight: bold;
+    font-size: 50px;
+	color: #EB9900;
+	text-shadow: -1px 0 black, 0 1px black,
+	  1px 0 black, 0 -1px black;
+
 }
 caption { 
   background-color: #FFFFFF; 
@@ -33,16 +33,6 @@ caption {
   margin: 40px 0 20px;
   border-bottom: 1px solid #282828;
 }
-.well{
-	background-color: rgba(245, 245, 245, 0.5);
-	width: 500px;
-}
- #tbody{height:80px;overflow-y:auto;width:400px;}
-.tituloColumna{
-    text-align: center;
-    font-weight: bold;
-}
-
 .acomodar{
 	 margin:100px px 0px;
 }
@@ -54,54 +44,47 @@ caption {
   border-radius: 6px;
   text-shadow: -1px 0 black, 0 1px black,
 	  1px 0 black, 0 -1px black
-
 } 
 .selector{
 	text-align: center;  margin: 0px 30px 0px;
 }
-
-
-
 .centrar{
     text-align: center;
 }
+/*.alinearIzq{
+	text-align: left;
+}
+.alinearDer{
+	text-align: right;
+}*/
 .alinearAIzq{
     text-align: right;
 }
 .alinearIzq{
-	margin-left: auto;
-	margin-right: auto;
-	width: 10em
+        margin-left: auto;
+        margin-right: auto;
 }
-.alinearDer{
-	margin-left: auto;
-	margin-right: inherit;
-}
-.glyphicon-remove-circle{
-	font-size: 15px;
-	color: #FFFFFF;
-	text-align:right;
-}
-
-/* .table {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	border: 1px solid green;
-	font-size:20px;
-	text-align: left;
-	color: #B40404;
-	width: 600px;
-} */
-
 .table-hover{
 	border: 1px solid #666;
 	background-color: #999;
 	color: black;
 	padding: 0.4em;
-	width: 100%;
-	
+	width: 300px;
+}
+.tablatrola{
+		position: absolute;
+  	top: 50%;
+  	left: 38%;
 }
 .th {
-	
     background-color: black;
     color: white;
+}
+.exceptions{
+	color: red;
+	text-shadow: -1px 0 black, 0 1px black,
+	  1px 0 black, 0 -1px black
+}
+.labels{
+	color:white
 }

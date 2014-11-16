@@ -90,7 +90,6 @@ class EditarPais extends WebPage {
 		choices = new PropertyModel(edicion.sistema,"paisesSistema")
 		choiceRenderer = choiceRenderer([m| m ])
 		]) 
-		// SACAR DE LAS CONEXIONES EL PAIS EDICION
 		parent.addChild(new XButton("agregarConexion").onClick = [|  
 			try{ 
 				edicion.setExceptions("")
@@ -126,12 +125,7 @@ class EditarPais extends WebPage {
 		parent.addChild(listCaracteristicas)
 		parent.addChild(listLugares)
 		}
-
-
-	
-//		parent.addChild(new CheckBox("recibeResumenCuenta"))
 //		parent.addChild(new FeedbackPanel("feedbackPanel"))
-//	}
 		
 		
 		
