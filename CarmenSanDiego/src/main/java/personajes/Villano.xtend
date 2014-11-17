@@ -56,4 +56,9 @@ class Villano extends Personaje {
 		hobbies.add(pista)
 //		ObservableUtils.firePropertyChanged(this, "hobbies", hobbies)
 	}
+	
+	def agregarSexo(String string) {
+		sexo = string
+	}
+	
 }
