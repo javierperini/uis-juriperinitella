@@ -7,6 +7,7 @@ import org.uqbar.wicket.xtend.XListView
 import org.apache.wicket.markup.html.basic.Label
 import org.apache.wicket.markup.html.form.Form
 import org.apache.wicket.model.CompoundPropertyModel
+import personajes.Villano
 
 class Expediente extends WebPage{
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
@@ -28,9 +29,8 @@ class Expediente extends WebPage{
 			item.model = item.modelObject.asCompoundModel
 			item.addChild(new Label("nombre"))
 			
-			item.addChild(new XButton("editar").onClick = [|])
-			item.addChild(new XButton("eliminar").onClick = [|carmen.villanoSeleccionado = item.modelObject
-															  carmen.eliminarVillanoSeleccionado()	
+			item.addChild(new XButton("editar").onClick = [|edit(item.modelObject)])
+			item.addChild(new XButton("eliminar").onClick = [|carmen.eliminarVillano(item.modelObject)	
 			])
 		]
 		form.addChild(listView)
@@ -39,19 +39,25 @@ class Expediente extends WebPage{
 	
 	def agregarBotonesFrontales(Form<CarmenApp> parent){
    	   parent.addChild(new XButton("mapaMundi")
-			.onClick =  [| open()]
+			.onClick =  [| openMapamundiPage()]
 		)
 //		parent.addChild(new XButton("expediente")
 //			.onClick = [| ]
 //		)
 	}
 	
-	def open(){
+	def openMapamundiPage(){
 		responsePage = new MapamundiPage(carmen)
 	}
 	
+	def edit(Villano v){
+		responsePage = new EditarVillano(this, new EdicionVillanoApp(carmen.sistema, v))
+	}
+	
 	def agregarBotonNuevo(Form<CarmenApp> form) {
-		 form.addChild(new XButton("nuevoVillano")
+		form.addChild(new XButton("nuevoVillano")
+			.onClick = [| edit(new Villano())])
+		form.addChild(new XButton("viejoVillano")
 			.onClick = [| ]
 		)
 	}

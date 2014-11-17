@@ -26,7 +26,7 @@ class EdicionApp implements Serializable {
 		this.carmen=carmen
 		this.sistema=carmen.sistema
 		this.paisEditar=paisEditar
-		this.caracteristicas=this.paisEditar.caracteristicas
+		this.caracteristicas = this.paisEditar.caracteristicas
 		this.nombre=this.paisEditar.nombre
 		this.conexiones=this.paisEditar.conexiones
 		this.lugares= this.paisEditar.lugares

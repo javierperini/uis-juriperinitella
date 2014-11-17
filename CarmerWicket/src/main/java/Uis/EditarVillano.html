@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+	<head>
+		   <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link href="css/app.css" rel="stylesheet" media="screen">
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+ <!--     taBLAS 
+    <link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap-table.css">
+    <script src="jquery.min.js"></script>
+	<script src="bootstrap.min.js"></script>
+	<script src="bootstrap-table.js"></script>   -->
+  
+        <title>Carmen San Diego!</title>    
+    </head>
+    <body class="bodyExpediente">
+   		<div class="page-header">
+        	<h1 wicket:id="titulo"> 
+        	</h1>
+		</div>
+	     <form wicket:id="edicionVillanoApp" class="form-horizontal" >
+	     	<fieldset>
+			    <div class=" row">
+				    <div class="col-md-3" >
+					    <div class="form-group">
+				        	<label class="control-label" for="nombre"><span class="glyphicon glyphicon-user"/>&nbsp;Nombre</label>
+				        	<div class="controls">
+				        		<input wicket:id="nombre" type="text" placeholder="Argentina" class="form-control" />
+				        	</div>
+			        	</div>
+			       </div>	
+               </div>
+               
+               <!-- Selector de sexo -->
+               <div class="form-group">
+               		<label class="control-label"> &nbsp;Sexo: </label>
+		        	<h3 wicket:id="sex"> 
+		        	</h3>
+				</div>
+               
+               
+               <div class="form-group">
+	           	    	<label for="sexos"></label>
+			        	<select wicket:id="sexoSeleccionado">
+			            </select>
+                </div>
+
+        	    <div class="btn-group">
+        	    	<button wicket:id="agregarSexo" class="btn-lg  glyphicon glyphicon-plus"></button>
+        	    </div>               
+               <!-- Tabla de pistasSeñas -->
+               
+               <table class="table  table-bordered  table-hover "  >
+	           		<thead>
+		           		<tr>
+		               		<th id="main"  class="th">Señas Particulares</th>
+		               		<th id="main"  class="th"></th>
+		               	</tr>
+		               	
+		            </thead>
+					<tbody id="tbody">
+		               	<tr wicket:id="seniasParticulares">
+		             		<td>
+	                 	    <span wicket:id="pista" >unNombre</span> 
+		               	    </td> 
+		           	      <td>
+	           	        	<div class="btn-group">
+	           	    			<button wicket:id="eliminar" class="btn-link glyphicon glyphicon-remove"></button>
+	           	        	</div>
+	   	                </td> 
+	  					</tr>
+	  						
+		            </tbody>
+		          	</table> 
+		          	
+		          	<div class="form-group">
+			          	<label class="control-label" for="nombre">&nbsp;Nueva Seña Particular</label>
+			          	<div class="controls">
+			        		<input wicket:id="nuevaPistaSenia" type="text" class="form-control" />
+			        	</div>
+			        	<div class="btn-group">
+		           	    	<button wicket:id="agregar2" class="btn-lg  glyphicon glyphicon-plus"></button>
+		           	     </div>
+	           	      </div>
+	           	      
+                
+                <!-- Tabla de hobbies -->
+                
+                <table class="table  table-bordered  table-hover "  >
+	           		<thead>
+		           		<tr>
+		               		<th id="main"  class="th">Hobbies</th>
+		               		<th id="main"  class="th"></th>
+		               	</tr>
+		               	
+		            </thead>
+					<tbody id="tbody">
+		               	<tr wicket:id="hobbies">
+		             		<td>
+	                 	    <span wicket:id="pista" >unNombre</span> 
+		               	    </td> 
+		           	      <td>
+	           	        	<div class="btn-group">
+	           	    			<button wicket:id="eliminar" class="btn-link glyphicon glyphicon-remove"></button>
+	           	        	</div>
+	   	                </td> 
+	  					</tr>
+	  						
+		            </tbody>
+		          	</table> 
+		          	
+		          	<div class="form-group">
+			          	<label class="control-label" for="nombre">&nbsp;Nuevo Hobbie</label>
+			          	<div class="controls">
+			        		<input wicket:id="nuevoHobbie" type="text" class="form-control" />
+			        	</div>
+			        	<div class="btn-group">
+		           	    	<button wicket:id="agregar" class="btn-lg  glyphicon glyphicon-plus"></button>
+		           	     </div>
+	           	      </div>
+	           	      <div class="form-actions">
+                    <button wicket:id="Aceptar" type="submit" class="btn btn-primary">Aceptar</button>
+                    <button wicket:id="Cancelar" type="submit" class="btn">Cancelar</button>
+                </div>
+	        </fieldset>
+		</form>
+    </body>    
+</html>
