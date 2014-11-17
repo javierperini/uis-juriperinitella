@@ -13,6 +13,7 @@ import org.uqbar.wicket.xtend.XButton
 import org.uqbar.commons.model.UserException
 import org.apache.wicket.model.PropertyModel
 import org.apache.wicket.markup.html.form.ListChoice
+import org.apache.wicket.markup.html.panel.FeedbackPanel
 
 class EditarPais extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
@@ -48,7 +49,6 @@ class EditarPais extends WebPage {
 					volver()
 					}catch (UserException ex){
 						edicion.setExceptions(ex.message)
-						
 					}
 				]				
 		])
@@ -125,7 +125,7 @@ class EditarPais extends WebPage {
 		parent.addChild(listCaracteristicas)
 		parent.addChild(listLugares)
 		}
-//		parent.addChild(new FeedbackPanel("feedbackPanel"))
+		
 		
 		
 		

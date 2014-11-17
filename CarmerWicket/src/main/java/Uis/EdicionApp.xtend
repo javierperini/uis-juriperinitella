@@ -112,7 +112,7 @@ class EdicionApp implements Serializable {
 	def nombrePaisExiste(String pais) {
 		var boolean res = false;
 		for(var i = 0; i < sistema.paisesSistema.size(); i++){
-			if(sistema.paisesSistema.get(i).nombre == pais)
+			if(sistema.paisesSistema.get(i).nombre.toLowerCase == pais.toLowerCase)
 				return true;
 		}
 		res

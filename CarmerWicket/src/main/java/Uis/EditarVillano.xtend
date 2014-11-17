@@ -1,16 +1,16 @@
 package Uis
 
 import org.apache.wicket.markup.html.WebPage
+import org.apache.wicket.markup.html.basic.Label
+import org.apache.wicket.markup.html.form.DropDownChoice
+import org.apache.wicket.markup.html.form.Form
+import org.apache.wicket.markup.html.form.TextField
+import org.apache.wicket.model.CompoundPropertyModel
+import org.apache.wicket.model.PropertyModel
+import org.uqbar.commons.model.UserException
 import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
 import org.uqbar.wicket.xtend.XButton
 import org.uqbar.wicket.xtend.XListView
-import org.apache.wicket.markup.html.basic.Label
-import org.apache.wicket.markup.html.form.Form
-import org.apache.wicket.model.CompoundPropertyModel
-import personajes.Villano
-import org.apache.wicket.markup.html.form.TextField
-import org.apache.wicket.markup.html.form.DropDownChoice
-import org.apache.wicket.model.PropertyModel
 
 class EditarVillano extends WebPage{
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
@@ -27,23 +27,29 @@ class EditarVillano extends WebPage{
 		this.agregarBotonesFrontales(villanosForm)
 		this.agregarCamposEdicion(villanosForm)
 		this.sexoPanel(villanosForm)
-//		this.agregarVillanosSistema(villanosForm)
-//		this.agregarBotonNuevo(villanosForm)
 		this.addChild(villanosForm);
 	}
 	
 	def agregarBotonesFrontales(Form<EdicionVillanoApp> it) {
+		addChild(new Label("exceptions"))
 		addChild(new XButton("Aceptar")
 			.onClick = [| 
+				try{
+				edicion.setExceptions("")
+				edicion.agregarNombre()
 				if (esNuevo){
+					edicion.validarVillanoiAgregar();
 					edicion.crearVillano()
 				}
 				else{
 					edicion.eliminarVillano()
 					edicion.crearVillano()
-				}
-				volver
-			]
+				}	
+				volver()
+				}catch (UserException ex){
+						edicion.setExceptions(ex.message)
+						
+				}]
 		)
 		addChild(new XButton("Cancelar") => [
 			onClick = [| volver ]
@@ -55,7 +61,7 @@ class EditarVillano extends WebPage{
 	}
 	
 	def sexoPanel(Form<EdicionVillanoApp> it){
-		addChild(new Label("sex", this.edicion.villano.sexo))
+		addChild(new Label("sexo"))
 		addChild(new DropDownChoice<EdicionVillanoApp>("sexoSeleccionado") => [
 			choices = new PropertyModel(edicion, "sexos")
 			choiceRenderer = choiceRenderer([m| m ])
@@ -73,7 +79,15 @@ class EditarVillano extends WebPage{
 				item.addChild(new XButton("eliminar").onClick = [|edicion.eliminarPistaSenia(item.modelObject)])
 		]
 		parent.addChild(new TextField<String>("nuevaPistaSenia"))
-		parent.addChild(new XButton("agregar2").onClick = [|  edicion.agregarPistaSenia()])
+		parent.addChild(new XButton("agregar2").onClick = [|  
+			try{ 
+				edicion.setExceptions("")
+				edicion.validarSeniasParticulares
+				edicion.agregarPistaSenia()
+			}catch (UserException ex){
+					edicion.setExceptions(ex.message)
+			}
+		])
 				
 		val listHobbies = new XListView("hobbies")
 		listHobbies.populateItem = [ item |
@@ -82,44 +96,20 @@ class EditarVillano extends WebPage{
 				item.addChild(new XButton("eliminar").onClick = [|edicion.eliminarHobbie(item.modelObject)])
 		]
 		parent.addChild(new TextField<String>("nuevoHobbie"))
-		parent.addChild(new XButton("agregar").onClick = [|  edicion.agregarHobbie()])
-//			// FIJAR LO DE LA VARIABLE
-//			
-//		val listConexiones = new XListView("conexiones")
-//			listConexiones.populateItem = [ item |
-//				item.model = item.modelObject.asCompoundModel
-//				item.addChild(new Label("nombre"))   
-//				item.addChild(new XButton("eliminar").onClick = [|edicion.eliminarConexion(item.modelObject) ])
-//		]	
-//
-//    	parent.addChild(new DropDownChoice<EdicionApp>("paisSeleccionado") => [
-//		choices = new PropertyModel(edicion.sistema,"paisesSistema")
-//		choiceRenderer = choiceRenderer([m| m ])
-//		]) 
-//		// SACAR DE LAS CONEXIONES EL PAIS EDICION
-//		parent.addChild(new XButton("agregarConexion").onClick = [|  edicion.agregarConexion()])
-//		
-//		val listLugares = new XListView("lugares")
-//			listLugares.populateItem = [ item |
-//				item.model = item.modelObject.asCompoundModel
-//				item.addChild(new Label("nombre"))   
-//				item.addChild(new XButton("eliminar").onClick = [|edicion.eliminarLugar(item.modelObject) ])
-//		]	
-//		
-//		parent.addChild(new DropDownChoice<EdicionApp>("lugarSeleccionado") => [
-//		choices = new PropertyModel(edicion.sistema,"lugaresSistema")
-//		choiceRenderer = choiceRenderer([m| m ])
-//		])
-//		parent.addChild(new XButton("agregarLugar").onClick = [|  edicion.agregarLugar()])
-//		
+		parent.addChild(new XButton("agregar").onClick = [|  
+			try{ 
+				edicion.setExceptions("")
+				edicion.validarHobbies
+				edicion.agregarHobbie()
+			}catch (UserException ex){
+					edicion.setExceptions(ex.message)
+			}
+		])
+	
 		parent.addChild(listHobbies)
 		parent.addChild(listSenias)
 		}
 
 
-	
-//		parent.addChild(new CheckBox("recibeResumenCuenta"))
-//		parent.addChild(new FeedbackPanel("feedbackPanel"))
-//	}
 	
 }

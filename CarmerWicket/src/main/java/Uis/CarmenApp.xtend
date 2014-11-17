@@ -46,6 +46,8 @@ class CarmenApp  implements Serializable{
 		villanoSeleccionado = null
 	}
 	
+	
+	
 	def borra(Pais pais) {
 		sistema.removerPais(pais)
 	}
@@ -53,6 +55,10 @@ class CarmenApp  implements Serializable{
 	def validarMapamundiEliminar(Pais pais){
 		if(!pais.conexiones.empty)
 			throw new UserException("No se puede eliminar este país, tiene conexiones")		
+	}
+	
+	def eliminarVillano(Villano villano) {
+		sistema.eliminarVillano(villano)
 	}
 
 	

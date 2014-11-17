@@ -53,10 +53,10 @@ caption {
 }
 /*.alinearIzq{
 	text-align: left;
-}
+}*/
 .alinearDer{
 	text-align: right;
-}*/
+}
 .alinearAIzq{
     text-align: right;
 }
@@ -87,4 +87,10 @@ caption {
 }
 .labels{
 	color:white
+}
+
+.posicionarBoton{
+	position: absolute;
+  	top: 20%;
+  	left: 50%;
 }

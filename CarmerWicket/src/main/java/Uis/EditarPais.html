@@ -7,13 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link href="css/app.css" rel="stylesheet" media="screen">
      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
- <!--     taBLAS 
-    <link rel="stylesheet" href="bootstrap.min.css">
-	<link rel="stylesheet" href="bootstrap-table.css">
-    <script src="jquery.min.js"></script>
-	<script src="bootstrap.min.js"></script>
-	<script src="bootstrap-table.js"></script>   -->
+
   
         <title>Carmen San Diego!</title>    
     </head>
@@ -26,8 +20,7 @@
 	    
 		<form wicket:id="edicionApp" class="form-horizontal">
 			    	<fieldset>
-			
-			        	<label class="control-label labels" for="nombre">Nombre</label>
+			  			<label class="control-label labels" for="nombre">Nombre</label>
 			        	<div class="controls">
 			        		<input wicket:id="nombre" type="text" placeholder="Japon"  />
 			        	</div>
@@ -136,9 +129,9 @@
                     <button wicket:id="aceptar" type="submit" class="btn btn-primary">Aceptar</button>
                     <button wicket:id="cancelar" type="submit" class="btn">Volver</button>
                 </div>	
-                
-	           	    	<label wicket:id="exceptions"></label>
-	        	 </fieldset>
+                <br/> 
+           <label wicket:id="exceptions" class="alert alert-success alinearIzq" role="alert"></label>
+          </fieldset>
 		</form>
     </body>    
 </html>
