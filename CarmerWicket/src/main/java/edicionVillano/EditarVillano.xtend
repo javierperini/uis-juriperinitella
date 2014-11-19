@@ -1,5 +1,6 @@
-package Uis
+package edicionVillano
 
+import expediente.Expediente
 import org.apache.wicket.markup.html.WebPage
 import org.apache.wicket.markup.html.basic.Label
 import org.apache.wicket.markup.html.form.DropDownChoice
@@ -9,6 +10,7 @@ import org.apache.wicket.model.CompoundPropertyModel
 import org.apache.wicket.model.PropertyModel
 import org.uqbar.commons.model.UserException
 import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
+import org.uqbar.wicket.xtend.XAttributeModifier
 import org.uqbar.wicket.xtend.XButton
 import org.uqbar.wicket.xtend.XListView
 
@@ -27,21 +29,25 @@ class EditarVillano extends WebPage{
 		this.agregarBotonesFrontales(villanosForm)
 		this.agregarCamposEdicion(villanosForm)
 		this.sexoPanel(villanosForm)
+		
 		this.addChild(villanosForm);
 	}
 	
 	def agregarBotonesFrontales(Form<EdicionVillanoApp> it) {
-		addChild(new Label("exceptions"))
+		val exceptionsLabel = new Label("exceptions")
+		exceptionsLabel.add(new XAttributeModifier("class", [String saldo | if (edicion.exceptions.equals("")) "sinExcepcion "else "alert alert-danger " ]))
+		addChild(exceptionsLabel)
 		addChild(new XButton("Aceptar")
 			.onClick = [| 
 				try{
 				edicion.setExceptions("")
 				edicion.agregarNombre()
 				if (esNuevo){
-					edicion.validarVillanoiAgregar();
+					edicion.validarVillanoAgregar();
 					edicion.crearVillano()
 				}
 				else{
+					edicion.validarNombreVacio
 					edicion.eliminarVillano()
 					edicion.crearVillano()
 				}	
@@ -71,29 +77,16 @@ class EditarVillano extends WebPage{
 	
 	def agregarCamposEdicion(Form<EdicionVillanoApp> parent) {
 		parent.addChild(new TextField<String>("nombre"))
+		agregarCamposSenias(parent)
+		agregarCamposHobbies(parent)
+	}
 		
-		val listSenias = new XListView("seniasParticulares")
-		listSenias.populateItem = [ item |
-				item.model = item.modelObject.asCompoundModel
-				item.addChild(new Label("pista"))   
-				item.addChild(new XButton("eliminar").onClick = [|edicion.eliminarPistaSenia(item.modelObject)])
-		]
-		parent.addChild(new TextField<String>("nuevaPistaSenia"))
-		parent.addChild(new XButton("agregar2").onClick = [|  
-			try{ 
-				edicion.setExceptions("")
-				edicion.validarSeniasParticulares
-				edicion.agregarPistaSenia()
-			}catch (UserException ex){
-					edicion.setExceptions(ex.message)
-			}
-		])
-				
+	def agregarCamposHobbies(Form<EdicionVillanoApp> parent) {
 		val listHobbies = new XListView("hobbies")
 		listHobbies.populateItem = [ item |
-				item.model = item.modelObject.asCompoundModel
-				item.addChild(new Label("pista"))   
-				item.addChild(new XButton("eliminar").onClick = [|edicion.eliminarHobbie(item.modelObject)])
+					item.model = item.modelObject.asCompoundModel
+					item.addChild(new Label("pista"))   
+					item.addChild(new XButton("eliminar").onClick = [|edicion.eliminarHobbie(item.modelObject)])
 		]
 		parent.addChild(new TextField<String>("nuevoHobbie"))
 		parent.addChild(new XButton("agregar").onClick = [|  
@@ -103,13 +96,31 @@ class EditarVillano extends WebPage{
 				edicion.agregarHobbie()
 			}catch (UserException ex){
 					edicion.setExceptions(ex.message)
+				
 			}
 		])
-	
 		parent.addChild(listHobbies)
+	}
+	
+	def agregarCamposSenias(Form<EdicionVillanoApp> parent) {
+		val listSenias = new XListView("seniasParticulares")
+		listSenias.populateItem = [ item |
+				item.model = item.modelObject.asCompoundModel
+				item.addChild(new Label("pista"))   
+				item.addChild(new XButton("eliminar").onClick = [|			
+					edicion.eliminarPistaSenia(item.modelObject)
+				])
+			]
+		parent.addChild(new TextField<String>("nuevaPistaSenia"))
+		parent.addChild(new XButton("agregar2").onClick = [|  
+			try{ 
+				edicion.setExceptions("")
+				edicion.validarSeniasParticulares()
+				edicion.agregarPistaSenia()
+			}catch (UserException ex){
+				edicion.setExceptions(ex.message)
+			}
+		])
 		parent.addChild(listSenias)
 		}
-
-
-	
 }

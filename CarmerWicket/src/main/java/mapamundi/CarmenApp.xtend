@@ -1,4 +1,4 @@
-package Uis
+package mapamundi
 
 import detective.Pais
 import detective.SetUpCarmen

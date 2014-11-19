@@ -1,12 +1,13 @@
-package Uis
+package edicionPais
 
 import detective.Pais
 import detective.Sistema
-import pista.Pista
+import java.io.Serializable
 import java.util.List
 import lugares.Lugar
+import mapamundi.CarmenApp
 import org.uqbar.commons.model.UserException
-import java.io.Serializable
+import pista.Pista
 
 class EdicionApp implements Serializable {
 	
@@ -78,6 +79,7 @@ class EdicionApp implements Serializable {
 	}
 	
 	def validarMapamundiAgregar(){
+		validarNombreVacio
 		if(nombrePaisExiste(paisEditar.nombre))
 			throw new UserException("Elegí otro nombre, este país ya existe")
 	}
@@ -136,6 +138,10 @@ class EdicionApp implements Serializable {
 		res
 	}
 	
+	def validarNombreVacio() {
+		if(paisEditar.nombre == null || paisEditar.nombre == "")
+			throw new UserException("Debés ingresar un nombre para tu pais")
+	}
 
 		
 

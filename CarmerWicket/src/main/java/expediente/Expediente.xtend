@@ -1,12 +1,16 @@
-package Uis
+package expediente
 
+import edicionVillano.EdicionVillanoApp
+import edicionVillano.EditarVillano
+import mapamundi.CarmenApp
+import mapamundi.MapamundiPage
 import org.apache.wicket.markup.html.WebPage
-import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
-import org.uqbar.wicket.xtend.XButton
-import org.uqbar.wicket.xtend.XListView
 import org.apache.wicket.markup.html.basic.Label
 import org.apache.wicket.markup.html.form.Form
 import org.apache.wicket.model.CompoundPropertyModel
+import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
+import org.uqbar.wicket.xtend.XButton
+import org.uqbar.wicket.xtend.XListView
 import personajes.Villano
 
 class Expediente extends WebPage{
@@ -33,16 +37,12 @@ class Expediente extends WebPage{
 			])
 		]
 		form.addChild(listView)
-		
 	}
 	
 	def agregarBotonesFrontales(Form<CarmenApp> parent){
    	   parent.addChild(new XButton("mapaMundi")
 			.onClick =  [| openMapamundiPage()]
 		)
-//		parent.addChild(new XButton("expediente")
-//			.onClick = [| ]
-//		)
 	}
 	
 	def openMapamundiPage(){
@@ -56,8 +56,5 @@ class Expediente extends WebPage{
 	def agregarBotonNuevo(Form<CarmenApp> form) {
 		form.addChild(new XButton("nuevoVillano")
 			.onClick = [| edit(new Villano())])
-//		form.addChild(new XButton("viejoVillano")
-//			.onClick = [| ]
-//		)
 	}
 }

@@ -18,14 +18,15 @@
 			<h1>Carmen Edici&oacute;n</h1>	 
 		</div>
        	<form wicket:id="mapaMundiApp" class="form-vertical">
-	   	<div class="form-actions alinearDer">
-            <button wicket:id="expediente" class="btn btn-primary">
-            	<span class="glyphicon glyphicon-user"/> Ir a Expediente
-           	</button>
-        </div> 
+		   	<div class="form-actions alinearDer">
+	            <button wicket:id="expediente" class="btn btn-primary">
+	            	<span class="glyphicon glyphicon-user"/> Ir a Expediente
+	           	</button>
+	        </div> 
         	<h2 class="centrar">Mapamundi</h2>
-        	<div>
-	       		<table class="table table-bordered table-hover tablatrola pagination-centered">
+        	<div class="col-md-4" > </div>
+        	<div class="col-md-3" >        	
+	       		<table class="table table-bordered table-hover">
 	           		<thead>
 		           		<tr>
 		               		<th id="main"  class="th">Paises</th>
@@ -46,13 +47,16 @@
 		               	</tr>
 		            </tbody>
 		        </table>
-				<div>
-					<button wicket:id="nuevoPais" class="btn btn-danger btn-lg">
-							<span class="glyphicon glyphicon-plus-sign"/> Nuevo
-					</button>
-				</div>
-		    </div>
-	        <label class="exceptions" wicket:id="exceptions"></label>
+	        </div>
+	        <div class="col-md-4" > 
+				<button wicket:id="nuevoPais" class="btn btn-danger btn-lg">
+					<span class="glyphicon glyphicon-plus-sign"/> Nuevo
+				</button>
+				<br/> <br/>
+		        <label class="exceptions" wicket:id="exceptions"></label>
+			</div>
+			<div class="col-md-2" > 
+	        </div>
 		</form>
 	 </body>
 </html>

@@ -5,6 +5,9 @@ import org.apache.wicket.markup.html.form.Form
 import org.apache.wicket.model.CompoundPropertyModel
 import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
 import org.uqbar.wicket.xtend.XButton
+import mapamundi.CarmenApp
+import mapamundi.MapamundiPage
+import expediente.Expediente
 
 class InitialPage extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
@@ -16,9 +19,7 @@ class InitialPage extends WebPage {
 		val Form<CarmenApp> paisesForm = new Form<CarmenApp>("initialPage", new CompoundPropertyModel<CarmenApp>(this.carmen))		
 		this.agregarBotonesFrontales(paisesForm)
 		this.addChild(paisesForm);
- 
-	
-    }
+ 	 }
     
     def agregarBotonesFrontales(Form<CarmenApp> parent){
    	   parent.addChild(new XButton("mapaMundi")
@@ -32,8 +33,5 @@ class InitialPage extends WebPage {
 	def open(WebPage page){
 		responsePage = page
 	}
-	
-	
-   	
-   }
+ }
 

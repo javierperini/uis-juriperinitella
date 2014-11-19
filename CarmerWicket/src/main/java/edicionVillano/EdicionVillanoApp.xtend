@@ -1,13 +1,14 @@
-package Uis
+package edicionVillano
 
 import detective.Sistema
-import personajes.Villano
+import java.io.Serializable
 import java.util.List
+import org.uqbar.commons.model.UserException
+import personajes.Villano
 import pista.PistaHobbie
 import pista.PistaSenia
-import org.uqbar.commons.model.UserException
 
-class EdicionVillanoApp {
+class EdicionVillanoApp   implements Serializable{
 	@Property Sistema sistema
 	@Property Villano villano
 	@Property String nombre
@@ -26,6 +27,7 @@ class EdicionVillanoApp {
 		this.nombre = villano.nombre
 		this.hobbies = villano.hobbies
 		this.sexo= villano.sexo
+		this.exceptions=""
 		this.seniasParticulares = villano.seniasParticulares
 		this.sexos.add("Femenino");this.sexos.add("Masculino") 
 	}
@@ -67,9 +69,15 @@ class EdicionVillanoApp {
 		setSexo(sexoSeleccionado)
 	}
 	
-	def validarVillanoiAgregar() {
+	def validarVillanoAgregar() {
+		validarNombreVacio()
 		if(nombreVillanoExiste(villano.nombre))
 			throw new UserException("Elegí otro nombre, este villano ya existe")
+	}
+	
+	def validarNombreVacio() {
+		if(villano.nombre == null || villano.nombre == "")
+			throw new UserException("Debés ingresar un nombre para tu villano")
 	}
 	
 	def validarSeniasParticulares(){
@@ -89,8 +97,8 @@ class EdicionVillanoApp {
 	
 	def hobbieExiste(String hobbieNuevo) {
 		var res=false
-		for(var i = 0; i < sistema.villanosSistema.size(); i++){
-			if(villano.hobbies.get(i).pista.toLowerCase == hobbieNuevo.toLowerCase)
+		for(var i = 0; i < villano.getHobbies().size; i++){
+			if(villano.hobbies.get(i).pista == hobbieNuevo)
 				return true;
 		}
 		res
@@ -98,8 +106,8 @@ class EdicionVillanoApp {
 	
 	def seniaExiste(String seniaNueva){
 		var res=false
-		for(var i = 0; i < sistema.villanosSistema.size(); i++){
-			if(villano.seniasParticulares.get(i).pista.toLowerCase == seniaNueva.toLowerCase)
+		for(var i = 0; i < villano.getSeniasParticulares().size; i++){
+			if(villano.seniasParticulares.get(i).pista == seniaNueva)
 				return true;
 		}
 		res
