@@ -58,7 +58,16 @@ class EditarVillano extends WebPage{
 				}]
 		)
 		addChild(new XButton("Cancelar") => [
-			onClick = [| volver ]
+			onClick = [| 
+							try{ if (!esNuevo) {
+					edicion.setExceptions("")
+					edicion.validarNombreVacio
+					}
+					volver
+					}catch (UserException ex){
+						edicion.setExceptions(ex.message)
+					}]
+				
 		])
 	}
 	

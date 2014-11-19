@@ -25,7 +25,7 @@
 	        	<br/><br/>
 	         	<div class=" row">
 			    	<div class="col-md-4" >
-			        	<table class="table  table-bordered  table-hover "  >
+			        	<table class="table table-bordered table-hover"  >
 			           		<thead>
 				           		<tr>
 				               		<th id="main"  class="th">Caracteristicas</th>
@@ -47,13 +47,15 @@
 			          	</table> 
 			          	<label class="control-label labels" for="nombre">Nueva caracteristica</label>
 			          	<div class="controls">
-			        		<input wicket:id="nuevaCaracteristica" type="text" class="" />
+			        		<input wicket:id="nuevaCaracteristica" type="text" />
 		           	    	<button wicket:id="agregar" class="btn-md btn-success glyphicon glyphicon-ok "></button>
 			        	</div>
 			        	<br/>
-				       	<div class="form-actions">
+				       	<div class="form-actions alinearDer">
 				       		<button wicket:id="aceptar" type="submit" class="btn btn-primary">Aceptar</button>
 			                <button wicket:id="cancelar" type="submit" class="btn">Volver</button>
+			         	  	<br/><br/><br/>
+			           		<label wicket:id="exceptions" class="alert alert-danger centrar" ></label>
 			           </div>
 			         </div>
 	       	     	<div class="col-md-4" > 
@@ -86,8 +88,6 @@
 		           	    		<button wicket:id="agregarConexion" class="btn-md btn-success glyphicon glyphicon-ok"></button>
 			         	     </div>
 			         	</div>
-			         	  <br/><br/><br/><br/>
-			           <label wicket:id="exceptions" class="alert alert-danger " role="alert"></label>	
 		            </div> 
 		 			<div class="col-md-4" >
 		       	 		<table class="table table-bordered table-hover" >

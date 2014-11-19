@@ -56,7 +56,15 @@ class EditarPais extends WebPage {
 				]				
 		])
 		parent.addChild(new XButton("cancelar") => [
-			onClick = [| volver ]
+			onClick = [|
+				try{ if (!esNuevo) {
+					edicion.setExceptions("")
+					edicion.validarNombreVacio
+					}
+					volver
+					}catch (UserException ex){
+						edicion.setExceptions(ex.message)
+					}]
 		])
 	}
 	

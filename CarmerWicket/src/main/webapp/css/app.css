@@ -51,18 +51,11 @@ caption {
 .centrar{
     text-align: center;
 }
-.alinearIzq2{
+.alinearIzq{
 	text-align: left;
 }
 .alinearDer{
 	text-align: right;
-}
-.alinearAIzq{
-    text-align: right;
-}
-.alinearIzq{
-        margin-left: auto;
-        margin-right: auto;
 }
 .table-hover{
 	border: 1px solid #666;
