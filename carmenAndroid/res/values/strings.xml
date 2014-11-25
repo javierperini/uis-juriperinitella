@@ -4,5 +4,17 @@
     <string name="app_name">CarmenSandiego</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+   	<string name="viajar">Viajar</string>
+   	<string name="pais">Estoy en Pais</string>
+    <string name="pais1">Pais1</string>
+    <string name="pais2">Pais2</string>
+    <string name="pais3">Pais3</string>
+    <string-array name="lugares">
+        <item>Club</item>
+        <item>Aeroparque</item>
+        <item>Biblioteca</item>
+    </string-array>
+    
+    
 
 </resources>

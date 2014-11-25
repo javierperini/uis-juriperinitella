@@ -8,10 +8,62 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.carmenandroid.MainActivity" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+     <TextView
+         android:id="@+id/textView1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_alignParentTop="true"
+         android:layout_marginLeft="36dp"
+         android:layout_marginTop="30dp"
+         android:text="@string/pais" />
+
+     <Button
+         android:id="@+id/pais1"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentLeft="true"
+         android:layout_below="@+id/textView1"
+         android:layout_marginLeft="21dp"
+         android:layout_marginTop="49dp"
+         android:text="@string/pais1" />
+
+     <Button
+         android:id="@+id/pais2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/pais1"
+         android:layout_below="@+id/pais1"
+         android:text="@string/pais2" />
+
+     <Button
+         android:id="@+id/pais3"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/pais2"
+         android:layout_below="@+id/pais2"
+         android:text="@string/pais3" />
+
+     <Button
+         android:id="@+id/viajar"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_alignParentRight="true"
+         android:layout_marginBottom="36dp"
+         android:layout_marginRight="15dp"
+         android:text="@string/viajar" />
+
+   
+   <Spinner
+       android:id="@+id/lugares"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:layout_alignParentRight="true"
+       android:layout_below="@+id/pais3"
+       android:layout_marginTop="22dp"
+       
+       android:spinnerMode="dropdown"
+     />
 
 </RelativeLayout>
