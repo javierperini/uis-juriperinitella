@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context="com.example.carmenandroid.OrdenActivity" >
+
+<!-- 
+   
+
+  
+    <TextView
+        android:id="@+id/tituloOrden"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+       	android:layout_marginLeft="34dp"
+        android:layout_marginTop="56dp"
+        android:hint="@string/tituloO"
+        android:textColor="@style/AppBaseTheme"
+        android:textSize="@dimen/abc_text_size_headline_material"
+        android:width="@dimen/abc_action_bar_default_height_material" />
+-->
+	
+	 <TextView
+        android:id="@+id/ordenDeArresto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       	android:layout_alignParentTop="true"
+        android:layout_marginTop="18dp"
+        android:hint="@string/arresto" />
+	 
+  <Button
+      android:id="@+id/emitirOrden"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentRight="true"
+      android:layout_alignParentTop="true"
+      android:layout_marginTop="212dp"
+      android:text="@string/emitir" />
+  
+    <Button
+        android:id="@+id/buscarPista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="pedirPista"
+        android:text="@string/pista" />
+
+    <Button
+        android:id="@+id/viajar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="irAViajar"
+        android:text="@string/viajar" />
+  
+
+</RelativeLayout>

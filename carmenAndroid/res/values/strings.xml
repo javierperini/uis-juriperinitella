@@ -4,17 +4,28 @@
     <string name="app_name">CarmenSandiego</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-   	<string name="viajar">Viajar</string>
-   	<string name="pais">Estoy en Pais</string>
+    <string name="viajar">Viajar</string>
+    <string name="pais">Estoy en Pais</string>
     <string name="pais1">Pais1</string>
     <string name="pais2">Pais2</string>
     <string name="pais3">Pais3</string>
+    <string name="orden">Orden De Arresto</string>
+    <string name="pista">Pedir Pista</string>
+    <string name="arresto">Arrestaste a :</string>
+    <string name="lugar1">Biblioteca</string>
+    <string name="lugar2">Club</string>
+    <string name="lugar3">Aeropuerto</string>
+    <string name="tituloP">Pista</string>
+    <string name="pistaMostrar">ACA IRIA UNA PISTA</string>
+    <string name="emitir">Emitir Orden</string>
+	<string name="tituloO">Orden De Arresto</string>
     <string-array name="lugares">
         <item>Club</item>
         <item>Aeroparque</item>
         <item>Biblioteca</item>
     </string-array>
-    
-    
+
+    <string name="title_activity_pedir_pista">Lugares</string>
+    <string name="title_activity_orden">Orden De Arresto</string>
 
 </resources>
