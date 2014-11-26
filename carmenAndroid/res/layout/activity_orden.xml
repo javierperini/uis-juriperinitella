@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
        	android:layout_alignParentTop="true"
         android:layout_marginTop="18dp"
-        android:hint="@string/arresto" />
+        android:hint="@string/arresto" /> 
 	 
   <Button
       android:id="@+id/emitirOrden"
@@ -58,6 +58,15 @@
         android:layout_alignParentLeft="true"
         android:onClick="irAViajar"
         android:text="@string/viajar" />
-  
+
+    <Spinner
+        android:id="@+id/villanoMostrar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ordenDeArresto"
+        android:layout_marginTop="59dp"
+        android:entries="@array/villanos"
+        android:spinnerMode="dropdown" />
 
 </RelativeLayout>

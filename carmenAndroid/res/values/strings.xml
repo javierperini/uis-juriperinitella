@@ -19,10 +19,10 @@
     <string name="pistaMostrar">ACA IRIA UNA PISTA</string>
     <string name="emitir">Emitir Orden</string>
 	<string name="tituloO">Orden De Arresto</string>
-    <string-array name="lugares">
-        <item>Club</item>
-        <item>Aeroparque</item>
-        <item>Biblioteca</item>
+    <string-array name="villanos">
+        <item>Pepe</item>
+        <item>Popa</item>
+        <item>Pupo</item>
     </string-array>
 
     <string name="title_activity_pedir_pista">Lugares</string>
