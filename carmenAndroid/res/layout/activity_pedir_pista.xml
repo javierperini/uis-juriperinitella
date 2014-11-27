@@ -22,14 +22,11 @@
         android:layout_marginTop="18dp"
         android:hint="@string/pais" />  -->
 
-	<TextView
+	<!-- <TextView
 	    android:id="@+id/tituloPista"
-	    android:layout_width="100px"
-	    android:layout_height="60px"
-	    android:height="@dimen/abc_text_size_large_material"
 	    android:text="@string/tituloP"
 	    android:typeface="monospace"
-	    android:textColor="@style/AppTheme" />
+	    android:textColor="@style/AppTheme" />  -->
 
     <Button
         android:id="@+id/lugar3"

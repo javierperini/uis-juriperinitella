@@ -1,13 +1,14 @@
 package com.example.carmenandroid
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.ActionBarActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 
-class PedirPistaActivity extends ActionBarActivity {
+class PedirPistaActivity extends Activity
+ {
 	
 
 
@@ -18,7 +19,7 @@ class PedirPistaActivity extends ActionBarActivity {
 
 	override onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.pedir_pista, menu);
+//		getMenuInflater().inflate(R.menu.pedir_pista, menu);
 		return true;
 	}
 
