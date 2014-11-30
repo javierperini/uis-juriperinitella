@@ -19,6 +19,11 @@
     <string name="pistaMostrar">ACA IRIA UNA PISTA</string>
     <string name="emitir">Emitir Orden</string>
 	<string name="tituloO">Orden De Arresto</string>
+	<string name="titulo">Carmen Sandiego</string>
+	<string name="iniciar">Iniciar</string>
+	<string name="saludoInicial">Inicio del juego</string>
+	<string name="viajarBoton">Viajar</string>
+	<string name="paisAnteriorBoton">Volver a país anterior</string>
     <string-array name="villanos">
         <item>Pepe</item>
         <item>Popa</item>

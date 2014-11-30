@@ -6,25 +6,27 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 
-class PedirPistaActivity extends Activity
- {
-	
-
+class PedirPistaActivity extends Activity {
 
 	override onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pedir_pista);
+
+		val label = findViewById(R.id.paisActual) as TextView
+		label.text = getIntent().getStringExtra("paisActual")
 	}
 
 	override onCreateOptionsMenu(Menu menu) {
+
 		// Inflate the menu; this adds items to the action bar if it is present.
-//		getMenuInflater().inflate(R.menu.pedir_pista, menu);
+		//		getMenuInflater().inflate(R.menu.pedir_pista, menu);
 		return true;
 	}
 
-	
 	override onOptionsItemSelected(MenuItem item) {
+
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
@@ -34,13 +36,15 @@ class PedirPistaActivity extends Activity
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	def irAViajar(View view){
+
+	def irAViajar(View view) {
 		val Intent intent = new Intent(this, MainActivity1);
 		startActivity(intent);
 	}
-	def pedirOrden(View view){
+
+	def pedirOrden(View view) {
 		val Intent intent = new Intent(this, OrdenActivity);
 		startActivity(intent);
 	}
-	
+
 }
