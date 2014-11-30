@@ -8,6 +8,7 @@ import android.view.View.OnClickListener
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import dummieDomain.Persona
 import java.util.ArrayList
@@ -15,6 +16,7 @@ import java.util.List
 
 class OrdenActivity extends Activity  {
 	
+	Persona persona = new Persona("")
 	
 	override onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,19 +42,24 @@ class OrdenActivity extends Activity  {
 		startActivity(intent);
 	}
 	def irAViajar(View view){
-		val Intent intent = new Intent(this, MainActivity1);
+		val Intent intent = new Intent(this, MainActivity1) => [
+			putExtra(MainActivity1.ORDEN_ARRESTO, persona)
+		]
 		startActivity(intent);
 	}
 
 	def addListenerOnButton() {
-		val spinner1 = findViewById(R.id.villanoMostrar) as Spinner;
-		val btnSubmit =  findViewById(R.id.emitirOrden) as Button;
+		val spinner1 = findViewById(R.id.villanoMostrar) as Spinner
+		val label = findViewById(R.id.ordenDeArresto) as TextView 
+		val btnSubmit =  findViewById(R.id.emitirOrden) as Button
 		btnSubmit.setOnClickListener(new OnClickListener() {
 			override onClick(View v) {
-				var String result="Emitiste Orden contra: ".concat( String.valueOf(spinner1.getSelectedItem()))  
+				var String result="Emitiste Orden contra: " + String.valueOf(spinner1.getSelectedItem())
+				persona = (spinner1.getSelectedItem()) as Persona  
 				Toast.makeText(OrdenActivity.this,
 							   result,
-							   Toast.LENGTH_SHORT).show();
+							   Toast.LENGTH_SHORT).show()
+				label.text = "Arrestaste a: " +  String.valueOf(spinner1.getSelectedItem())
 			}
 
 		});

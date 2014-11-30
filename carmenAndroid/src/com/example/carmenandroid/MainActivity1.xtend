@@ -4,14 +4,23 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
+import dummieDomain.Persona
 
 class MainActivity1 extends Activity {
+	
+	public static val ORDEN_ARRESTO = "ORDEN_ARRESTO"
+	Persona ordenArresto
 		
 	override onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		this.ordenArresto = intent.getSerializableExtra(ORDEN_ARRESTO) as Persona 
+		val label = findViewById(R.id.ordenDeArresto) as TextView 
+//		if(ordenArresto != null)
+			label.text = "Arrestaste a: " + ordenArresto.nombre
 	}
 
 	override onCreateOptionsMenu(Menu menu) {

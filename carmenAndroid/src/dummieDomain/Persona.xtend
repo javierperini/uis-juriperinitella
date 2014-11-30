@@ -1,9 +1,9 @@
 package dummieDomain
 
+import java.io.Serializable
 import org.eclipse.xtend.lib.annotations.Accessors
-import java.util.List
 
-class Persona {
+class Persona implements Serializable {
 	@Accessors
 	String nombre
 	
