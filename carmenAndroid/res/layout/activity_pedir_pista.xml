@@ -25,7 +25,7 @@
 	<!-- <TextView
 	    android:id="@+id/tituloPista"
 	    android:text="@string/tituloP"
-	    android:typeface="monospace"
+	    android:typeface="monospace" 
 	    android:textColor="@style/AppTheme" />  -->
 
     <Button

@@ -7,10 +7,7 @@
         android:id="@+id/todos_villanos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:text="Hola?"
-        android:textSize="15dp"
-    />
+   />
     
 
 </RelativeLayout>
