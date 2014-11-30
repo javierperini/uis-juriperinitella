@@ -76,6 +76,12 @@
         android:onClick="irAViajar"
         android:text="@string/viajar" />
 
+    <TextView
+        android:id="@+id/paisActual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/pais" />
+    
  <!--    <TextView
         android:id="@+id/pistaLugar"
         android:layout_width="wrap_content"
