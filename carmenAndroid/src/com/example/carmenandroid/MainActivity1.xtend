@@ -10,17 +10,17 @@ import dummieDomain.Persona
 
 class MainActivity1 extends Activity {
 	
-	public static val ORDEN_ARRESTO = "ORDEN_ARRESTO"
-	Persona ordenArresto
-		
+	String arresto
+//	Persona ordenArresto = new Persona("")
+//		
 	override onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		this.ordenArresto = intent.getSerializableExtra(ORDEN_ARRESTO) as Persona 
+		arresto = getIntent().getStringExtra("arresto");
 		val label = findViewById(R.id.ordenDeArresto) as TextView 
-//		if(ordenArresto != null)
-			label.text = "Arrestaste a: " + ordenArresto.nombre
+		label.text= arresto
+
+			
 	}
 
 	override onCreateOptionsMenu(Menu menu) {
@@ -46,6 +46,8 @@ class MainActivity1 extends Activity {
 	}
 	def pedirOrden(View view){
 		val Intent intent = new Intent(this, OrdenActivity);
+		intent.putExtra("arresto", arresto)
+		
 		startActivity(intent);
 	}
 		

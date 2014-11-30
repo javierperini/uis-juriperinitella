@@ -16,13 +16,17 @@ import java.util.List
 
 class OrdenActivity extends Activity  {
 	
-	Persona persona = new Persona("")
+	String arresto
 	
 	override onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_orden);
 		spinnerVillano
 		addListenerOnButton
+		
+		arresto = getIntent().getStringExtra("arresto");
+		val label = findViewById(R.id.ordenDeArresto) as TextView 
+		label.text= arresto
 	}
 	
 	def spinnerVillano() {
@@ -42,9 +46,10 @@ class OrdenActivity extends Activity  {
 		startActivity(intent);
 	}
 	def irAViajar(View view){
-		val Intent intent = new Intent(this, MainActivity1) => [
-			putExtra(MainActivity1.ORDEN_ARRESTO, persona)
-		]
+		val label = findViewById(R.id.ordenDeArresto) as TextView 
+		val Intent intent = new Intent(this, MainActivity1) 
+		intent.putExtra("arresto", label.text)
+		
 		startActivity(intent);
 	}
 
@@ -55,11 +60,11 @@ class OrdenActivity extends Activity  {
 		btnSubmit.setOnClickListener(new OnClickListener() {
 			override onClick(View v) {
 				var String result="Emitiste Orden contra: " + String.valueOf(spinner1.getSelectedItem())
-				persona = (spinner1.getSelectedItem()) as Persona  
 				Toast.makeText(OrdenActivity.this,
 							   result,
 							   Toast.LENGTH_SHORT).show()
 				label.text = "Arrestaste a: " +  String.valueOf(spinner1.getSelectedItem())
+
 			}
 
 		});
