@@ -52,6 +52,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/paisActual"
         android:layout_marginTop="82dp"
+        android:prompt="@string/elegirPais"
         android:spinnerMode="dropdown" />
 
     <Button
