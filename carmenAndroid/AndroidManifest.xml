@@ -4,6 +4,8 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="21" />
@@ -13,8 +15,18 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/paisPage"
         android:theme="@style/AppTheme" >
+        
         <activity
-            android:name=".MainActivity1"
+            android:name=".PantallaIncialActivity"
+            android:label="@string/title_activity_pantalla_incial" >
+             <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+          </activity>
+        <activity
+            android:name=".ViajarActivity"
             android:label="@string/paisPage" >
                    </activity>
         <activity
@@ -25,15 +37,6 @@
             android:name=".OrdenActivity"
             android:label="@string/title_activity_orden" >
         </activity>
-        <activity
-            android:name=".PantallaIncialActivity"
-            android:label="@string/title_activity_pantalla_incial" >
-             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-          </activity>
     </application>
 
 </manifest>

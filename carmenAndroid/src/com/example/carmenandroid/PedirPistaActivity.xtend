@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 
-class PedirPistaActivity extends Activity {
+class PedirPistaActivity extends MainActivity {
 
 	override onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,7 +46,7 @@ class PedirPistaActivity extends Activity {
 	}
 
 	def irAViajar(View view) {
-		val Intent intent = new Intent(this, MainActivity1);
+		val Intent intent = new Intent(this, ViajarActivity);
 		startActivity(intent);
 	}
 

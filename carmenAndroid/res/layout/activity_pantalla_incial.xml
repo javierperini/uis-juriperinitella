@@ -22,7 +22,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="139dp"
-        android:onClick="irAViajar"
+        android:onClick="irAViajar2"
         android:text="@string/iniciar" />
 
     <TextView

@@ -1,9 +1,7 @@
 package com.example.carmenandroid
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.ArrayAdapter
@@ -11,29 +9,38 @@ import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import com.example.domain.Sistema
 import dummieDomain.Lugar
 import dummieDomain.Pais
 import java.util.ArrayList
 import java.util.List
 
-class MainActivity1 extends Activity {
-
+class ViajarActivity extends MainActivity {
 	String arresto
+	
+	public static val SISTEMA = "sistema"
+	Sistema sistema
 
 	//	Persona ordenArresto = new Persona("")
 	//		
 	override onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		arresto = getIntent().getStringExtra("arresto");
+//		arresto = getIntent().getStringExtra("arresto");
 		val label = findViewById(R.id.ordenDeArresto) as TextView
 		label.text = arresto
-		
+		sistema= getIntent().getSerializableExtra(SISTEMA) as Sistema
 		spinnerPaises()
 		addListenerOnButton()
-		
+		paisActualText()
 		val viajarPaisAnteriorBoton = findViewById(R.id.volverPaisAnterior) as Button
 		viajarPaisAnteriorBoton.visibility = View.VISIBLE
+	}
+	
+	def paisActualText() {
+		val label = findViewById(R.id.paisActual) as TextView
+		label.text = "Estas en: " + String.valueOf(sistema.paisActual)	
+		
 	}
 	
 	def spinnerPaises(){
@@ -51,23 +58,7 @@ class MainActivity1 extends Activity {
 		spinner.setAdapter(dataAdapter)
 	}
 
-	override onCreateOptionsMenu(Menu menu) {
 
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
-	//	override onOptionsItemSelected(MenuItem item) {
-	//		// Handle action bar item clicks here. The action bar will
-	//		// automatically handle clicks on the Home/Up button, so long
-	//		// as you specify a parent activity in AndroidManifest.xml.
-	//		val int id = item.getItemId();
-	//		if (id == R.id.action_settings) {
-	//			return true;
-	//		}
-	//		return super.onOptionsItemSelected(item);
-	//	}
 	def pedirPista(View view) {
 		val label = findViewById(R.id.paisActual) as TextView
 		val Intent intent = new Intent(this, PedirPistaActivity);
@@ -82,6 +73,8 @@ class MainActivity1 extends Activity {
 		startActivity(intent);
 	}
 	
+
+	
 	def addListenerOnButton() {
 		val spinner = findViewById(R.id.paisesViajar) as Spinner
 		val label = findViewById(R.id.paisActual) as TextView
@@ -91,7 +84,7 @@ class MainActivity1 extends Activity {
 			new OnClickListener() {
 				override onClick(View v) {
 					var String result = "Viajaste a " + String.valueOf(spinner.getSelectedItem())
-					Toast.makeText(MainActivity1.this, result, Toast.LENGTH_SHORT).show()
+					Toast.makeText(ViajarActivity.this, result, Toast.LENGTH_SHORT).show()
 					label.text = "Estas en: " + String.valueOf(spinner.getSelectedItem())
 
 				}
@@ -101,7 +94,7 @@ class MainActivity1 extends Activity {
 			new OnClickListener() {
 				override onClick(View v) {
 					var String result = "Viajaste a " //Paisactual.nombrepaisanterior + String.valueOf(spinner.getSelectedItem())
-					Toast.makeText(MainActivity1.this, result, Toast.LENGTH_SHORT).show()
+					Toast.makeText(ViajarActivity.this, result, Toast.LENGTH_SHORT).show()
 					label.text = "Estas en: " //paisactual.nombre + String.valueOf(spinner.getSelectedItem())
 					
 

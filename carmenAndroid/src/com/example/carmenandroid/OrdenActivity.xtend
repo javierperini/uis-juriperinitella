@@ -14,7 +14,7 @@ import dummieDomain.Persona
 import java.util.ArrayList
 import java.util.List
 
-class OrdenActivity extends Activity {
+class OrdenActivity extends MainActivity {
 
 	String arresto
 
@@ -48,7 +48,7 @@ class OrdenActivity extends Activity {
 
 	def irAViajar(View view) {
 		val label = findViewById(R.id.ordenDeArresto) as TextView
-		val Intent intent = new Intent(this, MainActivity1)
+		val Intent intent = new Intent(this, ViajarActivity)
 		intent.putExtra("arresto", label.text)
 
 		startActivity(intent);
@@ -61,9 +61,9 @@ class OrdenActivity extends Activity {
 		btnSubmit.setOnClickListener(
 			new OnClickListener() {
 				override onClick(View v) {
-					var String result = "Emitiste Orden contra: " + String.valueOf(spinner1.getSelectedItem())
+					var String result = '''Emitiste Orden contra: « String.valueOf(spinner1.getSelectedItem())»'''
 					Toast.makeText(OrdenActivity.this, result, Toast.LENGTH_SHORT).show()
-					label.text = "Arrestaste a: " + String.valueOf(spinner1.getSelectedItem())
+					label.text = '''Arrestaste a: «String.valueOf(spinner1.getSelectedItem())»'''
 
 				}
 
