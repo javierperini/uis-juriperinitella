@@ -1,6 +1,5 @@
 package com.example.carmenandroid
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -10,47 +9,48 @@ import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
-import dummieDomain.Persona
+import com.example.domain.Sistema
 import java.util.ArrayList
 import java.util.List
+import com.example.domain.Villano
 
 class OrdenActivity extends MainActivity {
-
-	String arresto
-
+	public static val SISTEMA = "sistema"
+//	String arresto
+	Sistema sistema
 	override onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_orden);
+		sistema= getIntent().getSerializableExtra(SISTEMA) as Sistema
 		spinnerVillano
 		addListenerOnButton
-
-		arresto = getIntent().getStringExtra("arresto");
-		val label = findViewById(R.id.ordenDeArresto) as TextView
-		label.text = arresto
+//		arresto = getIntent().getStringExtra("arresto");
+//		val label = findViewById(R.id.ordenDeArresto) as TextView
+//		label.text = arresto
 	}
 
 	def spinnerVillano() {
 		val spinner2 = findViewById(R.id.villanoMostrar)as Spinner;
-		val List<Persona> list = new ArrayList<Persona>()
-		list.add(new Persona("Pepe"))
-		list.add(new Persona("Pepo"))
-		list.add(new Persona("Pepy"))
-		val ArrayAdapter<Persona> dataAdapter = new ArrayAdapter<Persona>(this, android.R.layout.simple_spinner_item,
-			list);
+		val ArrayAdapter<Villano> dataAdapter = new ArrayAdapter<Villano>(this, android.R.layout.simple_spinner_item,
+			sistema.villanosSistema);
 		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner2.setAdapter(dataAdapter)
 	}
 
 	def pedirPista(View view) {
-		val Intent intent = new Intent(this, PedirPistaActivity);
+		val Intent intent = new Intent(this, PedirPistaActivity) =>[
+			putExtra(PedirPistaActivity.SISTEMA, sistema)
+		] 
 		startActivity(intent);
 	}
 
 	def irAViajar(View view) {
-		val label = findViewById(R.id.ordenDeArresto) as TextView
-		val Intent intent = new Intent(this, ViajarActivity)
-		intent.putExtra("arresto", label.text)
-
+//		val label = findViewById(R.id.ordenDeArresto) as TextView
+//		val Intent intent = new Intent(this, ViajarActivity)
+////		intent.putExtra("arresto", label.text)
+	val Intent intent = new Intent(this, ViajarActivity) =>[
+			putExtra(ViajarActivity.SISTEMA, sistema)
+		] 
 		startActivity(intent);
 	}
 

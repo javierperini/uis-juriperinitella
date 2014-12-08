@@ -29,8 +29,6 @@ class PantallaIncialActivity extends MainActivity {
 		val Intent intent = new Intent(this, ViajarActivity) =>[
 			putExtra(ViajarActivity.SISTEMA, sistema)
 		] 
-//			intent.putExtra(ViajarActivity.SISTEMA, sistema)
-		
 		startActivity(intent)
 	}
 
