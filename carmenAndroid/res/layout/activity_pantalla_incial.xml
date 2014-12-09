@@ -34,7 +34,6 @@
         android:layout_below="@+id/textView1"
         android:layout_marginTop="100dp"
         android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="@string/saludoInicial" />
+        android:inputType="textMultiLine" />
 
 </RelativeLayout>

@@ -59,17 +59,27 @@
         android:id="@+id/viajar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/ordenDeArresto"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/paisActual"
         android:text="@string/viajarBoton" />
 
     <Button
         android:id="@+id/volverPaisAnterior"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/ordenDeArresto"
+        android:layout_below="@+id/viajar"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
         android:text="@string/paisAnteriorBoton" />
+
+    <TextView
+        android:id="@+id/paisesRecorridos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/volverPaisAnterior"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
 </RelativeLayout>

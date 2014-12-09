@@ -2,6 +2,7 @@ package com.example.carmenandroid
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.ArrayAdapter
@@ -9,66 +10,83 @@ import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
-import com.example.domain.Sistema
-import java.util.ArrayList
-import java.util.List
+import com.example.domain.CarmenAppModal
 import com.example.domain.Villano
+import retrofit.Callback
+import retrofit.RetrofitError
+import retrofit.client.Response
 
 class OrdenActivity extends MainActivity {
-	public static val SISTEMA = "sistema"
-//	String arresto
-	Sistema sistema
+	public static val CARMEN = "carmen"
+	CarmenAppModal carmen
+
+
 	override onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_orden);
-		sistema= getIntent().getSerializableExtra(SISTEMA) as Sistema
+		carmen = getIntent().getSerializableExtra(CARMEN) as CarmenAppModal
 		spinnerVillano
 		addListenerOnButton
-//		arresto = getIntent().getStringExtra("arresto");
-//		val label = findViewById(R.id.ordenDeArresto) as TextView
-//		label.text = arresto
+		emitirOrdenText
 	}
 
 	def spinnerVillano() {
 		val spinner2 = findViewById(R.id.villanoMostrar)as Spinner;
 		val ArrayAdapter<Villano> dataAdapter = new ArrayAdapter<Villano>(this, android.R.layout.simple_spinner_item,
-			sistema.villanosSistema);
+			carmen.villanosSistema);
 		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner2.setAdapter(dataAdapter)
 	}
 
 	def pedirPista(View view) {
-		val Intent intent = new Intent(this, PedirPistaActivity) =>[
-			putExtra(PedirPistaActivity.SISTEMA, sistema)
-		] 
+		val Intent intent = new Intent(this, PedirPistaActivity) => [
+			putExtra(PedirPistaActivity.CARMEN, carmen)
+		]
 		startActivity(intent);
 	}
 
 	def irAViajar(View view) {
-//		val label = findViewById(R.id.ordenDeArresto) as TextView
-//		val Intent intent = new Intent(this, ViajarActivity)
-////		intent.putExtra("arresto", label.text)
-	val Intent intent = new Intent(this, ViajarActivity) =>[
-			putExtra(ViajarActivity.SISTEMA, sistema)
-		] 
+		val Intent intent = new Intent(this, ViajarActivity) => [
+			putExtra(ViajarActivity.CARMEN, carmen)
+		]
 		startActivity(intent);
+	}
+
+	def refrescarActivity(Villano v) {
+		carmen.setVillanoOrden(v)
+		emitirOrdenText()
+		Toast.makeText(OrdenActivity.this, "Emitiste orden contra: " + v.nombre, Toast.LENGTH_SHORT).show()
+	}
+
+	def emitirOrdenText() {
+		val label = findViewById(R.id.ordenDeArresto) as TextView
+		label.text = '''Arrestaste a: «carmen.villanoOrden.nombre»'''
 	}
 
 	def addListenerOnButton() {
 		val spinner1 = findViewById(R.id.villanoMostrar) as Spinner
-		val label = findViewById(R.id.ordenDeArresto) as TextView
+
 		val btnSubmit = findViewById(R.id.emitirOrden) as Button
+		val carmenService = createCarmenService
 		btnSubmit.setOnClickListener(
 			new OnClickListener() {
 				override onClick(View v) {
-					var String result = '''Emitiste Orden contra: « String.valueOf(spinner1.getSelectedItem())»'''
-					Toast.makeText(OrdenActivity.this, result, Toast.LENGTH_SHORT).show()
-					label.text = '''Arrestaste a: «String.valueOf(spinner1.getSelectedItem())»'''
+					carmenService.emitiriOrden(new Villano(String.valueOf(spinner1.getSelectedItem())),
+						new Callback<Villano>() {
+
+							override failure(RetrofitError e) {
+								Log.e("", e.message)
+								e.printStackTrace
+							}
+
+							override success(Villano sistemaNuevo, Response response) {
+								refrescarActivity(sistemaNuevo)
+							}
+						})
 
 				}
 
 			})
-		
 
 	}
 

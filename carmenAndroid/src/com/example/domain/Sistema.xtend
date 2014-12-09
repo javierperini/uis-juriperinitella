@@ -12,13 +12,10 @@ class Sistema implements Serializable {
 	Lugar lugar2
 	Lugar Lugar3
 	Pais paisAnterior
+	List<Pais> paisesVisitados
+	Boolean encontrasteAlVillano
+	String descripcionCaso
+	String paisesRecorridos
 	
-	def conexionesPaisActual(){
-		paisActual.conexiones
-	}
-	def asignarLugares(){
-	 	lugar1= paisActual.lugar(0)	
-		lugar2= paisActual.lugar(1)	
-		lugar3= paisActual.lugar(2)	
-	}
+	
 }

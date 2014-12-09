@@ -9,5 +9,7 @@ class PedirPista implements Serializable {
 	String nombreLugar;
 	boolean estaVillano;
 	String gane;
-	List<String> pistas;
+	String pistas;
+	
+	
 }

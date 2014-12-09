@@ -8,6 +8,7 @@ import retrofit.Callback
 import retrofit.http.Body
 import retrofit.http.GET
 import retrofit.http.POST
+import com.example.domain.Villano
 
 interface CarmenService {
 	@GET("/inicioCaso")
@@ -24,4 +25,7 @@ interface CarmenService {
 
 	@POST("/pista")
 	def void pista(@Body Lugar nombre, Callback<PedirPista> callback)
+	
+	@POST("/emitirOrden")
+	def void emitiriOrden(@Body Villano nombre, Callback<Villano> callback)
 }

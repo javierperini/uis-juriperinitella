@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import com.example.domain.CarmenAppModal
 import com.example.domain.Pais
 import com.example.domain.Sistema
 import retrofit.Callback
@@ -17,56 +18,74 @@ import retrofit.RetrofitError
 import retrofit.client.Response
 
 class ViajarActivity extends MainActivity {
-	String arresto
 
-	public static val SISTEMA = "sistema"
-	Sistema sistema
+	CarmenAppModal carmen
+	public static val CARMEN = "carmen"
+
 
 	override onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		val label = findViewById(R.id.ordenDeArresto) as TextView
-		label.text = arresto
-		sistema = getIntent().getSerializableExtra(SISTEMA) as Sistema
+		carmen = getIntent().getSerializableExtra(CARMEN) as CarmenAppModal
 		spinnerPaises()
 		addListenerOnButton()
 		paisActualText()
-		val viajarPaisAnteriorBoton = findViewById(R.id.volverPaisAnterior) as Button
-		viajarPaisAnteriorBoton.visibility = View.VISIBLE
+		emitirOrdenText
+
+		desabilitarBotones()
+
+	}
+
+	def desabilitarBotones() {
+		val button = findViewById(R.id.viajar) as Button
+		button.visibility = if(carmen.paisSinConexiones) View.INVISIBLE else View.VISIBLE
+		val button2 = findViewById(R.id.volverPaisAnterior) as Button
+		button2.visibility = if(carmen.esPrimerPais) View.INVISIBLE else View.VISIBLE
 	}
 
 	def paisActualText() {
 		val label = findViewById(R.id.paisActual) as TextView
-		label.text = "Estas en: " + String.valueOf(sistema.paisActual)
+		label.text = "Estas en: " + String.valueOf(carmen.paisActual)
 
+	}
+
+	def emitirOrdenText() {
+		val label = findViewById(R.id.ordenDeArresto) as TextView
+		label.text = '''Arrestaste a: «carmen.villanoOrden.nombre»'''
 	}
 
 	def spinnerPaises() {
 		val spinner = findViewById(R.id.paisesViajar) as Spinner;
 		val ArrayAdapter<Pais> dataAdapter = new ArrayAdapter<Pais>(this, android.R.layout.simple_spinner_item,
-			sistema.conexionesPaisActual);
+			carmen.conexionesPaisActual);
 		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(dataAdapter)
 	}
 
 	def refrescarActivity(Sistema sistemaNuevo) {
-		sistema = sistemaNuevo
+		carmen.asignarSistema(sistemaNuevo)
 		paisActualText()
 		spinnerPaises()
-		Toast.makeText(ViajarActivity.this, "viajaste a " + sistema.paisActual.toString + "tu pais anterior es " + sistema.paisAnterior.toString, Toast.LENGTH_SHORT).show()
-		
+		labelPaisesVisitados()
+		desabilitarBotones()
+		Toast.makeText(ViajarActivity.this, "viajaste a " + carmen.paisActual.toString, Toast.LENGTH_SHORT).show()
+	}
+
+	def labelPaisesVisitados() {
+		val label = findViewById(R.id.paisesRecorridos) as TextView
+		label.text = carmen.paisesRecorridos
 	}
 
 	def pedirPista(View view) {
 		val Intent intent = new Intent(this, PedirPistaActivity) => [
-			putExtra(PedirPistaActivity.SISTEMA, sistema)
+			putExtra(PedirPistaActivity.CARMEN, carmen)
 		]
 		startActivity(intent);
 	}
 
 	def pedirOrden(View view) {
 		val Intent intent = new Intent(this, OrdenActivity) => [
-			putExtra(OrdenActivity.SISTEMA, sistema)
+			putExtra(OrdenActivity.CARMEN, carmen)
 		]
 		startActivity(intent);
 	}
@@ -76,6 +95,7 @@ class ViajarActivity extends MainActivity {
 		val viajarBoton = findViewById(R.id.viajar) as Button
 		val viajarPaisAnteriorBoton = findViewById(R.id.volverPaisAnterior) as Button
 		val carmenService = createCarmenService
+
 		viajarBoton.setOnClickListener(
 			new OnClickListener() {
 				override onClick(View v) {
@@ -97,7 +117,7 @@ class ViajarActivity extends MainActivity {
 		viajarPaisAnteriorBoton.setOnClickListener(
 			new OnClickListener() {
 				override onClick(View v) {
-					carmenService.volverAPaisAnterior(sistema.paisActual,
+					carmenService.volverAPaisAnterior(carmen.paisActual,
 						new Callback<Sistema>() {
 							override failure(RetrofitError e) {
 								Log.e("", e.message)
@@ -108,10 +128,8 @@ class ViajarActivity extends MainActivity {
 								refrescarActivity(sistemaNuevo)
 							}
 						})
-
 				}
-
 			})
+		}
 
-	}
 }
