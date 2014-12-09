@@ -16,8 +16,6 @@ import retrofit.RetrofitError
 import retrofit.client.Response
 
 class PedirPistaActivity extends MainActivity {
-	public static val CARMEN = "carmen"
-	CarmenAppModal carmen
 
 	override onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -25,11 +23,7 @@ class PedirPistaActivity extends MainActivity {
 		carmen = getIntent().getSerializableExtra(CARMEN) as CarmenAppModal
 		paisActualText()
 		setButtonListeners()
-	}
-
-	def paisActualText() {
-		val label = findViewById(R.id.paisActual) as TextView
-		label.text = "Estas en: " + String.valueOf(carmen.paisActual)
+		emitirOrdenText()
 	}
 
 	def setButtonListeners() {
@@ -50,7 +44,7 @@ class PedirPistaActivity extends MainActivity {
 								}
 
 								override success(PedirPista pista, Response response) {
-									pedirPista(pista)
+									pedirPista(pista, carmen.lugar(0).toString)
 
 								}
 							})
@@ -71,7 +65,7 @@ class PedirPistaActivity extends MainActivity {
 								}
 
 								override success(PedirPista pista, Response response) {
-									pedirPista(pista)
+									pedirPista(pista, carmen.lugar(1).toString)
 
 								}
 							})
@@ -92,7 +86,7 @@ class PedirPistaActivity extends MainActivity {
 								}
 
 								override success(PedirPista pista, Response response) {
-									pedirPista(pista)
+									pedirPista(pista, carmen.lugar(2).toString)
 
 								}
 							})
@@ -102,11 +96,11 @@ class PedirPistaActivity extends MainActivity {
 
 	}
 
-	def pedirPista(PedirPista pista) {
+	def pedirPista(PedirPista pista, String lugar) {
 		if (pista.estaVillano) {
 			verFinDeJuego(pista.gane)
 		} else {
-			verPista(pista)
+			verPista(pista, lugar)
 		}
 	}
 
@@ -125,9 +119,9 @@ class PedirPistaActivity extends MainActivity {
 		alertDialog.show();
 	}
 
-	def verPista(PedirPista pista) {
+	def verPista(PedirPista pista, String lugar) {
 		val AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(PedirPistaActivity.this);
-		alertDialogBuilder.setTitle(this.getTitle());
+		alertDialogBuilder.setTitle(lugar);
 		alertDialogBuilder.setMessage(pista.pistas);
 		alertDialogBuilder.setNegativeButton("OK",
 			new DialogInterface.OnClickListener() {
@@ -152,4 +146,5 @@ class PedirPistaActivity extends MainActivity {
 		]
 		startActivity(intent);
 	}
+
 }

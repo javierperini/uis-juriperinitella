@@ -17,6 +17,7 @@
         android:theme="@style/AppTheme" >
         
         <activity
+            android:theme="@android:style/Theme.Dialog"
             android:name=".PantallaIncialActivity"
             android:label="@string/title_activity_pantalla_incial" >
              <intent-filter>
@@ -27,15 +28,18 @@
           </activity>
         <activity
             android:name=".ViajarActivity"
-            android:label="@string/paisPage" >
+            android:label="@string/paisPage"
+            android:theme="@android:style/Theme.Dialog" >
                    </activity>
         <activity
             android:name=".PedirPistaActivity"
-            android:label="@string/title_activity_pedir_pista" >
+            android:label="@string/title_activity_pedir_pista"
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
         <activity
             android:name=".OrdenActivity"
-            android:label="@string/title_activity_orden" >
+            android:label="@string/title_activity_orden"
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
     </application>
 

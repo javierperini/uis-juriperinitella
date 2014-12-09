@@ -17,9 +17,6 @@ import retrofit.RetrofitError
 import retrofit.client.Response
 
 class OrdenActivity extends MainActivity {
-	public static val CARMEN = "carmen"
-	CarmenAppModal carmen
-
 
 	override onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,29 +35,11 @@ class OrdenActivity extends MainActivity {
 		spinner2.setAdapter(dataAdapter)
 	}
 
-	def pedirPista(View view) {
-		val Intent intent = new Intent(this, PedirPistaActivity) => [
-			putExtra(PedirPistaActivity.CARMEN, carmen)
-		]
-		startActivity(intent);
-	}
-
-	def irAViajar(View view) {
-		val Intent intent = new Intent(this, ViajarActivity) => [
-			putExtra(ViajarActivity.CARMEN, carmen)
-		]
-		startActivity(intent);
-	}
 
 	def refrescarActivity(Villano v) {
 		carmen.setVillanoOrden(v)
 		emitirOrdenText()
 		Toast.makeText(OrdenActivity.this, "Emitiste orden contra: " + v.nombre, Toast.LENGTH_SHORT).show()
-	}
-
-	def emitirOrdenText() {
-		val label = findViewById(R.id.ordenDeArresto) as TextView
-		label.text = '''Arrestaste a: «carmen.villanoOrden.nombre»'''
 	}
 
 	def addListenerOnButton() {
@@ -90,4 +69,17 @@ class OrdenActivity extends MainActivity {
 
 	}
 
+	def pedirPista(View view) {
+		val Intent intent = new Intent(this, PedirPistaActivity) => [
+			putExtra(PedirPistaActivity.CARMEN, carmen)
+		]
+		startActivity(intent);
+	}
+
+	def irAViajar(View view) {
+		val Intent intent = new Intent(this, ViajarActivity) => [
+			putExtra(ViajarActivity.CARMEN, carmen)
+		]
+		startActivity(intent);
+	}
 }

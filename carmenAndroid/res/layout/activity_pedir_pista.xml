@@ -9,24 +9,6 @@
     tools:context="com.example.carmenandroid.PedirPistaActivity"
     tools:ignore="RtlHardcoded" >
    
-<!-- 
-
-
-   
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="18dp"
-        android:hint="@string/pais" />  -->
-
-	<!-- <TextView
-	    android:id="@+id/tituloPista"
-	    android:text="@string/tituloP"
-	    android:typeface="monospace" 
-	    android:textColor="@style/AppTheme" />  -->
 
     <Button
         android:id="@+id/lugar3"
@@ -36,7 +18,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="100dp"
-        android:text="@string/lugar3" />
+       />
 
     <Button
         android:id="@+id/lugar1"
@@ -46,7 +28,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/lugar3"
         android:layout_marginTop="14dp"
-        android:text="@string/lugar1" />
+        />
 
     <Button
         android:id="@+id/lugar2"
@@ -56,16 +38,13 @@
         android:layout_alignRight="@+id/lugar1"
         android:layout_below="@+id/lugar1"
         android:layout_marginTop="19dp"
-        android:text="@string/lugar2" />
-    
-    <Button
-        android:id="@+id/orden"
+       />
+
+    <TextView
+        android:id="@+id/paisActual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:onClick="pedirOrden"
-        android:text="@string/orden" />
+        android:hint="@string/pais" />
 
     <Button
         android:id="@+id/viajar"
@@ -73,24 +52,27 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/orden"
         android:onClick="irAViajar"
         android:text="@string/viajar" />
 
-    <TextView
-        android:id="@+id/paisActual"
+    <Button
+        android:id="@+id/orden"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/pais" />
-    
- <!--    <TextView
-        android:id="@+id/pistaLugar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/viajar"
+        android:layout_alignBottom="@+id/viajar"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/lugar2"
-        android:layout_marginTop="47dp"
-        android:ems="10"
-        android:hint="@string/pistaMostrar" /> -->
+        android:onClick="pedirOrden"
+        android:text="@string/orden" />
+
+     <TextView
+         android:id="@+id/ordenDeArresto"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/orden"
+         android:layout_alignParentLeft="true"
+         android:layout_marginBottom="24dp"
+         android:hint="@string/arresto" />
  
 </RelativeLayout>

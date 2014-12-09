@@ -14,17 +14,6 @@
         android:text="@string/titulo"
         android:textSize="@dimen/abc_action_bar_progress_bar_size" />
 
-    <Button
-        android:id="@+id/iniciarJuego"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="139dp"
-        android:onClick="irAViajar2"
-        android:text="@string/iniciar" />
-
     <TextView
         android:id="@+id/inicioDeCaso"
         android:layout_width="wrap_content"
@@ -35,5 +24,16 @@
         android:layout_marginTop="100dp"
         android:ems="10"
         android:inputType="textMultiLine" />
+
+    <Button
+        android:id="@+id/iniciarJuego"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="60dp"
+        android:onClick="irAViajar2"
+        android:text="@string/iniciar" />
 
 </RelativeLayout>

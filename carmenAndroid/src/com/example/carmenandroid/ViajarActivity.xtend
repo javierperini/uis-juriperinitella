@@ -19,10 +19,6 @@ import retrofit.client.Response
 
 class ViajarActivity extends MainActivity {
 
-	CarmenAppModal carmen
-	public static val CARMEN = "carmen"
-
-
 	override onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
@@ -31,9 +27,8 @@ class ViajarActivity extends MainActivity {
 		addListenerOnButton()
 		paisActualText()
 		emitirOrdenText
-
+		labelPaisesVisitados()
 		desabilitarBotones()
-
 	}
 
 	def desabilitarBotones() {
@@ -41,17 +36,6 @@ class ViajarActivity extends MainActivity {
 		button.visibility = if(carmen.paisSinConexiones) View.INVISIBLE else View.VISIBLE
 		val button2 = findViewById(R.id.volverPaisAnterior) as Button
 		button2.visibility = if(carmen.esPrimerPais) View.INVISIBLE else View.VISIBLE
-	}
-
-	def paisActualText() {
-		val label = findViewById(R.id.paisActual) as TextView
-		label.text = "Estas en: " + String.valueOf(carmen.paisActual)
-
-	}
-
-	def emitirOrdenText() {
-		val label = findViewById(R.id.ordenDeArresto) as TextView
-		label.text = '''Arrestaste a: «carmen.villanoOrden.nombre»'''
 	}
 
 	def spinnerPaises() {
@@ -76,19 +60,6 @@ class ViajarActivity extends MainActivity {
 		label.text = carmen.paisesRecorridos
 	}
 
-	def pedirPista(View view) {
-		val Intent intent = new Intent(this, PedirPistaActivity) => [
-			putExtra(PedirPistaActivity.CARMEN, carmen)
-		]
-		startActivity(intent);
-	}
-
-	def pedirOrden(View view) {
-		val Intent intent = new Intent(this, OrdenActivity) => [
-			putExtra(OrdenActivity.CARMEN, carmen)
-		]
-		startActivity(intent);
-	}
 
 	def addListenerOnButton() {
 		val spinner = findViewById(R.id.paisesViajar) as Spinner
@@ -130,6 +101,19 @@ class ViajarActivity extends MainActivity {
 						})
 				}
 			})
-		}
+	}
 
+	def pedirPista(View view) {
+		val Intent intent = new Intent(this, PedirPistaActivity) => [
+			putExtra(PedirPistaActivity.CARMEN, carmen)
+		]
+		startActivity(intent);
+	}
+
+	def pedirOrden(View view) {
+		val Intent intent = new Intent(this, OrdenActivity) => [
+			putExtra(OrdenActivity.CARMEN, carmen)
+		]
+		startActivity(intent);
+	}
 }
